@@ -19,5 +19,5 @@ do
 
     sh run_reasoning_task.sh "$AGENT" 1 100 "$MODEL" "$QTYPE" "$DTYPES"
 
-    echo ""
+    echo "============================================================="
 done
