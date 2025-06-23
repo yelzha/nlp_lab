@@ -5,7 +5,7 @@
 #SBATCH --output=slurm_output.txt   # Log everything here
 
 module load Miniforge3
-module load git
+module load git/2.41.0-GCCcore-12.3.0-nodocs
 
 
 # conda create -n /env python=3.11 numpy pandas -y
