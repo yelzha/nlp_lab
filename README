@@ -1,0 +1,83 @@
+# instruction
+
+
+mkdir -p ~/ollama/bin
+
+curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+
+tar -xzf ollama-linux-amd64.tgz -C ~/ollama
+
+echo 'export PATH="$HOME/ollama/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+ollama --version
+
+
+
+
+module load  Python/3.11.3-GCCcore-12.3.0
+
+mkdir -p ~/nlp_lab
+cd ~/nlp_lab
+
+python -m venv venv
+source venv/bin/activate
+
+pip install requests
+
+sbatch run_code.sh
+
+
+
+
+# ~/nlp_lab/run_code.sh:
+#!/bin/bash
+#SBATCH --partition=A40devel
+#SBATCH --time=0:05:00
+#SBATCH --gpus=1
+#SBATCH --ntasks=1
+#SBATCH --output=slurm_output.txt   # Log everything here
+
+#cd $SLURM_SUBMIT_DIR
+export OLLAMA_HOST=127.0.0.1:11500
+
+ollama serve &
+sleep 5
+
+ollama run qwen3:14b || true
+
+module load Python/3.11.3-GCCcore-12.3.0
+source venv/bin/activate
+python ollama_test.py
+
+pkill ollama
+
+
+
+
+
+
+
+
+# ~/nlp_lab/ollama_test.py:
+import requests
+
+# old port: 11434
+
+response = requests.post(
+    'http://localhost:11500/api/generate',
+    json={
+        'model': 'qwen3:14b',
+        'prompt': 'What is the capital of France?',
+        'stream': False
+    }
+)
+
+result = response.json()['response']
+
+# Print to console (optional)
+print(result)
+
+# Save to a text file
+with open('output.txt', 'w') as f:
+    f.write(result)
