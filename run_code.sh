@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=A100devel
-#SBATCH --time=0:20:00
+#SBATCH --time=0:59:00
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
 #SBATCH --output=slurm_output.txt   # Log everything here
@@ -11,7 +11,10 @@ export OLLAMA_HOST=127.0.0.1:11500
 ollama serve &
 sleep 5
 
-ollama run qwen3:0.6b || true
+ollama run qwen3:0.6b || true # qwen3:0.6b
+# mistral:7b-instruct-v0.3 llama3:8b-instruct
+# gemma:4b gemma:12b
+# qwen3:4b qwen3:14b
 
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
