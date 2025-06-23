@@ -17,6 +17,7 @@ module load Python/3.11.3-GCCcore-12.3.0
 module load Miniforge3
 
 #conda create -n /env python=3.11 numpy pandas -y
+source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
 conda activate /home/s06zyelt/nlp_lab/env
 
 #pip install openai sacrebleu
