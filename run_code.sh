@@ -19,9 +19,9 @@ module load Miniforge3
 source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
 conda activate /home/s06zyelt/nlp_lab/env
 
-#pip install numpy pandas
-#pip install openai sacrebleu
-#pip install git+https://github.com/openai/human-eval.git
+pip install numpy pandas
+pip install openai sacrebleu
+pip install git+https://github.com/openai/human-eval.git
 
 cd AgentForest/script
 sh run_experiments.sh
