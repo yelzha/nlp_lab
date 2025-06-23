@@ -12,7 +12,7 @@ TOP_P=1 # 0.95,0.9
 
 cd ../src
 DIR_NAME="log_${QTYPE}_${DTYPE}_${AGENT}_agents"
-for PART in $(seq 0 "$PART_NUM")
+for (( PART=0; PART<PART_NUM; PART++ ))
 do
     EXP_NAME="${QTYPE}_${AGENT}_agents_part_${PART}"
     python main.py "$PART" "$SUBSET_NUM" "$EXP_NAME" "$MODEL" "$DTYPE" "$DIR_NAME" "$AGENT" "$QTYPE" "$TEMPERATURE" "$TOP_P" &
