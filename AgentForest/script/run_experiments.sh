@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export LLM_IP="127.0.0.0:11500"
+export LLM_IP="localhost:11500"
 
 # Predefined model and task
 MODEL="qwen3:0.6b" # gpt-35-turbo, gpt-4, llama2
