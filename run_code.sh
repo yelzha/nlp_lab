@@ -15,6 +15,11 @@ ollama run qwen3:14b || true
 
 module load Python/3.11.3-GCCcore-12.3.0
 source venv/bin/activate
-python ollama_test.py
+
+pip install -q requests openai pandas sacrebleu
+pip install -q git+https://github.com/openai/human-eval.git
+
+sh AgentForest/script/run_reasoning_task.sh
+# python ollama_test.py
 
 pkill ollama
