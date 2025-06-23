@@ -22,7 +22,7 @@ conda activate /home/s06zyelt/nlp_lab/env
 
 #pip install numpy pandas
 #pip install openai sacrebleu
-#pip install git+https://github.com/openai/human-eval.git
+pip install git+https://github.com/openai/human-eval.git
 
 cd AgentForest/script
 sh run_experiments.sh
