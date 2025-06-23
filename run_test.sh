@@ -17,5 +17,6 @@ conda activate /home/s06zyelt/nlp_lab/env
 #pip install git+https://github.com/openai/human-eval.git
 
 python -c "import numpy, pandas, openai; print('All good')"
+python -c "from human_eval.data import read_problems; print('human_eval works')"
 
 echo "Finished!!!"
