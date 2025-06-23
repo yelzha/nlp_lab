@@ -11,7 +11,7 @@ TEMPERATURE=1 # 0.3 0.7
 TOP_P=1 # 0.95,0.9
 
 cd ../src
-DIR_NAME="log_${QTYPE}_${AGENT}_agents"
+DIR_NAME="log_${QTYPE}_${DTYPE}_${AGENT}_agents"
 for PART in $(seq 0 "$PART_NUM")
 do
     EXP_NAME="${QTYPE}_${AGENT}_agents_part_${PART}"

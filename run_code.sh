@@ -19,7 +19,8 @@ source venv/bin/activate
 pip install -q requests openai pandas sacrebleu
 pip install -q git+https://github.com/openai/human-eval.git
 
-sh AgentForest/script/run_reasoning_task.sh
+cd AgentForest/script
+sh run_reasoning_task.sh
 # python ollama_test.py
 
 pkill ollama

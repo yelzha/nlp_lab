@@ -25,8 +25,8 @@ do
     wait
     for PART in $(seq 0 $PART_NUM)
     do
-        EXP_NAME="${QTYPE}_${AGENT}_agents_part_${PART}"
-        cat ${DIR_NAME}/${EXP_NAME}.jsonl >> ${DIR_NAME}/${QTYPE}_${AGENT}_agents.jsonl
+        EXP_NAME="${QTYPE}_${DTYPE}_${AGENT}_agents_part_${PART}"
+        cat ${DIR_NAME}/${EXP_NAME}.jsonl >> ${DIR_NAME}/${QTYPE}_${DTYPE}_${AGENT}_agents.jsonl
     done
     evaluate_functional_correctness ${DIR_NAME}/${QTYPE}_${AGENT}_agents.jsonl > ${DIR_NAME}/${QTYPE}_${AGENT}_agents_perf_result.txt
     python evaluation.py ${DIR_NAME} human-eval
