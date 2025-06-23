@@ -13,7 +13,8 @@ source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/
 conda activate /home/s06zyelt/nlp_lab/env
 
 #pip install numpy pandas
-#pip install openai sacrebleu
+#pip install openai==0.28.1
+#pip install sacrebleu
 pip install git+https://github.com/openai/human-eval.git
 
 python -c "import numpy, pandas, openai; print('All good')"
