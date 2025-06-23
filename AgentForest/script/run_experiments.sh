@@ -3,7 +3,7 @@
 export LLM_IP="127.0.0.0:11500"
 
 # Predefined model and task
-MODEL="qwen-3-14b" # gpt-35-turbo, gpt-4, llama2
+MODEL="qwen3:0.6b" # gpt-35-turbo, gpt-4, llama2
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 
 # Agent counts to sweep
