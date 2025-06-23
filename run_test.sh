@@ -5,6 +5,8 @@
 #SBATCH --output=slurm_output.txt   # Log everything here
 
 module load Miniforge3
+module load git
+
 
 # conda create -n /env python=3.11 numpy pandas -y
 source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
