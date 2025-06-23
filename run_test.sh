@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --partition=A100devel
-#SBATCH --time=0:20:00
+#SBATCH --partition=A40devel
+#SBATCH --time=0:05:00
 #SBATCH --gpus=1
 #SBATCH --output=slurm_output.txt   # Log everything here
 
@@ -14,7 +14,7 @@ conda activate /home/s06zyelt/nlp_lab/env
 
 #pip install numpy pandas
 #pip install openai sacrebleu
-#pip install git+https://github.com/openai/human-eval.git
+pip install git+https://github.com/openai/human-eval.git
 
 python -c "import numpy, pandas, openai; print('All good')"
 python -c "from human_eval.data import read_problems; print('human_eval works')"
