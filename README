@@ -1,6 +1,7 @@
-# instruction
+# instructions
 
-
+# =========initialization start=========
+# ======================================
 mkdir -p ~/ollama/bin
 
 curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
@@ -15,42 +16,68 @@ ollama --version
 
 
 
-module load  Python/3.11.3-GCCcore-12.3.0
-
-mkdir -p ~/nlp_lab
-cd ~/nlp_lab
-
-python -m venv venv
-source venv/bin/activate
-
-pip install requests
-
-sbatch run_code.sh
 
 
 
 
-# ~/nlp_lab/run_code.sh:
+
+# double this place, maybe some mistakes / errors
+
+module load Miniforge3
+module load git/2.41.0-GCCcore-12.3.0-nodocs
+conda create -p /home/s06zyelt/nlp_lab/env python=3.10 -y
+source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+conda activate /home/s06zyelt/nlp_lab/env
+
+cd nlp_lab
+sbatch run_test.sh
+
+# ==========initialization end==========
+# ======================================
+
+
+
+
+
+
+
+
+# ==========code test start=============
+# ======================================
+
+# ~/nlp_lab/run_test.sh:
 #!/bin/bash
 #SBATCH --partition=A40devel
 #SBATCH --time=0:05:00
 #SBATCH --gpus=1
-#SBATCH --ntasks=1
 #SBATCH --output=slurm_output.txt   # Log everything here
 
-#cd $SLURM_SUBMIT_DIR
-export OLLAMA_HOST=127.0.0.1:11500
+module load Miniforge3
+module load git/2.41.0-GCCcore-12.3.0-nodocs
 
+
+#conda create -p /home/s06zyelt/nlp_lab/env python=3.10 -y
+source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+conda activate /home/s06zyelt/nlp_lab/env
+
+pip install numpy pandas
+pip install openai==0.28.1
+pip install sacrebleu
+pip install git+https://github.com/openai/human-eval.git
+
+python -c "import numpy, pandas, openai; print('All good')"
+python -c "from human_eval.data import read_problems; print('human_eval works')"
+
+
+
+export OLLAMA_HOST=127.0.0.1:11500
 ollama serve &
 sleep 5
+ollama run qwen3:0.6b || true
 
-ollama run qwen3:14b || true
-
-module load Python/3.11.3-GCCcore-12.3.0
-source venv/bin/activate
 python ollama_test.py
 
-pkill ollama
+echo "Finished!!!"
 
 
 
@@ -67,7 +94,7 @@ import requests
 response = requests.post(
     'http://localhost:11500/api/generate',
     json={
-        'model': 'qwen3:14b',
+        'model': 'qwen3:0.6b',
         'prompt': 'What is the capital of France?',
         'stream': False
     }
@@ -81,3 +108,6 @@ print(result)
 # Save to a text file
 with open('output.txt', 'w') as f:
     f.write(result)
+
+# ==========code test end===============
+# ======================================
