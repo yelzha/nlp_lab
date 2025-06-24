@@ -94,6 +94,18 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
 def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, top_p=1, use_json=False):
     try:
         if model.find("gpt") < 0:  # Open-source (i.e., Ollama)
+            MODEL_TOKEN_LIMITS = {
+                "qwen3:0.6b": 512,
+                "qwen3:4b": 2048,
+                "qwen3:14b": 3072,
+                "mistral:7b-instruct-v0.3": 2048,
+                "llama3:8b-instruct": 2048,
+                "gemma:4b": 1024,
+                "gemma:12b": 2048,
+            }
+
+            max_tokens = MODEL_TOKEN_LIMITS.get(model, 2048)
+
             openai.api_base = "http://{}/v1".format(llm_ip)
             openai.api_key = "none"
             openai.api_type = "openai"
@@ -104,7 +116,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
                 completion_1 = openai.ChatCompletion.create(
                     model=model,
                     messages=answer_context,
-                    max_tokens=1024,
+                    # max_tokens=max_tokens,
                     temperature=1.0,
                 )
                 completion.append(completion_1)
