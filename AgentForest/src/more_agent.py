@@ -34,16 +34,16 @@ class MoreAgent():
         content_list = []
         for _ in range(batch_num):
             batch_completion = batch_generate(contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=batch_size)
-            total_prompt_tokens += batch_completion["usage"]["prompt_tokens"]
-            total_completion_tokens += batch_completion["usage"]["completion_tokens"]
-            for choice in batch_completion["choices"]:
+            total_prompt_tokens += sum(i["usage"]["prompt_tokens"] for i in batch_completion)
+            total_completion_tokens += sum(i["usage"]["completion_tokens"] for i in batch_completion)
+            for choice in [item for nested in batch_completion for item in nested["choices"]]:
                 content = choice["message"]["content"]
                 content_list.append(content)
         if remainder > 0:
             batch_completion = batch_generate(contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=remainder)
-            total_prompt_tokens += batch_completion["usage"]["prompt_tokens"]
-            total_completion_tokens += batch_completion["usage"]["completion_tokens"]
-            for choice in batch_completion["choices"]:
+            total_prompt_tokens += sum(i["usage"]["prompt_tokens"] for i in batch_completion)
+            total_completion_tokens += sum(i["usage"]["completion_tokens"] for i in batch_completion)
+            for choice in [item for nested in batch_completion for item in nested["choices"]]:
                 content = choice["message"]["content"]
                 content_list.append(content)
         assert len(content_list) == len(self.nodes)

@@ -93,19 +93,21 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
 
 def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, top_p=1, use_json=False):
     try:
-        if model.find("gpt") < 0: # opensourced LLM
+        if model.find("gpt") < 0:  # Open-source (i.e., Ollama)
             openai.api_base = "http://{}/v1".format(llm_ip)
             openai.api_key = "none"
             openai.api_type = "openai"
             openai.api_version = ""
-            completion = openai.ChatCompletion.create(
-                model=model,
-                messages=answer_context,
-                n=nums,
-                max_tokens=1024,
-                temperature=1.0,
-            )
-            completion["usage"] = {"total_tokens": 0, "prompt_tokens": 0, "completion_tokens": 0}
+
+            completion = []
+            for _ in range(nums):  # instead of one `answer_context`, you need a list of them
+                completion_1 = openai.ChatCompletion.create(
+                    model=model,
+                    messages=answer_context,
+                    max_tokens=1024,
+                    temperature=1.0,
+                )
+                completion.append(completion_1)
         else: # OpenAI GPT
             if use_json:
                 completion = openai.ChatCompletion.create(
