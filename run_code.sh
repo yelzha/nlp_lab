@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --partition=A100devel
-#SBATCH --time=11:59:00
+#SBATCH --partition=A100short
+#SBATCH --time=7:59:00
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
 #SBATCH --output=slurm_output.txt   # Log everything here
