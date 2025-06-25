@@ -51,8 +51,10 @@ def main():
     total_record = []
     question_datas = solver.get_question_datas()
 
+    print("=============================================================")
     print(f"PART->SUBSET = [{PART*SUBSET }, {(PART+1)*SUBSET}]...")
-    
+    print("=============================================================")
+
     for task_id, question_data in enumerate(question_datas):
         if task_id < PART*SUBSET or task_id >= (PART+1)*SUBSET:
             continue

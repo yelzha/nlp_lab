@@ -19,7 +19,7 @@ do
     echo "Running with $AGENT agents on $QTYPE using $MODEL for $DTYPES"
     echo "============================================================="
 
-    sh run_reasoning_task.sh "$AGENT" 20 100 "$MODEL" "$QTYPE" "$DTYPES"
+    sh run_reasoning_task.sh "$AGENT" 14 100 "$MODEL" "$QTYPE" "$DTYPES"
 
     echo "============================================================="
     echo "========================+Finished+==========================="
