@@ -32,7 +32,7 @@ class GSM8K(MoreAgent):
         questions = read_jsonl(path)
         random.seed(0)
         random.shuffle(questions)
-        questions = questions[0:100]
+        # questions = questions[0:100]
         for q in questions:
             question_state = interaction_prompt["gsm"]["question"].format(q['question'])
             gt = solve_math_problems(q['answer'])

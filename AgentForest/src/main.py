@@ -51,13 +51,11 @@ def main():
     total_record = []
     question_datas = solver.get_question_datas()
 
-    start_idx = PART * SUBSET
-    end_idx = min((PART + 1) * SUBSET, len(question_datas))
-
-    print(f"PART->SUBSET = [{start_idx}, {end_idx}]...")
-
-    for task_id in range(start_idx, end_idx):
-        question_data = question_datas[task_id]
+    print(f"PART->SUBSET = [{PART*SUBSET }, {(PART+1)*SUBSET}]...")
+    
+    for task_id, question_data in enumerate(question_datas):
+        if task_id < PART*SUBSET or task_id >= (PART+1)*SUBSET:
+            continue
         print("current task_id start: ", task_id, flush=True)
         result_dict = solver.forward(question_data)
         one_record = {}
