@@ -9,9 +9,10 @@
 export OLLAMA_HOST=127.0.0.1:11500
 
 ollama serve &
-sleep 5
+sleep 30
 
 ollama run qwen3:4b || true
+sleep 5
 # ollama run qwen3:4b || true # qwen3:0.6b
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b
