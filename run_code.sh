@@ -6,6 +6,7 @@
 
 
 #cd $SLURM_SUBMIT_DIR
+export OLLAMA_NUM_PARALLEL=4
 export OLLAMA_HOST=127.0.0.1:11500
 
 ollama serve &
