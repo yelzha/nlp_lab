@@ -2,7 +2,6 @@
 
 export LLM_IP="localhost:11500"
 
-# Predefined model and task
 MODEL="qwen3:4b" # qwen3:0.6b
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b
@@ -10,7 +9,6 @@ MODEL="qwen3:4b" # qwen3:0.6b
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 
-# Agent counts to sweep
 AGENT_COUNTS=(1 5 10 15 20 25 30 35 40 45 50) # (1 5 10 15 20 25 30 35 40 45 50)
 DTYPES=("clean") # clean, aeda, typo
 

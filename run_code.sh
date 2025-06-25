@@ -11,7 +11,7 @@ export OLLAMA_HOST=127.0.0.1:11500
 ollama serve &
 sleep 5
 
-ollama run qwen3:4b --ctx-size 2048 --batch-size 256 --n-gpu-layers 37 || true
+ollama run qwen3:4b --batch-size 256 --n-gpu-layers 37 || true
 # ollama run qwen3:4b || true # qwen3:0.6b
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b
@@ -34,3 +34,5 @@ sh run_experiments.sh
 # python ollama_test.py
 
 pkill ollama
+
+eco "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
