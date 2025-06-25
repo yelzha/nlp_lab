@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=A100medium
 #SBATCH --time=23:59:00
-#SBATCH --gpus=2
+#SBATCH --gpus=1
 #SBATCH --ntasks=2
 
 
@@ -9,11 +9,9 @@
 export OLLAMA_HOST=127.0.0.1:11500
 
 ollama serve &
-sleep 30
-
-ollama run qwen3:4b || true
 sleep 5
-# ollama run qwen3:4b || true # qwen3:0.6b
+
+ollama run qwen3:4b || true # qwen3:0.6b
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b
 # qwen3:4b qwen3:14b
