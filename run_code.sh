@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --partition=A100short
-#SBATCH --time=7:59:00
-#SBATCH --gpus=1
-#SBATCH --ntasks=1
+#SBATCH --partition=A100medium
+#SBATCH --time=23:59:00
+#SBATCH --gpus=2
+#SBATCH --ntasks=2
 
 
 #cd $SLURM_SUBMIT_DIR
