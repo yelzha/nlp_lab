@@ -3,7 +3,7 @@
 #SBATCH --time=7:59:00
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
-#SBATCH --output=slurm_output.txt   # Log everything here
+
 
 #cd $SLURM_SUBMIT_DIR
 export OLLAMA_HOST=127.0.0.1:11500
@@ -11,7 +11,8 @@ export OLLAMA_HOST=127.0.0.1:11500
 ollama serve &
 sleep 5
 
-ollama run qwen3:4b || true # qwen3:0.6b
+ollama run qwen3:4b --ctx-size 2048 --batch-size 256 --n-gpu-layers 37 || true
+# ollama run qwen3:4b || true # qwen3:0.6b
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b
 # qwen3:4b qwen3:14b

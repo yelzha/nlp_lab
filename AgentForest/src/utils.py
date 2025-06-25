@@ -9,12 +9,14 @@ from typing import Dict
 from collections import Counter
 from sacrebleu import sentence_bleu
 from math_equivalence import is_equiv
+import concurrent.futures
 
 
 def get_llama_ip():
     import os
     llm_ip = os.getenv('LLM_IP')
     return llm_ip
+
 
 def get_mmlu_qa_pairs(df, ix):
     question = df.iloc[ix, 0]
@@ -27,10 +29,12 @@ def get_mmlu_qa_pairs(df, ix):
     answer = df.iloc[ix, 5]
     return question, answer
 
+
 def get_human_eval_qa_pairs():
     problems = read_problems()
     problems = [(k, v["prompt"], v["entry_point"]) for k, v in problems.items()]
     return problems
+
 
 def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
     """
@@ -91,6 +95,7 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
         result=result[0],
     )
 
+
 def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, top_p=1, use_json=False):
     try:
         if model.find("gpt") < 0:  # Open-source (i.e., Ollama)
@@ -111,15 +116,19 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
             openai.api_type = "openai"
             openai.api_version = ""
 
-            completion = []
-            for _ in range(nums):  # instead of one `answer_context`, you need a list of them
-                completion_1 = openai.ChatCompletion.create(
+            max_tokens = MODEL_TOKEN_LIMITS.get(model, 2048)
+
+            def call_api(context):
+                return openai.ChatCompletion.create(
                     model=model,
-                    messages=answer_context,
-                    # max_tokens=max_tokens,
-                    temperature=1.0,
+                    messages=context,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    top_p=top_p,
                 )
-                completion.append(completion_1)
+
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                completion = [executor.submit(call_api, ctx) for ctx in answer_context]
         else: # OpenAI GPT
             if use_json:
                 completion = openai.ChatCompletion.create(
@@ -145,6 +154,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
         return batch_generate(answer_context, model, llm_ip,nums=nums,temperature=temperature,top_p=top_p)
     return completion
 
+
 def extract_last_python_code_block(text):
     # The regular expression pattern for Python code blocks
     pattern = r"```[pP]ython(.*?)```"
@@ -157,6 +167,7 @@ def extract_last_python_code_block(text):
         return matches[-1].strip()
     else:
         return None
+
 
 def parse_code_completion(agent_response, question):
     python_code = extract_last_python_code_block(agent_response)
@@ -176,6 +187,7 @@ def parse_code_completion(agent_response, question):
         python_code = question + python_code
     return python_code, True
 
+
 def most_frequent(clist, cmp_func):
     counter = 0
     num = clist[0]
@@ -189,10 +201,12 @@ def most_frequent(clist, cmp_func):
 
     return num, counter
 
+
 def get_majority_voting_answer(agent_answers):
     counter = Counter(agent_answers)
     majority_voting_answer = counter.most_common(1)[0][0]
     return majority_voting_answer
+
 
 def get_majority_voting_answer_for_gsm(agent_answers):
     def most_frequent(List):
@@ -214,7 +228,8 @@ def get_majority_voting_answer_for_gsm(agent_answers):
         return pred_answer
     except:
         return math.nan
-    
+
+
 def get_majority_voting_answer_for_math(agent_answers):
     count = len(agent_answers)
     sameAsCount = [0 for i in range(count)]
@@ -231,6 +246,7 @@ def get_majority_voting_answer_for_math(agent_answers):
             largestCount = i
     return agent_answers[largestCount]
 
+
 def most_similar_code(clist):
     cmp_res = lambda x, y: sentence_bleu(x, [y], lowercase=True).score
     if len(clist) == 1:
@@ -245,6 +261,7 @@ def most_similar_code(clist):
         bleu_scores.append(total_score)
     max_index, max_value = max(enumerate(bleu_scores), key=lambda x: x[1])
     return max_index, clist[max_index], max_value
+
 
 def mmlu_ans_parser(answer_text, question=None):
     finalIndex = answer_text.find("Final answer:")
@@ -263,6 +280,7 @@ def mmlu_ans_parser(answer_text, question=None):
             break
     return answer, True
 
+
 def math_ans_parser(answer_text, question=None):
     # Find all occurrences of the \boxed{} pattern and extract the content, accounting for nested braces
     # matches = re.findall(r'\\boxed{((?:[^{}]*|{[^{}]*})*)}', answer_text)
@@ -278,6 +296,7 @@ def math_ans_parser(answer_text, question=None):
     else:
         return None , False
     # return match.group(1), True if match else None,False
+
 
 def gsm_ans_parser(answer_text, question=None):
     def parse_answer(input_str):
@@ -308,6 +327,7 @@ def gsm_ans_parser(answer_text, question=None):
         pred_answer = solve_math_problems(answer_text)
 
     return pred_answer, pred_answer is not None
+
 
 def chess_ans_parser(answer_text, question=None):
     none_responese = [
@@ -348,10 +368,12 @@ def chess_ans_parser(answer_text, question=None):
         else:
             return matches[-1], True
 
+
 def is_final_answer_correct(df_row):
     if df_row["ground_truth"] == df_row["final_answer"]:
         return True
     return False
+
 
 def is_final_answer_in_ground_truth(df_row):
     if df_row["final_answer"] in df_row["ground_truth"]:
