@@ -9,7 +9,6 @@ from typing import Dict
 from collections import Counter
 from sacrebleu import sentence_bleu
 from math_equivalence import is_equiv
-import concurrent.futures
 
 
 def get_llama_ip():
@@ -127,8 +126,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
                     top_p=top_p,
                 )
 
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                completion = [executor.submit(call_api, ctx) for ctx in answer_context]
+            completion = [call_api(ctx) for ctx in answer_context]
         else: # OpenAI GPT
             if use_json:
                 completion = openai.ChatCompletion.create(
