@@ -1,7 +1,14 @@
-# instructions
+# TO DO
+- [x] Have implemented, prepared and tested AgentFores code on Bender (changed some parts due to issues), and it took 2 hours 47 minutes for clean dataset with solo agent.
+- [ ] Solve optimization problem of Ollama on Bender (usually it takes 5-20 seconds to answer to a question) 
+- [ ] Implement and test WikiTypo(2025) noising algorithms
+- [ ] Run all experiments, and collect results (estimated more than 1 week to run all codes)
+- [ ] Write a report and visualize the results
 
-# =========initialization start=========
-# ======================================
+# instructions
+```
+=========initialization start=========
+======================================
 mkdir -p ~/ollama/bin
 
 curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
@@ -32,18 +39,18 @@ conda activate /home/s06zyelt/nlp_lab/env
 cd nlp_lab
 sbatch run_test.sh
 
-# ==========initialization end==========
-# ======================================
+==========initialization end==========
+======================================
+```
 
 
 
 
 
 
-
-
-# ==========code test start=============
-# ======================================
+```
+==========code test start=============
+======================================
 
 # ~/nlp_lab/run_test.sh:
 #!/bin/bash
@@ -109,5 +116,6 @@ print(result)
 with open('output.txt', 'w') as f:
     f.write(result)
 
-# ==========code test end===============
-# ======================================
+==========code test end===============
+======================================
+```
