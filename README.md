@@ -1,11 +1,75 @@
-# TO DO
-- [x] Have implemented, prepared and tested AgentFores code on Bender (changed some parts due to issues), and it took 2 hours 47 minutes for clean dataset with solo agent.
-- [ ] Solve optimization problem of Ollama on Bender (usually it takes 5-20 seconds to answer to a question) 
-- [ ] Implement and test WikiTypo(2025) noising algorithms
-- [ ] Run all experiments, and collect results (estimated more than 1 week to run all codes)
-- [ ] Write a report and visualize the results
+# Project To-Do List
 
-# instructions
+---
+
+## 1. Completed Tasks
+
+### 1.1 AEDA Implementation
+- **Status:** Completed  
+- **Description:** Successfully implemented and tested simplistic version of AEDA using Python code.
+- **Outcome:** Works as expected.
+
+### 1.2 Local LLM Integration (Ollama + Python)
+- **Status:** Completed  
+- **Description:** Successfully installed and tested Ollama with Python code execution on Bender using local LLMs.  
+- **Outcome:** Local inference working as expected.
+
+### 1.3 AgentFores: Implementation and Testing
+- **Status:** Completed  
+- **Description:** Adapted, implemented, and validated the AgentFores codebase.  
+- **Adjustments:** Code was modified to address compatibility issues on Bender.  
+- **Benchmark Result:**  
+  - Runtime: **2h 47m** on clean dataset  
+  - Mode: Solo Agent Execution
+  - Issues: Not optimized for Parallel Inference and some problems with GPU
+
+---
+
+## 2. Ongoing & Upcoming Tasks
+
+### 2.1 Ollama Optimization
+- **Status:** Pending  
+- **Goal:** Improve Ollama’s response time on Bender.  
+- **Current Performance:** ~5–20 seconds per query (qwen3:4B full mode)
+- **Target:** Achieve stable, low-latency inference (<5s preferred)
+
+### 2.2 WikiTypo(2025) Integration
+- **Status:** Pending  
+- **Goal:** Implement and validate noising algorithms from the WikiTypo(2025) benchmark.  
+- **Use Case:** Add realistic noise patterns for robust evaluation.
+
+### 2.3 Experimental Runs & Data Collection
+- **Status:** Pending  
+- **Description:** Execute all planned experimental configurations (Clean & AEDA & WikiTypo -> 1-50 Agents).  
+- **Estimated Duration:** **1-3+ week** of continuous runtime  
+- **Deliverables:** Logs, metrics, performance data for all models and settings.
+
+### 2.4 Report & Visualization
+- **Status:** Pending  
+- **Goal:** Compile results into a detailed report with clear visualizations.  
+- **Tools Suggested:** Python (Matplotlib/Plotly), Pandas, LaTeX for formatting.
+
+---
+
+## Timeline Overview
+
+| Task                         | Status   | ETA / Notes                        |
+|------------------------------|----------|------------------------------------|
+| Ollama + Python Integration  |   Done   | Complete                           |
+| AgentFores Implementation    |   Done   | Runtime measured: 2h 47m           |
+| Ollama Optimization          |   Todo   | Focus on reducing latency          |
+| WikiTypo(2025) Noising       |   Todo   | Requires initial implementation    |
+| Full Experiments             |   Todo   | Will run for over a week           |
+| Report & Visualization       |   Todo   | Final stage                        |
+
+---
+
+## Notes
+- All code and runtime logs are stored on Bender under `/home/s06zyelt/nlp_lab/`.
+- Environment dependencies and setup steps are documented in `README.md`.
+
+
+## Setup Steps
 ```
 =========initialization start=========
 ======================================
