@@ -36,17 +36,25 @@ echo "Attempting to start vLLM server..."
 # Start the vLLM server with optimized parameters for your A100 and GSM8K
 # Removed --enforce-eager as it's generally not needed and can sometimes hinder CUDA graph optimizations
 vllm serve Qwen/Qwen3-4B \
-    --model Qwen/Qwen3-4B \
     --host 127.0.0.1 \
     --port 11500 \
-    --tensor-parallel-size 1 \
+    --tensor-parallel-size 4 \
     --gpu-memory-utilization 0.95 \
     --max-model-len 512 \
     --dtype auto \
-    --disable-log-requests # Optional: Reduce log verbosity for requests
+    --disable-log-requests &
+
+VLLM_PID=$!
+echo "Finished to start vLLM server..."
 
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
 
+
+
+echo "Terminating vLLM server..."
+kill $VLLM_PID
+
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "Finished!!!"
 
 # Note: The vLLM server command will run until the job time limit is reached or it's manually stopped.
