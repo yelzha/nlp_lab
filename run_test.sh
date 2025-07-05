@@ -43,9 +43,9 @@ echo "Attempting to start vLLM server..."
 #    --max-model-len 512 \
 #    --dtype auto \
 #    --disable-log-requests &
-
-VLLM_PID=$!
-sleep 300
+#
+#VLLM_PID=$!
+#sleep 300
 
 echo "Finished to start vLLM server..."
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
