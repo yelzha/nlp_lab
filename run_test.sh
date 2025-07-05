@@ -23,8 +23,8 @@ conda activate /home/s06zyelt/nlp_lab/env
 
 # Install PyTorch and vLLM, ensuring they are compiled for CUDA 12.1
 # This is crucial for vLLM to find and use your GPU
-#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-#pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
 
 # Verify installations
 #python -c "import numpy, pandas, openai, torch, vllm; print('All good')"
@@ -44,7 +44,7 @@ vllm serve Qwen/Qwen3-4B \
     --max-model-len 512 \
     --dtype auto \
     --disable-log-requests # Optional: Reduce log verbosity for requests
-    
+
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
 
 echo "Finished!!!"
