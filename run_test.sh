@@ -49,6 +49,8 @@ echo "Finished to start vLLM server..."
 
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
 
+python vllm_test.py
+
 
 
 echo "Terminating vLLM server..."
