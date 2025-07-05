@@ -49,6 +49,8 @@ sleep 60
 
 echo "Finished to start vLLM server..."
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
+
+export LLM_IP="localhost:11500"
 python vllm_test.py
 
 

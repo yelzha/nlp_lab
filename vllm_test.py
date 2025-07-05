@@ -1,8 +1,12 @@
 import requests
 import json
 import time
+import os
 
-url = "http://127.0.0.1:11500/v1/completions"
+
+llm_ip = os.getenv('LLM_IP')
+
+url = f"{llm_ip}/v1/completions"
 headers = {"Content-Type": "application/json"}
 data = {
     "model": "Qwen/Qwen3-4B",
