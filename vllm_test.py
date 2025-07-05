@@ -6,7 +6,7 @@ import os
 
 llm_ip = os.getenv('LLM_IP')
 
-url = f"{llm_ip}/v1/completions"
+url = f"http://{llm_ip}/v1/completions"
 headers = {"Content-Type": "application/json"}
 data = {
     "model": "Qwen/Qwen3-4B",
