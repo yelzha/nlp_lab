@@ -84,7 +84,7 @@ prompts = [
     "A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does it take?",
 ]
 
-sampling_params = SamplingParams(temperature=0.7, top_p=0.9)
+sampling_params = SamplingParams(n=5, temperature=0.7, top_p=0.9, max_tokens=2048)
 llm = LLM(model="Qwen/Qwen3-4B")
 responses = llm.generate(prompts, sampling_params)
 
