@@ -25,6 +25,7 @@ conda activate /home/s06zyelt/nlp_lab/env
 # This is crucial for vLLM to find and use your GPU
 pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install openai==0.28.1
 
 # Verify installations
 #python -c "import numpy, pandas, openai, torch, vllm; print('All good')"
@@ -45,7 +46,7 @@ vllm serve Qwen/Qwen3-4B \
     --disable-log-requests &
 
 VLLM_PID=$!
-sleep 240
+sleep 300
 
 echo "Finished to start vLLM server..."
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
