@@ -42,7 +42,6 @@ vllm serve Qwen/Qwen3-4B \
     --gpu-memory-utilization 0.95 \
     --max-model-len 512 \
     --dtype auto \
-    --disable-torch-compile \
     --disable-log-requests &
 
 VLLM_PID=$!
