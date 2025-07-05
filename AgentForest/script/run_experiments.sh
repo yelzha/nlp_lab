@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export LLM_IP="localhost:11500"
-
 MODEL="qwen3:4b" # qwen3:0.6b
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b

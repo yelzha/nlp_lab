@@ -117,7 +117,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
                     model=model,
                     messages=answer_context,
                     max_tokens=max_tokens,
-                    temperature=1.0,
+                    temperature=temperature,
                 )
                 completion.append(completion_1)
         else: # OpenAI GPT
