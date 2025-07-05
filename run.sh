@@ -3,7 +3,7 @@
 #SBATCH --time=23:59:00
 #SBATCH --gpus=4
 #SBATCH --ntasks=8
-#SBATCH --output=slurm_output.txt
+#SBATCH --output=slurm_output_vllm_%j.txt
 
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs

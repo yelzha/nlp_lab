@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --partition=A40devel
-#SBATCH --time=0:05:00
+#SBATCH --time=0:59:00
 #SBATCH --gpus=1
-#SBATCH --output=slurm_output.txt   # Log everything here
+#SBATCH --output=slurm_output_test.txt   # Log everything here
 
 # Load necessary modules first
 # This ensures CUDA libraries are available in the environment

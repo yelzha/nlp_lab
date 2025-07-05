@@ -3,6 +3,7 @@
 #SBATCH --time=23:59:00
 #SBATCH --gpus=4
 #SBATCH --ntasks=8
+#SBATCH --output=slurm_output_ollama_%j.txt
 
 
 #cd $SLURM_SUBMIT_DIR
