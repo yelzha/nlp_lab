@@ -32,7 +32,7 @@ class MoreAgent():
         contexts.append(prompt_lib.construct_message(question_state, self.nodes[0].qtype))
         batch_num, remainder = divmod(len(self.nodes), batch_size)
         content_list = []
-        print(contexts, batch_num, batch_size)
+        print(contexts, batch_num, batch_size, remainder)
         for _ in range(batch_num):
             batch_completion = batch_generate(contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=batch_size)
             total_prompt_tokens += sum(i["usage"]["prompt_tokens"] for i in batch_completion)
