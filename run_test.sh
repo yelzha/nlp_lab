@@ -45,7 +45,7 @@ vllm serve Qwen/Qwen3-4B \
     --disable-log-requests &
 
 VLLM_PID=$!
-sleep 60
+sleep 180
 
 echo "Finished to start vLLM server..."
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
