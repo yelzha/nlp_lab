@@ -8,31 +8,28 @@
 # This ensures CUDA libraries are available in the environment
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
-# Load the specific CUDA module that matches the available PyTorch version (CUDA/12.1.1)
+#module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
 module load CUDA/12.1.1
-# Load the PyTorch module, which ensures its environment is correctly set up for CUDA
-module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
 
 # Activate your Conda environment
 source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
 conda activate /home/s06zyelt/nlp_lab/env
 
 # Install core Python packages
-pip install numpy pandas
-pip install openai==0.28.1
-pip install sacrebleu
-pip install git+https://github.com/openai/human-eval.git
+#pip install numpy pandas
+#pip install openai==0.28.1
+#pip install sacrebleu
+#pip install git+https://github.com/openai/human-eval.git
 
 # Install PyTorch and vLLM, ensuring they are compiled for CUDA 12.1
 # This is crucial for vLLM to find and use your GPU
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
+#pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+#pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
 
 # Verify installations
-python -c "import numpy, pandas, openai, torch, vllm; print('All good')"
-python -c "from human_eval.data import read_problems; print('human_eval works')"
+#python -c "import numpy, pandas, openai, torch, vllm; print('All good')"
+#python -c "from human_eval.data import read_problems; print('human_eval works')"
 python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'PyTorch CUDA version: {torch.version.cuda}')"
-python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
 
 echo "Attempting to start vLLM server..."
 
@@ -47,6 +44,8 @@ vllm serve Qwen/Qwen3-4B \
     --max-model-len 512 \
     --dtype auto \
     --disable-log-requests # Optional: Reduce log verbosity for requests
+    
+python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
 
 echo "Finished!!!"
 
