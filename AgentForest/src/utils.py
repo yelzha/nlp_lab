@@ -134,6 +134,10 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
         # Generate completions using vLLM
         outputs = global_llm_model.generate(prompts, sampling_params)
 
+        print("---------------------------------------------------------")
+        print(outputs)
+        print("---------------------------------------------------------")
+
         # Convert vLLM outputs to OpenAI-like format
         for i, output in enumerate(outputs):
             prompt_text = output.prompt  # Or prompts[i]
