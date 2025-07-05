@@ -32,7 +32,7 @@ do
     do
         EXP_NAME="${QTYPE}_${AGENT}_agents_part_${PART}"
         echo "Running part $PART..."
-        python3.11 main.py "$PART" "$SUBSET_NUM" "$EXP_NAME" "$MODEL" "$DTYPE" "$DIR_NAME" "$AGENT" "$QTYPE" "$TEMPERATURE" "$TOP_P" &
+        python main.py "$PART" "$SUBSET_NUM" "$EXP_NAME" "$MODEL" "$DTYPE" "$DIR_NAME" "$AGENT" "$QTYPE" "$TEMPERATURE" "$TOP_P" &
     done
     wait
     echo "AGENT ${AGENT}: All done, evaluating..."
