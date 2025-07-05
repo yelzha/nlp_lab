@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=A40devel
 #SBATCH --time=0:59:00
-#SBATCH --gpus=1
+#SBATCH --gpus=4
 #SBATCH --output=slurm_output_test.txt   # Log everything here
 
 # Load necessary modules first
@@ -35,17 +35,17 @@ echo "Attempting to start vLLM server..."
 
 # Start the vLLM server with optimized parameters for your A100 and GSM8K
 # Removed --enforce-eager as it's generally not needed and can sometimes hinder CUDA graph optimizations
-#vllm serve Qwen/Qwen3-4B \
-#    --host 127.0.0.1 \
-#    --port 11500 \
-#    --tensor-parallel-size 4 \
-#    --gpu-memory-utilization 0.95 \
-#    --max-model-len 512 \
-#    --dtype auto \
-#    --disable-log-requests &
-#
-#VLLM_PID=$!
-#sleep 180
+vllm serve Qwen/Qwen3-4B \
+    --host 127.0.0.1 \
+    --port 11500 \
+    --tensor-parallel-size 4 \
+    --gpu-memory-utilization 0.95 \
+    --max-model-len 512 \
+    --dtype auto \
+    --disable-log-requests &
+
+VLLM_PID=$!
+sleep 240
 
 echo "Finished to start vLLM server..."
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
