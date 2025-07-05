@@ -9,6 +9,22 @@ from typing import Dict
 from collections import Counter
 from sacrebleu import sentence_bleu
 from math_equivalence import is_equiv
+from vllm import LLM, SamplingParams
+
+
+def get_vllm_name():
+    import os
+    model_name = os.getenv('LLM_IP')
+    return model_name
+
+
+VLLM_MODEL_NAME = get_vllm_name()
+try:
+    global_llm_model = LLM(model=VLLM_MODEL_NAME)
+    print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
+except Exception as e:
+    print(f"Error initializing global vLLM model: {e}")
+    global_llm_model = None # Handle case where vLLM fails to initialize
 
 
 def get_llama_ip():
@@ -92,52 +108,65 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
     )
 
 def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, top_p=1, use_json=False):
+    global global_llm_model
+    global VLLM_MODEL_NAME
+    completion = []
     try:
-        if model.find("gpt") < 0:  # Open-source (i.e., Ollama)
-            MODEL_TOKEN_LIMITS = {
-                "qwen3:0.6b": 512,
-                "qwen3:4b": 2048,
-                "qwen3:14b": 3072,
-                "mistral:7b-instruct-v0.3": 2048,
-                "llama3:8b-instruct": 2048,
-                "gemma:4b": 1024,
-                "gemma:12b": 2048,
-            }
+        # vLLM expects a list of prompts. Your 'answer_context' is a list of message objects.
+        # We need to extract the prompt string for each context.
+        # If using a chat model, it's best to apply the chat template.
 
-            max_tokens = MODEL_TOKEN_LIMITS.get(model, 2048)
-
-            openai.api_base = "http://{}/v1".format(llm_ip)
-            openai.api_key = "none"
-            openai.api_type = "openai"
-            openai.api_version = ""
-
-            completion = []
-            for _ in range(nums):  # instead of one `answer_context`, you need a list of them
-                completion_1 = openai.ChatCompletion.create(
-                    model=model,
-                    messages=answer_context,
-                    max_tokens=max_tokens,
-                    temperature=temperature,
-                )
-                completion.append(completion_1)
-        else: # OpenAI GPT
-            if use_json:
-                completion = openai.ChatCompletion.create(
-                    engine=model,
-                    messages=answer_context,
-                    n=nums,
-                    temperature=temperature,
-                    top_p=top_p,
-                    response_format={"type": "json_object"},
-                )
+        # This handles your original `contexts` which seems to be a list of message lists
+        # e.g., [[{'role': 'user', 'content': 'prompt1'}], [{'role': 'user', 'content': 'prompt2'}]]
+        # We'll flatten it to a list of single prompts.
+        prompts = []
+        for ctx in answer_context:
+            # Assuming `ctx` is like `[{'role': 'user', 'content': 'Your question here'}]`
+            # For more complex chat templates, you'd use global_tokenizer.apply_chat_template(ctx, tokenize=False)
+            # For simplicity, assuming a single user message.
+            if isinstance(ctx, list) and len(ctx) > 0 and 'content' in ctx[0]:
+                prompts.append(ctx[0]['content'])
             else:
-                completion = openai.ChatCompletion.create(
-                    engine=model,
-                    messages=answer_context,
-                    n=nums,
-                    temperature=temperature,
-                    top_p=top_p,
-                )
+                # Handle cases where context might be just a string prompt, if applicable
+                prompts.append(str(ctx))  # Fallback, adjust as needed
+
+        if not prompts:
+            return []  # No prompts to generate
+
+        # vLLM SamplingParams
+        # `n` directly controls how many completions per prompt.
+        sampling_params = SamplingParams(temperature=temperature, top_p=top_p, n=nums, max_tokens=2048)
+
+        # Generate completions using vLLM
+        outputs = global_llm_model.generate(prompts, sampling_params)
+
+        # Convert vLLM outputs to OpenAI-like format
+        for i, output in enumerate(outputs):
+            prompt_text = output.prompt  # Or prompts[i]
+            prompt_tokens = len(output.prompt_token_ids)
+
+            # Each RequestOutput can have multiple CompletionOutput if n > 1
+            choices = []
+            total_completion_tokens_for_output = 0
+            for completion_output in output.outputs:
+                choices.append({
+                    "message": {"content": completion_output.text},
+                    "finish_reason": completion_output.finish_reason,  # "stop", "length" etc.
+                    # You might add logprobs if needed, though not directly available like OpenAI's.
+                })
+                total_completion_tokens_for_output += len(completion_output.token_ids)
+
+            completion.append({
+                "choices": choices,
+                "usage": {
+                    "prompt_tokens": prompt_tokens,
+                    "completion_tokens": total_completion_tokens_for_output,
+                    "total_tokens": prompt_tokens + total_completion_tokens_for_output
+                },
+                "model": VLLM_MODEL_NAME,  # Indicate the model used
+                "id": output.request_id  # Unique ID for the request
+            })
+
     except Exception as e:
         print(e, flush=True)
         print("retrying due to an error......", flush=True)

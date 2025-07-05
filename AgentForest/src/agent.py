@@ -16,17 +16,8 @@ class Agent:
         self.nums = nums
         self.temperature = temperature
         self.top_p = top_p
-        if mtype == "gpt-35-turbo":
-            self.model = "gpt-35-turbo"
-        elif mtype == "gpt-4":
-            self.model = "gpt-4"
-        elif mtype == "gpt-4-1106-Preview":
-            self.model = "gpt-4-1106-Preview"
-        elif mtype == "gpt-35-turbo-1106":
-            self.model = "gpt-35-turbo-1106"
-        else:
-            self.model = mtype
-            self.llm_ip = get_llama_ip()
+        self.model = mtype
+        self.llm_ip = get_llama_ip()
 
     def get_reply(self):
         return self.reply
