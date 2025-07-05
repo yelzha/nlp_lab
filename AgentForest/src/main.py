@@ -1,7 +1,6 @@
 import sys
 import os
 import random
-import openai
 import json
 import pandas as pd
 from code_completion_task import CodeCompletion
@@ -22,12 +21,6 @@ AGENTNUM = int(sys.argv[7])
 QUESTION_TYPE = sys.argv[8]
 TEMPERATURE = float(sys.argv[9])
 TOP_P = float(sys.argv[10])
-
-
-# openai.api_key = os.getenv('OPENAI_KEY')
-# openai.api_base = os.getenv('OPENAI_IP')
-# openai.api_type = 'azure'
-# openai.api_version = '2023-05-15'
 
 def main():
     random.seed(0)

@@ -24,30 +24,34 @@ pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
 
 export LLM_IP="localhost:11500"
 
-echo "Attempting to start vLLM server..."
-
-vllm serve Qwen/Qwen3-4B \
-    --model Qwen/Qwen3-4B \
-    --host 127.0.0.1 \
-    --port 11500 \
-    --tensor-parallel-size 4 \
-    --gpu-memory-utilization 0.95 \
-    --max-model-len 512 \
-    --dtype auto \
-    --disable-log-requests &
-
-VLLM_PID=$!
-
-sleep 15
-
-python -c "import numpy, pandas, openai, torch, vllm; print('All good')"
-python -c "from human_eval.data import read_problems; print('human_eval works')"
-python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'PyTorch CUDA version: {torch.version.cuda}')"
-python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
-
 echo "Running AgentForest experiments..."
 cd AgentForest/script
-sh run_experiments.sh
+
+
+MODEL="qwen3:4b" # qwen3:0.6b
+# mistral:7b-instruct-v0.3 llama3:8b-instruct
+# gemma:4b gemma:12b
+# qwen3:4b qwen3:14b
+export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
+
+QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
+
+AGENT_COUNTS=(1 5 10 15 20 25 30 35 40 45 50) # (1 5 10 15 20 25 30 35 40 45 50)
+DTYPES=("clean") # clean, aeda, typo
+
+# Loop through each agent count and run the main script
+for AGENT in "${AGENT_COUNTS[@]}"
+do
+    echo "============================================================="
+    echo "Running with $AGENT agents on $QTYPE using $MODEL for $DTYPES"
+    echo "============================================================="
+
+    sh run_reasoning_task.sh "$AGENT" 1 100 "$MODEL" "$QTYPE" "$DTYPES"
+
+    echo "============================================================="
+    echo "========================+Finished+==========================="
+    echo "============================================================="
+done
 
 echo "Terminating vLLM server..."
 kill $VLLM_PID

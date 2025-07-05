@@ -1,7 +1,6 @@
 import math
 import re
 import time
-import openai
 from human_eval.data import read_problems
 from human_eval.execution import TimeoutException, create_tempdir, reliability_guard, swallow_io, time_limit
 import multiprocessing
@@ -14,7 +13,7 @@ from vllm import LLM, SamplingParams
 
 def get_vllm_name():
     import os
-    model_name = os.getenv('LLM_IP')
+    model_name = os.getenv('VLLM_MODEL_NAME')
     return model_name
 
 
