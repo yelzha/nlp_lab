@@ -35,6 +35,7 @@ echo "Attempting to start vLLM server..."
 
 # Start the vLLM server with optimized parameters for your A100 and GSM8K
 # Removed --enforce-eager as it's generally not needed and can sometimes hinder CUDA graph optimizations
+#export LLM_IP="localhost:11500"
 #vllm serve Qwen/Qwen3-4B \
 #    --host 127.0.0.1 \
 #    --port 11500 \
@@ -43,19 +44,20 @@ echo "Attempting to start vLLM server..."
 #    --max-model-len 512 \
 #    --dtype auto \
 #    --disable-log-requests &
-#
 #VLLM_PID=$!
 #sleep 300
 
 echo "Finished to start vLLM server..."
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"
 
-export LLM_IP="localhost:11500"
-python vllm_test.py
+#python vllm_test.py
 
+echo "Running AgentForest test experiments..."
+cd AgentForest/script
+sh test.sh
 
 echo "Terminating vLLM server..."
-kill $VLLM_PID
+#kill $VLLM_PID
 
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "Finished!!!"
