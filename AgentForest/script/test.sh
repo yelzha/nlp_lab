@@ -9,7 +9,6 @@ export VLLM_MODEL_NAME="facebook/opt-125m"
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 
 AGENT_COUNTS=(1 5) # (1 5 10 15 20 25 30 35 40 45 50)
-DTYPES=("clean") # clean, aeda, typo
 
 # Loop through each agent count and run the main script
 for AGENT in "${AGENT_COUNTS[@]}"
@@ -25,6 +24,8 @@ do
 
     TEMPERATURE=1 # 0.3 0.7
     TOP_P=1 # 0.95,0.9
+
+    DTYPE="clean" # clean, aeda, typo
 
     cd ../src
     DIR_NAME="${SLURM_JOB_ID}/log_${QTYPE}_${DTYPE}_${AGENT}_agents"
