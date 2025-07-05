@@ -1,6 +1,3 @@
-from utils import get_llama_ip
-
-
 class Agent:
     def __init__(self, role, mtype, ans_parser, qtype, nums=1, temperature=1, top_p=1):
         self.role = role
@@ -17,7 +14,6 @@ class Agent:
         self.temperature = temperature
         self.top_p = top_p
         self.model = mtype
-        self.llm_ip = get_llama_ip()
 
     def get_reply(self):
         return self.reply

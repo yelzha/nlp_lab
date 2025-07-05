@@ -26,11 +26,6 @@ except Exception as e:
     global_llm_model = None # Handle case where vLLM fails to initialize
 
 
-def get_llama_ip():
-    import os
-    llm_ip = os.getenv('LLM_IP')
-    return llm_ip
-
 def get_mmlu_qa_pairs(df, ix):
     question = df.iloc[ix, 0]
     a = df.iloc[ix, 1]

@@ -15,14 +15,12 @@ source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/
 conda activate /home/s06zyelt/nlp_lab/env
 
 pip install numpy pandas
-pip install openai==0.28.1
 pip install sacrebleu
 pip install git+https://github.com/openai/human-eval.git
 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
 
-export LLM_IP="localhost:11500"
 
 echo "Running AgentForest experiments..."
 cd AgentForest/script
@@ -36,7 +34,7 @@ export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 
-AGENT_COUNTS=(1 5 10 15 20 25 30 35 40 45 50) # (1 5 10 15 20 25 30 35 40 45 50)
+AGENT_COUNTS=(1 5) # (1 5 10 15 20 25 30 35 40 45 50)
 DTYPES=("clean") # clean, aeda, typo
 
 # Loop through each agent count and run the main script
