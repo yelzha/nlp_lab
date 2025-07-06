@@ -49,5 +49,5 @@ class Agent:
             sys_prompt = ""
         else:
             raise NotImplementedError("Error init question type")
-        contexts = [{"role": "system", "content": sys_prompt}]
+        contexts = []
         return contexts
