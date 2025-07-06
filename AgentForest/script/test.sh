@@ -35,7 +35,6 @@ do
         echo "Running part $PART..."
         python main.py "$PART" "$SUBSET_NUM" "$EXP_NAME" "$MODEL" "$DTYPE" "$DIR_NAME" "$AGENT" "$QTYPE" "$TEMPERATURE" "$TOP_P"
     done
-    wait
     echo "AGENT ${AGENT}: All done, evaluating..."
 
 
