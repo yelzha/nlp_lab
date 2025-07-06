@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --partition=A100devel
-#SBATCH --time=0:59:00
-#SBATCH --gpus=1
-#SBATCH --ntasks=1
+#SBATCH --partition=A100medium
+#SBATCH --time=23:59:00
+#SBATCH --gpus=4
+#SBATCH --ntasks=4
 #SBATCH --output=slurm_output_vllm_%j.txt
 
 

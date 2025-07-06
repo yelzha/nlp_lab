@@ -8,7 +8,7 @@ export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 
-AGENT_COUNTS=(1 5) # (1 5 10 15 20 25 30 35 40 45 50)
+AGENT_COUNTS=(1 5 10 15 20 25 30 35 40 45 50) # (1 5 10 15 20 25 30 35 40 45 50)
 DTYPES=("clean") # clean, aeda, typo
 
 # Loop through each agent count and run the main script
@@ -18,7 +18,7 @@ do
     echo "Running with $AGENT agents on $QTYPE using $MODEL for $DTYPES"
     echo "============================================================="
 
-    sh run_reasoning_task.sh "$AGENT" 1 100 "$MODEL" "$QTYPE" "$DTYPES"
+    sh run_reasoning_task.sh "$AGENT" 14 100 "$MODEL" "$QTYPE" "$DTYPES"
 
     echo "============================================================="
     echo "========================+Finished+==========================="

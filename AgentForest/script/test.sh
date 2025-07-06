@@ -1,10 +1,10 @@
 #!/bin/bash
 
-MODEL="opt-125m" # qwen3:0.6b
+MODEL="qwen3:4b" #
 # mistral:7b-instruct-v0.3 llama3:8b-instruct
 # gemma:4b gemma:12b
 # qwen3:4b qwen3:14b
-export VLLM_MODEL_NAME="facebook/opt-125m"
+export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 
@@ -19,7 +19,7 @@ do
 
     #!/bin/bash
 
-    PART_NUM=1
+    PART_NUM=14
     SUBSET_NUM=100
 
     TEMPERATURE=1 # 0.3 0.7
@@ -33,7 +33,7 @@ do
     do
         EXP_NAME="${QTYPE}_${AGENT}_agents_part_${PART}"
         echo "Running part $PART..."
-        python main.py "$PART" "$SUBSET_NUM" "$EXP_NAME" "$MODEL" "$DTYPE" "$DIR_NAME" "$AGENT" "$QTYPE" "$TEMPERATURE" "$TOP_P" &
+        python main.py "$PART" "$SUBSET_NUM" "$EXP_NAME" "$MODEL" "$DTYPE" "$DIR_NAME" "$AGENT" "$QTYPE" "$TEMPERATURE" "$TOP_P"
     done
     wait
     echo "AGENT ${AGENT}: All done, evaluating..."
