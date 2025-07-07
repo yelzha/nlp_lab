@@ -9,10 +9,9 @@ from collections import Counter
 from sacrebleu import sentence_bleu
 from math_equivalence import is_equiv
 from vllm import LLM, SamplingParams
-import torch
 
 
-NUM_GPUS = torch.cuda.device_count()
+NUM_GPUS = 2
 
 
 def get_vllm_name():
