@@ -11,9 +11,6 @@ from math_equivalence import is_equiv
 from vllm import LLM, SamplingParams
 
 
-NUM_GPUS = 2
-
-
 def get_vllm_name():
     import os
     model_name = os.getenv('VLLM_MODEL_NAME')
@@ -24,9 +21,8 @@ VLLM_MODEL_NAME = get_vllm_name()
 try:
     global_llm_model = LLM(
         model=VLLM_MODEL_NAME,
-        tensor_parallel_size=NUM_GPUS,
         # dtype="float16",
-        gpu_memory_utilization=0.99,
+        # gpu_memory_utilization=0.95,
         enforce_eager=False,
     )
     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
