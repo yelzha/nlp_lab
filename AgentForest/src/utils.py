@@ -9,6 +9,10 @@ from collections import Counter
 from sacrebleu import sentence_bleu
 from math_equivalence import is_equiv
 from vllm import LLM, SamplingParams
+import torch
+
+
+NUM_GPUS = torch.cuda.device_count()
 
 
 def get_vllm_name():
@@ -19,7 +23,13 @@ def get_vllm_name():
 
 VLLM_MODEL_NAME = get_vllm_name()
 try:
-    global_llm_model = LLM(model=VLLM_MODEL_NAME)
+    global_llm_model = LLM(
+        model=VLLM_MODEL_NAME,
+        tensor_parallel_size=NUM_GPUS,
+        # dtype="float16",
+        gpu_memory_utilization=0.99,
+        enforce_eager=False,
+    )
     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
 except Exception as e:
     print(f"Error initializing global vLLM model: {e}")
@@ -113,6 +123,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
         # This handles your original `contexts` which seems to be a list of message lists
         # e.g., [[{'role': 'user', 'content': 'prompt1'}], [{'role': 'user', 'content': 'prompt2'}]]
         # We'll flatten it to a list of single prompts.
+        start = time.time()
         prompts = []
         for ctx in answer_context:
             # Assuming `ctx` is like `[{'role': 'user', 'content': 'Your question here'}]`
@@ -129,7 +140,12 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
 
         # vLLM SamplingParams
         # `n` directly controls how many completions per prompt.
-        sampling_params = SamplingParams(temperature=temperature, top_p=top_p, n=nums, max_tokens=2048)
+        sampling_params = SamplingParams(
+            temperature=temperature,
+            top_p=top_p,
+            n=nums,
+            max_tokens=2048
+        )
 
         # Generate completions using vLLM
         outputs = global_llm_model.generate(prompts, sampling_params)
@@ -160,6 +176,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=1, temperature=1, to
                 "model": VLLM_MODEL_NAME,  # Indicate the model used
                 "id": output.request_id  # Unique ID for the request
             })
+        print("++++++++++++++++++Time:", time.time() - start, "++++++++++++++++++")
 
     except Exception as e:
         print(e, flush=True)
