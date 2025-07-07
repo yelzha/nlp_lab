@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=A40devel
+#SBATCH --partition=A100devel
 #SBATCH --time=0:59:00
 #SBATCH --gpus=1
 #SBATCH --ntasks=4
