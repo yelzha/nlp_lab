@@ -22,16 +22,34 @@
   - Runtime: **2h 47m** on clean dataset  
   - Mode: Solo Agent Execution
   - Issues: Not optimized for Parallel Inference and some problems with GPU
+ 
+### 2.1 Ollama Optimization -> migration to VLLM Framework
+- **Status:** Completed  
+- **Goal:** Improve Ollama’s response time on Bender.  
+- **Current Performance:** ~5–20 seconds per query (qwen3:4B full mode)
+- **Target:** Achieve stable, low-latency inference (<5s preferred)
+- **Results:** Good performance for N Agents with the 16-20 seconds per n of query.
 
 ---
 
 ## 2. Ongoing & Upcoming Tasks
 
-### 2.1 Ollama Optimization
-- **Status:** Pending  
-- **Goal:** Improve Ollama’s response time on Bender.  
-- **Current Performance:** ~5–20 seconds per query (qwen3:4B full mode)
-- **Target:** Achieve stable, low-latency inference (<5s preferred)
+## Experiments Overview
+
+| Noise Type     | Model        | Agent N | Status     | Accuracy           | ETA / Notes           |
+|----------------|--------------|---------|------------|--------------------|-----------------------|
+| clean          | qwen3:4B     | 1       | Completed  | 0.8597422289613343 | ETA: 5h 30m           |
+| clean          | qwen3:4B     | 5       | Completed  | 0.913570887035633  | ETA: 7h 0m            |
+| clean          | qwen3:4B     | 10      | Completed  | 0.9257012888551933 | ETA: 7h 23m           |
+| clean          | qwen3:4B     | 15      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 20      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 25      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 30      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 35      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 40      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 45      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 50      | Pending    | 0.---------------- | ETA: h m              |
+
 
 ### 2.2 WikiTypo(2025) Integration
 - **Status:** Pending  
