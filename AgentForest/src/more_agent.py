@@ -17,7 +17,7 @@ class MoreAgent():
         for _ in range(self.agents):
             self.nodes.append(Agent(self.qtype, self.mtype, self.ans_parser, self.qtype, nums=self.nums, temperature=self.temperature, top_p=self.top_p))
 
-    def forward(self, question_data, batch_size=10):
+    def forward(self, question_data, batch_size=50):
         def get_completions_and_answers():
             completions = [[] for _ in range(self.agents)]
             answers = [[] for _ in range(self.agents)]
