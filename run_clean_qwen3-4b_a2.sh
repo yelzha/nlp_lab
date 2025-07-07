@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --partition=A100medium
-#SBATCH --time=23:59:00
-#SBATCH --gpus=4
-#SBATCH --ntasks=4
+#SBATCH --partition=A100short
+#SBATCH --time=7:59:59
+#SBATCH --gpus=2
+#SBATCH --ntasks=2
 #SBATCH --output=slurm_output_vllm_%j.txt
 
 # ----------------- ENVIRONMENT SETUP ------------------
@@ -34,7 +34,7 @@ MODEL="qwen3:4b"
 export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
-AGENT_COUNTS=(30, 35, 40)
+AGENT_COUNTS=(20)
 DTYPES=("clean") # clean, aeda, typo
 
 cd AgentForest/script
