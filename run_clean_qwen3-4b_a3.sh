@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --partition=A100short
 #SBATCH --time=7:59:59
-#SBATCH --gpus=2
-#SBATCH --ntasks=2
+#SBATCH --gpus=1
+#SBATCH --ntasks=4
 #SBATCH --output=slurm_output_vllm_%j.txt
 
 # ----------------- ENVIRONMENT SETUP ------------------
