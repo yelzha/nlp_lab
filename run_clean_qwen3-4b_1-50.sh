@@ -1,17 +1,9 @@
 #!/bin/bash
 #SBATCH --partition=A100medium
 #SBATCH --time=23:59:59
-#SBATCH --job-name=Clean-qwen3-4B-1-50
 #SBATCH --gpus=1
-#SBATCH --nodes=2
-#SBATCH --ntasks=2
-#SBATCH --ntasks-per-node=2
-#SBATCH --cpus-per-task=2
-#SBATCH --mem=128GB
-#SBATCH --output=opt_output_%j.log
-#SBATCH --error=myjob_error_%j.log
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=s06zyelt@uni-bonn.de
+#SBATCH --ntasks=1
+#SBATCH --output=logs/clean_qwen3-4B_%j.txt
 
 # --- Your actual job commands start here ---
 echo "------------------------------------------------------------"
