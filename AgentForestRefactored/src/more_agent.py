@@ -79,7 +79,7 @@ class MoreAgent():
         all_parsed_answers = []
         # Post-process each agent's raw completion to extract the final answer
         for node_idx in range(len(self.nodes)):
-            print(f"{node_idx} th agent process", flush=True)
+            # print(f"{node_idx} th agent process", flush=True)
             self.nodes[node_idx].postprocess(content_list[node_idx], question_state)
             all_parsed_answers.append(self.nodes[node_idx].get_answer())
 

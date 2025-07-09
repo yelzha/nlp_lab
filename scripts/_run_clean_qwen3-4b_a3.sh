@@ -3,7 +3,8 @@
 #SBATCH --time=7:59:59
 #SBATCH --gpus=1
 #SBATCH --ntasks=4
-#SBATCH --output=slurm_output_vllm_%j.txt
+#SBATCH --output=../logs/slurm_output_vllm_%j.txt
+cd ../
 
 # ----------------- ENVIRONMENT SETUP ------------------
 
@@ -34,7 +35,7 @@ MODEL="qwen3:4b"
 export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
-AGENT_COUNTS=(20)
+AGENT_COUNTS=(25)
 DTYPES=("clean") # clean, aeda, typo
 
 cd AgentForest/script

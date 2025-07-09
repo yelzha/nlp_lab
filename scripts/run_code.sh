@@ -3,8 +3,8 @@
 #SBATCH --time=23:59:00
 #SBATCH --gpus=4
 #SBATCH --ntasks=8
-#SBATCH --output=slurm_output_ollama_%j.txt
-
+#SBATCH --output=../logs/slurm_output_ollama_%j.txt
+cd ../
 
 #cd $SLURM_SUBMIT_DIR
 export OLLAMA_NUM_PARALLEL=4

@@ -69,6 +69,7 @@ def main():
 
         # Call forward to get all agent completions and parsed answers
         result_dict = solver.forward(question_data)
+        ground_truth = question_data["ground_truth"]
 
         all_answers = result_dict["answers"]
         total_prompt_tokens += result_dict["total_prompt_tokens"]
@@ -108,10 +109,14 @@ def main():
                 results_human_eval_for_max_K.append(
                     {"task_id": question_data["task_id"], "completion": final_answer_for_K})
 
-        print("current task_id end: ", task_id, flush=True)
+            if QUESTION_TYPE != "human-eval":
+                tmp_df = pd.DataFrame(total_records_dict[K])
+                perf = solver.evaluation(tmp_df)
+                print(f"{K} Agents final_res: {final_answer_for_K}, ground_truth: {ground_truth}, perf: {perf}", flush=True)
 
-    print("************************")
-    print(f"Total prompt tokens: {total_prompt_tokens}, Total completion tokens: {total_completion_tokens}")
+        print("current task_id end: ", task_id, flush=True)
+        print("************************", flush=True)
+        print(f"Total prompt tokens: {total_prompt_tokens}, Total completion tokens: {total_completion_tokens}", flush=True)
 
     # Save results for each K value to separate files and directories
     print("\n--- Saving Results for Each K Value ---")
