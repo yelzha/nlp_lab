@@ -18,49 +18,71 @@ class MoreAgent():
             self.nodes.append(Agent(self.qtype, self.mtype, self.ans_parser, self.qtype, nums=self.nums, temperature=self.temperature, top_p=self.top_p))
 
     def forward(self, question_data, batch_size=50):
-        def get_completions_and_answers():
-            completions = [[] for _ in range(self.agents)]
-            answers = [[] for _ in range(self.agents)]
-            return completions, answers
-
+        """
+        Generates responses from all initialized agents in a batch and returns
+        their parsed answers for external voting.
+        """
         total_prompt_tokens, total_completion_tokens = 0, 0
-        activated_indices = []
         question_state = question_data["state"]
 
-        # batch process with template node
-        contexts = self.nodes[0].preprocess(question_state)
-        contexts.append(prompt_lib.construct_message(question_state, self.nodes[0].qtype))
-        batch_num, remainder = divmod(len(self.nodes), batch_size)
-        content_list = []
-        for _ in range(batch_num):
-            batch_completion = batch_generate(contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=batch_size)
-            total_prompt_tokens += sum(i["usage"]["prompt_tokens"] for i in batch_completion)
-            total_completion_tokens += sum(i["usage"]["completion_tokens"] for i in batch_completion)
-            for choice in [item for nested in batch_completion for item in nested["choices"]]:
-                content = choice["message"]["content"]
-                content_list.append(content)
+        # Prepare the initial context for each agent.
+        # self.nodes[0].preprocess(question_state) returns a list of messages (e.g., system prompt).
+        # prompt_lib.construct_message adds the user's question.
+        # The resulting `contexts_for_one_agent` is the full prompt for a single agent.
+        contexts_for_one_agent = self.nodes[0].preprocess(question_state)
+        if not isinstance(contexts_for_one_agent, list):
+            contexts_for_one_agent = [contexts_for_one_agent]  # Ensure it's a list
+        contexts_for_one_agent.append(prompt_lib.construct_message(question_state, self.nodes[0].qtype))
+
+        # Create a list of identical contexts, one for each agent, to send to batch_generate.
+        # This allows all agent responses to be generated in a single batched API call.
+        all_agent_contexts_for_batch_generate = [contexts_for_one_agent for _ in range(len(self.nodes))]
+
+        batch_num, remainder = divmod(len(all_agent_contexts_for_batch_generate), batch_size)
+        content_list = []  # Stores raw LLM completions (strings)
+
+        # Process in batches to avoid sending too many requests at once if batch_size is small
+        # or if the total number of agents is very large.
+        for i in range(batch_num):
+            batch_agent_contexts = all_agent_contexts_for_batch_generate[i * batch_size: (i + 1) * batch_size]
+            # nums=1 here means 1 completion per prompt in the batch, as each agent provides one answer.
+            batch_completion = batch_generate(batch_agent_contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=1)
+
+            # Aggregate token usage and extract content from each completion
+            for comp_item in batch_completion:
+                total_prompt_tokens += comp_item["usage"]["prompt_tokens"]
+                total_completion_tokens += comp_item["usage"]["completion_tokens"]
+                for choice in comp_item["choices"]:
+                    content_list.append(choice["message"]["content"])
+
+        # Handle any remaining agents that don't fit into a full batch
         if remainder > 0:
-            batch_completion = batch_generate(contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=remainder)
-            total_prompt_tokens += sum(i["usage"]["prompt_tokens"] for i in batch_completion)
-            total_completion_tokens += sum(i["usage"]["completion_tokens"] for i in batch_completion)
-            for choice in [item for nested in batch_completion for item in nested["choices"]]:
-                content = choice["message"]["content"]
-                content_list.append(content)
+            batch_agent_contexts = all_agent_contexts_for_batch_generate[
+                                   batch_num * batch_size: (batch_num * batch_size) + remainder]
+            batch_completion = batch_generate(batch_agent_contexts, self.nodes[0].model, self.nodes[0].llm_ip, nums=1)
 
-        assert len(content_list) == len(self.nodes)
+            # Aggregate token usage and extract content
+            for comp_item in batch_completion:
+                total_prompt_tokens += comp_item["usage"]["prompt_tokens"]
+                total_completion_tokens += comp_item["usage"]["completion_tokens"]
+                for choice in comp_item["choices"]:
+                    content_list.append(choice["message"]["content"])
 
+        # Ensure that we have a completion for every agent
+        assert len(content_list) == len(self.nodes), \
+            f"Expected {len(self.nodes)} completions, but got {len(content_list)}"
+
+        all_parsed_answers = []
+        # Post-process each agent's raw completion to extract the final answer
         for node_idx in range(len(self.nodes)):
-            print("{} th agent process".format(node_idx),flush=True)
-            self.nodes[node_idx].preprocess(question_state)
+            print(f"{node_idx} th agent process", flush=True)
             self.nodes[node_idx].postprocess(content_list[node_idx], question_state)
-            activated_indices.append(node_idx)
+            all_parsed_answers.append(self.nodes[node_idx].get_answer())
 
-        final_answer = self.get_final_answer(activated_indices, question_data)
-        completions, answers = get_completions_and_answers()
+        # Return all parsed answers and token usage. The final voting logic
+        # for different K values will be handled by the calling script (main.py).
         result_dict = {
-            "final_answer": final_answer,
-            "completions": completions,
-            "answers": answers,
+            "all_parsed_answers": all_parsed_answers,
             "total_prompt_tokens": total_prompt_tokens,
             "total_completion_tokens": total_completion_tokens,
         }
