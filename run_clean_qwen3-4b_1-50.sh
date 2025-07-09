@@ -1,9 +1,33 @@
 #!/bin/bash
 #SBATCH --partition=A100medium
 #SBATCH --time=23:59:59
+#SBATCH --job-name=Clean-qwen3-4B-1-50
 #SBATCH --gpus=1
+#SBATCH --nodes=2
 #SBATCH --ntasks=2
-#SBATCH --output=slurm_output_vllm_%j.txt
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=128GB
+#SBATCH --output=opt_output_%j.log
+#SBATCH --error=myjob_error_%j.log
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=s06zyelt@uni-bonn.de
+
+# --- Your actual job commands start here ---
+echo "------------------------------------------------------------"
+echo "SLURM JOB INFO"
+echo "Job ID: $SLURM_JOB_ID"
+echo "Job Name: $SLURM_JOB_NAME"
+echo "Partition: $SLURM_JOB_PARTITION"
+echo "Nodes: $SLURM_NNODES"
+echo "Tasks per node: $SLURM_NTASKS_PER_NODE"
+echo "CPUs per task: $SLURM_CPUS_PER_TASK"
+echo "Requested Memory: $SLURM_MEM_PER_NODE MB (approx)"
+echo "Working Directory: $(pwd)"
+echo "Start Time: $(date)"
+echo "------------------------------------------------------------"
+
+echo "Hello from Slurm on node $(hostname)!"
 
 # ----------------- ENVIRONMENT SETUP ------------------
 
