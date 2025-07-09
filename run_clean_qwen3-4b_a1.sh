@@ -34,28 +34,24 @@ MODEL="qwen3:4b"
 export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
-AGENT_COUNTS=(15)
 DTYPES=("clean") # clean, aeda, typo
 
-cd AgentForest/script
+PART_START=0
+PART_END=13
+SUBSET_NUM=100
+
+TEMPERATURE=1 # 0.3 0.7
+TOP_P=1 # 0.95,0.9
+
+cd AgentForestRefactored/script
 
 # ----------------- MAIN LOOP ------------------
 
-for AGENT in "${AGENT_COUNTS[@]}"
-do
-    echo "============================================================="
-    echo "Running with $AGENT agents on $QTYPE using $MODEL for $DTYPES"
-    echo "============================================================="
+echo "============================================================="
+echo "Running with agents on $QTYPE using $MODEL for $DTYPES"
+echo "============================================================="
 
-    sh run_reasoning_task.sh "$AGENT" 14 100 "$MODEL" "$QTYPE" "$DTYPES"
-
-    echo "============================================================="
-    echo "========================+Finished+==========================="
-    echo "============================================================="
-done
-
-echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo "Finished!!!"
+sh run_reasoning_task.sh "$MODEL" "$QTYPE" "$DTYPES" "$PART_START" "$PART_END" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P"
 
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "Finished!!!"
