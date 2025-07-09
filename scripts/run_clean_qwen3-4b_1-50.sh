@@ -3,7 +3,8 @@
 #SBATCH --time=23:59:59
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
-#SBATCH --output=logs/clean_qwen3-4B_%j.txt
+#SBATCH --output=../logs/clean_qwen3-4B_%j.txt
+cd ../
 
 # --- Your actual job commands start here ---
 echo "------------------------------------------------------------"
