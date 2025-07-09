@@ -55,7 +55,7 @@ def main():
     total_prompt_tokens, total_completion_tokens = 0, 0
 
     # total_records will store all results (for all K values) for the current PART*SUBSET
-    total_records = []
+    total_records_dict = {}
     question_datas = solver.get_question_datas()
 
     print("=============================================================")
@@ -70,29 +70,38 @@ def main():
         # Call forward to get all agent completions and parsed answers
         result_dict = solver.forward(question_data)
 
-        all_parsed_answers = result_dict["all_parsed_answers"]
+        all_answers = result_dict["answers"]
         total_prompt_tokens += result_dict["total_prompt_tokens"]
         total_completion_tokens += result_dict["total_completion_tokens"]
 
         # Process and store results for each K value for the current question
         for K in K_values:
+            if K not in total_records_dict:
+                total_records_dict[K] = []
             # Ensure K does not exceed the number of available answers
-            current_K = min(K, len(all_parsed_answers))
-            subset_answers = all_parsed_answers[:current_K]
-
-            # Get the final answer for the current K using the solver's voting method
-            final_answer_for_K = solver.get_final_answer(subset_answers)
+            current_K = min(K, len(all_answers))
+            subset_answers = all_answers[:current_K]
 
             one_record = {}
             # Add original question data
             for k, v in question_data.items():
                 one_record[k] = v
+            for k, v in result_dict.items():
+                if isinstance(v, list):
+                    for i, sub_v in enumerate(v):
+                        new_k = k + f"_{i}"
+                        one_record[new_k] = sub_v
+                else:
+                    one_record[k] = v
+
+            # Get the final answer for the current K using the solver's voting method
+            activated_indices = [i for i in range(K)]
+            final_answer_for_K = solver.get_final_answer(activated_indices, one_record)
 
             # Add the final answer for the current K
-            one_record[f"final_answer_k{K}"] = final_answer_for_K
-            one_record["K_value"] = K  # Store which K value this record corresponds to
+            one_record[f"final_answer"] = final_answer_for_K
 
-            total_records.append(one_record)  # Add to overall list
+            total_records_dict[K].append(one_record)  # Add to overall list
 
             # For human-eval, store the completion for the largest K (max_agents_for_init)
             if QUESTION_TYPE == "human-eval" and K == max_agents_for_init:
@@ -104,9 +113,6 @@ def main():
     print("************************")
     print(f"Total prompt tokens: {total_prompt_tokens}, Total completion tokens: {total_completion_tokens}")
 
-    # Create a DataFrame from all collected records
-    df_all_records = pd.DataFrame(total_records)
-
     # Save results for each K value to separate files and directories
     print("\n--- Saving Results for Each K Value ---")
     for K in K_values:
@@ -116,7 +122,7 @@ def main():
         os.makedirs(K_DIR_NAME, exist_ok=True)
 
         # Filter DataFrame for the current K value
-        df_k = df_all_records[df_all_records["K_value"] == K].copy()
+        df_k = pd.DataFrame(total_records_dict[K]).copy()
 
         # Save to CSV
         csv_path = os.path.join(K_DIR_NAME, f"{K_EXP_NAME}.csv")
@@ -140,7 +146,7 @@ def main():
     print("\n--- Final Evaluation for Each K Value ---")
     for K in K_values:
         # Filter DataFrame for the current K value
-        df_k_eval = df_all_records[df_all_records["K_value"] == K].copy()
+        df_k_eval = pd.DataFrame(total_records_dict[K]).copy()
         # Rename the specific K column to 'final_answer' for the evaluation function
         df_k_eval.rename(columns={f"final_answer_k{K}": "final_answer"}, inplace=True)
 

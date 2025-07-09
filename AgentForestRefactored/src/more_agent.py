@@ -22,6 +22,10 @@ class MoreAgent():
         Generates responses from all initialized agents in a batch and returns
         their parsed answers for external voting.
         """
+        def get_completions_and_answers():
+            completions = [[] for _ in range(self.agents)]
+            answers = [[] for _ in range(self.agents)]
+            return completions, answers
         total_prompt_tokens, total_completion_tokens = 0, 0
         question_state = question_data["state"]
 
@@ -81,8 +85,16 @@ class MoreAgent():
 
         # Return all parsed answers and token usage. The final voting logic
         # for different K values will be handled by the calling script (main.py).
+        # result_dict = {
+        #     "all_parsed_answers": all_parsed_answers,
+        #     "total_prompt_tokens": total_prompt_tokens,
+        #     "total_completion_tokens": total_completion_tokens,
+        # }
+        completions, answers = get_completions_and_answers()
         result_dict = {
-            "all_parsed_answers": all_parsed_answers,
+            "final_answer": None,
+            "completions": completions,
+            "answers": all_parsed_answers,
             "total_prompt_tokens": total_prompt_tokens,
             "total_completion_tokens": total_completion_tokens,
         }
