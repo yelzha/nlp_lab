@@ -3,7 +3,7 @@
 #SBATCH --time=23:59:59
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
-#SBATCH --output=../logs/clean_qwen3-4B_%j.txt
+#SBATCH --output=../logs/clean_Mistral-7B-Instruct-v0.3_%j.txt
 cd ../
 
 # --- Your actual job commands start here ---
@@ -47,13 +47,13 @@ echo "Running AgentForest experiments..."
 
 # ----------------- EXPERIMENT CONFIG ------------------
 
-MODEL="qwen3:4b"
-export VLLM_MODEL_NAME="Qwen/Qwen3-4B"
+MODEL="Mistral-7B-Instruct-v0.3"
+export VLLM_MODEL_NAME="mistralai/Mistral-7B-Instruct-v0.3"
 
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 DTYPES=("clean") # clean, aeda, typo
 
-PART_START=13
+PART_START=0
 PART_END=14
 SUBSET_NUM=100
 
