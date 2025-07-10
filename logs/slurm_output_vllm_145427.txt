@@ -1,0 +1,1898 @@
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (1.26.4)
+Requirement already satisfied: pandas in /home/s06zyelt/.local/lib/python3.10/site-packages (2.3.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: six>=1.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+Requirement already satisfied: sacrebleu in /home/s06zyelt/.local/lib/python3.10/site-packages (2.5.1)
+Requirement already satisfied: portalocker in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (3.2.0)
+Requirement already satisfied: regex in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (2024.11.6)
+Requirement already satisfied: tabulate>=0.8.9 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (0.9.0)
+Requirement already satisfied: numpy>=1.17 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (1.26.4)
+Requirement already satisfied: colorama in ./env/lib/python3.10/site-packages (from sacrebleu) (0.4.6)
+Requirement already satisfied: lxml in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (5.4.0)
+Collecting git+https://github.com/openai/human-eval.git
+  Cloning https://github.com/openai/human-eval.git to /tmp/pip-req-build-oq155e13
+  error: subprocess-exited-with-error
+  
+  × git version did not run successfully.
+  │ exit code: -4
+  ╰─> [2 lines of output]
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× git version did not run successfully.
+│ exit code: -4
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Requirement already satisfied: torch in /home/s06zyelt/.local/lib/python3.10/site-packages (2.7.0)
+Requirement already satisfied: torchvision in /home/s06zyelt/.local/lib/python3.10/site-packages (0.22.0)
+Requirement already satisfied: torchaudio in /home/s06zyelt/.local/lib/python3.10/site-packages (2.7.0)
+Requirement already satisfied: filelock in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.18.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (4.14.0)
+Requirement already satisfied: sympy>=1.13.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.3)
+Requirement already satisfied: jinja2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (2025.3.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (1.11.1.6)
+Requirement already satisfied: triton==3.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.3.0)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.0->torch) (80.9.0)
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (from torchvision) (1.26.4)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torchvision) (11.0.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jinja2->torch) (2.1.5)
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu121
+Requirement already satisfied: vllm in /home/s06zyelt/.local/lib/python3.10/site-packages (0.9.1)
+Requirement already satisfied: regex in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2024.11.6)
+Requirement already satisfied: cachetools in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (5.5.2)
+Requirement already satisfied: psutil in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (7.0.0)
+Requirement already satisfied: sentencepiece in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.2.0)
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.26.4)
+Requirement already satisfied: requests>=2.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.32.4)
+Requirement already satisfied: tqdm in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.67.1)
+Requirement already satisfied: blake3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.0.5)
+Requirement already satisfied: py-cpuinfo in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (9.0.0)
+Requirement already satisfied: transformers>=4.51.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.54.0.dev0)
+Requirement already satisfied: huggingface-hub>=0.32.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from huggingface-hub[hf_xet]>=0.32.0->vllm) (0.33.2)
+Requirement already satisfied: tokenizers>=0.21.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.21.2)
+Requirement already satisfied: protobuf in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (5.29.5)
+Requirement already satisfied: fastapi>=0.115.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.115.14)
+Requirement already satisfied: aiohttp in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.12.13)
+Requirement already satisfied: openai>=1.52.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.93.0)
+Requirement already satisfied: pydantic>=2.10 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.11.7)
+Requirement already satisfied: prometheus_client>=0.18.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: pillow in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (11.0.0)
+Requirement already satisfied: prometheus-fastapi-instrumentator>=7.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (7.1.0)
+Requirement already satisfied: tiktoken>=0.6.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.9.0)
+Requirement already satisfied: lm-format-enforcer<0.11,>=0.10.11 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.10.11)
+Requirement already satisfied: llguidance<0.8.0,>=0.7.11 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.7.30)
+Requirement already satisfied: outlines==0.1.11 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.1.11)
+Requirement already satisfied: lark==1.2.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.2.2)
+Requirement already satisfied: xgrammar==0.1.19 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.1.19)
+Requirement already satisfied: typing_extensions>=4.10 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.14.0)
+Requirement already satisfied: filelock>=3.16.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.18.0)
+Requirement already satisfied: partial-json-parser in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.2.1.1.post6)
+Requirement already satisfied: pyzmq>=25.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (27.0.0)
+Requirement already satisfied: msgspec in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: gguf>=0.13.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.17.1)
+Requirement already satisfied: mistral_common>=1.5.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from mistral_common[opencv]>=1.5.4->vllm) (1.6.3)
+Requirement already satisfied: opencv-python-headless>=4.11.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.11.0.86)
+Requirement already satisfied: pyyaml in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (6.0.2)
+Requirement already satisfied: einops in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.8.1)
+Requirement already satisfied: compressed-tensors==0.10.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.10.1)
+Requirement already satisfied: depyf==0.18.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.18.0)
+Requirement already satisfied: cloudpickle in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.1.1)
+Requirement already satisfied: watchfiles in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.1.0)
+Requirement already satisfied: python-json-logger in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.3.0)
+Requirement already satisfied: scipy in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.15.3)
+Requirement already satisfied: ninja in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.11.1.4)
+Requirement already satisfied: opentelemetry-sdk>=1.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-api>=1.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-exporter-otlp>=1.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-semantic-conventions-ai>=0.4.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.4.10)
+Requirement already satisfied: numba==0.61.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.61.2)
+Requirement already satisfied: ray!=2.44.*,>=2.43.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (2.47.1)
+Requirement already satisfied: torch==2.7.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.7.0)
+Requirement already satisfied: torchaudio==2.7.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.7.0)
+Requirement already satisfied: torchvision==0.22.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.22.0)
+Requirement already satisfied: xformers==0.0.30 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.0.30)
+Requirement already satisfied: astor in /home/s06zyelt/.local/lib/python3.10/site-packages (from depyf==0.18.0->vllm) (0.8.1)
+Requirement already satisfied: dill in /home/s06zyelt/.local/lib/python3.10/site-packages (from depyf==0.18.0->vllm) (0.3.8)
+Requirement already satisfied: llvmlite<0.45,>=0.44.0dev0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from numba==0.61.2->vllm) (0.44.0)
+Requirement already satisfied: interegular in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (0.3.3)
+Requirement already satisfied: jinja2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (3.1.6)
+Requirement already satisfied: nest_asyncio in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (1.6.0)
+Requirement already satisfied: diskcache in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (5.6.3)
+Requirement already satisfied: referencing in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (0.36.2)
+Requirement already satisfied: jsonschema in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (4.24.0)
+Requirement already satisfied: pycountry in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (24.6.1)
+Requirement already satisfied: airportsdata in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (20250622)
+Requirement already satisfied: outlines_core==0.1.26 in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (0.1.26)
+Requirement already satisfied: sympy>=1.13.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (1.14.0)
+Requirement already satisfied: networkx in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (3.3)
+Requirement already satisfied: fsspec in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (2025.3.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (1.11.1.6)
+Requirement already satisfied: triton==3.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (3.3.0)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.0->torch==2.7.0->vllm) (80.9.0)
+Requirement already satisfied: packaging in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (25.0)
+Requirement already satisfied: starlette<0.47.0,>=0.40.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (0.46.2)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.7.0)
+Requirement already satisfied: pydantic-core==2.33.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.4.1)
+Requirement already satisfied: anyio<5,>=3.6.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from starlette<0.47.0,>=0.40.0->fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (4.9.0)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (1.3.0)
+Requirement already satisfied: idna>=2.8 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (3.10)
+Requirement already satisfied: sniffio>=1.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (1.3.1)
+Requirement already satisfied: fastapi-cli>=0.0.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.0.7)
+Requirement already satisfied: httpx>=0.23.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.28.1)
+Requirement already satisfied: python-multipart>=0.0.18 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.0.20)
+Requirement already satisfied: email-validator>=2.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (2.2.0)
+Requirement already satisfied: uvicorn>=0.12.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.35.0)
+Requirement already satisfied: dnspython>=2.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm) (2.7.0)
+Requirement already satisfied: typer>=0.12.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: rich-toolkit>=0.11.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.14.8)
+Requirement already satisfied: certifi in ./env/lib/python3.10/site-packages (from httpx>=0.23.0->fastapi[standard]>=0.115.0->vllm) (2025.6.15)
+Requirement already satisfied: httpcore==1.* in /home/s06zyelt/.local/lib/python3.10/site-packages (from httpx>=0.23.0->fastapi[standard]>=0.115.0->vllm) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /home/s06zyelt/.local/lib/python3.10/site-packages (from httpcore==1.*->httpx>=0.23.0->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from huggingface-hub>=0.32.0->huggingface-hub[hf_xet]>=0.32.0->vllm) (1.1.5)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jinja2->outlines==0.1.11->vllm) (2.1.5)
+Requirement already satisfied: attrs>=22.2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm) (25.3.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm) (2025.4.1)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm) (0.26.0)
+Requirement already satisfied: distro<2,>=1.7.0 in ./env/lib/python3.10/site-packages (from openai>=1.52.0->vllm) (1.9.0)
+Requirement already satisfied: jiter<1,>=0.4.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from openai>=1.52.0->vllm) (0.10.0)
+Requirement already satisfied: importlib-metadata<8.8.0,>=6.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-api>=1.26.0->vllm) (8.7.0)
+Requirement already satisfied: zipp>=3.20 in /home/s06zyelt/.local/lib/python3.10/site-packages (from importlib-metadata<8.8.0,>=6.0->opentelemetry-api>=1.26.0->vllm) (3.23.0)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-grpc==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-http==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: googleapis-common-protos~=1.52 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.70.0)
+Requirement already satisfied: grpcio<2.0.0,>=1.63.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.73.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-common==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-proto==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.55b1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-sdk>=1.26.0->vllm) (0.55b1)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (3.4.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (2.5.0)
+Requirement already satisfied: click>=7.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (8.2.1)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (1.1.1)
+Requirement already satisfied: cupy-cuda12x in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (13.4.1)
+Requirement already satisfied: rich>=13.7.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (14.0.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sympy>=1.13.3->torch==2.7.0->vllm) (1.3.0)
+Requirement already satisfied: safetensors>=0.4.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from transformers>=4.51.1->vllm) (0.5.3)
+Requirement already satisfied: shellingham>=1.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from typer>=0.12.3->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.5.4)
+Requirement already satisfied: httptools>=0.6.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: python-dotenv>=0.13 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.1.1)
+Requirement already satisfied: uvloop>=0.15.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.21.0)
+Requirement already satisfied: websockets>=10.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (12.0)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (2.6.1)
+Requirement already satisfied: aiosignal>=1.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (1.3.2)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (4.0.3)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (6.5.0)
+Requirement already satisfied: propcache>=0.2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (1.20.1)
+Requirement already satisfied: fastrlock>=0.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from cupy-cuda12x->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (0.8.3)
+CUDA available: True
+PyTorch CUDA version: 12.6
+INFO 07-09 15:53:09 [__init__.py:244] Automatically detected platform cuda.
+vLLM version: 0.9.1
+Running AgentForest experiments...
+=============================================================
+Running with agents on gsm using qwen3:4b for clean
+=============================================================
+Running part 0...
+INFO 07-09 15:53:25 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 15:53:43 [config.py:823] This model supports multiple tasks: {'embed', 'score', 'reward', 'classify', 'generate'}. Defaulting to 'generate'.
+INFO 07-09 15:53:44 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 15:53:46 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 15:53:46 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 15:53:47 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1e35978730>
+INFO 07-09 15:53:48 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 15:53:48 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 15:53:48 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 15:53:48 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 15:53:48 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 15:53:49 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.17it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.13it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.28it/s]
+
+INFO 07-09 15:53:50 [default_loader.py:272] Loading weights took 1.41 seconds
+INFO 07-09 15:53:51 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.278689 seconds
+INFO 07-09 15:54:02 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 15:54:02 [backends.py:472] Dynamo bytecode transform time: 11.34 s
+INFO 07-09 15:54:12 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.777 s
+INFO 07-09 15:54:14 [monitor.py:34] torch.compile takes 11.34 s in total
+INFO 07-09 15:54:16 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 15:54:16 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 15:54:16 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 15:54:44 [gpu_model_runner.py:2048] Graph capturing finished in 28 secs, took 2.12 GiB
+INFO 07-09 15:54:44 [core.py:171] init engine (profile, create kv cache, warmup model) took 53.40 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [0, 100]...
+=============================================================
+current task_id start:  0
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2235.22it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:04<03:47,  4.64s/it, est. speed input: 17.22 toks/s, output: 88.92 toks/s]Processed prompts:   4%|▍         | 2/50 [00:08<03:23,  4.25s/it, est. speed input: 18.58 toks/s, output: 132.51 toks/s]Processed prompts:   6%|▌         | 3/50 [00:09<02:03,  2.63s/it, est. speed input: 25.77 toks/s, output: 206.36 toks/s]Processed prompts:   8%|▊         | 4/50 [00:09<01:24,  1.85s/it, est. speed input: 32.12 toks/s, output: 276.15 toks/s]Processed prompts:  10%|█         | 5/50 [00:12<01:26,  1.92s/it, est. speed input: 33.32 toks/s, output: 310.57 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:14<01:40,  2.28s/it, est. speed input: 32.05 toks/s, output: 328.00 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:17<01:45,  2.46s/it, est. speed input: 31.44 toks/s, output: 352.94 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:28<03:39,  5.22s/it, est. speed input: 22.12 toks/s, output: 288.03 toks/s]Processed prompts: 100%|██████████| 50/50 [00:28<00:00,  1.73it/s, est. speed input: 138.07 toks/s, output: 3256.84 toks/s]
+++++++++++++++++++Time: 28.994550228118896 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 1...
+INFO 07-09 15:55:26 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 15:55:45 [config.py:823] This model supports multiple tasks: {'embed', 'score', 'generate', 'classify', 'reward'}. Defaulting to 'generate'.
+INFO 07-09 15:55:45 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 15:55:48 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 15:55:48 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 15:55:48 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f73d98f4820>
+INFO 07-09 15:55:49 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 15:55:49 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 15:55:49 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 15:55:49 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 15:55:50 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 15:55:50 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.24it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.19it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.34it/s]
+
+INFO 07-09 15:55:52 [default_loader.py:272] Loading weights took 1.36 seconds
+INFO 07-09 15:55:53 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.255350 seconds
+INFO 07-09 15:56:02 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 15:56:02 [backends.py:472] Dynamo bytecode transform time: 9.56 s
+INFO 07-09 15:56:11 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.548 s
+INFO 07-09 15:56:14 [monitor.py:34] torch.compile takes 9.56 s in total
+INFO 07-09 15:56:15 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 15:56:16 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 15:56:16 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 15:56:43 [gpu_model_runner.py:2048] Graph capturing finished in 27 secs, took 2.12 GiB
+INFO 07-09 15:56:43 [core.py:171] init engine (profile, create kv cache, warmup model) took 50.64 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [100, 200]...
+=============================================================
+current task_id start:  100
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1816.94it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:07<05:54,  7.24s/it, est. speed input: 13.40 toks/s, output: 84.24 toks/s]Processed prompts:   4%|▍         | 2/50 [00:08<02:58,  3.72s/it, est. speed input: 22.84 toks/s, output: 155.03 toks/s]Processed prompts:   6%|▌         | 3/50 [00:09<01:54,  2.45s/it, est. speed input: 30.87 toks/s, output: 222.17 toks/s]Processed prompts:   8%|▊         | 4/50 [00:12<01:57,  2.56s/it, est. speed input: 31.90 toks/s, output: 252.26 toks/s]Processed prompts:  10%|█         | 5/50 [00:12<01:16,  1.69s/it, est. speed input: 39.37 toks/s, output: 329.03 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:13<01:02,  1.42s/it, est. speed input: 44.06 toks/s, output: 386.21 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:16<01:25,  1.99s/it, est. speed input: 41.44 toks/s, output: 388.67 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:29<03:48,  5.45s/it, est. speed input: 26.54 toks/s, output: 287.84 toks/s]Processed prompts: 100%|██████████| 50/50 [00:29<00:00,  1.71it/s, est. speed input: 165.68 toks/s, output: 3225.90 toks/s]
+++++++++++++++++++Time: 29.302826166152954 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 2...
+INFO 07-09 15:57:26 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 15:57:43 [config.py:823] This model supports multiple tasks: {'classify', 'generate', 'score', 'embed', 'reward'}. Defaulting to 'generate'.
+INFO 07-09 15:57:43 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 15:57:45 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 15:57:45 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 15:57:46 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f6a67c38760>
+INFO 07-09 15:57:47 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 15:57:47 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 15:57:47 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 15:57:47 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 15:57:47 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 15:57:48 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.22it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.24it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.38it/s]
+
+INFO 07-09 15:57:49 [default_loader.py:272] Loading weights took 1.34 seconds
+INFO 07-09 15:57:50 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.210508 seconds
+INFO 07-09 15:58:00 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 15:58:00 [backends.py:472] Dynamo bytecode transform time: 10.47 s
+INFO 07-09 15:58:09 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.487 s
+INFO 07-09 15:58:12 [monitor.py:34] torch.compile takes 10.47 s in total
+INFO 07-09 15:58:13 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 15:58:13 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 15:58:13 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 15:58:37 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.12 GiB
+INFO 07-09 15:58:37 [core.py:171] init engine (profile, create kv cache, warmup model) took 47.33 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [200, 300]...
+=============================================================
+current task_id start:  200
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2005.75it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:04<04:02,  4.94s/it, est. speed input: 20.64 toks/s, output: 88.44 toks/s]Processed prompts:   4%|▍         | 2/50 [00:05<01:52,  2.34s/it, est. speed input: 37.39 toks/s, output: 167.89 toks/s]Processed prompts:   6%|▌         | 3/50 [00:07<01:41,  2.16s/it, est. speed input: 41.34 toks/s, output: 209.55 toks/s]Processed prompts:   8%|▊         | 4/50 [00:07<01:07,  1.47s/it, est. speed input: 52.24 toks/s, output: 283.88 toks/s]Processed prompts:  10%|█         | 5/50 [00:09<01:03,  1.40s/it, est. speed input: 56.05 toks/s, output: 327.81 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:11<01:10,  1.60s/it, est. speed input: 55.25 toks/s, output: 351.72 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:11<00:57,  1.33s/it, est. speed input: 60.26 toks/s, output: 410.69 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:11<00:39,  1.05it/s, est. speed input: 68.07 toks/s, output: 487.62 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:13<00:40,  1.02it/s, est. speed input: 70.48 toks/s, output: 529.60 toks/s]Processed prompts:  20%|██        | 10/50 [00:13<00:30,  1.31it/s, est. speed input: 76.59 toks/s, output: 598.57 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:14<00:29,  1.30it/s, est. speed input: 79.62 toks/s, output: 645.97 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:14<00:23,  1.62it/s, est. speed input: 85.18 toks/s, output: 713.52 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:17<00:49,  1.34s/it, est. speed input: 76.35 toks/s, output: 668.74 toks/s]Processed prompts:  28%|██▊       | 14/50 [00:28<02:31,  4.22s/it, est. speed input: 50.57 toks/s, output: 483.79 toks/s]Processed prompts: 100%|██████████| 50/50 [00:28<00:00,  1.77it/s, est. speed input: 180.52 toks/s, output: 3093.30 toks/s]
+++++++++++++++++++Time: 28.27798318862915 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 3...
+INFO 07-09 15:59:20 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 15:59:39 [config.py:823] This model supports multiple tasks: {'reward', 'classify', 'generate', 'embed', 'score'}. Defaulting to 'generate'.
+INFO 07-09 15:59:39 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 15:59:42 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 15:59:42 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 15:59:42 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fa8730647f0>
+INFO 07-09 15:59:43 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 15:59:43 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 15:59:43 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 15:59:43 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 15:59:43 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 15:59:44 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.65it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.48it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.65it/s]
+
+INFO 07-09 15:59:45 [default_loader.py:272] Loading weights took 1.21 seconds
+INFO 07-09 15:59:46 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.114981 seconds
+INFO 07-09 15:59:56 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 15:59:56 [backends.py:472] Dynamo bytecode transform time: 10.36 s
+INFO 07-09 16:00:05 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.609 s
+INFO 07-09 16:00:08 [monitor.py:34] torch.compile takes 10.36 s in total
+INFO 07-09 16:00:09 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:00:09 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:00:09 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:00:33 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:00:33 [core.py:171] init engine (profile, create kv cache, warmup model) took 47.56 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [300, 400]...
+=============================================================
+current task_id start:  300
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2157.50it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:08<06:34,  8.05s/it, est. speed input: 11.68 toks/s, output: 83.36 toks/s]Processed prompts:   4%|▍         | 2/50 [00:08<03:00,  3.76s/it, est. speed input: 21.34 toks/s, output: 158.71 toks/s]Processed prompts:   6%|▌         | 3/50 [00:09<01:45,  2.24s/it, est. speed input: 30.54 toks/s, output: 233.68 toks/s]Processed prompts:  10%|█         | 5/50 [00:09<00:45,  1.01s/it, est. speed input: 50.24 toks/s, output: 394.78 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:09<00:33,  1.32it/s, est. speed input: 59.36 toks/s, output: 470.77 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:09<00:21,  1.94it/s, est. speed input: 75.68 toks/s, output: 610.64 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:10<00:24,  1.69it/s, est. speed input: 78.51 toks/s, output: 644.40 toks/s]Processed prompts:  20%|██        | 10/50 [00:10<00:19,  2.08it/s, est. speed input: 85.95 toks/s, output: 716.14 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:11<00:22,  1.72it/s, est. speed input: 87.74 toks/s, output: 745.27 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:12<00:20,  1.79it/s, est. speed input: 95.16 toks/s, output: 838.46 toks/s]Processed prompts:  28%|██▊       | 14/50 [00:17<00:51,  1.44s/it, est. speed input: 76.95 toks/s, output: 707.67 toks/s]Processed prompts:  30%|███       | 15/50 [00:28<02:17,  3.92s/it, est. speed input: 49.70 toks/s, output: 498.81 toks/s]Processed prompts: 100%|██████████| 50/50 [00:28<00:00,  1.76it/s, est. speed input: 165.50 toks/s, output: 3022.31 toks/s]
+++++++++++++++++++Time: 28.423821210861206 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 4...
+INFO 07-09 16:01:16 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:01:36 [config.py:823] This model supports multiple tasks: {'generate', 'embed', 'score', 'reward', 'classify'}. Defaulting to 'generate'.
+INFO 07-09 16:01:36 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:01:38 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:01:38 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:01:39 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7ff06467c7c0>
+INFO 07-09 16:01:40 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:01:40 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:01:40 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:01:40 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:01:40 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:01:41 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  4.18it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.78it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.98it/s]
+
+INFO 07-09 16:01:42 [default_loader.py:272] Loading weights took 1.07 seconds
+INFO 07-09 16:01:43 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 1.917660 seconds
+INFO 07-09 16:01:54 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:01:54 [backends.py:472] Dynamo bytecode transform time: 11.23 s
+INFO 07-09 16:02:05 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 10.382 s
+INFO 07-09 16:02:08 [monitor.py:34] torch.compile takes 11.23 s in total
+INFO 07-09 16:02:09 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:02:09 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:02:09 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:02:37 [gpu_model_runner.py:2048] Graph capturing finished in 28 secs, took 2.12 GiB
+INFO 07-09 16:02:37 [core.py:171] init engine (profile, create kv cache, warmup model) took 54.67 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [400, 500]...
+=============================================================
+current task_id start:  400
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2276.89it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:01<01:13,  1.49s/it, est. speed input: 56.86 toks/s, output: 92.99 toks/s]Processed prompts:   4%|▍         | 2/50 [00:03<01:39,  2.07s/it, est. speed input: 42.92 toks/s, output: 125.21 toks/s]Processed prompts:   6%|▌         | 3/50 [00:09<02:50,  3.62s/it, est. speed input: 27.01 toks/s, output: 136.86 toks/s]Processed prompts:   8%|▊         | 4/50 [00:11<02:15,  2.95s/it, est. speed input: 29.96 toks/s, output: 196.30 toks/s]Processed prompts:  10%|█         | 5/50 [00:11<01:31,  2.04s/it, est. speed input: 36.07 toks/s, output: 271.05 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:13<00:59,  1.38s/it, est. speed input: 44.81 toks/s, output: 394.47 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:15<01:02,  1.49s/it, est. speed input: 45.13 toks/s, output: 427.20 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:16<01:05,  1.60s/it, est. speed input: 45.18 toks/s, output: 458.45 toks/s]Processed prompts:  20%|██        | 10/50 [00:17<00:49,  1.24s/it, est. speed input: 49.20 toks/s, output: 527.39 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:28<02:39,  4.09s/it, est. speed input: 32.91 toks/s, output: 392.77 toks/s]Processed prompts: 100%|██████████| 50/50 [00:28<00:00,  1.76it/s, est. speed input: 149.41 toks/s, output: 3200.27 toks/s]
+++++++++++++++++++Time: 28.468409299850464 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 5...
+INFO 07-09 16:03:18 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:03:36 [config.py:823] This model supports multiple tasks: {'score', 'embed', 'generate', 'reward', 'classify'}. Defaulting to 'generate'.
+INFO 07-09 16:03:36 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:03:39 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:03:39 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:03:39 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f0217924790>
+INFO 07-09 16:03:40 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:03:40 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:03:40 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:03:40 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:03:40 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:03:41 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.80it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.62it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.80it/s]
+
+INFO 07-09 16:03:42 [default_loader.py:272] Loading weights took 1.13 seconds
+INFO 07-09 16:03:43 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.004149 seconds
+INFO 07-09 16:03:54 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:03:54 [backends.py:472] Dynamo bytecode transform time: 11.15 s
+INFO 07-09 16:04:05 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 10.070 s
+INFO 07-09 16:04:08 [monitor.py:34] torch.compile takes 11.15 s in total
+INFO 07-09 16:04:09 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:04:09 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:04:09 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:04:36 [gpu_model_runner.py:2048] Graph capturing finished in 26 secs, took 2.12 GiB
+INFO 07-09 16:04:36 [core.py:171] init engine (profile, create kv cache, warmup model) took 52.64 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [500, 600]...
+=============================================================
+current task_id start:  500
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1662.24it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:05<04:44,  5.80s/it, est. speed input: 22.57 toks/s, output: 85.64 toks/s]Processed prompts:   4%|▍         | 2/50 [00:09<03:44,  4.68s/it, est. speed input: 27.02 toks/s, output: 133.13 toks/s]Processed prompts:   6%|▌         | 3/50 [00:17<04:54,  6.27s/it, est. speed input: 22.00 toks/s, output: 147.74 toks/s]Processed prompts:   8%|▊         | 4/50 [00:18<02:57,  3.86s/it, est. speed input: 29.08 toks/s, output: 221.80 toks/s]Processed prompts:  10%|█         | 5/50 [00:18<01:52,  2.51s/it, est. speed input: 36.13 toks/s, output: 295.75 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:22<02:21,  3.21s/it, est. speed input: 34.62 toks/s, output: 308.79 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:23<01:46,  2.48s/it, est. speed input: 38.71 toks/s, output: 368.06 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:25<01:40,  2.39s/it, est. speed input: 40.52 toks/s, output: 408.10 toks/s]Processed prompts:  20%|██        | 10/50 [00:29<01:24,  2.11s/it, est. speed input: 44.43 toks/s, output: 489.77 toks/s]Processed prompts: 100%|██████████| 50/50 [00:29<00:00,  1.69it/s, est. speed input: 221.96 toks/s, output: 3265.43 toks/s]
+++++++++++++++++++Time: 29.541809797286987 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 6...
+INFO 07-09 16:05:18 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:05:38 [config.py:823] This model supports multiple tasks: {'generate', 'score', 'classify', 'embed', 'reward'}. Defaulting to 'generate'.
+INFO 07-09 16:05:38 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:05:40 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:05:40 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:05:40 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f8eb0e20700>
+INFO 07-09 16:05:41 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:05:41 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:05:41 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:05:42 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:05:42 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:05:42 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.20it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.18it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.33it/s]
+
+INFO 07-09 16:05:44 [default_loader.py:272] Loading weights took 1.36 seconds
+INFO 07-09 16:05:44 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.152333 seconds
+INFO 07-09 16:05:55 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:05:55 [backends.py:472] Dynamo bytecode transform time: 10.23 s
+INFO 07-09 16:06:04 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.765 s
+INFO 07-09 16:06:07 [monitor.py:34] torch.compile takes 10.23 s in total
+INFO 07-09 16:06:08 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:06:08 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:06:08 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:06:32 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:06:32 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.04 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [600, 700]...
+=============================================================
+current task_id start:  600
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1329.03it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:05<04:24,  5.40s/it, est. speed input: 20.20 toks/s, output: 87.11 toks/s]Processed prompts:   4%|▍         | 2/50 [00:17<07:24,  9.26s/it, est. speed input: 12.55 toks/s, output: 102.86 toks/s]Processed prompts:   6%|▌         | 3/50 [00:18<04:30,  5.75s/it, est. speed input: 17.27 toks/s, output: 169.19 toks/s]Processed prompts:   8%|▊         | 4/50 [00:25<04:31,  5.90s/it, est. speed input: 17.40 toks/s, output: 198.94 toks/s]Processed prompts:  10%|█         | 5/50 [00:26<03:13,  4.30s/it, est. speed input: 20.55 toks/s, output: 258.42 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:29<02:52,  3.93s/it, est. speed input: 22.00 toks/s, output: 299.33 toks/s]Processed prompts: 100%|██████████| 50/50 [00:29<00:00,  1.68it/s, est. speed input: 183.20 toks/s, output: 3328.30 toks/s]
+++++++++++++++++++Time: 29.78771662712097 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 7...
+INFO 07-09 16:07:13 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:07:29 [config.py:823] This model supports multiple tasks: {'embed', 'reward', 'classify', 'generate', 'score'}. Defaulting to 'generate'.
+INFO 07-09 16:07:29 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:07:31 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:07:31 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:07:32 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1cfb844760>
+INFO 07-09 16:07:33 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:07:33 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:07:33 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:07:34 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:07:34 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:07:34 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  4.01it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.60it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.79it/s]
+
+INFO 07-09 16:07:36 [default_loader.py:272] Loading weights took 1.13 seconds
+INFO 07-09 16:07:36 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.016099 seconds
+INFO 07-09 16:07:47 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:07:47 [backends.py:472] Dynamo bytecode transform time: 10.77 s
+INFO 07-09 16:07:57 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.031 s
+INFO 07-09 16:08:00 [monitor.py:34] torch.compile takes 10.77 s in total
+INFO 07-09 16:08:01 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:08:02 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:08:02 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:08:31 [gpu_model_runner.py:2048] Graph capturing finished in 29 secs, took 2.12 GiB
+INFO 07-09 16:08:31 [core.py:171] init engine (profile, create kv cache, warmup model) took 54.59 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [700, 800]...
+=============================================================
+current task_id start:  700
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2109.47it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:08<06:40,  8.17s/it, est. speed input: 10.28 toks/s, output: 85.18 toks/s]Processed prompts:   4%|▍         | 2/50 [00:08<02:47,  3.48s/it, est. speed input: 20.07 toks/s, output: 168.13 toks/s]Processed prompts:   6%|▌         | 3/50 [00:11<02:43,  3.48s/it, est. speed input: 21.27 toks/s, output: 200.34 toks/s]Processed prompts:   8%|▊         | 4/50 [00:12<01:47,  2.34s/it, est. speed input: 27.03 toks/s, output: 272.09 toks/s]Processed prompts:  10%|█         | 5/50 [00:12<01:12,  1.60s/it, est. speed input: 33.00 toks/s, output: 346.65 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:15<01:23,  1.90s/it, est. speed input: 33.11 toks/s, output: 368.86 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:19<02:01,  2.82s/it, est. speed input: 29.52 toks/s, output: 357.70 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:23<02:02,  2.91s/it, est. speed input: 29.18 toks/s, output: 383.31 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:28<02:36,  3.83s/it, est. speed input: 26.18 toks/s, output: 376.64 toks/s]Processed prompts: 100%|██████████| 50/50 [00:28<00:00,  1.73it/s, est. speed input: 145.39 toks/s, output: 3283.09 toks/s]
+++++++++++++++++++Time: 28.914681911468506 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 8...
+INFO 07-09 16:09:12 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:09:28 [config.py:823] This model supports multiple tasks: {'generate', 'score', 'reward', 'classify', 'embed'}. Defaulting to 'generate'.
+INFO 07-09 16:09:28 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:09:31 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:09:31 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:09:31 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f56c76d87f0>
+INFO 07-09 16:09:32 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:09:32 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:09:32 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:09:33 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:09:33 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:09:33 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  4.04it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.78it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.97it/s]
+
+INFO 07-09 16:09:35 [default_loader.py:272] Loading weights took 1.07 seconds
+INFO 07-09 16:09:35 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 1.917124 seconds
+INFO 07-09 16:09:46 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:09:46 [backends.py:472] Dynamo bytecode transform time: 10.91 s
+INFO 07-09 16:09:56 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.571 s
+INFO 07-09 16:09:59 [monitor.py:34] torch.compile takes 10.91 s in total
+INFO 07-09 16:10:00 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:10:01 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:10:01 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:10:27 [gpu_model_runner.py:2048] Graph capturing finished in 26 secs, took 2.12 GiB
+INFO 07-09 16:10:27 [core.py:171] init engine (profile, create kv cache, warmup model) took 52.06 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [800, 900]...
+=============================================================
+current task_id start:  800
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1503.10it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:05<04:27,  5.46s/it, est. speed input: 21.79 toks/s, output: 85.34 toks/s]Processed prompts:   4%|▍         | 2/50 [00:06<02:16,  2.84s/it, est. speed input: 36.80 toks/s, output: 156.01 toks/s]Processed prompts:   8%|▊         | 4/50 [00:06<00:55,  1.21s/it, est. speed input: 68.63 toks/s, output: 307.51 toks/s]Processed prompts:  10%|█         | 5/50 [00:08<00:54,  1.22s/it, est. speed input: 72.81 toks/s, output: 343.12 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:10<01:01,  1.41s/it, est. speed input: 71.27 toks/s, output: 360.53 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:11<00:55,  1.30s/it, est. speed input: 75.34 toks/s, output: 406.63 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:29<04:35,  6.57s/it, est. speed input: 32.00 toks/s, output: 219.96 toks/s]Processed prompts: 100%|██████████| 50/50 [00:29<00:00,  1.68it/s, est. speed input: 199.74 toks/s, output: 3107.26 toks/s]
+++++++++++++++++++Time: 29.825304746627808 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 9...
+INFO 07-09 16:11:38 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:12:05 [config.py:823] This model supports multiple tasks: {'reward', 'embed', 'generate', 'classify', 'score'}. Defaulting to 'generate'.
+INFO 07-09 16:12:05 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:12:08 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:12:08 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:12:09 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1940a647f0>
+INFO 07-09 16:12:10 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:12:10 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:12:10 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:12:10 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:12:10 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:12:11 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.62it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.43it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.60it/s]
+
+INFO 07-09 16:12:12 [default_loader.py:272] Loading weights took 1.23 seconds
+INFO 07-09 16:12:13 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.203121 seconds
+INFO 07-09 16:12:25 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:12:25 [backends.py:472] Dynamo bytecode transform time: 11.33 s
+INFO 07-09 16:12:33 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.082 s
+INFO 07-09 16:12:36 [monitor.py:34] torch.compile takes 11.33 s in total
+INFO 07-09 16:12:37 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:12:37 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:12:37 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:13:05 [gpu_model_runner.py:2048] Graph capturing finished in 27 secs, took 2.12 GiB
+INFO 07-09 16:13:05 [core.py:171] init engine (profile, create kv cache, warmup model) took 51.70 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [900, 1000]...
+=============================================================
+current task_id start:  900
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1574.49it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:30<24:56, 30.54s/it, est. speed input: 4.91 toks/s, output: 67.06 toks/s]Processed prompts: 100%|██████████| 50/50 [00:30<00:00,  1.64it/s, est. speed input: 245.29 toks/s, output: 3349.04 toks/s]
+++++++++++++++++++Time: 30.609737634658813 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 10...
+INFO 07-09 16:13:50 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:14:08 [config.py:823] This model supports multiple tasks: {'reward', 'classify', 'generate', 'embed', 'score'}. Defaulting to 'generate'.
+INFO 07-09 16:14:08 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:14:11 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:14:11 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:14:11 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f9041670850>
+INFO 07-09 16:14:12 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:14:12 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:14:12 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:14:12 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:14:12 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:14:13 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.40it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.24it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.41it/s]
+
+INFO 07-09 16:14:15 [default_loader.py:272] Loading weights took 1.32 seconds
+INFO 07-09 16:14:15 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.512895 seconds
+INFO 07-09 16:14:26 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:14:26 [backends.py:472] Dynamo bytecode transform time: 10.25 s
+INFO 07-09 16:14:35 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.572 s
+INFO 07-09 16:14:37 [monitor.py:34] torch.compile takes 10.25 s in total
+INFO 07-09 16:14:38 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:14:39 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:14:39 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:15:02 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.12 GiB
+INFO 07-09 16:15:02 [core.py:171] init engine (profile, create kv cache, warmup model) took 47.12 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [1000, 1100]...
+=============================================================
+current task_id start:  1000
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2065.73it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:14<11:50, 14.51s/it, est. speed input: 6.48 toks/s, output: 77.95 toks/s]Processed prompts:   4%|▍         | 2/50 [00:20<07:43,  9.66s/it, est. speed input: 9.05 toks/s, output: 127.85 toks/s]Processed prompts:   6%|▌         | 3/50 [00:29<07:24,  9.45s/it, est. speed input: 9.41 toks/s, output: 156.94 toks/s]Processed prompts: 100%|██████████| 50/50 [00:30<00:00,  1.67it/s, est. speed input: 156.63 toks/s, output: 3364.51 toks/s]
+++++++++++++++++++Time: 30.033087968826294 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 11...
+INFO 07-09 16:15:46 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:16:05 [config.py:823] This model supports multiple tasks: {'reward', 'score', 'classify', 'generate', 'embed'}. Defaulting to 'generate'.
+INFO 07-09 16:16:05 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:16:07 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:16:07 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:16:08 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fb26340c7f0>
+INFO 07-09 16:16:09 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:16:09 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:16:09 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:16:09 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:16:09 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:16:10 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.66it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.73it/s]
+
+INFO 07-09 16:16:11 [default_loader.py:272] Loading weights took 1.18 seconds
+INFO 07-09 16:16:12 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.034599 seconds
+INFO 07-09 16:16:23 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:16:23 [backends.py:472] Dynamo bytecode transform time: 10.96 s
+INFO 07-09 16:16:33 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.299 s
+INFO 07-09 16:16:35 [monitor.py:34] torch.compile takes 10.96 s in total
+INFO 07-09 16:16:37 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:16:37 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:16:37 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:17:03 [gpu_model_runner.py:2048] Graph capturing finished in 26 secs, took 2.12 GiB
+INFO 07-09 16:17:03 [core.py:171] init engine (profile, create kv cache, warmup model) took 51.85 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [1100, 1200]...
+=============================================================
+current task_id start:  1100
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1210.71it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:06<05:04,  6.21s/it, est. speed input: 16.26 toks/s, output: 87.27 toks/s]Processed prompts:   4%|▍         | 2/50 [00:14<06:09,  7.69s/it, est. speed input: 13.52 toks/s, output: 114.22 toks/s]Processed prompts:   6%|▌         | 3/50 [00:15<03:30,  4.49s/it, est. speed input: 19.41 toks/s, output: 186.82 toks/s]Processed prompts:   8%|▊         | 4/50 [00:17<02:38,  3.45s/it, est. speed input: 23.13 toks/s, output: 243.20 toks/s]Processed prompts:  10%|█         | 5/50 [00:18<01:56,  2.58s/it, est. speed input: 27.29 toks/s, output: 305.11 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:21<01:55,  2.62s/it, est. speed input: 28.56 toks/s, output: 340.03 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:26<02:32,  3.55s/it, est. speed input: 26.52 toks/s, output: 341.65 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:29<02:17,  3.26s/it, est. speed input: 27.56 toks/s, output: 380.49 toks/s]Processed prompts: 100%|██████████| 50/50 [00:29<00:00,  1.70it/s, est. speed input: 171.95 toks/s, output: 3308.67 toks/s]
+++++++++++++++++++Time: 29.41286873817444 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+Running part 12...
+INFO 07-09 16:17:49 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:18:06 [config.py:823] This model supports multiple tasks: {'classify', 'reward', 'score', 'embed', 'generate'}. Defaulting to 'generate'.
+INFO 07-09 16:18:06 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:18:08 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:18:08 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:18:09 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f2b90da4880>
+INFO 07-09 16:18:10 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:18:10 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:18:10 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:18:10 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:18:10 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:18:11 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.51it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.19it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.37it/s]
+
+INFO 07-09 16:18:12 [default_loader.py:272] Loading weights took 1.35 seconds
+INFO 07-09 16:18:13 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.160091 seconds
+INFO 07-09 16:18:23 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:18:23 [backends.py:472] Dynamo bytecode transform time: 10.16 s
+INFO 07-09 16:18:32 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.678 s
+INFO 07-09 16:18:35 [monitor.py:34] torch.compile takes 10.16 s in total
+INFO 07-09 16:18:36 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:18:37 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:18:37 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:19:04 [gpu_model_runner.py:2048] Graph capturing finished in 28 secs, took 2.12 GiB
+INFO 07-09 16:19:04 [core.py:171] init engine (profile, create kv cache, warmup model) took 51.55 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [1200, 1300]...
+=============================================================
+current task_id start:  1200
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2335.64it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:03<02:35,  3.16s/it, est. speed input: 21.49 toks/s, output: 91.31 toks/s]Processed prompts:   4%|▍         | 2/50 [00:08<03:30,  4.39s/it, est. speed input: 16.16 toks/s, output: 119.19 toks/s]Processed prompts:   6%|▌         | 3/50 [00:10<02:35,  3.31s/it, est. speed input: 19.53 toks/s, output: 178.87 toks/s]Processed prompts:   8%|▊         | 4/50 [00:12<02:01,  2.64s/it, est. speed input: 22.59 toks/s, output: 236.53 toks/s]Processed prompts:  10%|█         | 5/50 [00:12<01:25,  1.90s/it, est. speed input: 26.88 toks/s, output: 306.04 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:14<01:26,  1.97s/it, est. speed input: 27.67 toks/s, output: 341.83 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:16<01:16,  1.77s/it, est. speed input: 29.57 toks/s, output: 391.38 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:23<02:34,  3.68s/it, est. speed input: 22.79 toks/s, output: 337.43 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:28<02:47,  4.09s/it, est. speed input: 21.19 toks/s, output: 349.86 toks/s]Processed prompts: 100%|██████████| 50/50 [00:28<00:00,  1.73it/s, est. speed input: 117.60 toks/s, output: 3253.85 toks/s]
+++++++++++++++++++Time: 28.93387269973755 ++++++++++++++++++
+0 th agent process
+1 th agent process
+2 th agent process
+3 th agent process
+4 th agent process
+5 th agent process
+6 th agent process
+7 th agent process
+8 th agent process
+9 th agent process
+10 th agent process
+11 th agent process
+12 th agent process
+13 th agent process
+14 th agent process
+15 th agent process
+16 th agent process
+17 th agent process
+18 th agent process
+19 th agent process
+20 th agent process
+21 th agent process
+22 th agent process
+23 th agent process
+24 th agent process
+25 th agent process
+26 th agent process
+27 th agent process
+28 th agent process
+29 th agent process
+30 th agent process
+31 th agent process
+32 th agent process
+33 th agent process
+34 th agent process
+35 th agent process
+36 th agent process
+37 th agent process
+38 th agent process
+39 th agent process
+40 th agent process
+41 th agent process
+42 th agent process
+43 th agent process
+44 th agent process
+45 th agent process
+46 th agent process
+47 th agent process
+48 th agent process
+49 th agent process
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 156, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 84, in main
+    final_answer_for_K = solver.get_final_answer(subset_answers)
+TypeError: GSM8K.get_final_answer() missing 1 required positional argument: 'question_data'
+AGENT 1: All done, evaluating...
+INFO 07-09 16:19:47 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:20:05 [config.py:823] This model supports multiple tasks: {'score', 'embed', 'classify', 'reward', 'generate'}. Defaulting to 'generate'.
+INFO 07-09 16:20:05 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:20:08 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:20:08 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:20:08 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f97eb29ace0>
+INFO 07-09 16:20:09 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:20:09 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:20:09 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:20:10 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:20:10 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:20:10 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.61it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.44it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.61it/s]
+
+INFO 07-09 16:20:12 [default_loader.py:272] Loading weights took 1.23 seconds
+INFO 07-09 16:20:12 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.192502 seconds
+INFO 07-09 16:20:23 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:20:24 [backends.py:472] Dynamo bytecode transform time: 10.75 s
+INFO 07-09 16:20:33 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.989 s
+INFO 07-09 16:20:36 [monitor.py:34] torch.compile takes 10.75 s in total
+INFO 07-09 16:20:37 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:20:37 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:20:37 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:21:01 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:21:01 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.91 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 1: All done, evaluating finished...
+AGENT 5: All done, evaluating...
+INFO 07-09 16:21:15 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:21:36 [config.py:823] This model supports multiple tasks: {'generate', 'embed', 'reward', 'classify', 'score'}. Defaulting to 'generate'.
+INFO 07-09 16:21:36 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:21:38 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:21:38 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:21:39 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1d2bb06b00>
+INFO 07-09 16:21:39 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:21:39 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:21:39 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:21:40 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:21:40 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:21:40 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.43it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.19it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.36it/s]
+
+INFO 07-09 16:21:42 [default_loader.py:272] Loading weights took 1.35 seconds
+INFO 07-09 16:21:42 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.172033 seconds
+INFO 07-09 16:21:53 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:21:53 [backends.py:472] Dynamo bytecode transform time: 10.54 s
+INFO 07-09 16:22:03 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.167 s
+INFO 07-09 16:22:05 [monitor.py:34] torch.compile takes 10.54 s in total
+INFO 07-09 16:22:07 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:22:07 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:22:07 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:22:31 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:22:31 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.57 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 5: All done, evaluating finished...
+AGENT 10: All done, evaluating...
+INFO 07-09 16:22:44 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:23:05 [config.py:823] This model supports multiple tasks: {'score', 'classify', 'generate', 'reward', 'embed'}. Defaulting to 'generate'.
+INFO 07-09 16:23:05 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:23:08 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:23:08 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:23:08 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f2434625f30>
+INFO 07-09 16:23:09 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:23:09 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:23:09 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:23:09 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:23:10 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:23:10 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  4.31it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:00<00:00,  2.80it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:00<00:00,  3.01it/s]
+
+INFO 07-09 16:23:11 [default_loader.py:272] Loading weights took 1.06 seconds
+INFO 07-09 16:23:12 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 1.874934 seconds
+INFO 07-09 16:23:23 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:23:23 [backends.py:472] Dynamo bytecode transform time: 11.22 s
+INFO 07-09 16:23:34 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.799 s
+INFO 07-09 16:23:37 [monitor.py:34] torch.compile takes 11.22 s in total
+INFO 07-09 16:23:38 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:23:38 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:23:38 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:24:04 [gpu_model_runner.py:2048] Graph capturing finished in 26 secs, took 2.12 GiB
+INFO 07-09 16:24:04 [core.py:171] init engine (profile, create kv cache, warmup model) took 52.50 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 10: All done, evaluating finished...
+AGENT 15: All done, evaluating...
+INFO 07-09 16:24:18 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:24:34 [config.py:823] This model supports multiple tasks: {'embed', 'reward', 'score', 'classify', 'generate'}. Defaulting to 'generate'.
+INFO 07-09 16:24:34 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:24:36 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:24:36 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:24:37 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f2a44e02c20>
+INFO 07-09 16:24:38 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:24:38 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:24:38 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:24:38 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:24:38 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:24:39 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.34it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.40it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.54it/s]
+
+INFO 07-09 16:24:40 [default_loader.py:272] Loading weights took 1.26 seconds
+INFO 07-09 16:24:41 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.084073 seconds
+INFO 07-09 16:24:52 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:24:52 [backends.py:472] Dynamo bytecode transform time: 11.04 s
+INFO 07-09 16:25:01 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.736 s
+INFO 07-09 16:25:04 [monitor.py:34] torch.compile takes 11.04 s in total
+INFO 07-09 16:25:05 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:25:05 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:25:05 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:25:29 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:25:29 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.33 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 15: All done, evaluating finished...
+AGENT 20: All done, evaluating...
+INFO 07-09 16:25:41 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:25:58 [config.py:823] This model supports multiple tasks: {'score', 'embed', 'classify', 'reward', 'generate'}. Defaulting to 'generate'.
+INFO 07-09 16:25:58 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:26:01 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:26:01 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:26:02 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f25315fdff0>
+INFO 07-09 16:26:02 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:26:02 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:26:02 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:26:03 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:26:03 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:26:03 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.43it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.27it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.44it/s]
+
+INFO 07-09 16:26:05 [default_loader.py:272] Loading weights took 1.31 seconds
+INFO 07-09 16:26:05 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.393292 seconds
+INFO 07-09 16:26:16 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:26:16 [backends.py:472] Dynamo bytecode transform time: 10.51 s
+INFO 07-09 16:26:26 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.899 s
+INFO 07-09 16:26:28 [monitor.py:34] torch.compile takes 10.51 s in total
+INFO 07-09 16:26:29 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:26:30 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:26:30 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:26:55 [gpu_model_runner.py:2048] Graph capturing finished in 25 secs, took 2.12 GiB
+INFO 07-09 16:26:55 [core.py:171] init engine (profile, create kv cache, warmup model) took 49.26 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 20: All done, evaluating finished...
+AGENT 25: All done, evaluating...
+INFO 07-09 16:27:06 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:27:25 [config.py:823] This model supports multiple tasks: {'score', 'generate', 'reward', 'classify', 'embed'}. Defaulting to 'generate'.
+INFO 07-09 16:27:25 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:27:27 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:27:27 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:27:28 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f6aad24ebf0>
+INFO 07-09 16:27:28 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:27:28 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:27:29 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:27:29 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:27:29 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:27:29 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.50it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.26it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.43it/s]
+
+INFO 07-09 16:27:31 [default_loader.py:272] Loading weights took 1.31 seconds
+INFO 07-09 16:27:31 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.076570 seconds
+INFO 07-09 16:27:42 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:27:42 [backends.py:472] Dynamo bytecode transform time: 10.99 s
+INFO 07-09 16:27:51 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.456 s
+INFO 07-09 16:27:54 [monitor.py:34] torch.compile takes 10.99 s in total
+INFO 07-09 16:27:55 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:27:56 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:27:56 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:28:20 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:28:20 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.39 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 25: All done, evaluating finished...
+AGENT 30: All done, evaluating...
+INFO 07-09 16:28:31 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:28:48 [config.py:823] This model supports multiple tasks: {'score', 'generate', 'classify', 'embed', 'reward'}. Defaulting to 'generate'.
+INFO 07-09 16:28:49 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:28:51 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:28:51 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:28:51 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fadbf0c1f90>
+INFO 07-09 16:28:52 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:28:52 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:28:52 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:28:52 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:28:52 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:28:53 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.59it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.48it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.64it/s]
+
+INFO 07-09 16:28:54 [default_loader.py:272] Loading weights took 1.21 seconds
+INFO 07-09 16:28:55 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.065358 seconds
+INFO 07-09 16:29:05 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:29:06 [backends.py:472] Dynamo bytecode transform time: 10.66 s
+INFO 07-09 16:29:15 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.185 s
+INFO 07-09 16:29:18 [monitor.py:34] torch.compile takes 10.66 s in total
+INFO 07-09 16:29:19 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:29:19 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:29:19 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:29:43 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:29:43 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.66 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 30: All done, evaluating finished...
+AGENT 35: All done, evaluating...
+INFO 07-09 16:29:57 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:30:15 [config.py:823] This model supports multiple tasks: {'classify', 'reward', 'score', 'embed', 'generate'}. Defaulting to 'generate'.
+INFO 07-09 16:30:15 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:30:17 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:30:17 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:30:17 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1c25faee30>
+INFO 07-09 16:30:18 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:30:18 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:30:18 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:30:18 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:30:18 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:30:19 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.40it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.29it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.45it/s]
+
+INFO 07-09 16:30:21 [default_loader.py:272] Loading weights took 1.29 seconds
+INFO 07-09 16:30:21 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.121393 seconds
+INFO 07-09 16:30:31 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:30:31 [backends.py:472] Dynamo bytecode transform time: 9.46 s
+INFO 07-09 16:30:39 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.089 s
+INFO 07-09 16:30:42 [monitor.py:34] torch.compile takes 9.46 s in total
+INFO 07-09 16:30:43 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:30:43 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:30:43 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:31:11 [gpu_model_runner.py:2048] Graph capturing finished in 27 secs, took 2.12 GiB
+INFO 07-09 16:31:11 [core.py:171] init engine (profile, create kv cache, warmup model) took 49.80 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 35: All done, evaluating finished...
+AGENT 40: All done, evaluating...
+INFO 07-09 16:31:24 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:31:40 [config.py:823] This model supports multiple tasks: {'classify', 'reward', 'generate', 'embed', 'score'}. Defaulting to 'generate'.
+INFO 07-09 16:31:40 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:31:42 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:31:42 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:31:43 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f70a6235450>
+INFO 07-09 16:31:43 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:31:43 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:31:43 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:31:44 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:31:44 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:31:45 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.37it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.33it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.48it/s]
+
+INFO 07-09 16:31:46 [default_loader.py:272] Loading weights took 1.28 seconds
+INFO 07-09 16:31:47 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.638087 seconds
+INFO 07-09 16:31:57 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:31:57 [backends.py:472] Dynamo bytecode transform time: 10.14 s
+INFO 07-09 16:32:06 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.941 s
+INFO 07-09 16:32:09 [monitor.py:34] torch.compile takes 10.14 s in total
+INFO 07-09 16:32:10 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:32:11 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:32:11 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:32:35 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:32:35 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.34 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 40: All done, evaluating finished...
+AGENT 45: All done, evaluating...
+INFO 07-09 16:32:47 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:33:03 [config.py:823] This model supports multiple tasks: {'score', 'embed', 'classify', 'generate', 'reward'}. Defaulting to 'generate'.
+INFO 07-09 16:33:03 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:33:06 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:33:06 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:33:06 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f903eca4c40>
+INFO 07-09 16:33:07 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:33:07 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:33:07 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:33:07 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:33:07 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:33:08 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.62it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.39it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.57it/s]
+
+INFO 07-09 16:33:09 [default_loader.py:272] Loading weights took 1.25 seconds
+INFO 07-09 16:33:09 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.051187 seconds
+INFO 07-09 16:33:20 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:33:20 [backends.py:472] Dynamo bytecode transform time: 10.20 s
+INFO 07-09 16:33:29 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.744 s
+INFO 07-09 16:33:32 [monitor.py:34] torch.compile takes 10.20 s in total
+INFO 07-09 16:33:33 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:33:33 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:33:33 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:33:57 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.12 GiB
+INFO 07-09 16:33:57 [core.py:171] init engine (profile, create kv cache, warmup model) took 47.58 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 45: All done, evaluating finished...
+AGENT 50: All done, evaluating...
+INFO 07-09 16:34:08 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-09 16:34:25 [config.py:823] This model supports multiple tasks: {'score', 'classify', 'reward', 'generate', 'embed'}. Defaulting to 'generate'.
+INFO 07-09 16:34:25 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-09 16:34:27 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 16:34:27 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-09 16:34:28 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fc0538e2ce0>
+INFO 07-09 16:34:29 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 16:34:29 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 16:34:29 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-09 16:34:29 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 16:34:29 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-09 16:34:30 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.77it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.60it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.77it/s]
+
+INFO 07-09 16:34:31 [default_loader.py:272] Loading weights took 1.15 seconds
+INFO 07-09 16:34:32 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 1.972481 seconds
+INFO 07-09 16:34:45 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/201e7dfdf6/rank_0_0 for vLLM's torch.compile
+INFO 07-09 16:34:45 [backends.py:472] Dynamo bytecode transform time: 12.45 s
+INFO 07-09 16:34:55 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.451 s
+INFO 07-09 16:34:58 [monitor.py:34] torch.compile takes 12.45 s in total
+INFO 07-09 16:34:59 [gpu_worker.py:227] Available KV cache memory: 62.24 GiB
+INFO 07-09 16:34:59 [kv_cache_utils.py:715] GPU KV cache size: 453,200 tokens
+INFO 07-09 16:34:59 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 11.06x
+INFO 07-09 16:35:28 [gpu_model_runner.py:2048] Graph capturing finished in 29 secs, took 2.12 GiB
+INFO 07-09 16:35:28 [core.py:171] init engine (profile, create kv cache, warmup model) took 56.03 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 69, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 26, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/.local/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 50: All done, evaluating finished...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Finished!!!
