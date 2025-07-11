@@ -61,8 +61,6 @@ export VLLM_MODEL_NAME="Qwen/Qwen3-14B"
 QTYPE="gsm" # mmlu, math, chess, human-eval, gsm
 DTYPES=("clean") # clean, aeda, typo
 
-PART_START=0
-PART_END=14
 SUBSET_NUM=100
 
 TEMPERATURE=1 # 0.3 0.7

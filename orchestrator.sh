@@ -18,43 +18,54 @@ log_message() {
 
 # ----------------------------------------------------
 
-# --- Define the worker script filename as a constant parameter ---
-# Make sure the path is correct relative to where orchestrator.sh is run
-WORKER_SCRIPT="scripts/run_clean_gemma-3-4b-it_1-50.sh"
+# --- Define the worker script filename and fixed parameters ---
+# Worker script path (relative to where orchestrator.sh is run)
+WORKER_SCRIPT="./scripts/clean/gemma3-4b/run_clean_gemma-3-4b-it_1-50.sh"
 
-log_message "Starting pipeline orchestration script for 5 chunks (1500 parts total)."
+# Parameters for the experiment
+MODEL="gemma-3-4b-it"
+QTYPE="gsm"
+DTYPES="clean"
+SUBSET_NUM=100
+TEMPERATURE=1
+TOP_P=1
+VLLM_MODEL_NAME="google/gemma-3-4b-it"
+
+# ------------------------------------------------------------
+log_message "Starting pipeline orchestration script."
 log_message "Orchestration log file created at: $LOG_FILE"
 log_message "Worker script to be used: $WORKER_SCRIPT"
+log_message "Model: $MODEL, Prefix: $VLLM_MODEL_NAME, QType: $QTYPE"
 log_message "============================================================="
 
-# --- Stage 1: [0:299] ---
-log_message "Submitting Stage 1 [0:299]..."
-# Use the WORKER_SCRIPT variable
-JOB_ID_S1=$(sbatch --parsable "$WORKER_SCRIPT" 0 3)
+# --- Stage 1: [0:3] ---
+log_message "Submitting Stage 1 [0:3]..."
+# Pass all 9 arguments: PART_START, PART_END, MODEL, QTYPE, DTYPES, SUBSET_NUM, TEMPERATURE, TOP_P, VLLM_MODEL_NAME
+JOB_ID_S1=$(sbatch --parsable "$WORKER_SCRIPT" 0 3 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
 log_message "Stage 1 submitted. Job ID: $JOB_ID_S1"
 
-# --- Stage 2: [300:599] ---
-log_message "Submitting Stage 2 [300:599], dependent on Job ID: $JOB_ID_S1"
-# Use the WORKER_SCRIPT variable
-JOB_ID_S2=$(sbatch --parsable --dependency=afterok:$JOB_ID_S1 "$WORKER_SCRIPT" 3 6)
+# --- Stage 2: [3:6] ---
+log_message "Submitting Stage 2 [3:6], dependent on Job ID: $JOB_ID_S1"
+# Stage 2 depends on Stage 1
+JOB_ID_S2=$(sbatch --parsable --dependency=afterok:$JOB_ID_S1 "$WORKER_SCRIPT" 3 6 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
 log_message "Stage 2 submitted. Job ID: $JOB_ID_S2"
 
-# --- Stage 3: [600:899] ---
-log_message "Submitting Stage 3 [600:899], dependent on Job ID: $JOB_ID_S2"
-# Use the WORKER_SCRIPT variable
-JOB_ID_S3=$(sbatch --parsable --dependency=afterok:$JOB_ID_S2 "$WORKER_SCRIPT" 6 9)
+# --- Stage 3: [6:9] ---
+log_message "Submitting Stage 3 [6:9], dependent on Job ID: $JOB_ID_S2"
+# Stage 3 depends on Stage 2
+JOB_ID_S3=$(sbatch --parsable --dependency=afterok:$JOB_ID_S2 "$WORKER_SCRIPT" 6 9 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
 log_message "Stage 3 submitted. Job ID: $JOB_ID_S3"
 
-# --- Stage 4: [900:1199] ---
-log_message "Submitting Stage 4 [900:1199], dependent on Job ID: $JOB_ID_S3"
-# Use the WORKER_SCRIPT variable
-JOB_ID_S4=$(sbatch --parsable --dependency=afterok:$JOB_ID_S3 "$WORKER_SCRIPT" 9 12)
+# --- Stage 4: [9:12] ---
+log_message "Submitting Stage 4 [9:12], dependent on Job ID: $JOB_ID_S3"
+# Stage 4 depends on Stage 3
+JOB_ID_S4=$(sbatch --parsable --dependency=afterok:$JOB_ID_S3 "$WORKER_SCRIPT" 9 12 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
 log_message "Stage 4 submitted. Job ID: $JOB_ID_S4"
 
-# --- Stage 5: [1200:1499] ---
-log_message "Submitting Stage 5 [1200:1499], dependent on Job ID: $JOB_ID_S4"
-# Use the WORKER_SCRIPT variable
-JOB_ID_S5=$(sbatch --parsable --dependency=afterok:$JOB_ID_S4 "$WORKER_SCRIPT" 12 14)
+# --- Stage 5: [12:14] ---
+log_message "Submitting Stage 5 [12:14], dependent on Job ID: $JOB_ID_S4"
+# Stage 5 depends on Stage 4
+JOB_ID_S5=$(sbatch --parsable --dependency=afterok:$JOB_ID_S4 "$WORKER_SCRIPT" 12 14 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
 log_message "Stage 5 submitted. Job ID: $JOB_ID_S5"
 
 log_message "============================================================="
