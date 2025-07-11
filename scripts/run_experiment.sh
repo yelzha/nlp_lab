@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=A40short
+#SBATCH --partition=A100short
 #SBATCH --time=07:59:59
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
@@ -61,7 +61,7 @@ SUBSET_NUM=$6
 TEMPERATURE=$7
 TOP_P=$8
 VLLM_MODEL_NAME=$9
-export VLLM_MODEL_NAME=$9 
+export VLLM_MODEL_NAME=$9
 
 # ----------------- MAIN LOOP ------------------
 
