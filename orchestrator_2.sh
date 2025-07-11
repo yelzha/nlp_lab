@@ -28,7 +28,7 @@ QTYPE="gsm"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=1
-TOP_P=0.95
+TOP_P=1
 VLLM_MODEL_NAME="google/gemma-3-4b-it" # Full VLLM model name
 
 # Define the base output folder for logs (relative to orchestrator.sh)

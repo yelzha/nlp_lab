@@ -28,7 +28,7 @@ QTYPE="gsm"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=1
-TOP_P=0.95
+TOP_P=1
 VLLM_MODEL_NAME="mistralai/Mistral-7B-Instruct-v0.3"
 
 # Define the base output folder for logs (relative to orchestrator.sh)
