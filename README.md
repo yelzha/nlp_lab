@@ -87,6 +87,11 @@
 - Environment dependencies and setup steps are documented in `README.md`.
 
 
+```commandline
+huggingface-cli download model
+```
+
+
 ## Setup Steps
 ```
 =========initialization start=========
