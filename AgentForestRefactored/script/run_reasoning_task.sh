@@ -11,7 +11,7 @@ TEMPERATURE=$7 # 0.3 0.7
 TOP_P=$8 # 0.95,0.9
 
 K_VALUES=(1 5 10 15 20 25 30 35 40 45 50)
-BASE_DIR_NAME="experiments/${DTYPE}/${QTYPE}"
+BASE_DIR_NAME="experiments/${DTYPE}/${MODEL}/${QTYPE}"
 
 cd ../src
 for (( PART=PART_START; PART<PART_END; PART++ ))
