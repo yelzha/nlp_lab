@@ -19,6 +19,7 @@ DTYPE = sys.argv[4]  # Adjusted sys.argv index
 QUESTION_TYPE = sys.argv[5]  # Adjusted sys.argv index
 TEMPERATURE = float(sys.argv[6])  # Adjusted sys.argv index
 TOP_P = float(sys.argv[7])  # Adjusted sys.argv index
+MAIN_DIRECTORY = os.getenv('MAIN_DIRECTORY')
 
 
 def main():
@@ -36,7 +37,7 @@ def main():
     slurm_job_id = os.getenv('SLURM_JOB_ID', datetime.now().strftime('%Y%m%d_%H%M%S_local_run'))
 
     # Base directory for all logs related to this job/run
-    base_log_dir = f"../../experiments/{DTYPE}/{MODEL}/{QUESTION_TYPE}"
+    base_log_dir = f"{MAIN_DIRECTORY}/experiments/{DTYPE}/{MODEL}/{QUESTION_TYPE}"
     os.makedirs(base_log_dir, exist_ok=True)
 
     if QUESTION_TYPE == "human-eval":

@@ -11,7 +11,7 @@ TEMPERATURE=$7 # 0.3 0.7
 TOP_P=$8 # 0.95,0.9
 
 K_VALUES=(1 5 10 15 20 25 30 35 40 45 50)
-BASE_DIR_NAME="experiments/${DTYPE}/${MODEL}/${QTYPE}"
+BASE_DIR_NAME="$MAIN_DIRECTORY/experiments/${DTYPE}/${MODEL}/${QTYPE}"
 
 cd ../src
 for (( PART=PART_START; PART<PART_END; PART++ ))
@@ -29,6 +29,6 @@ do
     echo "AGENT ${AGENT}: All done, evaluating finished..."
 done
 
-mkdir -p "../../experiments/${BASE_DIR_NAME}"
-echo "$SLURM_JOB_ID" >> "../../experiments/${BASE_DIR_NAME}/slurm_job_id.txt"
-echo "SLURM Job ID $SLURM_JOB_ID saved to ../../experiments/${BASE_DIR_NAME}/slurm_job_id.txt"
+mkdir -p "$MAIN_DIRECTORY/experiments/${BASE_DIR_NAME}"
+echo "$SLURM_JOB_ID" >> "$MAIN_DIRECTORY/experiments/${BASE_DIR_NAME}/slurm_job_id.txt"
+echo "SLURM Job ID $SLURM_JOB_ID saved to $MAIN_DIRECTORY/experiments/${BASE_DIR_NAME}/slurm_job_id.txt"
