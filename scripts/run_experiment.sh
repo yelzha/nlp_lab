@@ -61,8 +61,7 @@ SUBSET_NUM=$6
 TEMPERATURE=$7
 TOP_P=$8
 VLLM_MODEL_NAME=$9
-
-export VLLM_MODEL_NAME="${VLLM_MODEL_NAME}"
+export VLLM_MODEL_NAME=$9 
 
 # ----------------- MAIN LOOP ------------------
 
