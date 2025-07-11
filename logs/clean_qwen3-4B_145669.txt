@@ -1,0 +1,993 @@
+------------------------------------------------------------
+SLURM JOB INFO
+Job ID: 145669
+Job Name: run_clean_qwen3-4b_1-50.sh
+Partition: A40short
+Nodes: 1
+Tasks per node: 
+CPUs per task: 
+Requested Memory:  MB (approx)
+Working Directory: /home/s06zyelt/nlp_lab
+Start Time: Thu Jul 10 14:47:11 CEST 2025
+------------------------------------------------------------
+Hello from Slurm on node node-02.bender!
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (1.26.4)
+Requirement already satisfied: pandas in /home/s06zyelt/.local/lib/python3.10/site-packages (2.3.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: six>=1.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sacrebleu in /home/s06zyelt/.local/lib/python3.10/site-packages (2.5.1)
+Requirement already satisfied: portalocker in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (3.2.0)
+Requirement already satisfied: regex in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (2024.11.6)
+Requirement already satisfied: tabulate>=0.8.9 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (0.9.0)
+Requirement already satisfied: numpy>=1.17 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (1.26.4)
+Requirement already satisfied: colorama in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from sacrebleu) (0.4.6)
+Requirement already satisfied: lxml in /home/s06zyelt/.local/lib/python3.10/site-packages (from sacrebleu) (5.4.0)
+Defaulting to user installation because normal site-packages is not writeable
+Collecting git+https://github.com/openai/human-eval.git
+  Cloning https://github.com/openai/human-eval.git to /tmp/pip-req-build-tpht41ox
+  Running command git clone --filter=blob:none --quiet https://github.com/openai/human-eval.git /tmp/pip-req-build-tpht41ox
+  Resolved https://github.com/openai/human-eval.git to commit 6d43fb980f9fee3c892a914eda09951f772ad10d
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: tqdm in /home/s06zyelt/.local/lib/python3.10/site-packages (from human-eval==1.0) (4.67.1)
+Requirement already satisfied: fire in /home/s06zyelt/.local/lib/python3.10/site-packages (from human-eval==1.0) (0.7.0)
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (from human-eval==1.0) (1.26.4)
+Requirement already satisfied: termcolor in /home/s06zyelt/.local/lib/python3.10/site-packages (from fire->human-eval==1.0) (3.1.0)
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Requirement already satisfied: torch in /home/s06zyelt/.local/lib/python3.10/site-packages (2.7.0)
+Requirement already satisfied: torchvision in /home/s06zyelt/.local/lib/python3.10/site-packages (0.22.0)
+Requirement already satisfied: torchaudio in /home/s06zyelt/.local/lib/python3.10/site-packages (2.7.0)
+Requirement already satisfied: filelock in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.18.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (4.14.0)
+Requirement already satisfied: sympy>=1.13.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.3)
+Requirement already satisfied: jinja2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (2025.3.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (1.11.1.6)
+Requirement already satisfied: triton==3.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch) (3.3.0)
+Requirement already satisfied: setuptools>=40.8.0 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from triton==3.3.0->torch) (69.2.0)
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (from torchvision) (1.26.4)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torchvision) (11.0.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jinja2->torch) (2.1.5)
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu121
+Requirement already satisfied: vllm in /home/s06zyelt/.local/lib/python3.10/site-packages (0.9.1)
+Requirement already satisfied: regex in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2024.11.6)
+Requirement already satisfied: cachetools in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (5.5.2)
+Requirement already satisfied: psutil in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (7.0.0)
+Requirement already satisfied: sentencepiece in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.2.0)
+Requirement already satisfied: numpy in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.26.4)
+Requirement already satisfied: requests>=2.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.32.4)
+Requirement already satisfied: tqdm in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.67.1)
+Requirement already satisfied: blake3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.0.5)
+Requirement already satisfied: py-cpuinfo in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (9.0.0)
+Requirement already satisfied: transformers>=4.51.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.54.0.dev0)
+Requirement already satisfied: huggingface-hub>=0.32.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from huggingface-hub[hf_xet]>=0.32.0->vllm) (0.33.2)
+Requirement already satisfied: tokenizers>=0.21.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.21.2)
+Requirement already satisfied: protobuf in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (5.29.5)
+Requirement already satisfied: fastapi>=0.115.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.115.14)
+Requirement already satisfied: aiohttp in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.12.13)
+Requirement already satisfied: openai>=1.52.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.93.0)
+Requirement already satisfied: pydantic>=2.10 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.11.7)
+Requirement already satisfied: prometheus_client>=0.18.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: pillow in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (11.0.0)
+Requirement already satisfied: prometheus-fastapi-instrumentator>=7.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (7.1.0)
+Requirement already satisfied: tiktoken>=0.6.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.9.0)
+Requirement already satisfied: lm-format-enforcer<0.11,>=0.10.11 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.10.11)
+Requirement already satisfied: llguidance<0.8.0,>=0.7.11 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.7.30)
+Requirement already satisfied: outlines==0.1.11 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.1.11)
+Requirement already satisfied: lark==1.2.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.2.2)
+Requirement already satisfied: xgrammar==0.1.19 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.1.19)
+Requirement already satisfied: typing_extensions>=4.10 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.14.0)
+Requirement already satisfied: filelock>=3.16.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.18.0)
+Requirement already satisfied: partial-json-parser in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.2.1.1.post6)
+Requirement already satisfied: pyzmq>=25.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (27.0.0)
+Requirement already satisfied: msgspec in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: gguf>=0.13.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.17.1)
+Requirement already satisfied: mistral_common>=1.5.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from mistral_common[opencv]>=1.5.4->vllm) (1.6.3)
+Requirement already satisfied: opencv-python-headless>=4.11.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (4.11.0.86)
+Requirement already satisfied: pyyaml in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (6.0.2)
+Requirement already satisfied: einops in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.8.1)
+Requirement already satisfied: compressed-tensors==0.10.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.10.1)
+Requirement already satisfied: depyf==0.18.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.18.0)
+Requirement already satisfied: cloudpickle in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.1.1)
+Requirement already satisfied: watchfiles in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.1.0)
+Requirement already satisfied: python-json-logger in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (3.3.0)
+Requirement already satisfied: scipy in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.15.3)
+Requirement already satisfied: ninja in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.11.1.4)
+Requirement already satisfied: opentelemetry-sdk>=1.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-api>=1.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-exporter-otlp>=1.26.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-semantic-conventions-ai>=0.4.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.4.10)
+Requirement already satisfied: numba==0.61.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.61.2)
+Requirement already satisfied: ray!=2.44.*,>=2.43.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (2.47.1)
+Requirement already satisfied: torch==2.7.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.7.0)
+Requirement already satisfied: torchaudio==2.7.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (2.7.0)
+Requirement already satisfied: torchvision==0.22.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.22.0)
+Requirement already satisfied: xformers==0.0.30 in /home/s06zyelt/.local/lib/python3.10/site-packages (from vllm) (0.0.30)
+Requirement already satisfied: astor in /home/s06zyelt/.local/lib/python3.10/site-packages (from depyf==0.18.0->vllm) (0.8.1)
+Requirement already satisfied: dill in /home/s06zyelt/.local/lib/python3.10/site-packages (from depyf==0.18.0->vllm) (0.3.8)
+Requirement already satisfied: llvmlite<0.45,>=0.44.0dev0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from numba==0.61.2->vllm) (0.44.0)
+Requirement already satisfied: interegular in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (0.3.3)
+Requirement already satisfied: jinja2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (3.1.6)
+Requirement already satisfied: nest_asyncio in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (1.6.0)
+Requirement already satisfied: diskcache in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (5.6.3)
+Requirement already satisfied: referencing in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (0.36.2)
+Requirement already satisfied: jsonschema in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (4.24.0)
+Requirement already satisfied: pycountry in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (24.6.1)
+Requirement already satisfied: airportsdata in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (20250622)
+Requirement already satisfied: outlines_core==0.1.26 in /home/s06zyelt/.local/lib/python3.10/site-packages (from outlines==0.1.11->vllm) (0.1.26)
+Requirement already satisfied: sympy>=1.13.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (1.14.0)
+Requirement already satisfied: networkx in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (3.3)
+Requirement already satisfied: fsspec in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (2025.3.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (1.11.1.6)
+Requirement already satisfied: triton==3.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from torch==2.7.0->vllm) (3.3.0)
+Requirement already satisfied: setuptools>=40.8.0 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from triton==3.3.0->torch==2.7.0->vllm) (69.2.0)
+Requirement already satisfied: starlette<0.47.0,>=0.40.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (0.46.2)
+Requirement already satisfied: fastapi-cli>=0.0.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.0.7)
+Requirement already satisfied: httpx>=0.23.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.28.1)
+Requirement already satisfied: python-multipart>=0.0.18 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.0.20)
+Requirement already satisfied: email-validator>=2.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (2.2.0)
+Requirement already satisfied: uvicorn>=0.12.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.35.0)
+Requirement already satisfied: packaging>=20.9 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from huggingface-hub>=0.32.0->huggingface-hub[hf_xet]>=0.32.0->vllm) (24.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from huggingface-hub>=0.32.0->huggingface-hub[hf_xet]>=0.32.0->vllm) (1.1.5)
+WARNING: huggingface-hub 0.33.2 does not provide the extra 'hf-xet'
+Requirement already satisfied: anyio<5,>=3.5.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from openai>=1.52.0->vllm) (4.9.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from openai>=1.52.0->vllm) (1.9.0)
+Requirement already satisfied: jiter<1,>=0.4.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from openai>=1.52.0->vllm) (0.10.0)
+Requirement already satisfied: sniffio in /home/s06zyelt/.local/lib/python3.10/site-packages (from openai>=1.52.0->vllm) (1.3.1)
+Requirement already satisfied: importlib-metadata<8.8.0,>=6.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-api>=1.26.0->vllm) (8.7.0)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-grpc==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-http==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: googleapis-common-protos~=1.52 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.70.0)
+Requirement already satisfied: grpcio<2.0.0,>=1.63.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.73.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-common==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-proto==1.34.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.34.1->opentelemetry-exporter-otlp>=1.26.0->vllm) (1.34.1)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.55b1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from opentelemetry-sdk>=1.26.0->vllm) (0.55b1)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.7.0)
+Requirement already satisfied: pydantic-core==2.33.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.4.1)
+Requirement already satisfied: click>=7.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (8.2.1)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (1.1.1)
+Requirement already satisfied: cupy-cuda12x in /home/s06zyelt/.local/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (13.4.1)
+Requirement already satisfied: charset_normalizer<4,>=2 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (2.2.1)
+Requirement already satisfied: certifi>=2017.4.17 in /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (2024.8.30)
+Requirement already satisfied: safetensors>=0.4.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from transformers>=4.51.1->vllm) (0.5.3)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (2.6.1)
+Requirement already satisfied: aiosignal>=1.1.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (1.3.2)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (4.0.3)
+Requirement already satisfied: attrs>=17.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (25.3.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (6.5.0)
+Requirement already satisfied: propcache>=0.2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from aiohttp->vllm) (1.20.1)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /home/s06zyelt/.local/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai>=1.52.0->vllm) (1.3.0)
+Requirement already satisfied: dnspython>=2.0.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm) (2.7.0)
+Requirement already satisfied: typer>=0.12.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: rich-toolkit>=0.11.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.14.8)
+Requirement already satisfied: httpcore==1.* in /home/s06zyelt/.local/lib/python3.10/site-packages (from httpx>=0.23.0->fastapi[standard]>=0.115.0->vllm) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /home/s06zyelt/.local/lib/python3.10/site-packages (from httpcore==1.*->httpx>=0.23.0->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: zipp>=3.20 in /home/s06zyelt/.local/lib/python3.10/site-packages (from importlib-metadata<8.8.0,>=6.0->opentelemetry-api>=1.26.0->vllm) (3.23.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jinja2->outlines==0.1.11->vllm) (2.1.5)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm) (2025.4.1)
+Requirement already satisfied: rpds-py>=0.7.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm) (0.26.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from sympy>=1.13.3->torch==2.7.0->vllm) (1.3.0)
+Requirement already satisfied: httptools>=0.6.3 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: python-dotenv>=0.13 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.1.1)
+Requirement already satisfied: uvloop>=0.15.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.21.0)
+Requirement already satisfied: websockets>=10.4 in /home/s06zyelt/.local/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (12.0)
+Requirement already satisfied: fastrlock>=0.5 in /home/s06zyelt/.local/lib/python3.10/site-packages (from cupy-cuda12x->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (0.8.3)
+Requirement already satisfied: rich>=13.7.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (14.0.0)
+Requirement already satisfied: shellingham>=1.3.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from typer>=0.12.3->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.5.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/s06zyelt/.local/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /home/s06zyelt/.local/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.11.1->fastapi-cli>=0.0.5->fastapi-cli[standard]>=0.0.5; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.2)
+CUDA available: True
+PyTorch CUDA version: 12.6
+INFO 07-10 14:48:29 [__init__.py:244] Automatically detected platform cuda.
+vLLM version: 0.9.1
+Running AgentForest experiments...
+=============================================================
+Running with agents on gsm using qwen3:4b for clean
+=============================================================
+Running part 13...
+INFO 07-10 14:48:56 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 14:49:35 [config.py:823] This model supports multiple tasks: {'classify', 'reward', 'score', 'embed', 'generate'}. Defaulting to 'generate'.
+INFO 07-10 14:49:50 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 14:49:56 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 14:49:56 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 14:49:56 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f85ca021210>
+INFO 07-10 14:49:57 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 14:49:57 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 14:49:57 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 14:49:57 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 14:49:57 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 14:49:58 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:00<00:00,  3.07it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:09<00:05,  5.46s/it]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:17<00:00,  6.83s/it]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:17<00:00,  5.95s/it]
+
+INFO 07-10 14:50:17 [default_loader.py:272] Loading weights took 18.11 seconds
+INFO 07-10 14:50:17 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 19.329125 seconds
+INFO 07-10 14:50:44 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 14:50:44 [backends.py:472] Dynamo bytecode transform time: 26.86 s
+INFO 07-10 14:50:58 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 12.821 s
+INFO 07-10 14:51:00 [monitor.py:34] torch.compile takes 26.86 s in total
+INFO 07-10 14:51:02 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 14:51:02 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 14:51:02 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 14:51:26 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 14:51:26 [core.py:171] init engine (profile, create kv cache, warmup model) took 68.44 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [1300, 1400]...
+=============================================================
+current task_id start:  1300
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 763.17it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:15<12:26, 15.24s/it, est. speed input: 4.99 toks/s, output: 40.15 toks/s]Processed prompts:   4%|▍         | 2/50 [00:19<07:09,  8.96s/it, est. speed input: 7.68 toks/s, output: 69.71 toks/s]Processed prompts:   6%|▌         | 3/50 [00:20<04:13,  5.40s/it, est. speed input: 10.87 toks/s, output: 104.31 toks/s]Processed prompts:   8%|▊         | 4/50 [00:21<02:34,  3.35s/it, est. speed input: 14.36 toks/s, output: 141.72 toks/s]Processed prompts:  10%|█         | 5/50 [00:22<01:59,  2.67s/it, est. speed input: 16.80 toks/s, output: 170.74 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:26<02:09,  2.94s/it, est. speed input: 17.48 toks/s, output: 185.42 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:26<01:34,  2.19s/it, est. speed input: 19.89 toks/s, output: 218.00 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:27<01:16,  1.83s/it, est. speed input: 21.87 toks/s, output: 246.74 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:29<01:13,  1.78s/it, est. speed input: 23.20 toks/s, output: 269.36 toks/s]Processed prompts:  20%|██        | 10/50 [00:34<01:46,  2.66s/it, est. speed input: 22.28 toks/s, output: 268.75 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:35<01:27,  2.24s/it, est. speed input: 23.61 toks/s, output: 294.76 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:36<01:11,  1.88s/it, est. speed input: 25.02 toks/s, output: 321.86 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:44<02:20,  3.81s/it, est. speed input: 22.11 toks/s, output: 297.02 toks/s]Processed prompts:  30%|███       | 15/50 [00:46<01:29,  2.57s/it, est. speed input: 24.27 toks/s, output: 349.62 toks/s]Processed prompts:  32%|███▏      | 16/50 [01:03<03:22,  5.96s/it, est. speed input: 19.25 toks/s, output: 292.40 toks/s]Processed prompts: 100%|██████████| 50/50 [01:03<00:00,  1.26s/it, est. speed input: 60.11 toks/s, output: 1393.75 toks/s]
+++++++++++++++++++Time: 63.27969479560852 ++++++++++++++++++
+1 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+5 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+10 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+15 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+20 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+25 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+30 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+35 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+40 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+45 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+50 Agents final_res: 300.0, ground_truth: 300.0, perf: 1.0
+current task_id end:  1300
+************************
+Total prompt tokens: 3800, Total completion tokens: 88102
+current task_id start:  1301
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2315.45it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:09<08:03,  9.87s/it, est. speed input: 9.32 toks/s, output: 42.57 toks/s]Processed prompts:   4%|▍         | 2/50 [00:11<03:55,  4.90s/it, est. speed input: 16.30 toks/s, output: 79.13 toks/s]Processed prompts:   6%|▌         | 3/50 [00:11<02:17,  2.93s/it, est. speed input: 23.25 toks/s, output: 116.94 toks/s]Processed prompts:   8%|▊         | 4/50 [00:12<01:31,  1.98s/it, est. speed input: 29.67 toks/s, output: 153.42 toks/s]Processed prompts:  10%|█         | 5/50 [00:13<01:07,  1.50s/it, est. speed input: 35.26 toks/s, output: 187.19 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:13<00:54,  1.25s/it, est. speed input: 39.99 toks/s, output: 218.01 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:15<00:57,  1.34s/it, est. speed input: 41.96 toks/s, output: 236.69 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:16<00:57,  1.36s/it, est. speed input: 43.93 toks/s, output: 257.12 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:18<00:56,  1.38s/it, est. speed input: 45.58 toks/s, output: 277.09 toks/s]Processed prompts:  20%|██        | 10/50 [00:19<00:54,  1.37s/it, est. speed input: 47.17 toks/s, output: 297.78 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:20<00:43,  1.10s/it, est. speed input: 50.57 toks/s, output: 329.77 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:22<00:56,  1.49s/it, est. speed input: 49.32 toks/s, output: 333.88 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:22<00:40,  1.08s/it, est. speed input: 53.08 toks/s, output: 370.74 toks/s]Processed prompts:  28%|██▊       | 14/50 [00:40<03:38,  6.07s/it, est. speed input: 32.10 toks/s, output: 244.02 toks/s]Processed prompts:  30%|███       | 15/50 [01:02<06:20, 10.86s/it, est. speed input: 22.23 toks/s, output: 190.70 toks/s]Processed prompts: 100%|██████████| 50/50 [01:02<00:00,  1.24s/it, est. speed input: 74.04 toks/s, output: 1344.24 toks/s]
+++++++++++++++++++Time: 62.154168128967285 ++++++++++++++++++
+1 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+5 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+10 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+15 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+20 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+25 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+30 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+35 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+40 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+45 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+50 Agents final_res: 147.0, ground_truth: 147.0, perf: 1.0
+current task_id end:  1301
+************************
+Total prompt tokens: 8400, Total completion tokens: 171622
+current task_id start:  1302
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1721.09it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:04<03:40,  4.50s/it, est. speed input: 17.33 toks/s, output: 44.87 toks/s]Processed prompts:   4%|▍         | 2/50 [00:10<04:05,  5.11s/it, est. speed input: 15.55 toks/s, output: 62.79 toks/s]Processed prompts:   6%|▌         | 3/50 [00:13<03:17,  4.20s/it, est. speed input: 17.80 toks/s, output: 89.38 toks/s]Processed prompts:   8%|▊         | 4/50 [00:13<02:01,  2.65s/it, est. speed input: 23.25 toks/s, output: 128.93 toks/s]Processed prompts:  10%|█         | 5/50 [00:14<01:25,  1.91s/it, est. speed input: 27.82 toks/s, output: 164.56 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:27<04:19,  5.89s/it, est. speed input: 16.93 toks/s, output: 120.88 toks/s]Processed prompts:  14%|█▍        | 7/50 [01:06<11:51, 16.55s/it, est. speed input: 8.26 toks/s, output: 81.50 toks/s]  Processed prompts: 100%|██████████| 50/50 [01:06<00:00,  1.32s/it, est. speed input: 58.92 toks/s, output: 1411.82 toks/s]
+++++++++++++++++++Time: 66.22389221191406 ++++++++++++++++++
+1 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+5 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+10 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+15 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+20 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+25 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+30 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+35 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+40 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+45 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+50 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+current task_id end:  1302
+************************
+Total prompt tokens: 12300, Total completion tokens: 265075
+current task_id start:  1303
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2412.27it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:07<06:08,  7.51s/it, est. speed input: 9.32 toks/s, output: 43.80 toks/s]Processed prompts:   4%|▍         | 2/50 [00:13<05:30,  6.89s/it, est. speed input: 10.02 toks/s, output: 64.85 toks/s]Processed prompts:   6%|▌         | 3/50 [00:18<04:29,  5.73s/it, est. speed input: 11.46 toks/s, output: 89.33 toks/s]Processed prompts:   8%|▊         | 4/50 [00:23<04:09,  5.43s/it, est. speed input: 12.02 toks/s, output: 108.75 toks/s]Processed prompts:  10%|█         | 5/50 [00:27<03:36,  4.82s/it, est. speed input: 12.95 toks/s, output: 131.27 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:27<02:22,  3.24s/it, est. speed input: 15.44 toks/s, output: 168.01 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:28<01:51,  2.60s/it, est. speed input: 17.20 toks/s, output: 197.63 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:29<01:22,  1.96s/it, est. speed input: 19.27 toks/s, output: 230.76 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:35<02:20,  3.41s/it, est. speed input: 17.65 toks/s, output: 223.85 toks/s]Processed prompts:  20%|██        | 10/50 [00:45<03:31,  5.28s/it, est. speed input: 15.50 toks/s, output: 211.33 toks/s]Processed prompts:  22%|██▏       | 11/50 [01:04<06:10,  9.49s/it, est. speed input: 12.00 toks/s, output: 180.55 toks/s]Processed prompts: 100%|██████████| 50/50 [01:04<00:00,  1.28s/it, est. speed input: 54.48 toks/s, output: 1423.78 toks/s]
+++++++++++++++++++Time: 64.2603394985199 ++++++++++++++++++
+1 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+5 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+10 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+15 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+20 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+25 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+30 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+35 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+40 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+45 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+50 Agents final_res: 90.0, ground_truth: 90.0, perf: 1.0
+current task_id end:  1303
+************************
+Total prompt tokens: 15800, Total completion tokens: 356536
+current task_id start:  1304
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1720.95it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:09<07:37,  9.34s/it, est. speed input: 13.71 toks/s, output: 41.99 toks/s]Processed prompts:   4%|▍         | 2/50 [00:11<03:53,  4.86s/it, est. speed input: 23.13 toks/s, output: 76.81 toks/s]Processed prompts:   6%|▌         | 3/50 [00:12<02:25,  3.10s/it, est. speed input: 31.81 toks/s, output: 111.49 toks/s]Processed prompts:   8%|▊         | 4/50 [00:14<02:07,  2.78s/it, est. speed input: 35.66 toks/s, output: 134.15 toks/s]Processed prompts:  10%|█         | 5/50 [00:15<01:44,  2.32s/it, est. speed input: 40.36 toks/s, output: 161.45 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:26<03:50,  5.24s/it, est. speed input: 28.69 toks/s, output: 132.79 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:37<05:03,  7.06s/it, est. speed input: 23.85 toks/s, output: 129.62 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:40<03:59,  5.69s/it, est. speed input: 25.39 toks/s, output: 155.20 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:43<03:17,  4.82s/it, est. speed input: 26.65 toks/s, output: 178.88 toks/s]Processed prompts:  20%|██        | 10/50 [00:43<02:18,  3.45s/it, est. speed input: 29.35 toks/s, output: 211.27 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:44<01:41,  2.59s/it, est. speed input: 31.81 toks/s, output: 242.12 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:45<01:22,  2.18s/it, est. speed input: 33.76 toks/s, output: 269.25 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:49<01:42,  2.76s/it, est. speed input: 33.55 toks/s, output: 280.33 toks/s]Processed prompts:  28%|██▊       | 14/50 [00:51<01:34,  2.62s/it, est. speed input: 34.54 toks/s, output: 301.01 toks/s]Processed prompts:  30%|███       | 15/50 [01:04<03:16,  5.61s/it, est. speed input: 29.80 toks/s, output: 274.17 toks/s]Processed prompts: 100%|██████████| 50/50 [01:04<00:00,  1.29s/it, est. speed input: 99.25 toks/s, output: 1385.45 toks/s]
+++++++++++++++++++Time: 64.51661539077759 ++++++++++++++++++
+1 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+5 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+10 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+15 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+20 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+25 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+30 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+35 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+40 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+45 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+50 Agents final_res: 40.0, ground_truth: 40.0, perf: 1.0
+current task_id end:  1304
+************************
+Total prompt tokens: 22200, Total completion tokens: 445879
+current task_id start:  1305
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2414.96it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:06<05:11,  6.37s/it, est. speed input: 10.05 toks/s, output: 44.30 toks/s]Processed prompts:   4%|▍         | 2/50 [00:07<02:30,  3.13s/it, est. speed input: 17.69 toks/s, output: 82.94 toks/s]Processed prompts:   6%|▌         | 3/50 [00:07<01:29,  1.90s/it, est. speed input: 25.01 toks/s, output: 121.93 toks/s]Processed prompts:   8%|▊         | 4/50 [00:10<01:38,  2.14s/it, est. speed input: 25.18 toks/s, output: 134.94 toks/s]Processed prompts:  10%|█         | 5/50 [00:12<01:34,  2.09s/it, est. speed input: 26.26 toks/s, output: 154.74 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:13<01:15,  1.72s/it, est. speed input: 29.16 toks/s, output: 185.07 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:15<01:20,  1.87s/it, est. speed input: 29.16 toks/s, output: 199.73 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:17<01:17,  1.85s/it, est. speed input: 29.85 toks/s, output: 219.35 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:17<01:02,  1.52s/it, est. speed input: 32.08 toks/s, output: 249.75 toks/s]Processed prompts:  20%|██        | 10/50 [00:31<03:31,  5.28s/it, est. speed input: 20.22 toks/s, output: 178.92 toks/s]Processed prompts:  22%|██▏       | 11/50 [01:03<08:45, 13.47s/it, est. speed input: 11.05 toks/s, output: 121.06 toks/s]Processed prompts: 100%|██████████| 50/50 [01:03<00:00,  1.27s/it, est. speed input: 50.20 toks/s, output: 1373.94 toks/s]
+++++++++++++++++++Time: 63.76752781867981 ++++++++++++++++++
+1 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+5 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+10 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+15 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+20 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+25 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+30 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+35 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+40 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+45 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+50 Agents final_res: 21.0, ground_truth: 21.0, perf: 1.0
+current task_id end:  1305
+************************
+Total prompt tokens: 25400, Total completion tokens: 533462
+current task_id start:  1306
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2080.59it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:17<13:55, 17.06s/it, est. speed input: 5.57 toks/s, output: 39.81 toks/s]Processed prompts:   4%|▍         | 2/50 [00:20<07:00,  8.77s/it, est. speed input: 9.49 toks/s, output: 72.81 toks/s]Processed prompts:   6%|▌         | 3/50 [00:23<05:03,  6.45s/it, est. speed input: 12.02 toks/s, output: 99.42 toks/s]Processed prompts:   8%|▊         | 4/50 [00:26<03:53,  5.07s/it, est. speed input: 14.25 toks/s, output: 125.63 toks/s]Processed prompts:  10%|█         | 5/50 [00:27<02:31,  3.37s/it, est. speed input: 17.58 toks/s, output: 161.11 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:28<01:55,  2.62s/it, est. speed input: 20.23 toks/s, output: 191.38 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:43<04:45,  6.63s/it, est. speed input: 15.44 toks/s, output: 159.22 toks/s]Processed prompts:  16%|█▌        | 8/50 [01:06<08:24, 12.01s/it, est. speed input: 11.41 toks/s, output: 133.72 toks/s]Processed prompts: 100%|██████████| 50/50 [01:06<00:00,  1.33s/it, est. speed input: 71.28 toks/s, output: 1424.37 toks/s]
+++++++++++++++++++Time: 66.66495156288147 ++++++++++++++++++
+1 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+5 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+10 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+15 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+20 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+25 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+30 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+35 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+40 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+45 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+50 Agents final_res: 2.0, ground_truth: 2.0, perf: 1.0
+current task_id end:  1306
+************************
+Total prompt tokens: 30150, Total completion tokens: 628382
+current task_id start:  1307
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2268.66it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:14<11:48, 14.46s/it, est. speed input: 5.95 toks/s, output: 40.95 toks/s]Processed prompts:   4%|▍         | 2/50 [00:23<08:53, 11.12s/it, est. speed input: 7.40 toks/s, output: 63.69 toks/s]Processed prompts:   6%|▌         | 3/50 [00:23<04:51,  6.21s/it, est. speed input: 10.93 toks/s, output: 100.75 toks/s]Processed prompts:   8%|▊         | 4/50 [00:25<03:23,  4.42s/it, est. speed input: 13.61 toks/s, output: 131.79 toks/s]Processed prompts:  10%|█         | 5/50 [00:25<02:14,  3.00s/it, est. speed input: 16.70 toks/s, output: 166.90 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:30<02:38,  3.60s/it, est. speed input: 16.91 toks/s, output: 177.38 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:34<02:46,  3.86s/it, est. speed input: 17.24 toks/s, output: 190.61 toks/s]Processed prompts:  16%|█▌        | 8/50 [01:06<08:50, 12.64s/it, est. speed input: 10.37 toks/s, output: 131.19 toks/s]Processed prompts: 100%|██████████| 50/50 [01:06<00:00,  1.33s/it, est. speed input: 64.81 toks/s, output: 1427.58 toks/s]
+++++++++++++++++++Time: 66.37342047691345 ++++++++++++++++++
+1 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+5 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+10 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+15 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+20 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+25 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+30 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+35 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+40 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+45 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+50 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+current task_id end:  1307
+************************
+Total prompt tokens: 34450, Total completion tokens: 723102
+current task_id start:  1308
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1812.78it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:06<05:42,  6.99s/it, est. speed input: 13.17 toks/s, output: 43.50 toks/s]Processed prompts:   4%|▍         | 2/50 [00:10<03:58,  4.96s/it, est. speed input: 17.47 toks/s, output: 71.01 toks/s]Processed prompts:   6%|▌         | 3/50 [00:13<03:08,  4.02s/it, est. speed input: 20.55 toks/s, output: 96.86 toks/s]Processed prompts:   8%|▊         | 4/50 [00:15<02:32,  3.32s/it, est. speed input: 23.47 toks/s, output: 123.43 toks/s]Processed prompts:  10%|█         | 5/50 [00:17<02:01,  2.69s/it, est. speed input: 26.66 toks/s, output: 152.02 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:17<01:23,  1.90s/it, est. speed input: 31.34 toks/s, output: 188.69 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:22<02:09,  3.01s/it, est. speed input: 28.09 toks/s, output: 183.12 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:23<01:30,  2.15s/it, est. speed input: 31.68 toks/s, output: 218.82 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:23<01:08,  1.68s/it, est. speed input: 34.67 toks/s, output: 250.82 toks/s]Processed prompts:  20%|██        | 10/50 [00:29<01:59,  2.98s/it, est. speed input: 30.92 toks/s, output: 238.22 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:31<01:45,  2.70s/it, est. speed input: 31.79 toks/s, output: 259.18 toks/s]Processed prompts:  24%|██▍       | 12/50 [01:03<07:22, 11.65s/it, est. speed input: 17.27 toks/s, output: 161.08 toks/s]Processed prompts: 100%|██████████| 50/50 [01:04<00:00,  1.28s/it, est. speed input: 71.87 toks/s, output: 1376.78 toks/s]
+++++++++++++++++++Time: 64.0364305973053 ++++++++++++++++++
+1 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+5 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+10 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+15 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+20 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+25 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+30 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+35 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+40 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+45 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+50 Agents final_res: 1200.0, ground_truth: 1200.0, perf: 1.0
+current task_id end:  1308
+************************
+Total prompt tokens: 39050, Total completion tokens: 811226
+current task_id start:  1309
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2391.44it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:01<01:25,  1.74s/it, est. speed input: 45.89 toks/s, output: 45.31 toks/s]Processed prompts:   4%|▍         | 2/50 [00:03<01:22,  1.72s/it, est. speed input: 46.37 toks/s, output: 68.39 toks/s]Processed prompts:   6%|▌         | 3/50 [00:04<01:14,  1.59s/it, est. speed input: 49.11 toks/s, output: 93.31 toks/s]Processed prompts:   8%|▊         | 4/50 [00:06<01:06,  1.45s/it, est. speed input: 52.26 toks/s, output: 119.05 toks/s]Processed prompts:  10%|█         | 5/50 [00:06<00:47,  1.07s/it, est. speed input: 61.49 toks/s, output: 156.50 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:07<00:46,  1.06s/it, est. speed input: 63.55 toks/s, output: 178.60 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:08<00:43,  1.01s/it, est. speed input: 66.15 toks/s, output: 202.71 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:11<01:06,  1.58s/it, est. speed input: 56.87 toks/s, output: 194.88 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:11<00:46,  1.14s/it, est. speed input: 62.99 toks/s, output: 234.19 toks/s]Processed prompts:  20%|██        | 10/50 [00:12<00:39,  1.01it/s, est. speed input: 66.18 toks/s, output: 263.63 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:13<00:40,  1.03s/it, est. speed input: 66.66 toks/s, output: 283.30 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:14<00:41,  1.10s/it, est. speed input: 66.36 toks/s, output: 300.02 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:19<01:21,  2.20s/it, est. speed input: 54.16 toks/s, output: 266.27 toks/s]Processed prompts:  28%|██▊       | 14/50 [00:22<01:25,  2.39s/it, est. speed input: 50.86 toks/s, output: 271.85 toks/s]Processed prompts:  30%|███       | 15/50 [00:24<01:19,  2.28s/it, est. speed input: 49.89 toks/s, output: 288.12 toks/s]Processed prompts:  32%|███▏      | 16/50 [01:01<07:15, 12.80s/it, est. speed input: 20.89 toks/s, output: 146.52 toks/s]Processed prompts: 100%|██████████| 50/50 [01:01<00:00,  1.23s/it, est. speed input: 65.23 toks/s, output: 1281.93 toks/s]
+++++++++++++++++++Time: 61.34363031387329 ++++++++++++++++++
+1 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+5 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+10 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+15 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+20 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+25 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+30 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+35 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+40 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+45 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+50 Agents final_res: 5.0, ground_truth: 5.0, perf: 1.0
+current task_id end:  1309
+************************
+Total prompt tokens: 43050, Total completion tokens: 889836
+current task_id start:  1310
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1827.25it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:27<22:20, 27.37s/it, est. speed input: 4.53 toks/s, output: 36.32 toks/s]Processed prompts:   4%|▍         | 2/50 [00:35<12:44, 15.92s/it, est. speed input: 7.03 toks/s, output: 62.85 toks/s]Processed prompts:   6%|▌         | 3/50 [00:45<10:34, 13.50s/it, est. speed input: 8.11 toks/s, output: 81.10 toks/s]Processed prompts:   8%|▊         | 4/50 [00:47<06:39,  8.67s/it, est. speed input: 10.51 toks/s, output: 111.51 toks/s]Processed prompts:  10%|█         | 5/50 [00:49<04:50,  6.46s/it, est. speed input: 12.47 toks/s, output: 138.09 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:51<03:33,  4.85s/it, est. speed input: 14.47 toks/s, output: 165.47 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:52<02:38,  3.69s/it, est. speed input: 16.46 toks/s, output: 193.22 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:53<01:52,  2.67s/it, est. speed input: 18.64 toks/s, output: 223.28 toks/s]Processed prompts:  20%|██        | 10/50 [00:56<01:28,  2.20s/it, est. speed input: 21.91 toks/s, output: 271.35 toks/s]Processed prompts:  22%|██▏       | 11/50 [01:07<02:49,  4.35s/it, est. speed input: 20.28 toks/s, output: 258.70 toks/s]Processed prompts: 100%|██████████| 50/50 [01:07<00:00,  1.35s/it, est. speed input: 92.09 toks/s, output: 1444.87 toks/s]
+++++++++++++++++++Time: 67.35273480415344 ++++++++++++++++++
+1 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+5 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+10 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+15 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+20 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+25 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+30 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+35 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+40 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+45 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+50 Agents final_res: 540.0, ground_truth: 540.0, perf: 1.0
+current task_id end:  1310
+************************
+Total prompt tokens: 49250, Total completion tokens: 987111
+current task_id start:  1311
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2019.83it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:08<06:52,  8.42s/it, est. speed input: 11.17 toks/s, output: 43.36 toks/s]Processed prompts:   4%|▍         | 2/50 [00:08<02:55,  3.66s/it, est. speed input: 21.50 toks/s, output: 84.85 toks/s]Processed prompts:   6%|▌         | 3/50 [00:12<03:01,  3.87s/it, est. speed input: 21.93 toks/s, output: 99.06 toks/s]Processed prompts:   8%|▊         | 4/50 [00:14<02:22,  3.09s/it, est. speed input: 25.47 toks/s, output: 127.02 toks/s]Processed prompts:  10%|█         | 5/50 [00:15<01:41,  2.26s/it, est. speed input: 30.25 toks/s, output: 161.17 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:20<02:24,  3.29s/it, est. speed input: 27.09 toks/s, output: 159.20 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:21<01:39,  2.32s/it, est. speed input: 31.11 toks/s, output: 195.57 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:21<01:14,  1.78s/it, est. speed input: 34.52 toks/s, output: 228.60 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:21<00:52,  1.28s/it, est. speed input: 38.52 toks/s, output: 265.44 toks/s]Processed prompts:  20%|██        | 10/50 [00:23<00:48,  1.22s/it, est. speed input: 40.80 toks/s, output: 291.43 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:31<02:10,  3.36s/it, est. speed input: 33.10 toks/s, output: 251.78 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:39<02:59,  4.72s/it, est. speed input: 28.87 toks/s, output: 236.86 toks/s]Processed prompts:  26%|██▌       | 13/50 [01:03<06:35, 10.69s/it, est. speed input: 19.24 toks/s, output: 177.92 toks/s]Processed prompts: 100%|██████████| 50/50 [01:03<00:00,  1.27s/it, est. speed input: 73.99 toks/s, output: 1370.82 toks/s]
+++++++++++++++++++Time: 63.54807949066162 ++++++++++++++++++
+1 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+5 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+10 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+15 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+20 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+25 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+30 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+35 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+40 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+45 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+50 Agents final_res: 3000.0, ground_truth: 3000.0, perf: 1.0
+current task_id end:  1311
+************************
+Total prompt tokens: 53950, Total completion tokens: 1074189
+current task_id start:  1312
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1791.21it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:19<16:00, 19.59s/it, est. speed input: 5.87 toks/s, output: 38.84 toks/s]Processed prompts:   4%|▍         | 2/50 [00:20<06:52,  8.60s/it, est. speed input: 11.22 toks/s, output: 75.64 toks/s]Processed prompts:   6%|▌         | 3/50 [00:28<06:26,  8.22s/it, est. speed input: 12.21 toks/s, output: 91.52 toks/s]Processed prompts:   8%|▊         | 4/50 [00:29<04:03,  5.30s/it, est. speed input: 15.81 toks/s, output: 125.38 toks/s]Processed prompts:  10%|█         | 5/50 [00:29<02:43,  3.64s/it, est. speed input: 19.30 toks/s, output: 158.78 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:42<04:53,  6.68s/it, est. speed input: 16.29 toks/s, output: 145.67 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:46<04:08,  5.78s/it, est. speed input: 17.39 toks/s, output: 166.65 toks/s]Processed prompts:  16%|█▌        | 8/50 [01:06<07:19, 10.47s/it, est. speed input: 13.77 toks/s, output: 146.13 toks/s]Processed prompts: 100%|██████████| 50/50 [01:06<00:00,  1.34s/it, est. speed input: 85.98 toks/s, output: 1432.12 toks/s]
+++++++++++++++++++Time: 66.90822219848633 ++++++++++++++++++
+1 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+5 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+10 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+15 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+20 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+25 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+30 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+35 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+40 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+45 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+50 Agents final_res: 14000.0, ground_truth: 0.0, perf: 0.9230769230769231
+current task_id end:  1312
+************************
+Total prompt tokens: 59700, Total completion tokens: 1169968
+current task_id start:  1313
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2110.79it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:09<07:49,  9.59s/it, est. speed input: 8.34 toks/s, output: 42.55 toks/s]Processed prompts:   4%|▍         | 2/50 [00:11<03:55,  4.91s/it, est. speed input: 14.26 toks/s, output: 78.25 toks/s]Processed prompts:   6%|▌         | 3/50 [00:18<04:48,  6.15s/it, est. speed input: 12.74 toks/s, output: 86.05 toks/s]Processed prompts:   8%|▊         | 4/50 [00:19<02:58,  3.88s/it, est. speed input: 16.62 toks/s, output: 123.54 toks/s]Processed prompts:  10%|█         | 5/50 [00:20<02:10,  2.91s/it, est. speed input: 19.58 toks/s, output: 155.44 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:21<01:37,  2.22s/it, est. speed input: 22.51 toks/s, output: 187.71 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:22<01:22,  1.92s/it, est. speed input: 24.76 toks/s, output: 215.38 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:22<00:59,  1.41s/it, est. speed input: 27.92 toks/s, output: 250.92 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:28<01:49,  2.68s/it, est. speed input: 25.35 toks/s, output: 239.83 toks/s]Processed prompts:  20%|██        | 10/50 [00:32<01:59,  3.00s/it, est. speed input: 24.91 toks/s, output: 248.70 toks/s]Processed prompts:  22%|██▏       | 11/50 [01:04<07:45, 11.93s/it, est. speed input: 13.68 toks/s, output: 156.06 toks/s]Processed prompts: 100%|██████████| 50/50 [01:04<00:00,  1.29s/it, est. speed input: 62.15 toks/s, output: 1396.97 toks/s]
+++++++++++++++++++Time: 64.38428974151611 ++++++++++++++++++
+1 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+5 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+10 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+15 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+20 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+25 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+30 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+35 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+40 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+45 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+50 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.9285714285714286
+current task_id end:  1313
+************************
+Total prompt tokens: 63700, Total completion tokens: 1259876
+current task_id start:  1314
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2256.39it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:15<12:15, 15.01s/it, est. speed input: 7.46 toks/s, output: 40.16 toks/s]Processed prompts:   4%|▍         | 2/50 [00:37<15:27, 19.32s/it, est. speed input: 6.00 toks/s, output: 50.69 toks/s]Processed prompts:   6%|▌         | 3/50 [00:37<08:25, 10.76s/it, est. speed input: 8.86 toks/s, output: 84.35 toks/s]Processed prompts:   8%|▊         | 4/50 [00:38<05:17,  6.90s/it, est. speed input: 11.51 toks/s, output: 116.47 toks/s]Processed prompts:  10%|█         | 5/50 [00:40<03:40,  4.91s/it, est. speed input: 13.90 toks/s, output: 146.51 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:40<02:32,  3.47s/it, est. speed input: 16.41 toks/s, output: 178.03 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:41<01:48,  2.53s/it, est. speed input: 18.87 toks/s, output: 209.30 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:43<01:38,  2.34s/it, est. speed input: 20.60 toks/s, output: 233.50 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:46<01:41,  2.48s/it, est. speed input: 21.78 toks/s, output: 252.60 toks/s]Processed prompts:  20%|██        | 10/50 [00:46<01:13,  1.85s/it, est. speed input: 23.98 toks/s, output: 283.34 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:51<01:41,  2.61s/it, est. speed input: 24.14 toks/s, output: 291.87 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:51<01:13,  1.93s/it, est. speed input: 26.14 toks/s, output: 322.27 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:52<01:03,  1.71s/it, est. speed input: 27.66 toks/s, output: 347.23 toks/s]Processed prompts:  28%|██▊       | 14/50 [00:56<01:25,  2.37s/it, est. speed input: 27.74 toks/s, output: 355.43 toks/s]Processed prompts:  30%|███       | 15/50 [00:58<01:15,  2.15s/it, est. speed input: 28.89 toks/s, output: 377.33 toks/s]Processed prompts:  32%|███▏      | 16/50 [01:01<01:21,  2.40s/it, est. speed input: 29.31 toks/s, output: 390.59 toks/s]Processed prompts:  34%|███▍      | 17/50 [01:05<01:38,  2.98s/it, est. speed input: 29.08 toks/s, output: 395.93 toks/s]Processed prompts: 100%|██████████| 50/50 [01:05<00:00,  1.31s/it, est. speed input: 85.52 toks/s, output: 1428.02 toks/s]
+++++++++++++++++++Time: 65.50469779968262 ++++++++++++++++++
+1 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+5 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+10 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+15 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+20 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+25 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+30 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+35 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+40 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+45 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+50 Agents final_res: 10.0, ground_truth: 10.0, perf: 0.9333333333333333
+current task_id end:  1314
+************************
+Total prompt tokens: 69300, Total completion tokens: 1353385
+current task_id start:  1315
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 1889.48it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:25<20:32, 25.15s/it, est. speed input: 4.41 toks/s, output: 37.30 toks/s]Processed prompts:   4%|▍         | 2/50 [00:35<13:16, 16.60s/it, est. speed input: 6.21 toks/s, output: 61.08 toks/s]Processed prompts:   6%|▌         | 3/50 [00:36<07:10,  9.17s/it, est. speed input: 9.23 toks/s, output: 95.34 toks/s]Processed prompts:   8%|▊         | 4/50 [00:53<09:38, 12.58s/it, est. speed input: 8.24 toks/s, output: 95.78 toks/s]Processed prompts:  10%|█         | 5/50 [00:55<06:22,  8.50s/it, est. speed input: 10.06 toks/s, output: 125.35 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:55<04:16,  5.83s/it, est. speed input: 11.93 toks/s, output: 155.56 toks/s]Processed prompts:  14%|█▍        | 7/50 [01:04<04:49,  6.72s/it, est. speed input: 12.07 toks/s, output: 165.49 toks/s]Processed prompts:  16%|█▌        | 8/50 [01:05<03:33,  5.08s/it, est. speed input: 13.47 toks/s, output: 192.03 toks/s]Processed prompts:  18%|█▊        | 9/50 [01:07<02:44,  4.01s/it, est. speed input: 14.78 toks/s, output: 217.57 toks/s]Processed prompts: 100%|██████████| 50/50 [01:07<00:00,  1.35s/it, est. speed input: 82.04 toks/s, output: 1458.60 toks/s]
+++++++++++++++++++Time: 67.67888760566711 ++++++++++++++++++
+1 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+5 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+10 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+15 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+20 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+25 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+30 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+35 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+40 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+45 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+50 Agents final_res: 36.0, ground_truth: 36.0, perf: 0.9375
+current task_id end:  1315
+************************
+Total prompt tokens: 74850, Total completion tokens: 1452061
+current task_id start:  1316
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2736.87it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:14<12:11, 14.92s/it, est. speed input: 4.56 toks/s, output: 40.88 toks/s]Processed prompts:   4%|▍         | 2/50 [00:17<05:57,  7.45s/it, est. speed input: 7.94 toks/s, output: 75.74 toks/s]Processed prompts:   6%|▌         | 3/50 [00:20<04:27,  5.69s/it, est. speed input: 9.84 toks/s, output: 101.66 toks/s]Processed prompts:   8%|▊         | 4/50 [00:25<04:12,  5.50s/it, est. speed input: 10.48 toks/s, output: 118.95 toks/s]Processed prompts:  10%|█         | 5/50 [00:31<04:09,  5.55s/it, est. speed input: 10.77 toks/s, output: 134.17 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:32<02:53,  3.94s/it, est. speed input: 12.60 toks/s, output: 167.07 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:33<02:13,  3.12s/it, est. speed input: 14.08 toks/s, output: 195.98 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:36<02:00,  2.87s/it, est. speed input: 15.04 toks/s, output: 218.76 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:38<01:47,  2.61s/it, est. speed input: 16.02 toks/s, output: 242.23 toks/s]Processed prompts:  20%|██        | 10/50 [01:04<06:39, 10.00s/it, est. speed input: 10.50 toks/s, output: 174.57 toks/s]Processed prompts: 100%|██████████| 50/50 [01:04<00:00,  1.30s/it, est. speed input: 52.48 toks/s, output: 1438.79 toks/s]
+++++++++++++++++++Time: 64.8111093044281 ++++++++++++++++++
+1 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+5 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+10 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+15 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+20 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+25 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+30 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+35 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+40 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+45 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+50 Agents final_res: 623.0, ground_truth: 623.0, perf: 0.9411764705882353
+current task_id end:  1316
+************************
+Total prompt tokens: 78250, Total completion tokens: 1545283
+current task_id start:  1317
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2016.03it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:06<05:01,  6.16s/it, est. speed input: 15.91 toks/s, output: 44.65 toks/s]Processed prompts:   4%|▍         | 2/50 [00:11<04:19,  5.40s/it, est. speed input: 17.77 toks/s, output: 67.37 toks/s]Processed prompts:   6%|▌         | 3/50 [00:21<06:02,  7.72s/it, est. speed input: 13.67 toks/s, output: 73.47 toks/s]Processed prompts:   8%|▊         | 4/50 [00:22<03:52,  5.06s/it, est. speed input: 17.44 toks/s, output: 108.94 toks/s]Processed prompts:  10%|█         | 5/50 [00:24<03:04,  4.09s/it, est. speed input: 19.71 toks/s, output: 136.54 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:27<02:32,  3.47s/it, est. speed input: 21.69 toks/s, output: 162.73 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:33<03:06,  4.34s/it, est. speed input: 20.63 toks/s, output: 168.84 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:42<04:11,  5.98s/it, est. speed input: 18.34 toks/s, output: 165.70 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:43<02:58,  4.35s/it, est. speed input: 20.27 toks/s, output: 197.10 toks/s]Processed prompts:  20%|██        | 10/50 [00:54<04:09,  6.24s/it, est. speed input: 18.15 toks/s, output: 191.67 toks/s]Processed prompts:  22%|██▏       | 11/50 [01:04<04:59,  7.67s/it, est. speed input: 16.61 toks/s, output: 191.01 toks/s]Processed prompts: 100%|██████████| 50/50 [01:04<00:00,  1.30s/it, est. speed input: 75.44 toks/s, output: 1420.49 toks/s]
+++++++++++++++++++Time: 64.98254036903381 ++++++++++++++++++
+1 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+5 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+10 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+15 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+20 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+25 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+30 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+35 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+40 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+45 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+50 Agents final_res: 30.0, ground_truth: 30.0, perf: 0.9444444444444444
+current task_id end:  1317
+************************
+Total prompt tokens: 83150, Total completion tokens: 1637553
+current task_id start:  1318
+Adding requests:   0%|          | 0/50 [00:00<?, ?it/s]Adding requests: 100%|██████████| 50/50 [00:00<00:00, 2205.65it/s]
+Processed prompts:   0%|          | 0/50 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   2%|▏         | 1/50 [00:08<07:07,  8.72s/it, est. speed input: 10.21 toks/s, output: 43.24 toks/s]Processed prompts:   6%|▌         | 3/50 [00:09<02:05,  2.68s/it, est. speed input: 27.11 toks/s, output: 119.20 toks/s]Processed prompts:   8%|▊         | 4/50 [00:11<01:51,  2.42s/it, est. speed input: 30.26 toks/s, output: 141.84 toks/s]Processed prompts:  10%|█         | 5/50 [00:12<01:16,  1.70s/it, est. speed input: 36.99 toks/s, output: 180.73 toks/s]Processed prompts:  12%|█▏        | 6/50 [00:12<01:02,  1.41s/it, est. speed input: 41.66 toks/s, output: 211.32 toks/s]Processed prompts:  14%|█▍        | 7/50 [00:14<01:10,  1.65s/it, est. speed input: 41.58 toks/s, output: 221.86 toks/s]Processed prompts:  16%|█▌        | 8/50 [00:16<01:05,  1.56s/it, est. speed input: 43.51 toks/s, output: 243.76 toks/s]Processed prompts:  18%|█▊        | 9/50 [00:18<01:09,  1.69s/it, est. speed input: 43.70 toks/s, output: 257.77 toks/s]Processed prompts:  22%|██▏       | 11/50 [00:23<01:18,  2.02s/it, est. speed input: 42.31 toks/s, output: 275.07 toks/s]Processed prompts:  24%|██▍       | 12/50 [00:31<02:15,  3.57s/it, est. speed input: 34.06 toks/s, output: 240.29 toks/s]Processed prompts:  26%|██▌       | 13/50 [00:37<02:40,  4.35s/it, est. speed input: 30.54 toks/s, output: 235.09 toks/s]Processed prompts:  28%|██▊       | 14/50 [01:02<05:55,  9.88s/it, est. speed input: 19.95 toks/s, output: 175.34 toks/s]Processed prompts: 100%|██████████| 50/50 [01:02<00:00,  1.25s/it, est. speed input: 71.23 toks/s, output: 1355.46 toks/s]
+++++++++++++++++++Time: 62.498417139053345 ++++++++++++++++++
+1 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+5 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+10 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+15 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+20 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+25 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+30 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+35 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+40 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+45 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+50 Agents final_res: 100.0, ground_truth: 100.0, perf: 0.9473684210526315
+current task_id end:  1318
+************************
+Total prompt tokens: 87600, Total completion tokens: 1722235
+
+--- Saving Results for Each K Value ---
+Saved CSV for K=1 to: 145669/log_gsm_clean_1_agents/gsm_1_agents_part_13.csv
+Saved JSON for K=1 to: 145669/log_gsm_clean_1_agents/gsm_1_agents_part_13.json
+Saved CSV for K=5 to: 145669/log_gsm_clean_5_agents/gsm_5_agents_part_13.csv
+Saved JSON for K=5 to: 145669/log_gsm_clean_5_agents/gsm_5_agents_part_13.json
+Saved CSV for K=10 to: 145669/log_gsm_clean_10_agents/gsm_10_agents_part_13.csv
+Saved JSON for K=10 to: 145669/log_gsm_clean_10_agents/gsm_10_agents_part_13.json
+Saved CSV for K=15 to: 145669/log_gsm_clean_15_agents/gsm_15_agents_part_13.csv
+Saved JSON for K=15 to: 145669/log_gsm_clean_15_agents/gsm_15_agents_part_13.json
+Saved CSV for K=20 to: 145669/log_gsm_clean_20_agents/gsm_20_agents_part_13.csv
+Saved JSON for K=20 to: 145669/log_gsm_clean_20_agents/gsm_20_agents_part_13.json
+Saved CSV for K=25 to: 145669/log_gsm_clean_25_agents/gsm_25_agents_part_13.csv
+Saved JSON for K=25 to: 145669/log_gsm_clean_25_agents/gsm_25_agents_part_13.json
+Saved CSV for K=30 to: 145669/log_gsm_clean_30_agents/gsm_30_agents_part_13.csv
+Saved JSON for K=30 to: 145669/log_gsm_clean_30_agents/gsm_30_agents_part_13.json
+Saved CSV for K=35 to: 145669/log_gsm_clean_35_agents/gsm_35_agents_part_13.csv
+Saved JSON for K=35 to: 145669/log_gsm_clean_35_agents/gsm_35_agents_part_13.json
+Saved CSV for K=40 to: 145669/log_gsm_clean_40_agents/gsm_40_agents_part_13.csv
+Saved JSON for K=40 to: 145669/log_gsm_clean_40_agents/gsm_40_agents_part_13.json
+Saved CSV for K=45 to: 145669/log_gsm_clean_45_agents/gsm_45_agents_part_13.csv
+Saved JSON for K=45 to: 145669/log_gsm_clean_45_agents/gsm_45_agents_part_13.json
+Saved CSV for K=50 to: 145669/log_gsm_clean_50_agents/gsm_50_agents_part_13.csv
+Saved JSON for K=50 to: 145669/log_gsm_clean_50_agents/gsm_50_agents_part_13.json
+
+--- Final Evaluation for Each K Value ---
+Part 13 final evaluation for K=1: 0.9473684210526315
+Part 13 final evaluation for K=5: 0.9473684210526315
+Part 13 final evaluation for K=10: 0.9473684210526315
+Part 13 final evaluation for K=15: 0.9473684210526315
+Part 13 final evaluation for K=20: 0.9473684210526315
+Part 13 final evaluation for K=25: 0.9473684210526315
+Part 13 final evaluation for K=30: 0.9473684210526315
+Part 13 final evaluation for K=35: 0.9473684210526315
+Part 13 final evaluation for K=40: 0.9473684210526315
+Part 13 final evaluation for K=45: 0.9473684210526315
+Part 13 final evaluation for K=50: 0.9473684210526315
+AGENT 1: All done, evaluating...
+INFO 07-10 15:12:20 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:12:56 [config.py:823] This model supports multiple tasks: {'reward', 'generate', 'score', 'embed', 'classify'}. Defaulting to 'generate'.
+INFO 07-10 15:13:11 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:13:16 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:13:16 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:13:16 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fbb2fe46410>
+INFO 07-10 15:13:17 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:13:17 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:13:17 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:13:17 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:13:17 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:13:18 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.24it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.37it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.48it/s]
+
+INFO 07-10 15:13:21 [default_loader.py:272] Loading weights took 2.34 seconds
+INFO 07-10 15:13:21 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.638048 seconds
+INFO 07-10 15:13:32 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:13:32 [backends.py:472] Dynamo bytecode transform time: 10.54 s
+INFO 07-10 15:13:42 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 10.098 s
+INFO 07-10 15:13:44 [monitor.py:34] torch.compile takes 10.54 s in total
+INFO 07-10 15:13:45 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:13:45 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:13:45 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:14:09 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:14:09 [core.py:171] init engine (profile, create kv cache, warmup model) took 47.53 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 1: All done, evaluating finished...
+AGENT 5: All done, evaluating...
+INFO 07-10 15:14:32 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:15:07 [config.py:823] This model supports multiple tasks: {'reward', 'embed', 'classify', 'generate', 'score'}. Defaulting to 'generate'.
+INFO 07-10 15:15:22 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:15:27 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:15:27 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:15:28 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7efc9b2e23b0>
+INFO 07-10 15:15:29 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:15:29 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:15:29 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:15:29 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:15:29 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:15:30 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:01<00:00,  1.37it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.15it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.19it/s]
+
+INFO 07-10 15:15:33 [default_loader.py:272] Loading weights took 2.74 seconds
+INFO 07-10 15:15:33 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.856135 seconds
+INFO 07-10 15:15:43 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:15:43 [backends.py:472] Dynamo bytecode transform time: 9.19 s
+INFO 07-10 15:15:52 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.735 s
+INFO 07-10 15:15:53 [monitor.py:34] torch.compile takes 9.19 s in total
+INFO 07-10 15:15:55 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:15:55 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:15:55 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:16:20 [gpu_model_runner.py:2048] Graph capturing finished in 25 secs, took 2.11 GiB
+INFO 07-10 15:16:20 [core.py:171] init engine (profile, create kv cache, warmup model) took 46.26 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 5: All done, evaluating finished...
+AGENT 10: All done, evaluating...
+INFO 07-10 15:16:39 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:17:17 [config.py:823] This model supports multiple tasks: {'classify', 'score', 'embed', 'generate', 'reward'}. Defaulting to 'generate'.
+INFO 07-10 15:17:32 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:17:37 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:17:37 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:17:37 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1901156440>
+INFO 07-10 15:17:38 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:17:38 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:17:38 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:17:38 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:17:38 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:17:39 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.68it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.83it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.95it/s]
+
+INFO 07-10 15:17:41 [default_loader.py:272] Loading weights took 1.66 seconds
+INFO 07-10 15:17:41 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.643657 seconds
+INFO 07-10 15:17:52 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:17:52 [backends.py:472] Dynamo bytecode transform time: 10.93 s
+INFO 07-10 15:18:03 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.793 s
+INFO 07-10 15:18:04 [monitor.py:34] torch.compile takes 10.93 s in total
+INFO 07-10 15:18:06 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:18:06 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:18:06 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:18:29 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:18:29 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.04 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 10: All done, evaluating finished...
+AGENT 15: All done, evaluating...
+INFO 07-10 15:18:48 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:19:23 [config.py:823] This model supports multiple tasks: {'score', 'classify', 'reward', 'generate', 'embed'}. Defaulting to 'generate'.
+INFO 07-10 15:19:38 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:19:43 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:19:43 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:19:44 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f26659d2440>
+INFO 07-10 15:19:44 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:19:44 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:19:44 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:19:44 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:19:44 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:19:45 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.28it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.47it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.59it/s]
+
+INFO 07-10 15:19:47 [default_loader.py:272] Loading weights took 2.10 seconds
+INFO 07-10 15:19:48 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.073005 seconds
+INFO 07-10 15:19:58 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:19:58 [backends.py:472] Dynamo bytecode transform time: 9.87 s
+INFO 07-10 15:20:07 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.136 s
+INFO 07-10 15:20:08 [monitor.py:34] torch.compile takes 9.87 s in total
+INFO 07-10 15:20:09 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:20:09 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:20:09 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:20:32 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:20:32 [core.py:171] init engine (profile, create kv cache, warmup model) took 44.38 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 15: All done, evaluating finished...
+AGENT 20: All done, evaluating...
+INFO 07-10 15:20:48 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:21:23 [config.py:823] This model supports multiple tasks: {'score', 'reward', 'embed', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 07-10 15:21:38 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:21:43 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:21:43 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:21:43 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f0d1b9ae410>
+INFO 07-10 15:21:44 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:21:44 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:21:44 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:21:44 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:21:44 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:21:45 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:01<00:00,  1.31it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.02it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:02<00:00,  1.07it/s]
+
+INFO 07-10 15:21:48 [default_loader.py:272] Loading weights took 3.02 seconds
+INFO 07-10 15:21:49 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 4.079603 seconds
+INFO 07-10 15:21:59 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:21:59 [backends.py:472] Dynamo bytecode transform time: 9.77 s
+INFO 07-10 15:22:07 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 7.881 s
+INFO 07-10 15:22:08 [monitor.py:34] torch.compile takes 9.77 s in total
+INFO 07-10 15:22:10 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:22:10 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:22:10 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:22:33 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:22:34 [core.py:171] init engine (profile, create kv cache, warmup model) took 44.95 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 20: All done, evaluating finished...
+AGENT 25: All done, evaluating...
+INFO 07-10 15:22:52 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:23:30 [config.py:823] This model supports multiple tasks: {'embed', 'classify', 'reward', 'generate', 'score'}. Defaulting to 'generate'.
+INFO 07-10 15:23:45 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:23:51 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:23:51 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:23:51 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f8e4465a3e0>
+INFO 07-10 15:23:51 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:23:51 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:23:51 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:23:52 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:23:52 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:23:52 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.66it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.82it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.94it/s]
+
+INFO 07-10 15:23:54 [default_loader.py:272] Loading weights took 1.67 seconds
+INFO 07-10 15:23:55 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.706362 seconds
+INFO 07-10 15:24:05 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:24:05 [backends.py:472] Dynamo bytecode transform time: 9.71 s
+INFO 07-10 15:24:14 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.170 s
+INFO 07-10 15:24:16 [monitor.py:34] torch.compile takes 9.71 s in total
+INFO 07-10 15:24:17 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:24:18 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:24:18 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:24:41 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:24:41 [core.py:171] init engine (profile, create kv cache, warmup model) took 46.03 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 25: All done, evaluating finished...
+AGENT 30: All done, evaluating...
+INFO 07-10 15:24:56 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:25:31 [config.py:823] This model supports multiple tasks: {'generate', 'embed', 'classify', 'reward', 'score'}. Defaulting to 'generate'.
+INFO 07-10 15:25:46 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:25:51 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:25:51 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:25:52 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fc3c475e440>
+INFO 07-10 15:25:52 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:25:52 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:25:52 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:25:52 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:25:52 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:25:53 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.34it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.49it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.61it/s]
+
+INFO 07-10 15:25:55 [default_loader.py:272] Loading weights took 2.08 seconds
+INFO 07-10 15:25:56 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.106321 seconds
+INFO 07-10 15:26:05 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:26:05 [backends.py:472] Dynamo bytecode transform time: 9.25 s
+INFO 07-10 15:26:14 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.103 s
+INFO 07-10 15:26:15 [monitor.py:34] torch.compile takes 9.25 s in total
+INFO 07-10 15:26:16 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:26:17 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:26:17 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:26:40 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:26:40 [core.py:171] init engine (profile, create kv cache, warmup model) took 43.96 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 30: All done, evaluating finished...
+AGENT 35: All done, evaluating...
+INFO 07-10 15:26:56 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:27:31 [config.py:823] This model supports multiple tasks: {'generate', 'embed', 'reward', 'classify', 'score'}. Defaulting to 'generate'.
+INFO 07-10 15:27:46 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:27:51 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:27:51 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:27:52 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f9342022470>
+INFO 07-10 15:27:53 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:27:53 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:27:53 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:27:53 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:27:53 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:27:54 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.11it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.42it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.52it/s]
+
+INFO 07-10 15:27:57 [default_loader.py:272] Loading weights took 2.14 seconds
+INFO 07-10 15:27:57 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.539153 seconds
+INFO 07-10 15:28:07 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:28:07 [backends.py:472] Dynamo bytecode transform time: 10.03 s
+INFO 07-10 15:28:18 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.937 s
+INFO 07-10 15:28:19 [monitor.py:34] torch.compile takes 10.03 s in total
+INFO 07-10 15:28:21 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:28:21 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:28:21 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:28:45 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.11 GiB
+INFO 07-10 15:28:45 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.40 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 35: All done, evaluating finished...
+AGENT 40: All done, evaluating...
+INFO 07-10 15:29:05 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:29:42 [config.py:823] This model supports multiple tasks: {'reward', 'embed', 'generate', 'score', 'classify'}. Defaulting to 'generate'.
+INFO 07-10 15:29:57 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:30:02 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:30:02 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:30:03 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fbcf0606410>
+INFO 07-10 15:30:03 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:30:03 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:30:03 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:30:04 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:30:04 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:30:04 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.63it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.75it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.87it/s]
+
+INFO 07-10 15:30:07 [default_loader.py:272] Loading weights took 1.75 seconds
+INFO 07-10 15:30:07 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 2.938642 seconds
+INFO 07-10 15:30:16 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:30:16 [backends.py:472] Dynamo bytecode transform time: 9.15 s
+INFO 07-10 15:30:25 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 8.461 s
+INFO 07-10 15:30:26 [monitor.py:34] torch.compile takes 9.15 s in total
+INFO 07-10 15:30:28 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:30:28 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:30:28 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:30:51 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:30:51 [core.py:171] init engine (profile, create kv cache, warmup model) took 44.17 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 40: All done, evaluating finished...
+AGENT 45: All done, evaluating...
+INFO 07-10 15:31:10 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:31:46 [config.py:823] This model supports multiple tasks: {'score', 'embed', 'generate', 'classify', 'reward'}. Defaulting to 'generate'.
+INFO 07-10 15:32:01 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:32:06 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:32:06 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:32:07 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f7915d52350>
+INFO 07-10 15:32:07 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:32:07 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:32:08 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:32:08 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:32:08 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:32:09 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.19it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.46it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.57it/s]
+
+INFO 07-10 15:32:11 [default_loader.py:272] Loading weights took 2.09 seconds
+INFO 07-10 15:32:12 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.195339 seconds
+INFO 07-10 15:32:23 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:32:23 [backends.py:472] Dynamo bytecode transform time: 11.30 s
+INFO 07-10 15:32:33 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 9.642 s
+INFO 07-10 15:32:35 [monitor.py:34] torch.compile takes 11.30 s in total
+INFO 07-10 15:32:36 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:32:36 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:32:36 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:33:01 [gpu_model_runner.py:2048] Graph capturing finished in 24 secs, took 2.11 GiB
+INFO 07-10 15:33:01 [core.py:171] init engine (profile, create kv cache, warmup model) took 49.45 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 45: All done, evaluating finished...
+AGENT 50: All done, evaluating...
+INFO 07-10 15:33:19 [__init__.py:244] Automatically detected platform cuda.
+INFO 07-10 15:33:57 [config.py:823] This model supports multiple tasks: {'generate', 'reward', 'classify', 'score', 'embed'}. Defaulting to 'generate'.
+INFO 07-10 15:34:12 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 07-10 15:34:18 [core.py:455] Waiting for init message from front-end.
+INFO 07-10 15:34:18 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+WARNING 07-10 15:34:18 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1336dc64a0>
+INFO 07-10 15:34:19 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-10 15:34:19 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-10 15:34:19 [gpu_model_runner.py:1595] Starting to load model Qwen/Qwen3-4B...
+INFO 07-10 15:34:19 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-10 15:34:19 [cuda.py:252] Using Flash Attention backend on V1 engine.
+INFO 07-10 15:34:20 [weight_utils.py:292] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.23it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.50it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.61it/s]
+
+INFO 07-10 15:34:22 [default_loader.py:272] Loading weights took 2.04 seconds
+INFO 07-10 15:34:23 [gpu_model_runner.py:1624] Model loading took 7.5552 GiB and 3.091849 seconds
+INFO 07-10 15:34:34 [backends.py:462] Using cache directory: /home/s06zyelt/.cache/vllm/torch_compile_cache/9be5b76020/rank_0_0 for vLLM's torch.compile
+INFO 07-10 15:34:34 [backends.py:472] Dynamo bytecode transform time: 10.48 s
+INFO 07-10 15:34:46 [backends.py:135] Directly load the compiled graph(s) for shape None from the cache, took 11.475 s
+INFO 07-10 15:34:47 [monitor.py:34] torch.compile takes 10.48 s in total
+INFO 07-10 15:34:48 [gpu_worker.py:227] Available KV cache memory: 30.96 GiB
+INFO 07-10 15:34:48 [kv_cache_utils.py:715] GPU KV cache size: 225,408 tokens
+INFO 07-10 15:34:48 [kv_cache_utils.py:719] Maximum concurrency for 40,960 tokens per request: 5.50x
+INFO 07-10 15:35:11 [gpu_model_runner.py:2048] Graph capturing finished in 23 secs, took 2.11 GiB
+INFO 07-10 15:35:11 [core.py:171] init engine (profile, create kv cache, warmup model) took 48.66 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+final_perf: 0.9473684210526315
+AGENT 50: All done, evaluating finished...
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Finished!!!
