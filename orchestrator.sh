@@ -4,7 +4,7 @@
 # --- Logging Setup ---
 
 # Define log directory and create it if it doesn't exist
-LOG_DIR="./logs"
+LOG_DIR="logs"
 mkdir -p "$LOG_DIR"
 
 # Generate a unique timestamp for the log file name
@@ -20,7 +20,7 @@ log_message() {
 
 # --- Define the worker script filename as a constant parameter ---
 # Make sure the path is correct relative to where orchestrator.sh is run
-WORKER_SCRIPT="./scripts/run_clean_gemma-3-4b-it_1-50.sh"
+WORKER_SCRIPT="scripts/run_clean_gemma-3-4b-it_1-50.sh"
 
 log_message "Starting pipeline orchestration script for 5 chunks (1500 parts total)."
 log_message "Orchestration log file created at: $LOG_FILE"
