@@ -22,7 +22,6 @@ try:
     if "gemma" in VLLM_MODEL_NAME:
         global_llm_model = LLM(
             model=VLLM_MODEL_NAME,
-            dtype="bfloat16",
             max_model_len=16384
             # gpu_memory_utilization=0.98,
         )
