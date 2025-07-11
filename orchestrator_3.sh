@@ -1,5 +1,5 @@
 #!/bin/bash
-# orchestrator.sh
+# orchestrator_1.sh
 
 # --- Logging Setup ---
 
@@ -19,17 +19,17 @@ log_message() {
 # ----------------------------------------------------
 
 # --- Define the worker script filename and fixed parameters ---
-# Worker script path (relative to where orchestrator.sh is run)
+# Worker script path (relative to where orchestrator_1.sh is run)
 WORKER_SCRIPT="./scripts/run_experiment.sh"
 
 # Parameters for the experiment
-MODEL="gemma-3-4b-it"
+MODEL="Llama-3.1-8B-Instruct"
 QTYPE="gsm"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
-VLLM_MODEL_NAME="google/gemma-3-4b-it"
+VLLM_MODEL_NAME="meta-llama/Llama-3.1-8B-Instruct"
 
 OUTPUT_FOLDER="./$LOG_DIR/$DTYPES/$MODEL/$QTYPE"
 mkdir -p "$OUTPUT_FOLDER"
