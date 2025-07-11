@@ -36,7 +36,7 @@ def main():
     slurm_job_id = os.getenv('SLURM_JOB_ID', datetime.now().strftime('%Y%m%d_%H%M%S_local_run'))
 
     # Base directory for all logs related to this job/run
-    base_log_dir = f"../../experiments/{DTYPE}/{MODEL}"
+    base_log_dir = f"../../experiments/{DTYPE}/{MODEL}/{QUESTION_TYPE}"
     os.makedirs(base_log_dir, exist_ok=True)
 
     if QUESTION_TYPE == "human-eval":

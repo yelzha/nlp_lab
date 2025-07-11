@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --partition=A100medium
-#SBATCH --time=23:59:59
+#SBATCH --partition=A40short
+#SBATCH --time=07:59:59
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
-#SBATCH --output=../logs/clean_gemma-3-12b-it_%j.txt
+# #SBATCH --output=../logs/clean_gemma-3-12b-it_%j.txt
 # cd ../
 
 # --- Your actual job commands start here ---
