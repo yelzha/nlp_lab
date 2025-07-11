@@ -27,6 +27,7 @@ def main():
     # Define the K values for voting. The maximum value in this list
     # determines the total number of agents to initialize for response generation.
     K_values = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+    # K_values = list(range(1, 51))
     # Initialize the solver with the maximum number of agents (e.g., 50)
     # as all agent responses will be generated in a single batch.
     max_agents_for_init = K_values[-1]
@@ -35,7 +36,7 @@ def main():
     slurm_job_id = os.getenv('SLURM_JOB_ID', datetime.now().strftime('%Y%m%d_%H%M%S_local_run'))
 
     # Base directory for all logs related to this job/run
-    base_log_dir = f"{slurm_job_id}"
+    base_log_dir = f"../../{DTYPE}/{MODEL}"
     os.makedirs(base_log_dir, exist_ok=True)
 
     if QUESTION_TYPE == "human-eval":
