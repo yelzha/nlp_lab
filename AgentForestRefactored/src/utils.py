@@ -178,7 +178,6 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
         print(e, flush=True)
         print("retrying due to an error......", flush=True)
         time.sleep(5)
-        return batch_generate(answer_context, model, llm_ip,nums=nums,temperature=temperature,top_p=top_p)
     return completion
 
 def extract_last_python_code_block(text):
