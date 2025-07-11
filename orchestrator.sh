@@ -20,7 +20,7 @@ log_message() {
 
 # --- Define the worker script filename and fixed parameters ---
 # Worker script path (relative to where orchestrator.sh is run)
-WORKER_SCRIPT="./scripts/clean/gemma3-4b/run_clean_gemma-3-4b-it_1-50.sh"
+WORKER_SCRIPT="./scripts/run_experiment.sh"
 
 # Parameters for the experiment
 MODEL="gemma-3-4b-it"
