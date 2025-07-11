@@ -21,8 +21,8 @@ VLLM_MODEL_NAME = get_vllm_name()
 try:
     global_llm_model = LLM(
         model=VLLM_MODEL_NAME,
-        # dtype="float16",
-        # gpu_memory_utilization=0.95,
+        dtype="float16",
+        gpu_memory_utilization=0.98,
         enforce_eager=False,
     )
     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
