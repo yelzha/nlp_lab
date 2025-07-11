@@ -23,11 +23,12 @@ try:
         global_llm_model = LLM(
             model=VLLM_MODEL_NAME,
             dtype="bfloat16",
+            max_model_len=16384
             # gpu_memory_utilization=0.98,
         )
     else:
         global_llm_model = LLM(
-            model=VLLM_MODEL_NAME,
+            model=VLLM_MODEL_NAME
             # gpu_memory_utilization=0.98,
         )
     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
