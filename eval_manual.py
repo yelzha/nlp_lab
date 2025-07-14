@@ -4,13 +4,13 @@ import sys
 
 # --- Constants for the Experiment ---
 # These parameters are hardcoded as requested.
-MODEL = "Qwen3-4B"
+MODEL = "Mistral-7B-Instruct-v0.3"
 QTYPE = "gsm"
 DTYPE = "clean"  # Assuming DTYPES="clean" refers to a single DTYPE
 SUBSET_NUM = 100
 TEMPERATURE = 1
 TOP_P = 1
-VLLM_MODEL_NAME = "Qwen/Qwen3-4B"
+VLLM_MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
 
 # --- Script Configuration ---
 # K_VALUES remain the same as in the original Bash script
@@ -47,21 +47,24 @@ def main():
     # --- Run evaluation.py for each agent ---
     print("\nAll main.py runs done. Starting evaluation...")
     for agent in K_VALUES:
-        print(f"AGENT {agent}: Evaluating...")
+        # print(f"AGENT {agent}: Evaluating...")
 
         # Construct the directory name for the evaluation logs
         dir_name = os.path.join(BASE_DIR_NAME, f"log_{QTYPE}_{DTYPE}_{agent}_agents")
         src_path = os.path.join(MAIN_DIRECTORY, "AgentForestRefactored", "src", "evaluation.py")
 
-        # Construct the command for evaluation.py
-        command = [
-            sys.executable,
-            src_path,
-            dir_name,
-            QTYPE
-        ]
-
-        run_command(command, f"evaluation.py for AGENT {agent}")
+        # # Construct the command for evaluation.py
+        # command = [
+        #     sys.executable,
+        #     src_path,
+        #     dir_name,
+        #     QTYPE
+        # ]
+        #
+        # run_command(command, f"evaluation.py for AGENT {agent}")
+        with open(os.path.join(dir_name, "final_perf.txt")) as f:
+            lines = f.readlines()
+            print(f"AGENT {agent}:", lines[0])
 
     print("\nScript finished successfully.")
 
