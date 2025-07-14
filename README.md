@@ -88,19 +88,13 @@
 
 <img width="2379" height="1380" alt="image" src="https://github.com/user-attachments/assets/616ee6c1-825c-4788-a214-3ff7fe76391a" />
 
-
-### 2.2 WikiTypo(2025) Integration
-- **Status:** Pending  
-- **Goal:** Implement and validate noising algorithms from the WikiTypo(2025) benchmark.  
-- **Use Case:** Add realistic noise patterns for robust evaluation.
-
-### 2.3 Experimental Runs & Data Collection
+### 2.2 Experimental Runs & Data Collection
 - **Status:** Pending  
 - **Description:** Execute all planned experimental configurations (Clean & AEDA & WikiTypo -> 1-50 Agents).  
 - **Estimated Duration:** **1-3+ week** of continuous runtime  
 - **Deliverables:** Logs, metrics, performance data for all models and settings.
 
-### 2.4 Report & Visualization
+### 2.3 Report & Visualization
 - **Status:** Pending  
 - **Goal:** Compile results into a detailed report with clear visualizations.  
 - **Tools Suggested:** Python (Matplotlib/Plotly), Pandas, LaTeX for formatting.
