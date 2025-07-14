@@ -29,6 +29,6 @@ do
     echo "AGENT ${AGENT}: All done, evaluating finished..."
 done
 
-mkdir -p "$MAIN_DIRECTORY/${BASE_DIR_NAME}"
-echo "$SLURM_JOB_ID" >> "$MAIN_DIRECTORY/${BASE_DIR_NAME}/slurm_job_id.txt"
-echo "SLURM Job ID $SLURM_JOB_ID saved to $MAIN_DIRECTORY/${BASE_DIR_NAME}/slurm_job_id.txt"
+mkdir -p "${BASE_DIR_NAME}"
+echo "$SLURM_JOB_ID" >> "${BASE_DIR_NAME}/slurm_job_id.txt"
+echo "SLURM Job ID $SLURM_JOB_ID saved to ${BASE_DIR_NAME}/slurm_job_id.txt"

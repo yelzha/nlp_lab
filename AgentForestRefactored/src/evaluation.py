@@ -3,8 +3,18 @@ import os
 import re
 import glob
 import pandas as pd
-from utils import is_final_answer_correct, is_final_answer_in_ground_truth
 from human_eval.data import stream_jsonl
+
+
+def is_final_answer_correct(df_row):
+    if df_row["ground_truth"] == df_row["final_answer"]:
+        return True
+    return False
+
+def is_final_answer_in_ground_truth(df_row):
+    if df_row["final_answer"] in df_row["ground_truth"]:
+        return True
+    return False
 
 def extract_number(filename):
     match = re.search(r'part_(\d+)', filename)
