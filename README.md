@@ -86,6 +86,8 @@
 | clean | Mistral-7B-Instruct-v0.3 | 45 | Completed | 0.7703035274815423 | N/A |
 | clean | Mistral-7B-Instruct-v0.3 | 50 | Completed | 0.7768662838392125 | N/A |
 
+<img width="2379" height="1380" alt="image" src="https://github.com/user-attachments/assets/616ee6c1-825c-4788-a214-3ff7fe76391a" />
+
 
 ### 2.2 WikiTypo(2025) Integration
 - **Status:** Pending  
