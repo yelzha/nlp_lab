@@ -36,19 +36,55 @@
 
 ## Experiments Overview
 
-| Noise Type     | Model        | Agent N | Status     | Accuracy           | ETA / Notes           |
+| Noise Type     | Model        | Agent N | Status     | Accuracy           |  Notes           |
 |----------------|--------------|---------|------------|--------------------|-----------------------|
-| clean          | qwen3:4B     | 1       | Completed  | 0.8597422289613343 | ETA: 5h 30m           |
-| clean          | qwen3:4B     | 5       | Completed  | 0.913570887035633  | ETA: 7h 0m            |
-| clean          | qwen3:4B     | 10      | Completed  | 0.9257012888551933 | ETA: 7h 23m           |
-| clean          | qwen3:4B     | 15      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 20      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 25      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 30      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 35      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 40      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 45      | Pending    | 0.---------------- | ETA: h m              |
-| clean          | qwen3:4B     | 50      | Pending    | 0.---------------- | ETA: h m              |
+| clean          | qwen3:4B     | 1       | Completed  | 0.8148148148148148 |  N/A  |
+| clean          | qwen3:4B     | 5       | Completed  | 0.9095074455899198 | N/A     |
+| clean          | qwen3:4B     | 10      | Completed  | 0.9156166475754105 |  N/A   |
+| clean          | qwen3:4B     | 15      | Pending    | 0.9201985490645285 |  N/A |
+| clean          | qwen3:4B     | 20      | Pending    | 0.9232531500572738 |  N/A |
+| clean          | qwen3:4B     | 25      | Pending    | 0.9270714012982054 |  N/A|
+| clean          | qwen3:4B     | 30      | Pending    | 0.928598701794578  |  N/A|
+| clean          | qwen3:4B     | 35      | Pending    | 0.9278350515463918 |  N/A |
+| clean          | qwen3:4B     | 40      | Pending    | 0.930889652539137  |  N/A|
+| clean          | qwen3:4B     | 45      | Pending    | 0.9301260022909508 |  N/A|
+| clean          | qwen3:4B     | 50      | Pending    | 0.930889652539137  |  N/A |
+|---|---|---|---|---|---|
+| clean | qwen3:14B | 1 | Completed | 0.868081880212282 | N/A |
+| clean | qwen3:14B | 5 | Completed | 0.9203942380591357 | N/A |
+| clean | qwen3:14B | 10 | Completed | 0.9317664897649734 | N/A |
+| clean | qwen3:14B | 15 | Completed | 0.9325246398786959 | N/A |
+| clean | qwen3:14B | 20 | Completed | 0.934040940106141 | N/A |
+| clean | qwen3:14B | 25 | Completed | 0.9347990902198635 | N/A |
+| clean | qwen3:14B | 30 | Completed | 0.934040940106141 | N/A |
+| clean | qwen3:14B | 35 | Completed | 0.9332827899924185 | N/A |
+| clean | qwen3:14B | 40 | Completed | 0.935557240333586 | N/A |
+| clean | qwen3:14B | 45 | Completed | 0.935557240333586 | N/A |
+| clean | qwen3:14B | 50 | Completed | 0.935557240333586 | N/A |
+|---|---|---|---|---|---|
+| clean | Llama-3.1-8B-Instruct | 1 | Completed | 0.6315390447308568 | N/A |
+| clean | Llama-3.1-8B-Instruct | 5 | Completed | 0.8385140257771039 | N/A |
+| clean | Llama-3.1-8B-Instruct | 10 | Completed | 0.8953752843062927 | N/A |
+| clean | Llama-3.1-8B-Instruct | 15 | Completed | 0.9128127369219106 | N/A |
+| clean | Llama-3.1-8B-Instruct | 20 | Completed | 0.9150871872630781 | N/A |
+| clean | Llama-3.1-8B-Instruct | 25 | Completed | 0.9173616376042456 | N/A |
+| clean | Llama-3.1-8B-Instruct | 30 | Completed | 0.9188779378316907 | N/A |
+| clean | Llama-3.1-8B-Instruct | 35 | Completed | 0.9226686884003032 | N/A |
+| clean | Llama-3.1-8B-Instruct | 40 | Completed | 0.9211523881728583 | N/A |
+| clean | Llama-3.1-8B-Instruct | 45 | Completed | 0.9219105382865808 | N/A |
+| clean | Llama-3.1-8B-Instruct | 50 | Completed | 0.9211523881728583 | N/A |
+|---|---|---|---|---|---|
+| clean | Mistral-7B-Instruct-v0.3 | 1 | Completed | 0.4200164068908942 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 5 | Completed | 0.5972108285479901 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 10 | Completed | 0.6808859721082855 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 15 | Completed | 0.7235438884331419 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 20 | Completed | 0.7506152584085316 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 25 | Completed | 0.7547169811320755 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 30 | Completed | 0.7579983593109105 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 35 | Completed | 0.7588187038556193 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 40 | Completed | 0.7629204265791633 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 45 | Completed | 0.7703035274815423 | N/A |
+| clean | Mistral-7B-Instruct-v0.3 | 50 | Completed | 0.7768662838392125 | N/A |
 
 
 ### 2.2 WikiTypo(2025) Integration
