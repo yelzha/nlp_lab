@@ -3,7 +3,6 @@
 #SBATCH --time=07:59:59
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
-# #SBATCH --output=../logs/clean_gemma-3-12b-it_%j.txt
 # cd ../
 
 # --- Your actual job commands start here ---
@@ -11,7 +10,11 @@ echo "------------------------------------------------------------"
 echo "SLURM JOB INFO"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Job Name: $SLURM_JOB_NAME"
-# ... (SLURM info continued) ...
+echo "Partition: $SLURM_JOB_PARTITION"
+echo "Nodes: $SLURM_NNODES"
+echo "Tasks per node: $SLURM_NTASKS_PER_NODE"
+echo "CPUs per task: $SLURM_CPUS_PER_TASK"
+echo "Requested Memory: $SLURM_MEM_PER_NODE MB (approx)"
 echo "Working Directory: $(pwd)"
 echo "Start Time: $(date)"
 echo "------------------------------------------------------------"

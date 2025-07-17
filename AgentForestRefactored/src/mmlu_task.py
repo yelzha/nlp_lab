@@ -42,17 +42,18 @@ class MMLU(MoreAgent):
         dfs = [pd.read_csv(task) for task in tasks]
 
         question_datas = []
-        for i in range(question_num):
-            indexForDfs = random.randint(0, len(dfs) - 1)
-            df = dfs[indexForDfs]
+        for df in dfs:
             ix = len(df)
-            idx = random.randint(0, ix-1)
-            question_state, ground_truth = utils.get_mmlu_qa_pairs(df, idx)
-            question_data = {
-                "state": question_state,
-                "ground_truth": ground_truth,
-            }
-            question_datas.append(question_data)
+            for idx in range(ix):
+                question_state, ground_truth = utils.get_mmlu_qa_pairs(df, idx)
+                question_data = {
+                    "state": question_state,
+                    "ground_truth": ground_truth,
+                }
+                question_datas.append(question_data)
+
+        random.seed(0)
+        random.shuffle(question_datas)
         return question_datas
 
     def get_final_answer(self, idxs, question_data):
@@ -62,3 +63,10 @@ class MMLU(MoreAgent):
 
     def evaluation(self, df):
         return df.apply(utils.is_final_answer_correct, axis=1).mean()
+
+
+if __name__ == "__main__":
+    mmlu = MMLU(1, "test")
+    test = mmlu.get_question_datas()
+    print(len(test))
+    print(test[:50])

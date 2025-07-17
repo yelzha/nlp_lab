@@ -1,5 +1,5 @@
 #!/bin/bash
-# orchestrator_2.sh
+# orchestrator_loop.sh
 
 # --- Logging Setup ---
 
@@ -19,17 +19,17 @@ log_message() {
 # ----------------------------------------------------
 
 # --- Define the worker script filename and fixed parameters ---
-# Worker script path (relative to where orchestrator_1.sh is run)
-WORKER_SCRIPT="./scripts/run_experiment.sh"
+# Worker script path (relative to where orchestrator_loop.sh is run)
+WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Parameters for the experiment
-MODEL="gemma-3-12b-it"
-QTYPE="gsm"
+MODEL="Qwen3-14b"
+QTYPE="mmlu"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
-VLLM_MODEL_NAME="google/gemma-3-4b-it" # Full VLLM model name
+VLLM_MODEL_NAME="Qwen/Qwen3-14b" # Full VLLM model name
 
 # Define the base output folder for logs (relative to orchestrator.sh)
 OUTPUT_BASE_FOLDER="./$LOG_DIR/$DTYPES/$MODEL/$QTYPE"
@@ -43,55 +43,53 @@ log_message "Model: $MODEL, VLLM Model Name: $VLLM_MODEL_NAME, QType: $QTYPE"
 log_message "SLURM job outputs will be written to: $OUTPUT_BASE_FOLDER/run_JOBNAME_JOBID.txt" # Clarified output path in log
 log_message "============================================================="
 
-# --- Stage 1: [0:2] ---
-log_message "Submitting Stage 1 [0:2]..."
-JOB_NAME_S1="run_${MODEL}_${QTYPE}_${DTYPES}_stage1"
-# Use --job-name to set the job name, and include %x (job name) in the output file
-OUTPUT_FILE_S1="$OUTPUT_BASE_FOLDER/${JOB_NAME_S1}_%j.txt"
-JOB_ID_S1=$(sbatch --parsable --job-name="$JOB_NAME_S1" --output="$OUTPUT_FILE_S1" "$WORKER_SCRIPT" 0 2 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 1 submitted. Job ID: $JOB_ID_S1. Job Name: $JOB_NAME_S1. Output: $OUTPUT_FILE_S1"
+# --- Define the stages (start and end values) ---
+# Each pair represents [start_index, end_index] for the worker script
+STAGES=(
+    "0 2"
+    "2 4"
+    "4 6"
+    "6 8"
+    "8 10"
+)
 
-# --- Stage 2: [2:4] ---
-log_message "Submitting Stage 2 [2:4], dependent on Job ID: $JOB_ID_S1"
-JOB_NAME_S2="run_${MODEL}_${QTYPE}_${DTYPES}_stage2"
-OUTPUT_FILE_S2="$OUTPUT_BASE_FOLDER/${JOB_NAME_S2}_%j.txt"
-JOB_ID_S2=$(sbatch --parsable --job-name="$JOB_NAME_S2" --output="$OUTPUT_FILE_S2" --dependency=afterok:$JOB_ID_S1 "$WORKER_SCRIPT" 2 4 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 2 submitted. Job ID: $JOB_ID_S2. Job Name: $JOB_NAME_S2. Output: $OUTPUT_FILE_S2"
+# Initialize the job ID for dependency. The first job has no dependency.
+PREV_JOB_ID=""
 
-# --- Stage 3: [4:6] ---
-log_message "Submitting Stage 3 [4:6], dependent on Job ID: $JOB_ID_S2"
-JOB_NAME_S3="run_${MODEL}_${QTYPE}_${DTYPES}_stage3"
-OUTPUT_FILE_S3="$OUTPUT_BASE_FOLDER/${JOB_NAME_S3}_%j.txt"
-JOB_ID_S3=$(sbatch --parsable --job-name="$JOB_NAME_S3" --output="$OUTPUT_FILE_S3" --dependency=afterok:$JOB_ID_S2 "$WORKER_SCRIPT" 4 6 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 3 submitted. Job ID: $JOB_ID_S3. Job Name: $JOB_NAME_S3. Output: $OUTPUT_FILE_S3"
+# --- Loop through stages and submit jobs ---
+for i in "${!STAGES[@]}"; do
+    # Extract start and end from the current stage string
+    read -r START_INDEX END_INDEX <<< "${STAGES[$i]}"
 
-# --- Stage 4: [6:8] ---
-log_message "Submitting Stage 4 [6:8], dependent on Job ID: $JOB_ID_S3"
-JOB_NAME_S4="run_${MODEL}_${QTYPE}_${DTYPES}_stage4"
-OUTPUT_FILE_S4="$OUTPUT_BASE_FOLDER/${JOB_NAME_S4}_%j.txt"
-JOB_ID_S4=$(sbatch --parsable --job-name="$JOB_NAME_S4" --output="$OUTPUT_FILE_S4" --dependency=afterok:$JOB_ID_S3 "$WORKER_SCRIPT" 6 8 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 4 submitted. Job ID: $JOB_ID_S4. Job Name: $JOB_NAME_S4. Output: $OUTPUT_FILE_S4"
+    # Calculate stage number (0-indexed array, so add 1 for user-friendly numbering)
+    STAGE_NUM=$((i + 1))
 
-# --- Stage 5: [8:10] ---
-log_message "Submitting Stage 5 [8:10], dependent on Job ID: $JOB_ID_S4"
-JOB_NAME_S5="run_${MODEL}_${QTYPE}_${DTYPES}_stage5"
-OUTPUT_FILE_S5="$OUTPUT_BASE_FOLDER/${JOB_NAME_S5}_%j.txt"
-JOB_ID_S5=$(sbatch --parsable --job-name="$JOB_NAME_S5" --output="$OUTPUT_FILE_S5" --dependency=afterok:$JOB_ID_S4 "$WORKER_SCRIPT" 8 10 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 5 submitted. Job ID: $JOB_ID_S5. Job Name: $JOB_NAME_S5. Output: $OUTPUT_FILE_S5"
+    log_message "Submitting Stage $STAGE_NUM [$START_INDEX:$END_INDEX]..."
 
-# --- Stage 6: [10:12] ---
-log_message "Submitting Stage 6 [10:12], dependent on Job ID: $JOB_ID_S5"
-JOB_NAME_S6="run_${MODEL}_${QTYPE}_${DTYPES}_stage6"
-OUTPUT_FILE_S6="$OUTPUT_BASE_FOLDER/${JOB_NAME_S6}_%j.txt"
-JOB_ID_S6=$(sbatch --parsable --job-name="$JOB_NAME_S6" --output="$OUTPUT_FILE_S6" --dependency=afterok:$JOB_ID_S5 "$WORKER_SCRIPT" 10 12 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 6 submitted. Job ID: $JOB_ID_S6. Job Name: $JOB_NAME_S6. Output: $OUTPUT_FILE_S6"
+    JOB_NAME="run_${MODEL}_${QTYPE}_${DTYPES}_stage${STAGE_NUM}"
+    OUTPUT_FILE="$OUTPUT_BASE_FOLDER/${JOB_NAME}_%j.txt"
 
-# --- Stage 7: [12:14] ---
-log_message "Submitting Stage 7 [12:14], dependent on Job ID: $JOB_ID_S6"
-JOB_NAME_S7="run_${MODEL}_${QTYPE}_${DTYPES}_stage7"
-OUTPUT_FILE_S7="$OUTPUT_BASE_FOLDER/${JOB_NAME_S7}_%j.txt"
-JOB_ID_S7=$(sbatch --parsable --job-name="$JOB_NAME_S7" --output="$OUTPUT_FILE_S7" --dependency=afterok:$JOB_ID_S6 "$WORKER_SCRIPT" 12 14 "$MODEL" "$QTYPE" "$DTYPES" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$VLLM_MODEL_NAME")
-log_message "Stage 7 submitted. Job ID: $JOB_ID_S7. Job Name: $JOB_NAME_S7. Output: $OUTPUT_FILE_S7"
+    # Build the sbatch command
+    SBATCH_CMD="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
+
+    # Add dependency if it's not the first job
+    if [ -n "$PREV_JOB_ID" ]; then
+        SBATCH_CMD+=" --dependency=afterok:$PREV_JOB_ID"
+        log_message "  Dependent on Job ID: $PREV_JOB_ID"
+    fi
+
+    # Append worker script and its arguments
+    SBATCH_CMD+=" \"$WORKER_SCRIPT\" $START_INDEX $END_INDEX \"$MODEL\" \"$QTYPE\" \"$DTYPES\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\""
+
+    # Execute the sbatch command
+    CURRENT_JOB_ID=$(eval "$SBATCH_CMD") # Use eval to execute the constructed command string
+    CURRENT_JOB_ID=$(echo "$CURRENT_JOB_ID" | tr -d '[:space:]') # Remove any whitespace
+
+    log_message "Stage $STAGE_NUM submitted. Job ID: $CURRENT_JOB_ID. Job Name: $JOB_NAME. Output: $OUTPUT_FILE"
+
+    # Update PREV_JOB_ID for the next iteration's dependency
+    PREV_JOB_ID="$CURRENT_JOB_ID"
+done
 
 log_message "============================================================="
 log_message "Pipeline orchestration complete. All stages submitted to SLURM."

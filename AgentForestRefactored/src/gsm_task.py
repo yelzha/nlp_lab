@@ -15,7 +15,11 @@ class GSM8K(MoreAgent):
         super().__init__(agents_num, model_type, nums, temperature, top_p)
 
     def get_question_datas(self):
-        path = f"../dataset/gsm_dataset/test_{self.dtype}.jsonl"
+        if self.dtype == "clean":
+            path = f"../dataset/gsm_dataset/test_clean.jsonl"
+        else:
+            path = f"../dataset/gsm_dataset/test_{self.dtype}.jsonl"
+
         question_datas = []
 
         def read_jsonl(path: str):
