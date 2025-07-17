@@ -20,7 +20,7 @@ log_message() {
 
 # --- Define the worker script filename and fixed parameters ---
 # Worker script path (relative to where orchestrator_loop.sh is run)
-WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
+WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
 
 # Parameters for the experiment
 MODEL="Llama-3.1-8B-Instruct"
