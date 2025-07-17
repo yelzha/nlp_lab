@@ -4,12 +4,12 @@
 # --- Logging Setup ---
 
 # Define log directory and create it if it doesn't exist
-LOG_DIR="logs/orchestrator"
+LOG_DIR="logs"
 mkdir -p "$LOG_DIR"
 
 # Generate a unique timestamp for the log file name
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-LOG_FILE="./$LOG_DIR/orchestrator_$TIMESTAMP.log"
+LOG_FILE="./$LOG_DIR/orchestrator/orchestrator_$TIMESTAMP.log"
 
 # Function to log messages to both the console and the log file
 log_message() {
