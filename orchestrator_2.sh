@@ -4,7 +4,7 @@
 # --- Logging Setup ---
 
 # Define log directory and create it if it doesn't exist
-LOG_DIR="logs"
+LOG_DIR="logs/orchestrator"
 mkdir -p "$LOG_DIR"
 
 # Generate a unique timestamp for the log file name

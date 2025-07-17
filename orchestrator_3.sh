@@ -4,7 +4,7 @@
 # --- Logging Setup ---
 
 # Define log directory and create it if it doesn't exist
-LOG_DIR="logs"
+LOG_DIR="logs/orchestrator"
 mkdir -p "$LOG_DIR"
 
 # Generate a unique timestamp for the log file name
@@ -20,7 +20,7 @@ log_message() {
 
 # --- Define the worker script filename and fixed parameters ---
 # Worker script path (relative to where orchestrator_loop.sh is run)
-WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
+WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Parameters for the experiment
 MODEL="Llama-3.1-8B-Instruct"
