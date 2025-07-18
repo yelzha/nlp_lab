@@ -326,28 +326,26 @@ def mmlu_ans_parser_old(answer_text, question=None):
 
 def mmlu_ans_parser(answer_text, question=None):
     """
-    Parses the answer text to extract the final multiple-choice option (A, B, C, or D).
-    This version exclusively looks for answers within the \\boxed{} format.
+    Parses the model output to extract the final multiple-choice answer (A–D),
+    specifically looking for formats like \boxed{(A)} or \boxed{A}.
     """
-    final_index = answer_text.find("Final answer:")
-    if final_index > 0:
+    # Optional: trim to anything after "Final answer:"
+    final_index = answer_text.lower().find("final answer:")
+    if final_index != -1:
         answer_text = answer_text[final_index:]
-    # Normalize the text to uppercase and remove extra whitespace for consistent matching.
-    normalized_text = answer_text.strip().upper()
-    normalized_text = re.sub(r'\s+', ' ', normalized_text)
 
-    # --- Strategy: Look for \boxed{(A)}, \boxed{(B)}, \boxed{A}, etc. ---
-    # This is the primary target given your latest prompt format.
-    # It captures the letter (A-D) directly from inside the box, allowing for optional parentheses and spaces.
-    boxed_pattern = r'\\BOXED{\s*\(?\s*([A-D])\s*\)?\s*}'
-    boxed_matches = re.findall(boxed_pattern, normalized_text)
+    # Pattern: matches \boxed{(A)}, \boxed{ A }, \boxed{A}, etc.
+    boxed_pattern = r'\\boxed\{\s*\(?\s*([A-Da-d])\s*\)?\s*\}'
+    boxed_matches = re.findall(boxed_pattern, answer_text)
 
-    for boxed_match in boxed_matches:
-        # Return the last captured letter from within a box, as it's most likely the final answer.
-        if boxed_match in ("A", "B", "C", "D"):
-            return boxed_match, True
+    if boxed_matches:
+        return boxed_matches[-1].upper(), True
 
-    # If no valid boxed answer is found, return None.
+    # Fallback: plain (A) etc.
+    fallback = re.findall(r'\(([A-Da-d])\)', answer_text)
+    if fallback:
+        return fallback[-1].upper(), True
+
     return None, False
 
 
