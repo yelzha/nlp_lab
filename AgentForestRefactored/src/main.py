@@ -20,6 +20,7 @@ QUESTION_TYPE = sys.argv[5]  # Adjusted sys.argv index
 TEMPERATURE = float(sys.argv[6])  # Adjusted sys.argv index
 TOP_P = float(sys.argv[7])  # Adjusted sys.argv index
 MAIN_DIRECTORY = os.getenv('MAIN_DIRECTORY')
+DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 
 
 def main():
@@ -76,6 +77,11 @@ def main():
         all_answers = result_dict["answers"]
         total_prompt_tokens += result_dict["total_prompt_tokens"]
         total_completion_tokens += result_dict["total_completion_tokens"]
+
+        if DEBUG:
+            for idx, answer in enumerate(all_answers):
+                print(f"Agent: {idx}, answer: {answer}")
+            print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
 
         # Process and store results for each K value for the current question
         for K in K_values:

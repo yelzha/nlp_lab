@@ -66,6 +66,7 @@ TEMPERATURE=$7
 TOP_P=$8
 VLLM_MODEL_NAME=$9
 export VLLM_MODEL_NAME=$9
+export DEBUG=${10}
 export MAIN_DIRECTORY=$(pwd)
 
 # ----------------- MAIN LOOP ------------------

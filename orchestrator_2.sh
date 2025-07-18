@@ -30,6 +30,7 @@ SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
 VLLM_MODEL_NAME="Qwen/Qwen3-14b" # Full VLLM model name
+DEBUG="False"
 
 # Define the base output folder for logs (relative to orchestrator.sh)
 OUTPUT_BASE_FOLDER="./$LOG_DIR/$DTYPES/$MODEL/$QTYPE"
@@ -37,6 +38,7 @@ mkdir -p "$OUTPUT_BASE_FOLDER" # Ensure the base folder exists
 
 # ------------------------------------------------------------
 log_message "Starting pipeline orchestration script."
+log_message "### DEBUG is: $DEBUG ###"
 log_message "Orchestration log file created at: $LOG_FILE"
 log_message "Worker script to be used: $WORKER_SCRIPT"
 log_message "Model: $MODEL, VLLM Model Name: $VLLM_MODEL_NAME, QType: $QTYPE"
@@ -79,7 +81,7 @@ for i in "${!STAGES[@]}"; do
     fi
 
     # Append worker script and its arguments
-    SBATCH_CMD+=" \"$WORKER_SCRIPT\" $START_INDEX $END_INDEX \"$MODEL\" \"$QTYPE\" \"$DTYPES\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\""
+    SBATCH_CMD+=" \"$WORKER_SCRIPT\" $START_INDEX $END_INDEX \"$MODEL\" \"$QTYPE\" \"$DTYPES\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\""
 
     # Execute the sbatch command
     CURRENT_JOB_ID=$(eval "$SBATCH_CMD") # Use eval to execute the constructed command string
