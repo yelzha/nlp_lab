@@ -7,12 +7,20 @@ CODE_COMPLETION_SYSTEM_PROMPT = f"You are an intelligent programmer. You must co
 
 interaction_prompt = {
     "mmlu": {
-        "question": "Can you answer the following question as accurately as possible?\n\n{question}\nA) {A}\nB) {B}\nC) {C}\nD) {D}\n\nPlease think step by step and explain your reasoning. Choose only one of A, B, C, or D. End your response with your final answer on a **new line** in the format: (X), where X is A, B, C, or D.",
+        "question": """
+        Can you answer the following question as accurately as possible?\n\n
+        {question}\n
+        A) {A}\n
+        B) {B}\n
+        C) {C}\n
+        D) {D}\n\n
+        Explain your answer step by step. Then, on a new line, write only your final answer in the format: (A), (B), (C), or (D).
+        """,
         "debate": [
-            "These are the solutions to the problem from other agents:\n{other_agents}\n",
-            "\nUsing the reasoning from other agents as additional advice, re-evaluate your own answer step by step. Choose only one of A, B, C, or D. End your updated response on a new line in the format: (X), where X is A, B, C, or D."
+            "These are the solutions to the problem from other agents:\n\n{other_agents}\n",
+            "Using the reasoning from other agents as additional input, re-evaluate your own answer step by step. Choose only one of A, B, C, or D. End your updated response on a new line in the format: (A), (B), (C), or (D). Do not add extra commentary after the answer."
         ],
-        "reflection": "Now carefully reflect on your latest answer. Check for logical consistency, accuracy, and whether the chosen option best fits the question. If needed, revise. End with your final answer on a new line in the format: (X), where X is A, B, C, or D."
+        "reflection": "Now carefully reflect on your most recent answer. Ensure it is logically consistent, factually accurate, and best supported by the reasoning. If you believe a different choice is better, update it. End with your final answer on a new line in the format: (A), (B), (C), or (D), and do not write anything else after that."
     },
     "math":{
         "question": "Here is a math problem written in LaTeX:{}\nPlease carefully consider it and explain your reasoning. Put your answer in the form \\boxed{{answer}}, at the end of your response.",
