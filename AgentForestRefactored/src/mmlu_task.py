@@ -43,11 +43,12 @@ class MMLU(MoreAgent):
             subCate = categories.subcategories[fileName][0]
             category[index] = reverseCategory[subCate]
             index += 1
-        dfs = [pd.read_csv(task) for task in tasks]
+        dfs = [(pd.read_csv(task), windows_to_linux_path(task).split("/")[-1]) for task in tasks]
 
         question_datas = []
-        for df in dfs:
+        for df, file_name in dfs:
             ix = len(df)
+            df['name'] = file_name
             for idx in range(ix):
                 question_state, ground_truth = utils.get_mmlu_qa_pairs(df, idx)
                 question_data = {
