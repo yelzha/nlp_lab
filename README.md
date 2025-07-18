@@ -120,6 +120,10 @@
 
 
 ```commandline
+
+module load Miniforge3
+module load git/2.41.0-GCCcore-12.3.0-nodocs
+conda activate /home/s06zyelt/nlp_lab/env
 huggingface-cli download model
 ```
 
@@ -238,7 +242,6 @@ with open('output.txt', 'w') as f:
 ==========code test end===============
 ======================================
 ```
-
 
 ```commandline
 
