@@ -78,11 +78,6 @@ def main():
         total_prompt_tokens += result_dict["total_prompt_tokens"]
         total_completion_tokens += result_dict["total_completion_tokens"]
 
-        if DEBUG:
-            for idx, answer in enumerate(all_answers):
-                print(f"Agent: {idx}, answer: {answer}")
-            print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
-
         # Process and store results for each K value for the current question
         for K in K_values:
             if K not in total_records_dict:

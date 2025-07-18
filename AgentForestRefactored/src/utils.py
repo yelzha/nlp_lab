@@ -1,5 +1,6 @@
 import math
 import re
+import os
 import time
 from human_eval.data import read_problems
 from human_eval.execution import TimeoutException, create_tempdir, reliability_guard, swallow_io, time_limit
@@ -18,6 +19,7 @@ def get_vllm_name():
 
 
 VLLM_MODEL_NAME = get_vllm_name()
+DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 try:
     if "gemma" in VLLM_MODEL_NAME:
         global_llm_model = LLM(
@@ -166,6 +168,11 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
                     # You might add logprobs if needed, though not directly available like OpenAI's.
                 })
                 total_completion_tokens_for_output += len(completion_output.token_ids)
+
+            if DEBUG:
+                for idx, choice in enumerate(choices):
+                    print(f"Agent: {idx}, answer: {choice['message']['content']}")
+                print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
 
             completion.append({
                 "choices": choices,
