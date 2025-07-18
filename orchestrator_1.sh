@@ -27,8 +27,8 @@ MODEL="Qwen3-4b"
 QTYPE="mmlu"
 DTYPES="clean"
 SUBSET_NUM=100
-TEMPERATURE=1
-TOP_P=1
+TEMPERATURE=0.7
+TOP_P=0.9
 VLLM_MODEL_NAME="Qwen/Qwen3-4b" # Full VLLM model name
 DEBUG="False"
 
