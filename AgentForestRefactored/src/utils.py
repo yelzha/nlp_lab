@@ -49,10 +49,12 @@ def get_mmlu_qa_pairs(df, ix):
     answer = df.iloc[ix, 5]
     return question, answer
 
+
 def get_human_eval_qa_pairs():
     problems = read_problems()
     problems = [(k, v["prompt"], v["entry_point"]) for k, v in problems.items()]
     return problems
+
 
 def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
     """
@@ -112,6 +114,7 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
         passed=result[0] == "passed",
         result=result[0],
     )
+
 
 def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False):
     global global_llm_model
@@ -192,6 +195,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
         time.sleep(5)
     return completion
 
+
 def extract_last_python_code_block(text):
     # The regular expression pattern for Python code blocks
     pattern = r"```[pP]ython(.*?)```"
@@ -204,6 +208,7 @@ def extract_last_python_code_block(text):
         return matches[-1].strip()
     else:
         return None
+
 
 def parse_code_completion(agent_response, question):
     python_code = extract_last_python_code_block(agent_response)
@@ -223,6 +228,7 @@ def parse_code_completion(agent_response, question):
         python_code = question + python_code
     return python_code, True
 
+
 def most_frequent(clist, cmp_func):
     counter = 0
     num = clist[0]
@@ -236,10 +242,12 @@ def most_frequent(clist, cmp_func):
 
     return num, counter
 
+
 def get_majority_voting_answer(agent_answers):
     counter = Counter(agent_answers)
     majority_voting_answer = counter.most_common(1)[0][0]
     return majority_voting_answer
+
 
 def get_majority_voting_answer_for_gsm(agent_answers):
     def most_frequent(List):
@@ -262,6 +270,7 @@ def get_majority_voting_answer_for_gsm(agent_answers):
     except:
         return math.nan
 
+
 def get_majority_voting_answer_for_math(agent_answers):
     count = len(agent_answers)
     sameAsCount = [0 for i in range(count)]
@@ -278,6 +287,7 @@ def get_majority_voting_answer_for_math(agent_answers):
             largestCount = i
     return agent_answers[largestCount]
 
+
 def most_similar_code(clist):
     cmp_res = lambda x, y: sentence_bleu(x, [y], lowercase=True).score
     if len(clist) == 1:
@@ -293,7 +303,8 @@ def most_similar_code(clist):
     max_index, max_value = max(enumerate(bleu_scores), key=lambda x: x[1])
     return max_index, clist[max_index], max_value
 
-def mmlu_ans_parser(answer_text, question=None):
+
+def mmlu_ans_parser_old(answer_text, question=None):
     finalIndex = answer_text.find("Final answer:")
     if finalIndex > 0:
         answer_text = answer_text[finalIndex:]
@@ -310,6 +321,47 @@ def mmlu_ans_parser(answer_text, question=None):
             break
     return answer, True
 
+
+def mmlu_ans_parser(answer_text, question=None):
+    """
+    Parses the answer text to extract the final multiple-choice option (A, B, C, or D).
+    This simplified version focuses on common patterns for the final answer.
+    """
+    # Normalize the text to uppercase and remove extra whitespace for consistent matching.
+    normalized_text = answer_text.strip().upper()
+    normalized_text = re.sub(r'\s+', ' ', normalized_text)
+
+    # Define a single, robust regex to find the answer.
+    # This pattern tries to capture:
+    # 1. (A), (B), (C), (D) - with optional spaces inside parentheses.
+    # 2. A), B), C), D) - with optional spaces before the parenthesis.
+    # 3. Isolated A, B, C, D - often preceded by "ANSWER:" or similar keywords,
+    #    or appearing as a standalone character at the end of the text.
+    # It prioritizes matches towards the end of the string.
+
+    # We'll search for patterns in the last 200 characters to focus on the end of the response.
+    # This avoids picking up options repeated in the middle of long explanations.
+    search_area = normalized_text[-min(len(normalized_text), 200):]
+
+    # Pattern: Look for (A), (B), (C), (D) or A), B), C), D) or isolated A, B, C, D
+    # The regex is designed to capture the letter within these formats.
+    # It's ordered to prefer parenthesized answers.
+    pattern = r'\(\s*([A-D])\s*\)|([A-D])\s*\)|(?:\bANSWER:|\bFINAL ANSWER:|\bTHE ANSWER IS|\bIS|\bFINAL)\s*([A-D])\b|\b([A-D])\b'
+
+    # Find all matches in the search area
+    matches = re.findall(pattern, search_area)
+
+    # Iterate through matches in reverse order to get the last valid answer
+    for match_tuple in reversed(matches):
+        # A match_tuple will contain captured groups. We need to find the non-empty one.
+        for captured_group in match_tuple:
+            if captured_group:  # If a group captured a value (A, B, C, or D)
+                return captured_group, True
+
+    # If no valid answer is found by any pattern, return None.
+    return None, False
+
+
 def math_ans_parser(answer_text, question=None):
     # Find all occurrences of the \boxed{} pattern and extract the content, accounting for nested braces
     # matches = re.findall(r'\\boxed{((?:[^{}]*|{[^{}]*})*)}', answer_text)
@@ -325,6 +377,7 @@ def math_ans_parser(answer_text, question=None):
     else:
         return None , False
     # return match.group(1), True if match else None,False
+
 
 def gsm_ans_parser(answer_text, question=None):
     def parse_answer(input_str):
@@ -355,6 +408,7 @@ def gsm_ans_parser(answer_text, question=None):
         pred_answer = solve_math_problems(answer_text)
 
     return pred_answer, pred_answer is not None
+
 
 def chess_ans_parser(answer_text, question=None):
     none_responese = [
@@ -395,12 +449,15 @@ def chess_ans_parser(answer_text, question=None):
         else:
             return matches[-1], True
 
+
 def is_final_answer_correct(df_row):
     if df_row["ground_truth"] == df_row["final_answer"]:
         return True
     return False
 
+
 def is_final_answer_in_ground_truth(df_row):
     if df_row["final_answer"] in df_row["ground_truth"]:
         return True
     return False
+

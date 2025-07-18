@@ -18,7 +18,9 @@ class MMLU(MoreAgent):
         self.qtype = "mmlu"
         self.dtype = dtype
         self.ans_parser = utils.mmlu_ans_parser
-        self.format_prompt = "Please put the answer in the form (X) at the end of your response."
+        self.format_prompt = ("Explain your answer step by step. "
+                              "Then, on a new line, write only your final answer in the format: "
+                              "(A), (B), (C), or (D).")
         super().__init__(agents_num, model_type, nums, temperature, top_p)
 
     def get_question_datas(self, question_num=100):
