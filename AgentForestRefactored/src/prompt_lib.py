@@ -6,25 +6,21 @@ MATH_TASK_SYSTEM_PROMPT = "Imagine you are an expert skilled in solving mathemat
 CODE_COMPLETION_SYSTEM_PROMPT = f"You are an intelligent programmer. You must complete the python function given to you by the user. And you must follow the format they present when giving your answer! You can only respond with comments and actual code, no free-flowing text (unless in a comment)." # from https://github.com/getcursor/eval.git
 
 interaction_prompt = {
-    "mmlu":{
-        "question": "Can you answer the following question as accurately as possible? {}: "
-                    "A) {},\n "
-                    "B) {},\n "
-                    "C) {},\n "
-                    "D) {}.\n "
-                    "Explain your answer step by step. "
-                    "Your final answer should ONLY be the letter of the correct option enclosed in parentheses, "
-                    "like (A), (B), (C), or (D). Place this at the very end of your response, after your explanation.",
+    "mmlu": {
+        "question": """
+        Can you answer the following question as accurately as possible?\n\n
+        {question}\n
+        A) {A}\n
+        B) {B}\n
+        C) {C}\n
+        D) {D}\n\n
+        Explain your answer step by step. Then, on a new line, write only your final answer in the format: (A), (B), (C), or (D).
+        """,
         "debate": [
-            "These are the solutions to the problem from other agents: ",
-            "\n\n Using the reasoning from other agents as additional advice, can you give an updated answer? "
-            "Examine your solution and that other agents step by step. "
-            "Your updated final answer should ONLY be the letter of the correct option enclosed in parentheses, "
-            "like (A), (B), (C), or (D). Place this at the very end of your response, after your reasoning."
+            "These are the solutions to the problem from other agents:\n\n{other_agents}\n",
+            "Using the reasoning from other agents as additional input, re-evaluate your own answer step by step. Choose only one of A, B, C, or D. End your updated response on a new line in the format: (A), (B), (C), or (D). Do not add extra commentary after the answer."
         ],
-        "reflection": "Can you double check that your answer is correct? "
-                      "Your final answer should ONLY be the letter of the correct option enclosed in parentheses, "
-                      "like (A), (B), (C), or (D).",
+        "reflection": "Now carefully reflect on your most recent answer. Ensure it is logically consistent, factually accurate, and best supported by the reasoning. If you believe a different choice is better, update it. End with your final answer on a new line in the format: (A), (B), (C), or (D), and do not write anything else after that."
     },
     "math":{
         "question": "Here is a math problem written in LaTeX:{}\nPlease carefully consider it and explain your reasoning. Put your answer in the form \\boxed{{answer}}, at the end of your response.",
