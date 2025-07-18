@@ -47,9 +47,8 @@ def get_mmlu_qa_pairs(df, ix):
     c = df.iloc[ix, 3]
     d = df.iloc[ix, 4]
     answer = df.iloc[ix, 5]
-    subject = df.iloc[ix, 6]
     question = interaction_prompt["mmlu"]["question"].format(
-        subject, question, a, b, c, d)
+        question, a, b, c, d)
     return question, answer
 
 
