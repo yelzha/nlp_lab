@@ -8,6 +8,8 @@ import multiprocessing
 from typing import Dict
 from collections import Counter
 from sacrebleu import sentence_bleu
+
+from prompt_lib import interaction_prompt
 from math_equivalence import is_equiv
 from vllm import LLM, SamplingParams
 
@@ -44,7 +46,7 @@ def get_mmlu_qa_pairs(df, ix):
     b = df.iloc[ix, 2]
     c = df.iloc[ix, 3]
     d = df.iloc[ix, 4]
-    question = "Can you answer the following question as accurately as possible? {}: A) {}, B) {}, C) {}, D) {} Explain your answer, putting the answer in the form (X) at the end of your response.".format(
+    question = interaction_prompt["mmlu"]["question"].format(
         question, a, b, c, d)
     answer = df.iloc[ix, 5]
     return question, answer
@@ -149,7 +151,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
             temperature=temperature,
             top_p=top_p,
             n=nums,
-            max_tokens=4096,
+            max_tokens=2048,
             # seed=0
         )
 

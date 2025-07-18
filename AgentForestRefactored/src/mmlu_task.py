@@ -3,6 +3,8 @@ import random
 import utils
 import categories
 from glob import glob
+
+from prompt_lib import interaction_prompt
 from more_agent import MoreAgent
 
 def windows_to_linux_path(windows_path):
