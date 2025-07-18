@@ -147,9 +147,6 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
             top_p=top_p,
             n=nums,
             max_tokens=4096,
-            frequency_penalty=1.2,
-            presence_penalty=1.0,
-            stop=["\n\n", "(E)", "(X)", "Answer:"]  # hard stop at answer markers
             # seed=0
         )
 
