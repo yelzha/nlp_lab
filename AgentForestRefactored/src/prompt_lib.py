@@ -8,12 +8,11 @@ CODE_COMPLETION_SYSTEM_PROMPT = f"You are an intelligent programmer. You must co
 interaction_prompt = {
     "mmlu": {
         "question": (
-            "Can you answer the following question as accurately as possible?\n\n"
-            "{question}\n"
-            "A) {A}\n"
-            "B) {B}\n"
-            "C) {C}\n"
-            "D) {D}\n\n"
+            "Can you answer the following question as accurately as possible?\n\n {}\n"
+            "A) {}\n"
+            "B) {}\n"
+            "C) {}\n"
+            "D) {}\n\n"
             "Explain your answer step by step. Then, on a new line, write only your final answer "
             "in the format: \\boxed{{(A)}}, \\boxed{{(B)}}, \\boxed{{(C)}}, or \\boxed{{(D)}}. "
             "Place this at the very end of your response. Do not repeat or add extra text after it."
