@@ -28,7 +28,7 @@ QTYPE="mmlu"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=0.7
-TOP_P=0.9
+TOP_P=1
 VLLM_MODEL_NAME="meta-llama/Llama-3.1-8B-Instruct" # Full VLLM model name
 DEBUG="False"
 

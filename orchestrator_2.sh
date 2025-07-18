@@ -23,13 +23,13 @@ log_message() {
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Parameters for the experiment
-MODEL="Qwen3-14b"
+MODEL="Qwen3-14B"
 QTYPE="mmlu"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=0.7
-TOP_P=0.9
-VLLM_MODEL_NAME="Qwen/Qwen3-14b" # Full VLLM model name
+TOP_P=1
+VLLM_MODEL_NAME="Qwen/Qwen3-14B" # Full VLLM model name
 DEBUG="False"
 
 # Define the base output folder for logs (relative to orchestrator.sh)
