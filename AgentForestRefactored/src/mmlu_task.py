@@ -62,6 +62,7 @@ class MMLU(MoreAgent):
 
     def get_final_answer(self, idxs, question_data):
         agent_answers = [self.nodes[idx].get_answer() for idx in idxs]
+        agent_answers = [i for i in agent_answers if i is not None]
         consistent_answer = utils.get_majority_voting_answer(agent_answers)
         return consistent_answer
 
