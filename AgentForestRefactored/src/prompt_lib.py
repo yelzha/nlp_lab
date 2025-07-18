@@ -7,7 +7,7 @@ CODE_COMPLETION_SYSTEM_PROMPT = f"You are an intelligent programmer. You must co
 
 interaction_prompt = {
     "mmlu": {
-        "question": "Can you answer the following question as accurately as possible? {}: A) {}, B) {}, C) {}, D) {}. Shortly explain your answer step by step. Your final answer must ONLY be the letter of the correct option enclosed in parentheses, like \\boxed{{(A)}}, \\boxed{{(B)}}, \\boxed{{(C)}}, or \\boxed{{(D)}}. You must place this at the very end of your response, after your explanation.",
+        "question": "Can you answer the following question as accurately as possible? {}: A) {}, B) {}, C) {}, D) {}. Your final answer must ONLY be the letter of the correct option enclosed in parentheses, like \\boxed{{(A)}}, \\boxed{{(B)}}, \\boxed{{(C)}}, or \\boxed{{(D)}}. You must place this at the very end of your response.",
         "debate": [
             "These are the solutions to the problem from other agents:\n\n{other_agents}\n",
             "Using the reasoning from other agents as additional input, re-evaluate your own answer step by step. Choose only one of A, B, C, or D. End your updated response on a new line in the format: (A), (B), (C), or (D). Do not add extra commentary after the answer."
