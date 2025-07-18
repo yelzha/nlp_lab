@@ -24,7 +24,7 @@ WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Parameters for the experiment
 MODEL="Mistral-7B-Instruct-v0.3"
-QTYPE="gsm"
+QTYPE="mmlu"
 DTYPES="clean"
 SUBSET_NUM=100
 TEMPERATURE=1
