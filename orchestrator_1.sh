@@ -47,10 +47,6 @@ log_message "============================================================="
 # Each pair represents [start_index, end_index] for the worker script
 STAGES=(
     "0 2"
-    "2 4"
-    "4 6"
-    "6 8"
-    "8 10"
 )
 
 # Initialize the job ID for dependency. The first job has no dependency.
