@@ -327,40 +327,27 @@ def mmlu_ans_parser_old(answer_text, question=None):
 def mmlu_ans_parser(answer_text, question=None):
     """
     Parses the answer text to extract the final multiple-choice option (A, B, C, or D).
-    This simplified version focuses on common patterns for the final answer.
+    This version exclusively looks for answers within the \\boxed{} format.
     """
+    final_index = answer_text.find("Final answer:")
+    if final_index > 0:
+        answer_text = answer_text[final_index:]
     # Normalize the text to uppercase and remove extra whitespace for consistent matching.
     normalized_text = answer_text.strip().upper()
     normalized_text = re.sub(r'\s+', ' ', normalized_text)
 
-    # Define a single, robust regex to find the answer.
-    # This pattern tries to capture:
-    # 1. (A), (B), (C), (D) - with optional spaces inside parentheses.
-    # 2. A), B), C), D) - with optional spaces before the parenthesis.
-    # 3. Isolated A, B, C, D - often preceded by "ANSWER:" or similar keywords,
-    #    or appearing as a standalone character at the end of the text.
-    # It prioritizes matches towards the end of the string.
+    # --- Strategy: Look for \boxed{(A)}, \boxed{(B)}, \boxed{A}, etc. ---
+    # This is the primary target given your latest prompt format.
+    # It captures the letter (A-D) directly from inside the box, allowing for optional parentheses and spaces.
+    boxed_pattern = r'\\BOXED{\s*\(?\s*([A-D])\s*\)?\s*}'
+    boxed_matches = re.findall(boxed_pattern, normalized_text)
 
-    # We'll search for patterns in the last 200 characters to focus on the end of the response.
-    # This avoids picking up options repeated in the middle of long explanations.
-    search_area = normalized_text[-min(len(normalized_text), 200):]
+    for boxed_match in boxed_matches:
+        # Return the last captured letter from within a box, as it's most likely the final answer.
+        if boxed_match in ("A", "B", "C", "D"):
+            return boxed_match, True
 
-    # Pattern: Look for (A), (B), (C), (D) or A), B), C), D) or isolated A, B, C, D
-    # The regex is designed to capture the letter within these formats.
-    # It's ordered to prefer parenthesized answers.
-    pattern = r'\(\s*([A-D])\s*\)|([A-D])\s*\)|(?:\bANSWER:|\bFINAL ANSWER:|\bTHE ANSWER IS|\bIS|\bFINAL)\s*([A-D])\b|\b([A-D])\b'
-
-    # Find all matches in the search area
-    matches = re.findall(pattern, search_area)
-
-    # Iterate through matches in reverse order to get the last valid answer
-    for match_tuple in reversed(matches):
-        # A match_tuple will contain captured groups. We need to find the non-empty one.
-        for captured_group in match_tuple:
-            if captured_group:  # If a group captured a value (A, B, C, or D)
-                return captured_group, True
-
-    # If no valid answer is found by any pattern, return None.
+    # If no valid boxed answer is found, return None.
     return None, False
 
 
