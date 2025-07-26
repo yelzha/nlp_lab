@@ -26,6 +26,20 @@ class MMLU(MoreAgent):
         super().__init__(agents_num, model_type, nums, temperature, top_p)
 
     def get_question_datas(self, question_num=100):
+        math_files = [
+            'college_mathematics_test.csv',
+            'elementary_mathematics_test.csv',
+            'high_school_mathematics_test.csv',
+            'high_school_statistics_test.csv',
+            'econometrics_test.csv'  # includes applied math/stat
+        ]
+        math_files += [
+            'high_school_physics_test.csv',  # math-heavy
+            'college_physics_test.csv',
+            'conceptual_physics_test.csv',
+            'machine_learning_test.csv',  # applied math
+            'electrical_engineering_test.csv',
+        ]
         tasks = glob("../dataset/mmlu_dataset/*.csv")
         category = {}
         reverseCategory = {}
