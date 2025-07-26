@@ -18,10 +18,6 @@ if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
     echo "Please ensure 'orchestrator.sh' is in the same directory or provide its full path."
     exit 1
 fi
-if [ ! -x "$ORCHESTRATOR_SCRIPT" ]; then
-    echo "Error: orchestrator.sh is not executable. Please run 'chmod +x $ORCHESTRATOR_SCRIPT'."
-    exit 1
-fi
 
 # Initialize the last job ID. The first orchestrator.sh run will have no external dependency.
 LAST_SLURM_ID=""
@@ -34,17 +30,6 @@ for MODEL in "${MODELS[@]}"; do
                 for TEMPERATURE in "${TEMPERATURES[@]}"; do
                     for TOP_P in "${TOP_PS[@]}"; do
                         for VLLM_MODEL_NAME in "${VLLM_MODEL_NAMES[@]}"; do
-                            # Simple check to ensure VLLM_MODEL_NAME matches MODEL if you have a specific mapping
-                            # For example, if "Qwen3-4B" always maps to "Qwen/Qwen3-4B"
-                            # You might want a more robust mapping here if needed.
-                            # This example assumes a 1:1 or N:1 mapping that you manage.
-                            if [[ "$MODEL" == "Qwen3-4B" && "$VLLM_MODEL_NAME" != "Qwen/Qwen3-4B" ]]; then
-                                continue # Skip if VLLM_MODEL_NAME doesn't match MODEL for Qwen
-                            fi
-                            if [[ "$MODEL" == "Llama-2-7B" && "$VLLM_MODEL_NAME" != "meta-llama/Llama-2-7b-hf" ]]; then
-                                continue # Skip if VLLM_MODEL_NAME doesn't match MODEL for Llama
-                            fi
-
                             for DEBUG in "${DEBUGS[@]}"; do
                                 # Construct the command to run orchestrator.sh with current parameters
                                 RUN_CMD="$ORCHESTRATOR_SCRIPT"
