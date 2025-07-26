@@ -97,41 +97,23 @@ for i in "${!STAGES[@]}"; do
     JOB_NAME="run_${MODEL}_${QTYPE}_${DTYPES}_stage${STAGE_NUM}"
     OUTPUT_FILE="$OUTPUT_BASE_FOLDER/${JOB_NAME}_%j.txt"
 
-    SBATCH_CMD_BASE="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
-    DEPENDENCY_OPT=""
+    SBATCH_CMD="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
     if [ -n "$PREV_JOB_ID" ]; then
-        DEPENDENCY_OPT="--dependency=afterok:$PREV_JOB_ID"
+        SBATCH_CMD+=" --dependency=afterok:$PREV_JOB_ID"
         log_message "  Dependent on Job ID: $PREV_JOB_ID"
     fi
 
-    # Construct the command for --wrap carefully
-    # Use single quotes for the outer wrap string to avoid excessive backslashes
-    # Arguments passed to the worker script need to be properly quoted for it to receive them as distinct arguments.
-    # The inner quotes around variables like "$MODEL" need to be escaped for bash within the wrap.
-    # So "$MODEL" becomes \"$MODEL\" for sbatch.
-    WRAP_COMMAND="bash \\\"$WORKER_SCRIPT\\\" \\\"$START_INDEX\\\" \\\"$END_INDEX\\\" \\\"$MODEL\\\" \\\"$QTYPE\\\" \\\"$DTYPES\\\" \\\"$SUBSET_NUM\\\" \\\"$TEMPERATURE\\\" \\\"$TOP_P\\\" \\\"$VLLM_MODEL_NAME\\\" \\\"$DEBUG\\\""
+    SBATCH_CMD+=" \"$WORKER_SCRIPT\" \"$START_INDEX\" \"$END_INDEX\" \"$MODEL\" \"$QTYPE\" \"$DTYPES\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\""
 
-    # Combine everything for sbatch
-    # Use an array to pass arguments to sbatch more robustly than a single string for eval
-    SBATCH_ARGS=(
-        "--parsable"
-        "--job-name=$JOB_NAME" # Job name doesn't need outer quotes with array
-        "--output=$OUTPUT_FILE"
-    )
 
-    if [ -n "$DEPENDENCY_OPT" ]; then
-        SBATCH_ARGS+=("$DEPENDENCY_OPT")
-    fi
-
-    SBATCH_ARGS+=("--wrap=$WRAP_COMMAND")
 
     # Execute sbatch directly from the array. This avoids the 'eval' problem.
-    CURRENT_JOB_ID=$(sbatch "${SBATCH_ARGS[@]}")
+    CURRENT_JOB_ID=$(eval "$SBATCH_CMD")
     CURRENT_JOB_ID=$(echo "$CURRENT_JOB_ID" | tr -d '[:space:]') # Remove any whitespace
 
     if [ -z "$CURRENT_JOB_ID" ]; then
         log_message "Error: sbatch command failed to return a Job ID for Stage $STAGE_NUM."
-        log_message "Command attempted: sbatch ${SBATCH_ARGS[@]}" # Log the exact command
+        log_message "Command attempted: sbatch ${SBATCH_CMD}" # Log the exact command
         exit 1 # Exit if a job submission fails
     fi
 
