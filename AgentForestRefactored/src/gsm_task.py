@@ -15,10 +15,7 @@ class GSM8K(MoreAgent):
         super().__init__(agents_num, model_type, nums, temperature, top_p)
 
     def get_question_datas(self):
-        if self.dtype == "clean":
-            path = f"../dataset/gsm_dataset/test_clean.jsonl"
-        else:
-            path = f"../dataset/gsm_dataset/test_{self.dtype}.jsonl"
+        path = f"../dataset/gsm/gsm_dataset_{self.dtype}/test.jsonl"
 
         question_datas = []
 
@@ -34,8 +31,8 @@ class GSM8K(MoreAgent):
             return None
 
         questions = read_jsonl(path)
-        random.seed(0)
-        random.shuffle(questions)
+        # random.seed(0)
+        # random.shuffle(questions)
         # questions = questions[0:100]
         for q in questions:
             question_state = interaction_prompt["gsm"]["question"].format(q['question'])

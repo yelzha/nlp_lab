@@ -8,8 +8,8 @@ from datetime import datetime  # Import datetime for generating a timestamp if S
 from code_completion_task import CodeCompletion
 from mmlu_task import MMLU
 from math_task import MATH
-from chess_task import CHESS
 from gsm_task import GSM8K
+from multiarith_task import MULTIARITH
 from human_eval.data import write_jsonl
 
 PART = int(sys.argv[1])
@@ -47,8 +47,8 @@ def main():
         solver = MMLU(max_agents_for_init, MODEL, temperature=TEMPERATURE, top_p=TOP_P, dtype=DTYPE)
     elif QUESTION_TYPE == "math":
         solver = MATH(max_agents_for_init, MODEL, temperature=TEMPERATURE, top_p=TOP_P, dtype=DTYPE)
-    elif QUESTION_TYPE == "chess":
-        solver = CHESS(max_agents_for_init, MODEL, temperature=TEMPERATURE, top_p=TOP_P, dtype=DTYPE)
+    elif QUESTION_TYPE == "multiarith":
+        solver = MULTIARITH(max_agents_for_init, MODEL, temperature=TEMPERATURE, top_p=TOP_P, dtype=DTYPE)
     elif QUESTION_TYPE == "gsm":
         solver = GSM8K(max_agents_for_init, MODEL, temperature=TEMPERATURE, top_p=TOP_P, dtype=DTYPE)
     else:
