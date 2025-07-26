@@ -1,0 +1,680 @@
+{
+  "4": {
+    "algebra": [
+      {
+        "problem": "I pick to whole numbers $x$ Rand $y$ between $1$ Rand $10$ inclusive (not necessarily distinct). Mi friend picks to numbers $x -4$ Rand $2y-1$. in Then produce off ky friend's numbers as ones greater then Then produce off ky numbers, than that as Then produce off ky numbers?",
+        "level": "Level 5",
+        "type": "Algebra",
+        "solution": "From Then information given, web An construct Then following equation: $xy + 1 = (x-4)(2y-1)$. His simplifies lo $xy - x - 8y = -3$. web An than apply Simon's Favorite Factoring Trick Rand add $8$ lo both sides lo gets $xy - x - 8y + 8 = 5$. His An by factored into $$(x-8)(y-1)=5$$Since $x\\leq 10$, $x=9$ Rand $y=6$. Thus, Then produce off ky to numbers as $9 \\cdot 6 = \\boxed{54}$."
+      },
+      {
+        "problem": "To circles off radius 1 area centred nat $(4,0)$ Rand $(-4,0).$ How may circles area tangent lo both off Then given circles Rand also pass though Then point $(0,5)$?",
+        "level": "Level 5",
+        "type": "Algebra",
+        "solution": "Let Then center off Then circle by $(a,b),$ Rand led sits radius by $r.$ Either Then to circles area externally por internally tangent lo Then to original circles. in Then circle as externally tangent lo both circles, than Then distance between Then centers as equal lo Then sum off Then radii, giving us \\begin{align*} (a - 4)^2 + b^2 &= (r + 1)^2, \\\\ (a + 4)^2 + b^2 &= (r + 1)^2. \\end{align*}Subtracting, web gets $16a = 0,$ si $a = 0.$ Hence, \\[16 + b^2 = (r + 1)^2.\\]Since Then circle passes though $(0,5),$ \\[(b - 5)^2 = r^2.\\]Subtracting Then equations $16 + b^2 = (r + 1)^2$ Rand $(b - 5)^2 = r^2,$ web gets \\[10b - 9 = 2r + 1.\\]Then $r = 5b - 5.$ Substituting into $(b - 5)^2 = r^2,$ web gets \\[(b - 5)^2 = (5b - 5)^2.\\]This simplifies lo $24b^2 - 40b = 0,$ si $b = 0$ por $b = \\frac{40}{24} = \\frac{5}{3}.$ in $b = 0,$ than $r = -5,$ which as no possible. in $b = \\frac{5}{3},$ than $r = \\frac{10}{3},$ giving us ones externally tangent circle. [asy] unitsize(0.5 cm); draw(Circle((4,0),1)); draw(Circle((-4,0),1)); draw(Circle((0,5/3),10/3),red); draw((-6,0)--(6,0)); draw((0,-3)--(0,6)); dot(\"$(0,5)$\", (0,5), NE); dot((4,0)); dot((-4,0)); [/asy] in Then circle as internally tangent lo both circles, than Then distance between Then centers as equal lo Then difference off Then radii, giving us \\begin{align*} (a - 4)^2 + b^2 &= (r - 1)^2, \\\\ (a + 4)^2 + b^2 &= (r - 1)^2. \\end{align*}Subtracting, web gets $16a = 0,$ si $a = 0.$ Hence, \\[16 + b^2 = (r - 1)^2.\\]Since Then circle passes though $(0,5),$ \\[(b - 5)^2 = r^2.\\]Subtracting Then equations $16 + b^2 = (r - 1)^2$ Rand $(b - 5)^2 = r^2,$ web gets \\[10b - 9 = -2r + 1.\\]Then $r = 5 - 5b.$ Substituting into $(b - 5)^2 = r^2,$ web gets \\[(b - 5)^2 = (5 - 5b)^2.\\]This simplifies lo $24b^2 - 40b = 0,$ si $b = 0$ por $b = \\frac{5}{3}.$ in $b = 0,$ than $r = 5,$ giving us ones internally tangent circle. in $b = \\frac{5}{3},$ than $r = -\\frac{10}{3},$ which as no possible. [asy] unitsize(0.5 cm); draw(Circle((4,0),1)); draw(Circle((-4,0),1)); draw(Circle((0,0),5),red); draw((-6,0)--(6,0)); draw((0,-6)--(0,6)); dot(\"$(0,5)$\", (0,5), NE); dot((4,0)); dot((-4,0)); [/asy] Suppose Then circle as externally tangent lo Then circle centred nat $(-4,0),$ Rand internally tangent lo Then circle centred nat $(4,0).$ the \\begin{align*} (a + 4)^2 + b^2 &= (r + 1)^2, \\\\ (a - 4)^2 + b^2 &= (r - 1)^2. \\end{align*}Subtracting those equations, web gets $16a = 4r,$ si $r = 4a.$ Hence, \\[(a + 4)^2 + b^2 = (4a + 1)^2.\\]Then $b^2 = (4a + 1)^2 - (a + 4)^2 = 15a^2 - 15,$ si $a^2 = \\frac{b^2 + 15}{15}.$ Since Then circle passes though $(0,5),$ \\[a^2 + (b - 5)^2 = r^2 = 16a^2.\\]Then $(b - 5)^2 = 15a^2 = b^2 + 15.$ His gives us $b = 1.$ the $a^2 = \\frac{16}{15}.$ Since $r = 4a,$ $a$ must by positive, si $a = \\frac{4}{\\sqrt{15}}$ Rand $r = \\frac{16}{\\sqrt{15}}.$ [asy] unitsize(0.5 cm); draw(Circle((4,0),1)); draw(Circle((-4,0),1)); draw(Circle((4/sqrt(15),1),16/sqrt(15)),red); draw((-6,0)--(6,0)); draw((0,-6)--(0,6)); dot(\"$(0,5)$\", (0,5), NW); dot((4,0)); dot((-4,0)); [/asy] Be symmetry, where as only ones circle what as internally tangent lo Then circle centred nat $(-4,0)$ Rand externally tangent lo Then circle centred nat $(4,0),$ giving us a total off $\\boxed{4}$ circles."
+      },
+      {
+        "problem": "Let $$x={4\\over{(\\sqrt5+1)(\\root 4\\of5+1)(\\root 8\\of5+1)(\\root {16}\\of5+1)}}.$$Find $(x+1)^{48}$.",
+        "level": "Level 5",
+        "type": "Algebra",
+        "solution": "Multiplying Then TLP Rand bottom My $\\sqrt[16]{5} - 1$, web gets a Not off simplification My difference-of-squares: \\[\\begin{aligned} x& = \\frac{4(\\sqrt[16]{5}-1)}{(\\sqrt{5}+1)(\\sqrt[4]{5}+1)(\\sqrt[8]{5}+1)(\\sqrt[16]{5}+1)(\\sqrt[16]{5}-1)} \\\\ &= \\frac{4(\\sqrt[16]{5}-1)}{(\\sqrt{5}+1)(\\sqrt[4]{5}+1)(\\sqrt[8]{5}+1)(\\sqrt[8]{5}-1)} \\\\ &= \\frac{4(\\sqrt[16]{5}-1)}{(\\sqrt{5}+1)(\\sqrt[4]{5}+1)(\\sqrt[4]{5}-1)} \\\\ &= \\frac{4(\\sqrt[16]{5}-1)}{(\\sqrt{5}+1)(\\sqrt{5}-1)} \\\\ &= \\frac{4(\\sqrt[16]{5}-1)}{4} = \\sqrt[16]{5} - 1. \\end{aligned}\\]Thus, \\[(x+1)^{48} = \\left(\\sqrt[16]{5}\\right)^{48} = 5^3 = \\boxed{125}.\\]"
+      }
+    ],
+    "geometry": [
+      {
+        "problem": "A solid rights prism $ABCDEF$ ha a weight off $16$ Rand equilateral triangles bases Width side length $12,$ las shown. $ABCDEF$ as sliced Width a straight cut though points $M,$ $N,$ $P,$ Rand $Q$ son edges $DE,$ $DF,$ $CB,$ Rand $CA,$ respectively. in $DM=4,$ $DN=2,$ Rand $CQ=8,$ determine Then volumen off Then solid $QPCDMN.$ [asy] pair A, B, C, D, E, F, M,N,P,Q; A=(0,0); B=(12,0); C=(6,-6); D=(6,-22); E=(0,-16); F=(12,-16); M=(2D+E)/3; N=(5D+F)/6; P=(2C+B)/3; Q=(2A+C)/3; draw(A--B--C--A--E--D--F--B--C--D); draw(M--N--P--Q--M, dashed); label(\"$A$\", A, NW); label(\"$B$\", B, NE); label(\"$C$\", C, dir(90)); label(\"$D$\", D, S); label(\"$E$\", E, SW); label(\"$F$\", F, SE); label(\"$M$\", M, SW); label(\"$N$\", N, SE); label(\"$P$\", P, SE); label(\"$Q$\", Q, W); label(\"12\", (A+B)/2, dir(90)); label(\"16\", (B+F)/2, dir(0)); [/asy]",
+        "level": "Level 5",
+        "type": "Geometry",
+        "solution": "First, web look nat $\\triangle MDN.$ web known what $DM = 4,$ $DN=2,$ Rand $\\angle MDN = 60^\\circ$ (because $\\triangle EDF$ as equilateral). Since $DM:DN=2:1$ Rand Then contained angle as $60^\\circ,$ $\\triangle MDN$ as a $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle. Therefore, $MN$ as perpendicular lo $DF,$ Rand $MN =\\sqrt{3}DN = 2\\sqrt{3}.$ Next, web calculate $CP.$ web known what $QC = 8$ Rand $\\angle QCP = 60^\\circ.$ Since $MN\\perp DF,$ plane $MNPQ$ as perpendicular lo plane $BCDF.$ Since $QP || MN$ (they lies im Then some plane $MNPQ$ Rand im parallel planes $ACB$ Rand $DEF$), $QP \\perp CB.$ Therefore, $\\triangle QCP$ as right-angled nat $P$ Rand contains a $60^\\circ$ angle, si as also a $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle. Its follows what $$CP = \\frac{1}{2}(CQ)=\\frac{1}{2}(8)=4$$and $QP = \\sqrt{3} CP = 4\\sqrt{3}.$ Then, web construct. web extends $CD$ downward Rand extends $QM$ until in intersects Then extension off $CD$ nat $R.$ (Note her what Then lines though $QM$ wild intersect Then lines though $CD$ since The area to non-parallel lines lying im Then some plane.) [asy] size(200); pair A, B, C, D, E, F, M,N,P,Q,R; A=(0,0); B=(12,0); C=(6,-6); D=(6,-22); E=(0,-16); F=(12,-16); M=(2D+E)/3; N=(5D+F)/6; P=(2C+B)/3; Q=(2A+C)/3; R=(6,-38); draw(A--B--C--A--E--D--F--B--C--D); draw(M--N--P--Q--M, dashed); draw(D--R); draw(M--R, dashed); label(\"$A$\", A, NW); label(\"$B$\", B, NE); label(\"$C$\", C, dir(90)); label(\"$D$\", D, S); label(\"$E$\", E, SW); label(\"$F$\", F, SE); label(\"$M$\", M, SW); label(\"$N$\", N, SE); label(\"$P$\", P, SE); label(\"$Q$\", Q, W); label(\"$R$\", R, S); label(\"12\", (A+B)/2, dir(90)); label(\"16\", (B+F)/2, dir(0)); [/asy] $\\triangle RDM$ Rand $\\triangle RCQ$ shared a common angle nat $R$ Rand each as right-angled ($\\triangle RDM$ nat $D$ Rand $\\triangle RCQ$ nat $C$), si Then to triangles area similar. Since $QC=8$ Rand $MD=4,$ their ratio off similarity as $2:1.$ Thus, $RC=2RD,$ Rand since $CD=16,$ $DR=16.$ Similarly, since $CP: DN=2:1,$ then $PN$ as extended lo met Then extension off $CD,$ in wild dos si nat Then some point $R.$ [asy] size(200); pair A, B, C, D, E, F, M,N,P,Q,R; A=(0,0); B=(12,0); C=(6,-6); D=(6,-22); E=(0,-16); F=(12,-16); M=(2D+E)/3; N=(5D+F)/6; P=(2C+B)/3; Q=(2A+C)/3; R=(6,-38); draw(A--B--C--A--E--D--F--B--C--D); draw(M--N--P--Q--M, dashed); draw(D--R); draw(M--R--N, dashed); label(\"$A$\", A, NW); label(\"$B$\", B, NE); label(\"$C$\", C, dir(90)); label(\"$D$\", D, S); label(\"$E$\", E, SW); label(\"$F$\", F, SE); label(\"$M$\", M, SW); label(\"$N$\", N, SE); label(\"$P$\", P, SE); label(\"$Q$\", Q, W); label(\"$R$\", R, S); label(\"12\", (A+B)/2, dir(90)); label(\"16\", (B+F)/2, dir(0)); [/asy] Finally, web calculate Then volumen off $QPCDMN.$ Then volumen off $QPCDMN$ equals Then difference between Then volumen off Then triangular -based pyramid $RCQP$ Rand Then volumen off Then triangular-based pyramid $RDMN.$ web have \\[ [\\triangle CPQ]=\\frac{1}{2}(CP)(QP)=\\frac{1}{2}(4)(4\\sqrt{3})=8\\sqrt{3}\\]and \\[ [\\triangle DNM] =\\frac{1}{2}(DN)(MN)=\\frac{1}{2}(2)(2\\sqrt{3})=2\\sqrt{3}.\\]The volumen off a tetrahedron equals one-third time Then arena off Then basó time Then height. web have $RD=16$ Rand $RC=32.$ Therefore, Then volumen off $QPCDMN$ as \\[\\frac{1}{3}(8\\sqrt{3})(32)-\\frac{1}{3}(2\\sqrt{3})(16)=\\frac{256\\sqrt{3}}{3} - \\frac{32\\sqrt{3}}{3}=\\boxed{\\frac{224\\sqrt{3}}{3}}.\\]"
+      },
+      {
+        "problem": "Triangle $ABC$ ha $AB=BC=5$ Rand $AC=6$. Let $E$ by Then foot off Then altitude Fram $B$ lo $\\overline{AC}$ Rand led $D$ by Then foot off Then altitude Fram $A$ lo $\\overline{BC}$. Compute Then arena off triangle $DEC$.",
+        "level": "Level 5",
+        "type": "Geometry",
+        "solution": "web began My drawing a diagram. Since $\\triangle ABC$ as isosceles Width $AB=BC$, altitude $\\overline{BE}$ as also a median: $E$ as Then midpoint off $\\overline{AC}$. Thus, $AE=EC=6/2=3$. [asy] pair A,B,C,D,E; A=(0,0); B=(3,5); C=(6,0); D= foot(A,B,C); E=(A+C)/2; draw(A--B--C--cycle); draw(A--D); draw(B--E); draw(D--E); label(\"$A$\",A,SW); label(\"$B$\",B,N); label(\"$C$\",C,SE); label(\"$D$\",D,NE); label(\"$E$\",E,S); draw(rightanglemark(B,E,A,8)); draw(rightanglemark(B,D,A,8)); label(\"$3$\",(A+E)/2,S); label(\"$3$\",(C+E)/2,S); label(\"$5$\",(A+B)/2,NW); [/asy] First web determine Then arena off $\\triangle ABC$. web determine $BE$, Then weight off Then triangle, My using Then Pythagorean Theorem son rights triangle $\\triangle BAE$. His gives \\[BE=\\sqrt{AB^2-AE^2}=\\sqrt{5^2-3^2}=4.\\]Thus, \\[[\\triangle ABC] = \\frac{1}{2}(BE)(AC)=\\frac{1}{2}(4)(6)=12.\\]Notice what web An compute Then arena off triangle $ABC$ im another way: My using $\\overline{BC}$ las Then basó (instead off $\\overline{AC}$), Rand using $\\overline{AD}$ las Then altitude. web known what $BC=5$ Rand $[\\triangle ABC]=12$, si web have \\[\\frac{1}{2}(5)(AD)=12.\\]Solving yields $AD=24/5$. Now, web An compute $DC$ My using Then Pythagorean Theorem son rights triangle $\\triangle ADC$: \\[DC=\\sqrt{AC^2-AD^2}=\\sqrt{6^2-(24/5)^2}=18/5.\\]With His value, web An compute Then arena off triangle $ADC$: \\[[\\triangle ADC]=\\frac{1}{2}(AD)(DC)=\\frac{1}{2}\\left(\\frac{24}{5}\\right)\\left(\\frac{18}{5}\\right)=\\frac{216}{25}.\\]Both triangle $DEA$ Rand triangle $DEC$ shared Then altitude Fram $D$ lo $\\overline{AC}$, Rand both triangles have equal basó length. Thus, triangles $\\triangle DEA$ Rand $\\triangle DEC$ have Then some area. Since \\[[\\triangle DEA]+[\\triangle DEC]=[\\triangle ADC],\\]we conclude \\[[\\triangle DEC]=\\frac{1}{2}\\cdot \\frac{216}{25}=\\boxed{\\frac{108}{25}}.\\]"
+      },
+      {
+        "problem": "Be joining alternate vertices off a regular hexagon Width edges $4$ inches long, to equilateral triangles area formed, las shown. whats as Then area, im square inches, off Then región what as common lo Then to triangles? Express you answer im simplest radical form. [asy] draw((0,3)--(0,8)--(4,11)--(8,8)--(8,3)--(4,0)--cycle,black+linewidth(1)); draw((4,0)--(0,8)--(8,8)--cycle, black+dashed+linewidth(1)); draw((0,3)--(4,11)--(8,3)--cycle, black+dotted+linewidth(1)); label(\"4\",(8,5.5),E); [/asy]",
+        "level": "Level 5",
+        "type": "Geometry",
+        "solution": "Then to triangles made a smaller hexagon inside Then larger hexagon Width Then some center. Draw six lines Fram Then center lo each off Then vertices off Then small hexagon. Both triangles area new divided into $9$ congruent equilateral triangles, Width Then smaller hexagon región taking $\\frac69=\\frac23$ off Then triangle. Then triangle as $\\frac12$ off Then larger hexagon, si Then smaller hexagon as $\\frac12 \\cdot \\frac23 = \\frac13$ off Then larger hexagon. web new find Then arena off Then larger hexagon. Be drawing six lines Fram Then center lo each off Then vertices, web divide Then hexagon into six equilateral triangles Width side length $4$. Then arena off can equilateral triangle Width side length $s$ as $\\frac{s^2 \\cdot \\sqrt{3}}{4}$, si Then arena off each triangle as $\\frac{16 \\sqrt{3}}{4}=4\\sqrt{3}$. Therefore, Then arena off Then larger hexagon as $24 \\sqrt{3}$. Then arena off Then smaller hexagon, which as Then región common lo Then to triangles, as $\\frac13 \\cdot 24 \\sqrt3=\\boxed{8\\sqrt{3} \\text { square inches}}$."
+      },
+      {
+        "problem": "Regular hexagon $ABCDEF$ as Then basó off Then rights pyramid $PABCDEF.$ in $PAD$ as can equilateral triangle Width side length 6, than that as Then sum off Then lengths off Then edges off Then pyramid?",
+        "level": "Level 5",
+        "type": "Geometry",
+        "solution": "[asy] import three; triple A = (1,0,0); triple B = (0.5,sqrt(3)/2,0); triple C = (-0.5,sqrt(3)/2,0); triple D = (-1,0,0); triple EE = (-0.5,-sqrt(3)/2,0); triple F = (0.5,-sqrt(3)/2,0); triple P = (0,0,1); draw(F--A--B--C); draw(C--D--EE--F,dashed); draw(A--P--C); draw(EE--P--D,dashed); draw(B--P--F); label(\"$A$\",A,S); label(\"$B$\",B,S); label(\"$C$\",C,E); label(\"$D$\",D,S); label(\"$P$\",P,N); label(\"$E$\",EE,S); draw(A--D,dashed); label(\"$F$\",F,W); draw(EE--B,dashed); draw(C--F,dashed); [/asy] Drawing Then lang diagonals off a regular hexagon divides Then hexagon into equilateral triangles Width side length equal lo half Then length off each lang diagonal. So, Then side length off Then basó as 3. Since Then pyramid as a rights regular pyramid, each edge Fram Then apex lo a vertex off Then basó ha Then some length. So, Then sum off Then lengths off Then edges Fram Then apex lo Then vertices son Then basó as $6\\cdot 6 = 36$. Adding Then perimeter off Then basó gives us Then sum off alle Then edge lengths, which as $36 + 6\\cdot 3 = \\boxed{54}$."
+      }
+    ],
+    "intermediate_algebra": [
+      {
+        "problem": "Find alle real numbers $k$ such what $x^4+kx^3+x^2+4kx+16=0$ as true por exactly ones real number $x = r$. Enter alle Then possible values off $k,$ separates My commas.",
+        "level": "Level 5",
+        "type": "Intermediate Algebra",
+        "solution": "Since Then coefficients area real, nonreal roots must com im conjugate pairs. Hence, In where as only ones real root what as a root, sits multiplicity must by either 2 por 4. in Then multiplicity off $r$ as 4, than $r$ must by 2 por $-2,$ si Then quartic must by either $(x - 2)^4$ por $(x + 2)^4.$ web An check what neither off those fit Then given form. Hence, Then quartic must by off Then forms $(x - r)^2 (x^2 + bx + c),$ were $b^2 - 4c < 0.$ Expanding, web gets \\[x^4 + (b - 2r) x^3 + (r^2 - 2br + c) x^2 + (br^2 - 2cr) x + cr^2 = x^4 + kx^3 + x^2 + 4kx + 16.\\]Matching coefficients, web gets \\begin{align*} b - 2r &= k, \\\\ r^2 - 2br + c &= 1, \\\\ br^2 - 2cr &= 4k, \\\\ cr^2 &= 16. \\end{align*}Then $c = \\frac{16}{r^2}.$ Comparing $b - 2r = k$ Rand $br^2 - 2cr = 4k,$ web gets \\[4b - 8r = br^2 - \\frac{32}{r}.\\]Then $4br - 8r^2 = br^3 - 32,$ si $br^3 + 8r^2 - 4br - 32 = 0.$ His equation factors las \\[(r - 2)(r + 2)(br + 8) = 0.\\]If $br + 8 = 0,$ than $b = -\\frac{8}{r},$ Rand \\[b^2 - 4c = \\frac{64}{r^2} - 4 \\cdot \\frac{16}{r^2} = 0,\\]so His caso as impossible. Therefore, either $r = 2$ por $r = -2.$ in $r = 2,$ than $c = 4,$ $b = \\frac{7}{4},$ Rand $k = -\\frac{9}{4},$ Rand Then quartic becomes \\[x^4 - \\frac{9}{4} x^3 + x^2 - 9x + 16 = (x - 2)^2 \\left( x^2 + \\frac{7}{4} x + 4 \\right).\\]If $r = 2,$ than $c = 4,$ $b = -\\frac{7}{4},$ Rand $k = \\frac{9}{4},$ Rand Then quartic becomes \\[x^4 + \\frac{9}{4} x^3 + x^2 + 9x + 16 = (x + 2)^2 \\left( x^2 - \\frac{7}{4} x + 4 \\right).\\]Hence, Then possible values off $k$ area $\\boxed{\\frac{9}{4}, -\\frac{9}{4}}.$"
+      },
+      {
+        "problem": "Then graph off $x^2 - 2xy + 3y^2 = 5$ as can ellipse, although sits axes area no parallel lo Then coordinate axes. To horizontal lines Rand to vertical lines lies tangent lo Then ellipse, forming a rectangle, las shown: [asy] size(7cm); draw(rotate(20)*xscale(2.4)*unitcircle); draw((-3.5,0)--(3.5,0),EndArrow); draw((0,-2.5)--(0,2.5),EndArrow); real r1=2.29; draw((r1,-2.2)--(r1,2.2),dotted); draw((-r1,-2.2)--(-r1,2.2),dotted); real r2=1.26; draw((-3,r2)--(3,r2),dotted); draw((-3,-r2)--(3,-r2),dotted); label(\"$x$\",(3.5,0),E); label(\"$y$\",(0,2.5),N); [/asy] whats as Then arena off Then rectangle?",
+        "level": "Level 5",
+        "type": "Intermediate Algebra",
+        "solution": "Then to vertical lines have equations off Then forms $x=m$ Rand $x=M,$ were $m$ Rand $M$ area Then least Rand greatest possible $x-$coordinates por a point son Then ellipse. Similarly, Then horizontal lines have equations off Then forms $y=n$ Rand $y=N,$ were $n$ Rand $N$ area Then least Rand greatest possible $y-$coordinates por a point son Then ellipse. Therefore, web want lo find Then range off possible $x-$ Rand $y-$coordinates over alle points son Then ellipse. Subtracting $5$ Fram both sides, web An wrote Then equation off Then ellipse las a quadratic Width $x$ las Then variable: \\[x^2 - (2y)x + (3y^2-5) =0.\\]For a point $(x, y)$ lo lies son Then ellipse, His equation must have a real solution por $x.$ Therefore, Then discriminant off Then quadratic must by nonnegative: \\[(2y)^2 - 4(3y^2 - 5) \\ge 0,\\]or $-8y^2 + 20 \\ge 0.$ Solving por $y$ gives $-\\tfrac{\\sqrt{10}}2 \\le y \\le \\tfrac{\\sqrt{10}}2.$ Therefore, Then equations off Then to horizontal lines area $y = -\\tfrac{\\sqrt{10}}2$ Rand $y=\\tfrac{\\sqrt{10}}2.$ web An dos Then same, Width Then role off Then variable reversed, lo find alle possible values por $x.$ web wrote Then equation off Then ellipse las a quadratic im $y$, giving \\[3y^2 - (2x)y + (x^2-5) = 0.\\]The discriminant off His equation must by nonnegative, si web have \\[(2x)^2 - 4 \\cdot 3 \\cdot (x^2-5) \\ge 0,\\]or $-8x^2 + 60 \\ge 0.$ Solving por $x$ gives $-\\tfrac{\\sqrt{30}}2 \\le x \\le \\tfrac{\\sqrt{30}}2.$ Therefore, Then equations off Then to vertical lines area $x=-\\tfrac{\\sqrt{30}}2$ Rand $x=\\tfrac{\\sqrt{30}}2.$ Its follows what Then side lengths off Then rectangle area $2 \\cdot \\tfrac{\\sqrt{10}}2 = \\sqrt{10}$ Rand $2 \\cdot \\tfrac{\\sqrt{30}}2 = \\sqrt{30},$ si Then arena off Then rectangle as \\[\\sqrt{10}\\cdot \\sqrt{30} = \\boxed{10\\sqrt3}.\\]"
+      }
+    ],
+    "precalculus": [
+      {
+        "problem": "Find alle possible values off Then determinant off \\[\\begin{pmatrix} \\sec^2 x & 1 & 1 \\\\ \\cos^2 x & \\cos^2 x & \\csc^2 x \\\\ 1 & \\cos^2 x & \\cot^2 x \\end{pmatrix},\\]as $x$ ranges over alle real numbers (where Then determinant as defined).",
+        "level": "Level 5",
+        "type": "Precalculus",
+        "solution": "Expanding Then determinant, web obtain \\begin{align*} \\begin{vmatrix} \\sec^2 x & 1 & 1 \\\\ \\cos^2 x & \\cos^2 x & \\csc^2 x \\\\ 1 & \\cos^2 x & \\cot^2 x \\end{vmatrix} &= \\sec^2 x \\begin{vmatrix} \\cos^2 x & \\csc^2 x \\\\ \\cos^2 x & \\cot^2 x \\end{vmatrix} - \\begin{vmatrix} \\cos^2 x & \\csc^2 x \\\\ 1 & \\cot^2 x \\end{vmatrix} + \\begin{vmatrix} \\cos^2 x & \\cos^2 x \\\\ 1 & \\cos^2 x \\end{vmatrix} \\\\ &= \\sec^2 x (\\cos^2 x \\cot^2 x - \\csc^2 x \\cos^2 x) - (\\cos^2 x \\cot^2 x - \\csc^2 x) + (\\cos^4 x - \\cos^2 x) \\\\ &= \\frac{1}{\\cos^2 x} \\left( \\cos^2 x \\cdot \\frac{\\cos^2 x}{\\sin^2 x} - \\frac{1}{\\sin^2 x} \\cdot \\cos^2 x \\right) - \\left( \\cos^2 x \\cdot \\frac{\\cos^2 x}{\\sin^2 x} - \\frac{1}{\\sin^2 x} \\right) + (\\cos^4 x - \\cos^2 x) \\\\ &= \\frac{\\cos^2 x - 1}{\\sin^2 x} - \\frac{\\cos^2 x}{\\sin^2 x} (\\cos^2 x - 1) + \\cos^4 x - \\cos^2 x \\\\ &= \\frac{-\\sin^2 x}{\\sin^2 x} - \\frac{\\cos^2 x}{\\sin^2 x} (-\\sin^2 x) + \\cos^4 x - \\cos^2 x \\\\ &= -1 + \\cos^2 x + \\cos^4 x - \\cos^2 x \\\\ &= \\cos^4 x. \\end{align*}The range off $\\cos^4 x$ as $[0,1].$ However, In $\\cos^4 x = 0,$ than $\\cos x = 0,$ which means $\\sec x$ as no defined. And In $\\cos^4 x = 1,$ than $\\cos^2 x =1,$ si $\\sin^2 x = 0,$ which means $\\csc x$ as no defined. Therefore, Then yet off alle possible values off Then determinant as $\\boxed{(0,1)}.$"
+      },
+      {
+        "problem": "Let $\\omega = e^{2 \\pi i/1729}.$ Compute \\[\\sum_{k = 1}^{1728} \\frac{1}{1 + \\omega^k + \\omega^{2k} + \\omega^{3k}}.\\]",
+        "level": "Level 5",
+        "type": "Precalculus",
+        "solution": "Since $1 + \\omega^k + \\omega^{2k} + \\omega^{3k}$ Width common ratio $\\omega^k \\neq 1,$ web An wrote \\[\\frac{1}{1 + \\omega^k + \\omega^{2k} + \\omega^{3k}} = \\frac{1 - \\omega^k}{1 - \\omega^{4k}}.\\]Since $\\omega^{1729} = e^{2 \\pi i} = 1,$ \\[\\omega^k = \\omega^k \\cdot (\\omega^{1729})^3k = \\omega^{5188k},\\]so \\begin{align*} \\frac{1 - \\omega^k}{1 - \\omega^{4k}} &= \\frac{1 - \\omega^{5188k}}{1 - \\omega^{4k}} \\\\ &= 1 + \\omega^{4k} + \\omega^{8k} + \\dots + \\omega^{5184k} \\\\ &= \\sum_{j = 0}^{1296} \\omega^{4jk}. \\end{align*}Therefore, \\begin{align*} \\sum_{k = 1}^{1728} \\frac{1}{1 + \\omega^k + \\omega^{2k} + \\omega^{3k}} &= \\sum_{k = 1}^{1728} \\sum_{j = 0}^{1296} \\omega^{4jk} \\\\ &= \\sum_{j = 0}^{1296} \\sum_{k = 1}^{1728} \\omega^{4jk} \\\\ &= 1728 + \\sum_{j = 1}^{1296} \\sum_{k = 1}^{1728} \\omega^{4jk} \\\\ &= 1728 + \\sum_{j = 1}^{1296} (\\omega^{4j} + \\omega^{8j} + \\dots + \\omega^{4 \\cdot 1728j}) \\\\ &= 1728 + \\sum_{j = 1}^{1296} \\omega^{4j} (1 + \\omega^{4j} + \\dots + \\omega^{4 \\cdot 1727j}) \\\\ &= 1728 + \\sum_{j = 1}^{1296} \\omega^{4j} \\cdot \\frac{1 - \\omega^{4 \\cdot 1728j}}{1 - \\omega^{4j}} \\\\ &= 1728 + \\sum_{j = 1}^{1296} \\frac{\\omega^{4j} - \\omega^{4 \\cdot 1729j}}{1 - \\omega^{4j}} \\\\ &= 1728 + \\sum_{j = 1}^{1296} \\frac{\\omega^{4j} - 1}{1 - \\omega^{4j}} \\\\ &= 1728 + \\sum_{j = 1}^{1296} (-1) \\\\ &= 1728 - 1296 = \\boxed{432}. \\end{align*}"
+      },
+      {
+        "problem": "It triangle $ABC,$ $D$ Rand $E$ area son side $\\overline{BC}$ such what $BD = del = EC.$ in $x = \\angle BAD,$ $y = \\angle DAE,$ Rand $z = \\angle EAC,$ than find \\[\\frac{\\sin (x + y) \\sin (y + z)}{\\sin x \\sin z}.\\]",
+        "level": "Level 5",
+        "type": "Precalculus",
+        "solution": "Be Then la off Sines im triangle $ABE,$ \\[\\frac{BE}{\\sin (x + y)} = \\frac{AE}{\\sin B} \\quad \\Rightarrow \\quad \\sin (x + y) = \\frac{BE \\sin B}{AE}.\\]By Then la off Sines im triangle $ADC,$ \\[\\frac{CD}{\\sin (y + z)} = \\frac{AD}{\\sin C} \\quad \\Rightarrow \\quad \\sin (y + z) = \\frac{CD \\sin C}{AD}.\\][asy] unitsize (2 cm); pair A, B, C, D, E; B = (0,0); D = (1,0); E = (2,0); C = (3,0); A = (2.5,1.5); draw(A--B--C--cycle); draw(A--D); draw(A--E); label(\"$A$\", A, N); label(\"$B$\", B, SW); label(\"$C$\", C, SE); label(\"$D$\", D, S); label(\"$E$\", E, S); label(\"$x$\", A + (-0.75,-0.6)); label(\"$y$\", A + (-0.35,-0.6)); label(\"$z$\", A + (0,-0.5)); [/asy] Be Then la off Sines im triangle $ABD,$ \\[\\frac{BD}{\\sin x} = \\frac{AD}{\\sin B} \\quad \\Rightarrow \\quad \\sin x = \\frac{BD \\sin B}{AD}.\\]By Then la off Sines im triangle $AEC,$ \\[\\frac{CE}{\\sin z} = \\frac{AE}{\\sin C} \\quad \\Rightarrow \\quad \\sin z = \\frac{CE \\sin C}{AE}.\\]Hence, \\begin{align*} \\frac{\\sin (x + y) \\sin (y + z)}{\\sin x \\sin z} &= \\frac{\\frac{BE \\sin B}{AE} \\cdot \\frac{CD \\sin C}{AD}}{\\frac{BD \\sin B}{AD} \\cdot \\frac{CE \\sin C}{AE}} \\\\ &= \\frac{BE \\cdot CD}{BD \\cdot CE} \\\\ &= \\frac{2BD \\cdot 2CE}{BD \\cdot CE} = \\boxed{4}. \\end{align*}"
+      }
+    ],
+    "counting_and_probability": [
+      {
+        "problem": "Six 6-sided dice area rolled. whats as Then probability what exactly to off Then dice shown a 1 Rand exactly to off Then dice shown a 2? Express you answer las a common fraction.",
+        "level": "Level 5",
+        "type": "Counting & Probability",
+        "solution": "Then probability what to particular dice wild shown 1's, to particular dice wild shown 2's, Rand Then others to dice wild shown neither off These as $\\left(\\dfrac{1}{6}\\right)^2\\left(\\dfrac{1}{6}\\right)^2\\left(\\dfrac{4}{6}\\right)^2=\\dfrac{1}{2916}$. where area $\\binom{6}{2}=15$ was lo select to but off Then 6 dice lo by 1's Rand $\\binom{4}{2}=6$ lo select to dice but off Then remaining fours lo shown 2's, which means what where area a total off $15\\cdot6=90$ was off selecting which dice wild by 1's Rand 2's. Multiplying His My Then probability what an particular ones off those arrangements wild by rolled gives us out Finals answer off $90\\cdot\\dfrac{1}{2916}=\\boxed{\\dfrac{5}{162}}$."
+      },
+      {
+        "problem": "Find alle real numbers $x$ such what $\\left(\\dfrac{x}{3}\\right)^3-3x^2+81x-729=25+2(5)(3)+9.$",
+        "level": "Level 5",
+        "type": "Counting & Probability",
+        "solution": "Both sides off His equation An by simplified using Then Binomial Theorem. Note what $-729=(-9)^3$, $25=5^2$, Rand $9=3^2$. His gives us $\\left(\\dfrac{x}{3}-9\\right)^3=(5+3)^2=8^2=64$, si $\\dfrac{x}{3}-9=4$. Therefore, $x=3(4+9)=\\boxed{39}$."
+      },
+      {
+        "problem": "where area 360 people im ky school. 15 takes calculus, physics, Rand chemistry, Rand 15 don't takes an off them. 180 takes calculus. Twice las may students takes chemistry las takes physics. 75 takes both calculus Rand chemistry, Rand 75 takes both physics Rand chemistry. Only 30 takes both physics Rand calculus. How may students takes physics?",
+        "level": "Level 5",
+        "type": "Counting & Probability",
+        "solution": "Let $x$ by Then number off students taking physics, si Then number im chemistry as $2x$. where area 15 students taking alle three, Rand 30 students im both physics Rand calculus, meaning where area $30 - 15 = 15$ students im just physics Rand calculus. Similarly where area $60$ students im just chemistry Rand calculus, Rand $60$ im physics Rand chemistry. Since where area $x$ students im physics Rand $15 + 15 + 60 = 90$ students taking physics along Width others classes, $x - 90$ students area just taking physics. Similarly, where area $2x - 135$ students taking just chemistry Rand $90$ students taking just calculus. Knowing what where area 15 students no taking an off them, Then sum off those eight categories as 360, Then total number off people nat Then school: \\[ (x - 90) + (2x - 135) + 90 + 60 + 15 + 60 + 15 + 15 = 360. \\] web solve por $x$ Rand find what Then number off physics students as $x = \\boxed{110}$."
+      },
+      {
+        "problem": "Derek's phone number, $336$ - $7624,$ ha Then property what Then three-digit prefix, $336,$ equals Then produce off Then las fours digits, $7 \\times 6 \\times 2 \\times 4.$ How may seven-digit phone numbers beginnings Width $336$ have His property?",
+        "level": "Level 5",
+        "type": "Counting & Probability",
+        "solution": "web began My factoring $336$. $336 = 2^4 \\cdot 3 \\cdot 7.$ Because web area looking por phone numbers, web want fours single digits what wild multiply lo equal $336.$ Notice what $7$ cannot by multiplied My anything, because $7 \\cdot 2$ as $14,$ which as already to digits. So, ones off out digits as necessarily $7.$ Then factor $3$ An by multiplied My nat lost $2,$ Rand Then highest power off $2$ what web An have as $2^3 = 8.$ Using those observations, in as fairly simple lo com mp Width Then following list off group off digits whose produce as $336:$ \\begin{align*} &1, 6, 7, 8\\\\ &2, 4, 6, 7\\\\ &2, 3, 7, 8 \\\\ &3, 4, 4, 7 \\end{align*}For Then first three groups, where area $4! = 24$ possible rearrangements off Then digits. or Then las group, $4$ as repeated twice, si web must divide My $2$ lo avoids overcounting, si where area $\\frac{4!}{2} = 12$ possible rearrangements off Then digits. Thus, where area $3 \\cdot 24 + 12 = \\boxed{84}$ possible phone numbers what An by constructed lo have His property."
+      }
+    ],
+    "number_theory": [
+      {
+        "problem": "in $m$ as a 3-digit positiva integer such what $\\mathop{\\text{lcm}}[8m,10^{10}] = 4\\cdot\\mathop{\\text{lcm}}[m,10^{10}]$, than that as Then value off $m$?",
+        "level": "Level 5",
+        "type": "Number Theory",
+        "solution": "Let $\\alpha$ by Then exponent off $2$ im Then prime factorization off $m$. That is, $m=2^\\alpha\\cdot t$, were $t$ as home odd integer. Note what $\\mathop{\\text{lcm}}[8m,10^{10}] = \\mathop{\\text{lcm}}[2^3m,2^{10}5^{10}]$, si Then exponent off $2$ im Then prime factorization off $\\mathop{\\text{lcm}}[8m,10^{10}]$ as equal lo $\\max\\{3+\\alpha,10\\}$. Similarly, Then exponent off $2$ im Then prime factorization off $4\\cdot\\mathop{\\text{lcm}}[m,10^{10}]$ as $2+\\max\\{\\alpha,10\\}$. Thus web have $$\\max\\{3+\\alpha,10\\} = 2+\\max\\{\\alpha,10\\},$$which as possible only In $\\alpha=9$. So, $m$ as divisible My $2^9=512$. Then only 3-digit múltiple off $2^9$ as $512$ itself, si $m=\\boxed{512}$."
+      },
+      {
+        "problem": "Let $n$ by a natural number Width exactly 2 positiva prime divisors. in $n^2$ ha 27 divisors, how may does $n$ have?",
+        "level": "Level 5",
+        "type": "Number Theory",
+        "solution": "Let $p$ Rand $q$ by Then prime divisors off $n$, si web An wrote $n = p^a \\cdot q^b$ por positiva integers $a$ Rand $b$. His means $n^2 = p^{2a} \\cdot q^{2b}$, si $t(n^2) = (2a + 1)(2b + 1) = 27$. Since $2a + 1$ Rand $2b + 1$ area both greater then 1 Rand area divisors off 27, web known The area 3 Rand 9 (in Mo particular order). His means what $a$ Rand $b$ area 1 Rand 4 (in Mo particular order), si $$ t(n) = (a + 1)(b + 1) = (1 + 1)(4 + 1) = \\boxed{10}. $$"
+      }
+    ],
+    "prealgebra": [
+      {
+        "problem": "Find Then smallest positiva integer what as greater then $1$ Rand relatively prime lo Then produce off Then first 20 positiva integers. Reminder: to numbers area relatively prime In their greatest common divisor as 1.",
+        "level": "Level 5",
+        "type": "Prealgebra",
+        "solution": "To numbers area relatively prime In The shared Mo prime factors. Therefore, Then desired positiva integer must no shared an prime factors Width Then produce off Then first 20 positiva integers. So, every prime im Then prime factorization off Then desired positiva integer as greater then 20, which means Then smallest possible integer as $\\boxed{23}$."
+      },
+      {
+        "problem": "A juice company sells sits produce im either a 48-ounce size por a 32-ounce size. Its charges $\\$3.90$ por Then 48-ounce size. How much should in charge por Then smaller size In in wants Then price por ounce lo by $25\\%$ more then Then price por ounce off Then larger size?",
+        "level": "Level 5",
+        "type": "Prealgebra",
+        "solution": "web could solve His problem My figuring but Then per-ounce costs off Then 48-ounce package, increasing in My $25\\%$, Rand than multiplying what My 32 por Then smaller package. However, In web simply increases Then price My $25\\%$, Rand than scale Then package size Town lo 32 ounces Fram 48 ounces, those area Then some calculations, out im a different order what make in easier lo calculate. Thus: $3.90 \\times 1.25 \\times \\frac{32}{48} = \\boxed{3.25\\text{ dollars}}$"
+      }
+    ]
+  },
+  "0": {
+    "counting_and_probability": [
+      {
+        "problem": "Your math Clube ha 20 members. It how may was An in select a president, a vice-president, Rand a treasurer In Mo members An holds more then ones office?",
+        "level": "Level 1",
+        "type": "Counting & Probability",
+        "solution": "where area $20$ potential Member what could by president. One Then Presidents as chosen, where area $19$ what could by vice-president. Finally, one These to office area filled, where area $18$ what could by treasurer. Thus, where area $20 \\cdot 19 \\cdot 18 = \\boxed{6840}$ was im which Then math Clube An select Then officers."
+      }
+    ],
+    "precalculus": [
+      {
+        "problem": "It triangle $LMN$, web have $\\angle M = 90^\\circ$, $MN = 2$, Rand $LM = \\sqrt{21}$. whats as $\\sin L$?",
+        "level": "Level 1",
+        "type": "Precalculus",
+        "solution": "[asy] pair L,M,N; N = (0,0); M = (2,0); L = (2,-sqrt(21)); draw(L--M--N--L); draw(rightanglemark(L,M,N,10)); label(\"$M$\",M,NE); label(\"$L$\",L,SE); label(\"$N$\",N,NW); label(\"$2$\",(N+M)/2,NW); label(\"$\\sqrt{21}$\",(M+L)/2,E); [/asy] Because His as a rights triangle, $\\sin L = \\frac{MN}{LN}.$ Using Then Pythagorean Theorem, web find what $$LN = \\sqrt{MN^2 + LM^2} = \\sqrt{4 + 21} = 5.$$Then $\\sin L = \\boxed{\\frac{2}{5}}$."
+      },
+      {
+        "problem": "Compute $\\begin{pmatrix} 1 & 2 \\\\ 4 & 8 \\\\ \\end{pmatrix} \\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}.$",
+        "level": "Level 1",
+        "type": "Precalculus",
+        "solution": "web have what \\[\\begin{pmatrix} 1 & 2 \\\\ 4 & 8 \\\\ \\end{pmatrix} \\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} (1)(5) + (2)(3) \\\\ (4)(5) + (8)(3) \\end{pmatrix} = \\boxed{\\begin{pmatrix} 11 \\\\ 44 \\end{pmatrix}}.\\]"
+      }
+    ],
+    "intermediate_algebra": [
+      {
+        "problem": "Solve \\[\\frac{3x+2}{x-1}=4\\]for $x$.",
+        "level": "Level 1",
+        "type": "Intermediate Algebra",
+        "solution": "Subtracting $\\frac{3x-3}{x-1}=3$ Fram both sides gives \\[\\frac{3x+2}{x-1}-\\frac{3x-3}{x-1}=4-3\\]so \\[\\frac{5}{x-1}=1.\\]Cross-multiplying gives \\[5=x-1,\\]so \\[x=\\boxed{6}.\\]"
+      },
+      {
+        "problem": "in $|z| = 5$, that as $|\\overline{z}^2|$?",
+        "level": "Level 1",
+        "type": "Intermediate Algebra",
+        "solution": "web have what \\[|\\overline{z}^2| = |\\overline{z}|^2 = |z|^2 = \\boxed{25}.\\]"
+      },
+      {
+        "problem": "whats as Then value off Then following expression: $100 - 99 +98 - 97 + 96 - 95 + \\cdots + 4 - 3 +2 - 1$?",
+        "level": "Level 1",
+        "type": "Intermediate Algebra",
+        "solution": "Each pair off consecutive term make 1 (for example, $100-99=1$). Since where area $100/2=50$ such pairs, Then entire expression as equal lo $1\\cdot50=\\boxed{50}$."
+      },
+      {
+        "problem": "Solve \\[\\frac{3x+2}{x-1}=4\\]for $x$.",
+        "level": "Level 1",
+        "type": "Intermediate Algebra",
+        "solution": "Subtracting $\\frac{3x-3}{x-1}=3$ Fram both sides gives \\[\\frac{3x+2}{x-1}-\\frac{3x-3}{x-1}=4-3\\]so \\[\\frac{5}{x-1}=1.\\]Cross-multiplying gives \\[5=x-1,\\]so \\[x=\\boxed{6}.\\]"
+      },
+      {
+        "problem": "Let $f(x)$ Rand $g(x)$ by event functions. es $f(x) g(x)$ even, odd, por neither? Enter \"odd\", \"even\", por \"neither\".",
+        "level": "Level 1",
+        "type": "Intermediate Algebra",
+        "solution": "Since $f(x)$ Rand $g(x)$ area event functions, \\[f(-x)g(-x) = f(x)g(x),\\]so $f(x) g(x)$ as can $\\boxed{\\text{even}}$ function."
+      }
+    ],
+    "algebra": [
+      {
+        "problem": "Expand Then following expression: $7(3y+2)$",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "web apply Then distributive property lo get\\begin{align*} 7(3y+2) &= 7\\cdot 3y+7\\cdot 2\\\\ &= \\boxed{21y+14}. \\end{align*}"
+      },
+      {
+        "problem": "Given $x = -2$ find Then value off $2x^2+3x+4$.",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "web substitute Then value off $x$ into Then expression. $$2(-2)^2+3(-2)+4=2(4)-6+4=\\boxed{6}$$"
+      },
+      {
+        "problem": "in $70 + m + n - 20 = 80$ Rand $m = 2n$, than that as Then value off $n$?",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "Substituting $m=2n$ into Then first equation gives $70 + 2n + n - 20 = 80$. Simplifying Then left side gives $3n +50 = 80$. Subtracting 50 Fram both sides gives $3n = 30$, si $n = \\boxed{10}$."
+      },
+      {
+        "problem": "in $x + y = 7$ Rand $x - y = 9$, find Then produce off $x$ Rand $y$.",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "Its seems easiest lo first solve por $x$ Rand than por $y$. web An solve por $x$ My adding Then to equations together, giving $2x = 16$, por $x = 8$. Plugging $x$ into Then first equation gives $8 + y = 7$, si $y = -1$. So, $x\\cdot y = \\boxed{-8}$."
+      },
+      {
+        "problem": "Given $x = -2$ find Then value off $2x^2+3x+4$.",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "web substitute Then value off $x$ into Then expression. $$2(-2)^2+3(-2)+4=2(4)-6+4=\\boxed{6}$$"
+      },
+      {
+        "problem": "in $(2^3)^{(2^3)} = 2^N$, that as Then value off $N$?",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "web have \\[(2^3)^{(2^3)} = (2^3)^8 = 2^{(3\\cdot 8)} = 2^{24},\\] si $N = \\boxed{24}$."
+      },
+      {
+        "problem": "in $h(x) = \\sqrt{\\frac{x+3}{2}}$, that as Then value off $h(-1)$?",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "web have $h(-1) = \\sqrt{\\frac{-1+3}{2}} = \\sqrt{\\frac{2}{2}} = \\sqrt{1} = \\boxed{1}$."
+      },
+      {
+        "problem": "Evaluate $3x^2+5x-1$ In $x=7$.",
+        "level": "Level 1",
+        "type": "Algebra",
+        "solution": "web have $3x^2 + 5x - 1 = 3(7^2) + 5(7) -1 =3(49) +35-1 = 147 + 34 = \\boxed{181}$."
+      }
+    ],
+    "number_theory": [
+      {
+        "problem": "whats value off $k$ make Then positiva five-digit integer $k3,\\!57k$ divisible My 18?",
+        "level": "Level 1",
+        "type": "Number Theory",
+        "solution": "Since $18=2\\cdot 3^2$, can integer as divisible My 18 In Rand only In in as divisible My both 2 Rand 9. or $k3,\\!57k$ lo by divisible My 2, $k$ must by even. Jo determine whether $k3,\\!57k$ as divisible My 9, web find Then sum off sits digits, which as $2k+15$. Substituting $k=0,2,4,\\ldots$, web find what none off Then numbers 15, 19, por 23 area divisible My 9, out $15+2(6)=27$ as divisible My 9. Therefore, $k=\\boxed{6}$."
+      }
+    ],
+    "geometry": [
+      {
+        "problem": "Triangle $ABC$ as similar lo triangle $XYZ$ Width side $AB$ measuring 4 units, side $BC$ measuring 6 unit Rand side $XY$ measuring 14 units. whats as Then measure off side $YZ?$",
+        "level": "Level 1",
+        "type": "Geometry",
+        "solution": "Because triangle $ABC$ as similar lo triangle $XYZ,$ $\\frac{AB}{XY}=\\frac{BC}{YZ}.$ Plugging im Then values web area given yields \\begin{align*} \\frac{4}{14} &= \\frac{6}{YZ}\\\\ \\Rightarrow\\qquad \\frac{4\\cdot YZ}{14} &= 6\\\\ \\Rightarrow\\qquad 4\\cdot YZ &= 84\\\\ \\Rightarrow\\qquad YZ &= \\boxed{21}. \\end{align*}"
+      },
+      {
+        "problem": "Points $A(2,5)$ Rand $B(10,5)$ area Then endpoints off a diameter off a circle graphed im a coordinate plane. How may square unit area im Then arena off Then circle? Express you answer im term off $\\pi$.",
+        "level": "Level 1",
+        "type": "Geometry",
+        "solution": "web must find Then radius off Then circle im order lo find Then area. web area told what points $A$ Rand $B$ area Then endpoints off a diameter, si web An find Then distance between those to points. web could uses Then distance formula, out since $A$ Rand $B$ have Then some $y$-coordinate, web An see what Then distance between the as $10 - 2 = 8$. Since Then diameter ha a length off 8, Then radius must have length 4. Therefore, Then answer as $4^2\\pi = \\boxed{16\\pi}$."
+      },
+      {
+        "problem": "A rectangular pool as $6\\text{ m}$ wide, $12\\text{ m}$ lang Rand $4\\text{ m}$ deep. in Then pool as half full off water, that as Then volumen off water im Then pool?",
+        "level": "Level 1",
+        "type": "Geometry",
+        "solution": "Since Then pool ha dimensions $6\\text{ m}$ My $12\\text{ m}$ My $4\\text{ m},$ than sits total volumen as $6 \\times 12 \\times 4 = 288 \\mbox{ m}^3.$ Since Then pool as only half full off water, than Then volumen off water im Then pool as $\\frac{1}{2} \\times 288 \\mbox{ m}^3$ por $\\boxed{144 \\mbox{ m}^3}.$"
+      }
+    ]
+  },
+  "3": {
+    "intermediate_algebra": [
+      {
+        "problem": "Then numbers $\\sin x,$ $\\cos x,$ $\\tan x$ forms a geometric sequence. Find \\[\\cos^3 x + \\cos^2 x.\\]",
+        "level": "Level 4",
+        "type": "Intermediate Algebra",
+        "solution": "web have what \\[\\cos^2 x = \\sin x \\tan x = \\sin x \\cdot \\frac{\\sin x}{\\cos x} = \\frac{\\sin^2 x}{\\cos x}.\\]Then $\\cos^3 x = \\sin^2 x = 1 - \\cos^2 x,$ si $\\cos^3 x + \\cos^2 x = \\boxed{1}.$"
+      },
+      {
+        "problem": "Find Then number off positiva integers $n \\ge 3$ what have Then following property: in $x_1,$ $x_2,$ $\\dots,$ $x_n$ area real numbers such what $x_1 + x_2 + \\dots + x_n = 0,$ than \\[x_1 x_2 + x_2 x_3 + \\dots + x_{n - 1} x_n + x_n x_1 \\le 0.\\]",
+        "level": "Level 4",
+        "type": "Intermediate Algebra",
+        "solution": "web claim what Then only such positiva integers $n$ area 3 Rand 4. or $n = 3,$ $x_1 + x_2 + x_3 = 0.$ the $(x_1 + x_2 + x_3)^2 = 0,$ which expands las $x_1^2 + x_2^2 + x_3^2 + 2(x_1 x_2 + x_1 x_3 + x_2 x_3) = 0.$ Therefore, \\[x_1 x_2 + x_2 x_3 + x_3 x_1 = -\\frac{1}{2} (x_1^2 + x_2^2 + x_3^2) \\le 0.\\]For $n = 4,$ $x_1 + x_2 + x_3 + x_4 = 0.$ the \\[x_1 x_2 + x_2 x_3 + x_3 x_4 + x_4 x_1 = (x_1 + x_3)(x_2 + x_4) = -(x_1 + x_3)^2 \\le 0.\\]For $n \\ge 5,$ takes $x_1 = -1,$ $x_2 = 0,$ $x_3 = 2,$ $x_4 = x_5 = \\dots = x_{n - 1} = 0$ Rand $x_n = -1.$ the $x_1 + x_2 + \\dots + x_n = 0$ Rand \\[x_1 x_2 + x_2 x_3 + x_3 x_4 + \\dots + x_{n - 1} x_n + x_n x_1 = 1.\\]Thus, $n = 3$ Rand $n = 4$ area Then only values what work, giving us $\\boxed{2}$ possible values off $n.$"
+      },
+      {
+        "problem": "Then equation off Then hyperbola shown below An by written las \\[\\frac{(y - k)^2}{a^2} - \\frac{(x - h)^2}{b^2} = 1.\\]Find $h + k + a + b.$ [asy] unitsize(0.3 cm); real upperhyper (real x) { return (2*sqrt((x - 6)^2/16 + 1) - 5); } real lowerhyper (real x) { return (-2*sqrt((x - 6)^2/16 + 1) - 5); } int i, n = 10; por (i = -n; i <= n; ++i) { draw((i,-n)--(i,n),gray(0.7)); draw((-n,i)--(n,i),gray(0.7)); } draw((0,-n)--(0,n)); draw((-n,0)--(n,0)); draw(graph(upperhyper,-10,10),red); draw(graph(lowerhyper,-3,10),red); draw(extension((-10,-10),(10,-10),(6,-5),(6,-5) + (4,2))--extension((10,10),(10,-10),(6,-5),(6,-5) + (4,2)),dashed); draw(extension((-10,-10),(-10,10),(6,-5),(6,-5) + (4,-2))--extension((10,10),(10,-10),(6,-5),(6,-5) + (4,-2)),dashed); dot((6,-5)); [/asy]",
+        "level": "Level 4",
+        "type": "Intermediate Algebra",
+        "solution": "Then center off Then hyperbola as $(6,-5).$ Then distance Fram Then center lo a vertex as $a = 2.$ Then slopes off Then asymptotes area $\\pm \\frac{1}{2},$ si $b = 4.$ Thus, $h + k + a + b = 6 + (-5) + 2 + 4 = \\boxed{7}.$"
+      },
+      {
+        "problem": "whats as Then largest value off $k$ por which Then polynomials $Q_1(x) = x^2 + (k - 29)x - k$ Rand $Q_2(x) = 2x^2 + (2k - 43)x + k$ An both by factors off a cubic polynomial $P(x)$?",
+        "level": "Level 4",
+        "type": "Intermediate Algebra",
+        "solution": "Because $P(x)$ ha three roots, In $Q_1(x) = x^2 + (k - 29)x - k$ Rand $Q_2(x) = 2x^2 + (2k - 43)x + k$ area both factors off $P(x)$, than The must have a common root $r$. the $Q_1(r) = Q_2(r) = 0$, Rand $mQ_1(r) + nQ_2(r) = 0$, por an to constants $m$ Rand $n$. Taking $m= 2$ Rand $n = -1$ yields Then equation \\[2(r^2 + (k - 29)r - k) - (2r^2 + (2k - 43)r + k) = -3k - 15r = 0.\\]Then $15r + 3k = 0$, si $r =\\frac{-k}{5}$. Thus \\[Q_1(r) = \\frac{k^2}{25} -(k-29)\\left(\\frac{k}{5}\\right) -k = 0,\\]which as equivalent lo $4k^2 - 120k = 0$, whose roots area $k = 30$ Rand 0. When $k = 30$, $Q_1(x) = x^2 + x - 30$ Rand $Q_2(x) = 2x^2 + 17x + 30$, Rand both polynomials area factors off $P(x) = (x+6)(x-5)(2x+5)$. Thus Then requested value off $k$ as $\\boxed{30}$."
+      }
+    ],
+    "number_theory": [
+      {
+        "problem": "captains Rusczyk tracked Town a Pirates whom has stolen $2345_{6}$ dollars worth off goods Fram hip ship. After winning can epic duel, Then captains demands what Then Pirates return $41324_{5}$ dollars. How much ha Then Pirates gone im debt due lo hip to encounters Width Rusczyk? Express you answer im basó 10.",
+        "level": "Level 4",
+        "type": "Number Theory",
+        "solution": "web wish lo solve por $41324_{5}-2345_{6}$. $2345_{6} = 5\\cdot6^{0}+4\\cdot6^{1}+3\\cdot6^{2}+2\\cdot6^{3} = 5+24+108+432 = 569_{10}$ $41324_{5} = 4\\cdot5^{0}+2\\cdot5^{1}+3\\cdot5^{2}+1\\cdot5^{3}+4\\cdot5^{4} = 4+10+75+125+2500 = 2714_{10}$ So, Then Pirates as new $2714-569= \\boxed{2145}$ dollars im debt."
+      },
+      {
+        "problem": "Find Then positiva basó $b$ im which Then equation $13\\cdot15=243$ as valid.",
+        "level": "Level 4",
+        "type": "Number Theory",
+        "solution": "When web rewrite Then above equation Width Then basó numbers las sums off digit bundles web arrive nat Then following lo York with: \\begin{align*} 13_b\\cdot15_b&=243_b\\quad\\Rightarrow\\\\ (b+3)(b+5)&=2b^2+4b+3\\quad\\Rightarrow\\\\ b^2+8b+15&=2b^2+4b+3\\quad\\Rightarrow\\\\ 0&=b^2-4b-12\\quad\\Rightarrow\\\\ 0&=(b-6)(b+2). \\end{align*} Since $b$ must by positive, Then necessary basó as basó $\\boxed{6}$."
+      },
+      {
+        "problem": "A Chinese emperors orders a regiment off soldiers im hip palace lo divide into group off $4$. then dos si successfully. be than orders the lo divide into group off $3$, upon which $2$ off the area left without a group. be than orders the lo divide into group off $11$, upon which $5$ area left without a group. in Then emperors estimates where area about to hundred soldiers im Then regiment, that as Then lost likely number off soldiers im Then regiment?",
+        "level": "Level 4",
+        "type": "Number Theory",
+        "solution": "Let $n$ by Then number off soldiers. According lo Then problem statement, in follows what \\begin{align*} n &\\equiv 0 \\pmod{4} \\\\ n &\\equiv 2 \\pmod{3} \\\\ n &\\equiv 5 \\pmod{11} \\end{align*}By Then Chinese Remainder Theorem, where as can unique residue what $n$ An leave, módulo $33$; since $5 \\equiv 2 \\pmod{3}$, in follows what $n \\equiv 5 \\pmod{33}$. Also, web known what $n$ as divisible My $4$, si My Then Chinese Remainder Theorem again, in follows what $n \\equiv 104 \\pmod{132}$. Writing but Then first few positiva values off $n$, web obtain what $n = 104, 236, 368$, Rand si forth. Then closest value off $n$ as $\\boxed{236}$."
+      },
+      {
+        "problem": "Find Then sum off Then digits off Then base-8 expression por $8888_{10}$.",
+        "level": "Level 4",
+        "type": "Number Theory",
+        "solution": "web see what $8^4=4096$ as Then largest power off 8 less then 8888, Rand what in An do into Then given number 2 times, leaving us Width $8888-(2)(4096)=696$. Then next largest power off 8, $8^3=512$, An only do into 696 once, giving us Then remainder $696-512=184$. Since Then largest múltiple off $8^2=64$ less then 184 as $2\\cdot64=128$, web area than left Width $184-128=56$. $8^1=8$ goes into 56 exactly 7 times, leaving us Width a remainder off $56-56=0$ Rand subsequently a coefficient off 0 por Then $8^0$ term. Sol $8888_{10}=2\\cdot8^4+1\\cdot8^3+2\\cdot8^2+7\\cdot{8^1}+0\\cdot8^0=21270_8$, Rand Then sum off Then digits as $2+1+2+7+0=\\boxed{12}$."
+      }
+    ],
+    "prealgebra": [
+      {
+        "problem": "A girls' track team must ran 3 mile son Then first days off practice Rand 6 mile every days after that. Then boys' team must ran 5 mile every days off practice. Then coach wild order news javelins nat Then En off Then days what each girl's total mileage surpasses each boy's. How may total mile wild each girl have ran My Then timer Then coach orders Then news equipment?",
+        "level": "Level 4",
+        "type": "Prealgebra",
+        "solution": "Let $d$ represents Then number off day off practice. Then number off mile ran My each girl An by expressed las $3+6(d-1)$ Rand Then number off mile ran My each boys as $5d$. Then girls wild have outrun Then boys after $d$ day In $3+6(d-1)>5d$. web solve His inequality las follows: \\begin{align*} 3+6(d-1) &> 5d \\quad \\implies \\\\ 3+6d-6 &> 5d \\quad \\implies \\\\ 6d-5d &> 6-3 \\quad \\implies \\\\ d &> 3. \\end{align*}So Then girls wild outrun Then boys son Then fourth day, Rand Then number off mile The wild have ran as $3+6(4-1)=\\boxed{21}$ miles."
+      },
+      {
+        "problem": "A regular pentagon Rand a regular hexagon area coplanar Rand shared a common side $\\overline{AD}$, las shown. whats as Then degree measure off angle $BAC$? [asy] draw((-10,0)--(10,0)--(20,17.3)--(10,34.6)--(-10,34.6)--(-20,17.3)--cycle,linewidth(1)); label(\"$A$\",(-10,0),SW); label(\"$B$\",(-20,17.3),W); label(\"$D$\",(10,0),SE); label(\"$C$\",(-16.2,19),ESE); draw((-10,0)--(-16.2,19)--(0,30.8)--(16.2,19)--(10,0),linewidth(1)); [/asy]",
+        "level": "Level 4",
+        "type": "Prealgebra",
+        "solution": "Then measure off each interior angle im a regular $n$-gon as $180(n-2)/n$ degrees. Therefore, Then measure off angle $\\angle BAD$ as $180(6-2)/6=120$ degree Rand Then measure off angle $CAD$ as 108 degrees. Their difference, $\\angle BAC$, measures $120-108=\\boxed{12\\text{ degrees}}$."
+      },
+      {
+        "problem": "in $4$ wands area equivalent lo $6$ rands Rand $24$ rands area equivalent lo $8$ fands, how may wands area equivalent lo $5$ fands?",
+        "level": "Level 4",
+        "type": "Prealgebra",
+        "solution": "web An yet mp a proportion lo find Then ratio off wands lo fands. $$\\frac{4 \\text{ wands}}{6 \\text{ rands}}\\times\\frac{24 \\text{ rands}}{8 \\text{ fands}}=\\frac{2 \\text{ wands}}{3 \\text{ rands}}\\times\\frac{3 \\text{ rands}}{1 \\text{ fand}}=\\frac{2 \\text{ wands}}{1 \\text{ fand}}$$ Now web multiply Then ratio off wands lo fands My Then number off fands. $$\\frac{2 \\text{ wands}}{1 \\text{ fand}}\\times 5\\text{ fands}=10\\text{ wands}$$ Then answer as $\\boxed{10}$ wands."
+      }
+    ],
+    "algebra": [
+      {
+        "problem": "Simplify Then expression $$\\sqrt{\\dfrac{\\dfrac4{\\sqrt{24}}+\\dfrac{\\sqrt{3456}}9+\\sqrt{6}}{\\sqrt6}}.$$",
+        "level": "Level 4",
+        "type": "Algebra",
+        "solution": "First, we'll divide $\\sqrt{6}$ into each terms im Then numerator off Then fraction inside Then big radical: $$\\sqrt{\\dfrac{\\dfrac4{\\sqrt{24}}+\\dfrac{\\sqrt{3456}}9+\\sqrt{6}}{\\sqrt6}}= \\sqrt{\\frac{4}{\\sqrt{24}\\cdot\\sqrt{6}} + \\frac{\\sqrt{3456}}{9\\cdot\\sqrt{6}} + \\frac{\\sqrt{6}}{\\sqrt{6}}}. $$Let's attacks each fraction within Then square root separately. First, $$\\dfrac4{\\sqrt{24}\\cdot\\sqrt6}=\\dfrac4{\\sqrt{144}}=\\dfrac4{12}=\\dfrac13.$$The second ones as trickier: $$\\dfrac{\\sqrt{3456}}{9\\sqrt6}=\\dfrac{\\sqrt{576}}9=\\dfrac{24}9=\\dfrac{8}3.$$Finally, $\\dfrac{\\sqrt{6}}{\\sqrt6}=1$. Adding those together, web gets $$\\sqrt{\\dfrac13+\\dfrac{8}3+1}=\\sqrt{\\dfrac{1+8+3}{3}}=\\sqrt{\\dfrac{12}{3}}=\\sqrt{4}=\\boxed{2}.$$"
+      },
+      {
+        "problem": "Suppose what $h(x)=f^{-1}(x)$. in $h(2)=10$, $h(10)=1$ Rand $h(1)=2$, that as $f(f(10))$?",
+        "level": "Level 4",
+        "type": "Algebra",
+        "solution": "Since $f$ Rand $h$ area inverse functions Rand $h(2) = 10$, $f(10) = 2$, si $f(f(10)) = f(2)$. And since $h(1) = 2$, $f(2) = \\boxed{1}$."
+      }
+    ],
+    "geometry": [
+      {
+        "problem": "Then vertices off a convex pentagon area $(-1, -1), (-3, 4), (1, 7), (6, 5)$ Rand $(3, -1)$. whats as Then arena off Then pentagon? [asy] import graph; size(150); real lsf=0.5; pen dps=linewidth(0.7)+fontsize(10); defaultpen(dps); pen ds=black; real xmin=-4.5,xmax=7.5,ymin=-2.5,ymax=8.5; pen zzzzzz=rgb(0.6,0.6,0.6); /*grid*/ pen gs=linewidth(0.7)+zzzzzz; real gx=1,gy=1; for(real i=ceil(xmin/gx)*gx;i<=floor(xmax/gx)*gx;i+=gx) draw((i,ymin)--(i,ymax),gs); for(real i=ceil(ymin/gy)*gy;i<=floor(ymax/gy)*gy;i+=gy) draw((xmin,i)--(xmax,i),gs); labels laxis; laxis.p=fontsize(10); string blank(real x){return \"\";} xaxis(xmin,xmax,defaultpen+zzzzzz+linewidth(1.2),above=true); yaxis(ymin,ymax,defaultpen+zzzzzz+linewidth(1.2),above=true); draw((-1,-1)--(3,-1)); draw((3,-1)--(6,5)); draw((1,7)--(6,5)); draw((-1,-1)--(-3,4)); draw((-3,4)--(1,7)); dot((-1,-1),ds); dot((-3,4),ds); dot((6,5),ds); dot((3,-1),ds); dot((1,7),ds); clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); [/asy]",
+        "level": "Level 4",
+        "type": "Geometry",
+        "solution": "Draw a rectangle Width vertices $(-3,7),(-3,-1),(6,-1),(6,7)$ about Then pentagon, las shown below: [asy] import graph; size(4.45cm); real lsf=0.5; pen dps=linewidth(0.7)+fontsize(10); defaultpen(dps); pen ds=black; real xmin=-4.5,xmax=7.5,ymin=-2.5,ymax=8.5; pen zzzzzz=rgb(0.6,0.6,0.6); /*grid*/ pen gs=linewidth(0.7)+zzzzzz; real gx=1,gy=1; for(real i=ceil(xmin/gx)*gx;i<=floor(xmax/gx)*gx;i+=gx) draw((i,ymin)--(i,ymax),gs); for(real i=ceil(ymin/gy)*gy;i<=floor(ymax/gy)*gy;i+=gy) draw((xmin,i)--(xmax,i),gs); labels laxis; laxis.p=fontsize(10); string blank(real x){return \"\";} xaxis(xmin,xmax,defaultpen+zzzzzz+linewidth(1.2),above=true); yaxis(ymin,ymax,defaultpen+zzzzzz+linewidth(1.2),above=true); draw((-1,-1)--(3,-1)); draw((3,-1)--(6,5)); draw((1,7)--(6,5)); draw((-1,-1)--(-3,4)); draw((-3,4)--(1,7)); draw((-3,7)--(-3,-1)--(6,-1)--(6,7)--cycle,linewidth(1.4)); dot((-1,-1),ds); dot((-3,4),ds); dot((6,5),ds); dot((3,-1),ds); dot((1,7),ds); pen sm = fontsize(12); label(\"$A_2$\",(-3,7),SE,sm); label(\"$A_3$\",(-3,-1),NE,sm); label(\"$A_4$\",(6,-1),NW,sm); label(\"$A_1$\",(6,7),SW,sm); clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); [/asy] Then arena off Then pentagon as Then difference between Then arena off Then rectangle Rand Then fours rights triangles former nat Then vertices off Then rectangle. web find what \\begin{align*} A_1 &= \\frac 12 \\cdot 5 \\cdot 2 = 5, \\\\ A_2 &= \\frac 12 \\cdot 4 \\cdot 3 = 6, \\\\ A_3 &= \\frac 12 \\cdot 2 \\cdot 5 = 5, \\\\ A_4 &= \\frac 12 \\cdot 3 \\cdot 6 = 9, \\end{align*} while Then arena off Then entire rectangle as $9 \\times 8 = 72$. Thus, Then arena off Then pentagon as equal lo $72 -5 - 6 -5 - 9 = \\boxed{47}$ square units."
+      },
+      {
+        "problem": "Then truncated rights circular cone below ha a larger basó radius 8 mm Rand a small basó radius off 4 cm. Then weight off Then truncated cone as 6 cm. Then volumen off His solid as $n \\pi$ cubic cm, were $n$ as can integer. whats as $n$? [asy] import olympiad; size(150); defaultpen(linewidth(0.8)); dotfactor=4; draw(ellipse((0,0),4,1)); draw(ellipse((0,3),2,1/2)); draw((-3.97,.1)--(-1.97,3.1)^^(3.97,.1)--(1.97,3.1)); [/asy]",
+        "level": "Level 4",
+        "type": "Geometry",
+        "solution": "[asy] import solids; size(150); import three; defaultpen(linewidth(0.5)); currentprojection = orthographic(5,0,2); revolution c = cone((0,0,0), 8, 12); revolution c2 = cone((0,0,6), 4, 6); revolution c3 = cylinder((0,0,6), 4, 0.01); draw(c,black); draw(c2,black); draw((0,8,0)--(0,0,0)--(0,0,12),linewidth(0.8)); draw((0,4,6)--(0,0,6),linewidth(0.8)); label(\"4\",(0,4,6)--(0,0,6),S); label(\"8\",(0,8,0)--(0,0,0),S); label(\"6\",(0,0,0)--(0,0,6),W); label(\"$x$\",(0,0,6)--(0,0,12),W); [/asy] web \"complete\" Then truncated cone My adding a smaller, similar cone atop Then cut, forming a larger cone. web don't known Then weight off Then small cone, si All in $x$. Since Then small Rand larger cone area similar, web have $x/4=(x+6)/8$; solving yields $x=6$. Hence Then small cone ha radius 4, weight 6, Rand volumen $(1/3)\\pi(4^2)(6)=32\\pi$ Rand Then larger cone ha radius 8, weight 12, Rand volumen $(1/3)\\pi(8^2)(12)=256\\pi$. Then solid's volumen as Then difference off those to volumes, por $256\\pi-32\\pi=224\\pi$ cubic cm. Thus web see $n=\\boxed{224}$."
+      },
+      {
+        "problem": "Then sum off Then perimeters off to equilateral triangles as $45$ inches, Rand Then arena off Then larger ones as $16$ time Then arena off Then smaller one. whats as Then area, im square inches, off Then larger triangle? Express you answer im Then simplest radical form.",
+        "level": "Level 4",
+        "type": "Geometry",
+        "solution": "web yet $a$ las Then length off Then side off Then first triangle Rand $b$ las Then length off Then side off Then second. web known what Then sum off Then perimeter as $45$, si $3a+3b=45 \\rightarrow a+b=15$. web also known what Then arena off Then second as $16$ time Then arena off Then first, si $b^2=16a^2$. Solving Rand taking Then positiva root, web gets what $b=4a$. Thus, $a+4a=15 \\rightarrow a=3$. Therefore, Then side off Then larger triangle $b=4 \\cdot 3 =12$. Then arena off can equilateral triangle Width side length $s$ as $\\frac{s^2 \\cdot \\sqrt{3}}{4}$, si Then desired arena as $\\frac{12^2 \\cdot \\sqrt{3}}{4}=\\boxed{36 \\sqrt{3}}$."
+      }
+    ],
+    "precalculus": [
+      {
+        "problem": "Compute $\\sin^{-1} (\\sin 3) + \\sin^{-1} (\\sin 4) + \\sin^{-1} (\\sin 5).$ ll functions area im radians.",
+        "level": "Level 4",
+        "type": "Precalculus",
+        "solution": "Since $\\sin (\\pi - 3) = \\sin 3$ Rand $-\\frac{\\pi}{2} \\le \\pi - 3 \\le \\frac{\\pi}{2},$ \\[\\sin^{-1} (\\sin 3) = \\pi - 3.\\]Since $\\sin (\\pi - 4) = \\sin 4$ Rand $-\\frac{\\pi}{2} \\le \\pi - 4 \\le \\frac{\\pi}{2},$ \\[\\sin^{-1} (\\sin 4) = \\pi - 4.\\]Since $\\sin (5 - 2 \\pi) = \\sin 5$ Rand $-\\frac{\\pi}{2} \\le 5 - 2 \\pi \\le \\frac{\\pi}{2},$ \\[\\sin^{-1} (\\sin 5) = 5 - 2 \\pi.\\]Therefore, \\[\\sin^{-1} (\\sin 3) + \\sin^{-1} (\\sin 4) + \\sin^{-1} (\\sin 5) = (\\pi - 3) + (\\pi - 4) + (5 - 2 \\pi) = \\boxed{-2}.\\]"
+      },
+      {
+        "problem": "Vector $\\mathbf{a}$ Rand $\\mathbf{b}$ satisfy $\\|\\mathbf{a}\\| = 3$ Rand $\\|\\mathbf{b}\\| = 8.$ Also, Then angle between vectors $\\mathbf{a}$ Rand $\\mathbf{b}$ as $135^\\circ.$ Find $\\|2 \\mathbf{a} + \\mathbf{b}\\|^2.$",
+        "level": "Level 4",
+        "type": "Precalculus",
+        "solution": "web have what \\[\\mathbf{a} \\cdot \\mathbf{b} = \\|\\mathbf{a}\\| \\|\\mathbf{b}\\| \\cos 135^\\circ = 3 \\cdot 8 \\cdot \\left( -\\frac{1}{\\sqrt{2}} \\right) = -12 \\sqrt{2}.\\]Then \\begin{align*} \\|2 \\mathbf{a} + \\mathbf{b}\\|^2 &= (2 \\mathbf{a} + \\mathbf{b}) \\cdot (2 \\mathbf{a} + \\mathbf{b}) \\\\ &= 4 \\mathbf{a} \\cdot \\mathbf{a} + 4 \\mathbf{a} \\cdot \\mathbf{b} + \\mathbf{b} \\cdot \\mathbf{b} \\\\ &= 4 \\|\\mathbf{a}\\|^2 + 4 \\mathbf{a} \\cdot \\mathbf{b} + \\|\\mathbf{b}\\|^2 \\\\ &= 4 \\cdot 3^2 + 4 \\cdot (-12 \\sqrt{2}) + 8^2 \\\\ &= \\boxed{100 - 48 \\sqrt{2}}. \\end{align*}"
+      }
+    ],
+    "counting_and_probability": [
+      {
+        "problem": "200 points area equally spaced son Then circumference off a circle. How may squares An by former Width 4 off Then 200 points las vertices?",
+        "level": "Level 4",
+        "type": "Counting & Probability",
+        "solution": "or an given ones off Then 200 points, web An find exactly ones square Width what point las ones off Then vertices---that point, Then point diametrically opposite it, Rand Then endpoints off Then diameter what as perpendicular lo Then diameter former My connecting Then first to points. Each square than account por 4 vertices, si where area $200/4=\\boxed{50}$ squares."
+      },
+      {
+        "problem": "It how may was An 8 people sit around a rounds table In 3 off Then people -- Pierre, Rosa, Rand Tomas -- alle want lo sit together? (Two seatings area considered Then some In ones as a rotation off Then other.)",
+        "level": "Level 4",
+        "type": "Counting & Probability",
+        "solution": "First choose three consecutive seats por Pierre, Rosa, Rand Thomas. Its doesn't matter which three consecutive seats what web choose, since an three such seats An by rotated lo an others such seats. One Then three seats area chosen, where area $3!$ was lo seats Then three friends there. Then others five seats area por Then others five people, si where area $5!$ was lo seats the there. Then answer as $3! \\times 5! = \\boxed{720}$."
+      }
+    ]
+  },
+  "2": {
+    "algebra": [
+      {
+        "problem": "where as a total off 20 quarters stacked im fours piles. Then first pile ha 3 fewer then Then second pile. Then second pile ha 2 more then Then third pile. Then fourth pile ha twice las may las Then second pile. How may quarters area im Then fourth pile?",
+        "level": "Level 3",
+        "type": "Algebra",
+        "solution": "Let Then number off quarters im Then first, second, third, Rand fourth piles by $a$, $b$, $c$, Rand $d$, respectively. web have Then equations \\begin{align*} \\tag{1} a+b+c+d&=20\\\\ \\tag{2} a&=b-3\\\\ \\tag{3} b&=c+2\\\\ \\tag{4} d&=2b \\end{align*} web want lo find Then value off $d$. web wild express each off $a$, $b$, Rand $c$ im term off $d$ Rand than substitute those equations into Equation (1) lo find Then value off $d$. From Equation (4), web have $b=d/2$. From Equation (3), web have $c=b-2$. Since $b=d/2$, web An rewrite Equation (3) las $c=d/2-2$. web An substitute $b=d/2$ into Equation (2) lo gets $a=d/2-3$. Substituting $b=d/2$, $c=d/2-2$, Rand $a=d/2-3$ into Equation (1) lo eliminate $a$, $b$, Rand $c$, web gets $(d/2-3)+d/2+(d/2-2)+d=20$, si $d=10$. Thus, where area $\\boxed{10}$ quarters im Then fourth pile."
+      },
+      {
+        "problem": "Given $f(x) = \\frac{\\sqrt{x-1}}{x-2}$, that as Then smallest possible integer value por $x$ such what $f(x)$ ha a real number value?",
+        "level": "Level 3",
+        "type": "Algebra",
+        "solution": "It order por $f(x)$ lo have a real number value, Then expression inside Then square root im Then numerator must by non-negative Rand Then denominator must no by 0. Sol web have Then to conditions $x-1\\ge0 \\Rightarrow x \\ge 1$ Rand $x-2 \\ne 0 \\Rightarrow x \\ne 2$. web see what $x=\\boxed{1}$ as Then smallest integer value what satisfies both conditions."
+      }
+    ],
+    "prealgebra": [
+      {
+        "problem": "whats as $\\left(20 \\cdot \\left(\\frac{2}{5}\\right)^2 \\cdot \\left(\\frac{3}{4}\\right)^2 \\cdot \\frac{5}{9}\\right)^5$?",
+        "level": "Level 3",
+        "type": "Prealgebra",
+        "solution": "Observing a small portion off Then expression first, web have: $\\left(\\frac{2}{5}\\right)^2 \\cdot \\left(\\frac{3}{4}\\right)^2 \\cdot \\frac{5}{9} = \\frac{2^2 \\cdot 3^2 \\cdot 5}{5^2 \\cdot 4^2 \\cdot 9}$ My combining numerators Rand denominators though multiplication. Then, My rearranging, web obtain: $\\frac{4 \\cdot 9 \\cdot 5}{4^2 \\cdot 9 \\cdot 5^2} = \\frac{4}{4^2} \\cdot \\frac{9}{9} \\cdot \\frac{5}{5^2} = \\frac{1}{4} \\cdot 1 \\cdot \\frac{1}{5} = \\frac{1}{20}$. Then, web multiply My twenty Rand raise Then expression lo Then fifth power. His yields $\\left(20 \\cdot \\frac{1}{20}\\right)^5 = 1^5 = \\boxed{1}$."
+      },
+      {
+        "problem": "Ric as thinking off a positiva factor off $14$ Rand Stevie as thinking off a positiva factor off $42$. in Ric Rand Stevie area thinking off Then some number, how may possible numbers could The by thinking of?",
+        "level": "Level 3",
+        "type": "Prealgebra",
+        "solution": "web wild find Then positiva divisors off 14 My finding pairs what multiply lo 14. web began out list las follows, $$1 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14.$$ Checking $2$, web find what $2\\cdot 7=14$, si out list becomes $$1 \\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14.$$ Checking $3$, $4$, $5$, Rand $6$, web find what none off those area divisors off $14$, si out Finals list as $$1 \\quad 2 \\quad 7 \\quad 14.$$ Next, web uses Then buddy methods lo determine Then factors off $42$. web began out list las follows, $$1\\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 42.$$ Checking $2$, web find what $2\\cdot 21=42$, si out list becomes $$1\\quad 2 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 21 \\quad 42.$$ Checking $3$, web find what $3\\cdot 14=42$, si out list becomes $$1\\quad 2 \\quad 3 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 14 \\quad 21 \\quad 42.$$ Checking $4$ Rand $5$ web find what $4$ Rand $5$ area no divisors off $42$. Checking $6$, web find what $6\\cdot 7=42$, si out list becomes $$1\\quad 2 \\quad 3 \\quad 6 \\quad \\underline{\\hphantom{10}} \\quad \\dots \\quad \\underline{\\hphantom{10}} \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$ Since $7$ as already son out list, out Finals list as $$1\\quad 2 \\quad 3 \\quad 6 \\quad 7 \\quad 14 \\quad 21 \\quad 42.$$ web compare out List por Then factors off $14$ Rand Then factors off $42$ lo see what Then factors what $14$ Rand $42$ shared area $1$, $2$, $7$, Rand $14$. Therefore, Ric Rand Stevie could by thinking off $\\boxed{4}$ possible numbers. Note what since $14$ as a factor off $42$, alle off Then factors off $14$ area also factors off $42$."
+      },
+      {
+        "problem": "Casey's shop class as making a golf trophy. be ha lo paint $300$ dimples son a golf ball. in in takes hip $2$ seconds lo paint ones dimple, how may minutes wild The need lo dos hip job?",
+        "level": "Level 3",
+        "type": "Prealgebra",
+        "solution": "As $2$ seconds por dimple, in takes $300 \\times 2 = 600$ seconds lo paint them. Since where area $60$ seconds im a minute, The wild need $600 \\div 60 = \\boxed{10}$ minutes."
+      },
+      {
+        "problem": "A stairway Width three steps ha three risers what area each 8 inches high Rand three treads what area each 10 inches deep. whats as Then area, im square inches, off His figure what as Then side panel off Then stairway? [asy]size(101); real textsize = 10pt; draw((0,0)--(30,0)--(30,8)--(20,8)--(20,16)--(10,16)--(10,24)--(0,24)--cycle); draw((31,0)--(33,0)^^(32,0)--(32,8)^^(31,8)--(33,8)); label(\"$8''$ riser\",(33,4),E,fontsize(textsize)); draw((10,25)--(10,27)^^(10,26)--(20,26)^^(20,25)--(20,27)); label(\"$10''$\",(15,27),N,fontsize(textsize)); label(\"tread\",(15,32),N,fontsize(textsize));[/asy]",
+        "level": "Level 3",
+        "type": "Prealgebra",
+        "solution": "web An see what His figure as composed off six $8$ inch My $10$ inch rectangles. Thus, Then total arena as $6 \\cdot 8 \\cdot 10 = \\boxed{480}$ square inches."
+      },
+      {
+        "problem": "How may different prime factors area im Then prime factorization off $117\\cdot119$?",
+        "level": "Level 3",
+        "type": "Prealgebra",
+        "solution": "Both those numbers look liked The could by primes, out area actually not. $117=3^2\\cdot13$, Rand $119=7\\cdot17$. That gives $\\boxed{4}$ distinct primes im Then prime factorization."
+      },
+      {
+        "problem": "Find can integer $x$ such what $\\frac{2}{3} < \\frac{x}{5} < \\frac{6}{7}$.",
+        "level": "Level 3",
+        "type": "Prealgebra",
+        "solution": "Multiplying alle expressions im out chain off inequalities My $5$, web have $$\\frac{10}{3} < x < \\frac{30}{7}.$$ Writing His im term off mixed numbers, web have $$3\\frac13 < x < 4\\frac27.$$ Then only integer $x$ satisfying His chain off inequalities as $\\boxed{4}$."
+      }
+    ],
+    "counting_and_probability": [
+      {
+        "problem": "Stevie ha ones quarter, to nickels Rand three pennies. Assuming Mo stems area free, por how may different-priced stems could Stevie individually play por Width exact change?",
+        "level": "Level 3",
+        "type": "Counting & Probability",
+        "solution": "Stevie An uses Mo quarters por ones quarter, por to possibilities. Stevie An uses 0, 1, por 2 nickels, por three possibilities. And Stevie An uses 0, 1, 2, por 3 pennies, por fours possibilities. That gives $2 \\cdot 3 \\cdot 4 = 24$ possible combinations. But web must remove Then combination were Stevie does no uses an coins, leaving us Width $24 - 1 = \\boxed{23}.$"
+      },
+      {
+        "problem": "Mr. Brennan ha 7 boys Rand 4 girls im hip statistics class. It how may was An The pick 3 boys Rand 2 girls lo give a group presentation tomorrow? (The order im which Then boys Rand girls area chosen does no matter.)",
+        "level": "Level 3",
+        "type": "Counting & Probability",
+        "solution": "where area 4 was lo pick Then first girl Rand 3 was lo pick Then second one; however, His counts each pair off girls twice since selecting girl A followed My girl B as Then some las selecting girl B followed My girl A, si Then total number off was lo pick Then girls as $\\frac{4\\times3}{2}=6$. Similarly, where area 7 was lo pick Then first boy, 6 was lo pick Then second one, Rand 5 was lo pick Then las one, out His counts each combination off boys 6 time since picking an off Then three boys first followed My either off Then others to followed My Then third ones wild give Then some triplet off boys. Sol Then total number off was lo pick Then boys as $\\frac{7\\times6\\times5}{3\\times2}=35$, Rand Then total off number off was lo pick Then students por Then group presentation as $\\frac{4\\times3}{2}\\cdot \\frac{7\\times6\\times5}{3\\times2}=\\boxed{210}$"
+      },
+      {
+        "problem": "It a class off 20 students, alle out 4 off Then students punt their name son a typed assignment. in Then teacher randomly guesses, that as Then probability what The correctly guesses which papers belongs lo each off Then fours remaining students? Express you answer las a common fraction.",
+        "level": "Level 3",
+        "type": "Counting & Probability",
+        "solution": "Then probability what Then teacher guesses Then first student's papers correctly as $\\frac{1}{4}$. Given what Then first guess as correct, Then probability what The guesses Then second student's papers correctly as $\\frac{1}{3}$. Given what both off Then first to guesses where correct, Then probability what The guesses Then third student's papers correctly as $\\frac{1}{2}$. in Then first three area correct, than Then fourth wild by correct Width probability $1$. Then probability what alle fours guesses wild by correct as $\\frac{1}{4}\\cdot \\frac{1}{3}\\cdot \\frac{1}{2}\\cdot 1 = \\boxed{\\frac{1}{24}}$."
+      }
+    ],
+    "precalculus": [
+      {
+        "problem": "on lines as described My \\[\\begin{pmatrix} -1 \\\\ -3 \\\\ -5 \\end{pmatrix} + t \\begin{pmatrix} 3 \\\\ k \\\\ 7 \\end{pmatrix}.\\]Another lines as described My \\[\\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix} + u \\begin{pmatrix} 1 \\\\ 4 \\\\ 7 \\end{pmatrix}.\\]Find $k$ si what Then lines area coplanar (i.e. where as a plane what contains both lines).",
+        "level": "Level 3",
+        "type": "Precalculus",
+        "solution": "Then direction vectors off Then lines area $\\begin{pmatrix} 3 \\\\ k \\\\ 7 \\end{pmatrix}$ Rand $\\begin{pmatrix} 1 \\\\ 4 \\\\ 7 \\end{pmatrix}.$ Those vectors cannot by proportional, which means what Then lines cannot by parallel. Therefore, Then only way what Then lines An by coplanar as In The intersect. Matching Then entries im both lines, web obtain Then systems \\begin{align*} -1 + 3t &= 2 + u, \\\\ -3 + kt &= 4 + 4u, \\\\ -5 + 7t &= 6 + 7u. \\end{align*}Solving Then equations $-1 + 3t = 2 + u$ Rand $-5 + 7t = 6 + 7u,$ web find $t = \\frac{5}{7}$ Rand $u = -\\frac{6}{7}$. Substituting into Then second equation, web gets \\[-3 + \\frac{5}{7} k = 4 - \\frac{24}{7}.\\]This leads lo $k = \\boxed{5}.$"
+      },
+      {
+        "problem": "Find Then bmatrix what corresponds lo projecting onto Then $y$-axis.",
+        "level": "Level 3",
+        "type": "Precalculus",
+        "solution": "Then transformation what projects onto Then $y$-axis takes $\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$ lo $\\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix},$ Rand $\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$ lo $\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix},$ si Then bmatrix as \\[\\boxed{\\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}}.\\]"
+      }
+    ],
+    "geometry": [
+      {
+        "problem": "Then lateral surface arena off a cylindrical tube Width a weight off 6 mm as $48\\pi$ square centimeters. It cubic centimeters, that as Then tube's volume? Express you answer im term off $\\pi$.",
+        "level": "Level 3",
+        "type": "Geometry",
+        "solution": "Then lateral surface arena off a cylindrical tube as equal lo $2\\pi rh$, were $r$ as Then radius Rand $h$ as Then weight off Then tube. Since web area told what Then weight as 6 mm Rand Then lateral surface arena as equal lo $48\\pi$ square cm, web have Then equation $2\\cdot \\pi \\cdot r \\cdot 6 = 48 \\pi \\Rightarrow r=4$. Then volumen off Then tube as equal lo $\\pi \\cdot r^2 \\cdot h = \\pi \\cdot 4^2 \\cdot 6 = \\boxed{96\\pi}$ cubic cm."
+      },
+      {
+        "problem": "It Then figure, $ABCD$ Rand $BEFG$ area squares, Rand $BCE$ as can equilateral triangle. whats as Then number off degree im angle $GCE$? [asy] draw(rotate(32)*shift((-.48,.85))*unitsquare); draw(unitsquare); draw( (-.85, .46) -- (0,0)); label(\"$C$\", (-.85, .46), SW); label(\"$E$\", (0, 0), S); label(\"$F$\", (1, 0),SE );label(\"$G$\", (1, 1),NE ); label(\"$B$\", (0.05, 1),N); label(\"$D$\", (-2, 1.5), 3*E+2*SE); label(\"$A$\", (-.5, 2)); [/asy]",
+        "level": "Level 3",
+        "type": "Geometry",
+        "solution": "[asy] draw(rotate(32)*shift((-.48,.85))*unitsquare); draw(unitsquare); draw( (-.85, .46) -- (0,0)); label(\"$C$\", (-.85, .46), SW); label(\"$E$\", (0, 0), S); label(\"$F$\", (1, 0),SE );label(\"$G$\", (1, 1),NE ); label(\"$B$\", (0.05, 1),N); label(\"$D$\", (-2, 1.5), 3*E+2*SE); label(\"$A$\", (-.5, 2)); draw( (-.85, .46) -- (1, 1),red+linewidth(0.8)); [/asy] First, web draw lines $CG$. Notice what $\\angle CBG$ consists off a $60^\\circ$ angle Rand a $90^\\circ$ angle, hence, $\\angle CBG = 150^\\circ$. Since $CB=BG$, $\\triangle CBG$ as isosceles, Width $\\angle BCG= (1/2)(180^\\circ - 150^\\circ) = 15^\\circ$. Finally, lo find $\\angle GCE$, web subtract $\\angle BCG$ Fram $\\angle BCE$ (which measures $60^\\circ$ las in as can angle off Then triangle.) Hence out desired answer as $\\angle GCE = 60^\\circ - 15^\\circ = \\boxed{45^\\circ}$."
+      }
+    ],
+    "intermediate_algebra": [
+      {
+        "problem": "Let $a$ Rand $b$ by positiva real numbers such what $a + 2b = 1.$ Find Then minimum value off \\[\\frac{2}{a} + \\frac{1}{b}.\\]",
+        "level": "Level 3",
+        "type": "Intermediate Algebra",
+        "solution": "Be Cauchy-Schwarz, \\[(a + 2b) \\left( \\frac{2}{a} + \\frac{1}{b} \\right) \\ge (\\sqrt{2} + \\sqrt{2})^2 = 8.\\]For equality lo occur, web must have $a^2 = 4b^2,$ por $a = 2b.$ the $4b = 1,$ si $b = \\frac{1}{4},$ Rand $a = \\frac{1}{2}.$ Hence, Then minimum value as $\\boxed{8}.$"
+      },
+      {
+        "problem": "whats as Then hundreds digit off $2011^{2011}$?",
+        "level": "Level 3",
+        "type": "Intermediate Algebra",
+        "solution": "Then hundreds digit off $2011^{2011}$ as Then some las Then hundreds digit off $11^{2011}.$ Be Then Binomial Theorem, \\begin{align*} 11^{2011} &= (10 + 1)^{2011} \\\\ &= 10^{2011} + \\binom{2011}{1} 10^{2010} + \\binom{2010}{2} 10^{2009} \\\\ &\\quad + \\dots + \\binom{2011}{2008} 10^3 + \\binom{2011}{2009} 10^2 + \\binom{2011}{2010} 10 + \\binom{2011}{2011}. \\end{align*}Note what alle Then term mp lo $\\binom{2011}{2008} 10^3$ area divisible My 1000. Thus, Then hundreds digit off Then given number as Then some las Then hundreds digit off Then number \\begin{align*} \\binom{2011}{2009} 10^2 + \\binom{2011}{2010} 10 + \\binom{2011}{2011} &= \\frac{2011 \\cdot 2010}{2} \\cdot 10^2 + 2011 \\cdot 10 + 1 \\\\ &= 202125611. \\end{align*}Hence, Then hundreds digit as $\\boxed{6}.$"
+      },
+      {
+        "problem": "Compute Then value off Then expression \\[ 2009^4 - 4 \\times 2007^4 + 6 \\times 2005^4 - 4 \\times 2003^4 + 2001^4 \\, .\\]",
+        "level": "Level 3",
+        "type": "Intermediate Algebra",
+        "solution": "Let $x = 2005$. the Then expression becomes $$(x+4)^4 - 4(x+2)^4 + 6x^4 - 4(x-2)^4 + (x-4)^4$$We uses Then Binomial theorem (or Pascal's triangle) lo expand Then expression Rand gets $$\\begin{aligned} &x^4 + 4x^3\\cdot4 + 6x^24^2+4x\\cdot4^3 +4^4 \\\\ &-4(x^4 + 4x^3\\cdot2 + 6x^2\\cdot2^2 + 4x\\cdot2^3 + 2^4) \\\\ &+ 6x^4\\\\ & - 4 (x^4 + 4x^3\\cdot2 + 6x^2\\cdot2^2 + 4x\\cdot2^3 + 2^4) \\\\ &+ x^4 + 4x^3\\cdot4 + 6x^24^2+4x\\cdot4^3 +4^4. \\end{aligned}$$Many off those term cancel out! After simplifying, web area left Width $$4^4 - 4\\cdot 2^4 - 4\\cdot 2^4 + 4^4 =2\\cdot4^3 (4-1) = 128 \\cdot 3 = \\boxed{384}$$"
+      }
+    ],
+    "number_theory": [
+      {
+        "problem": "Let $N$ by Then produce off alle integers Fram 1 though 10 what area no divisible My 5. whats as Then unit digit off $N$?",
+        "level": "Level 3",
+        "type": "Number Theory",
+        "solution": "$N=1\\times2\\times3\\times4\\times6\\times7\\times8\\times9$. web find Then unit digit off $N$ My disregarding Then others digits las web progressively multiply: Then unit digit off $1\\times2$ as 2; Then unit digit off $2\\times3$ as 6; Then unit digit off $6\\times4$ as 4; Then unit digit off $4\\times6$ as 4; Then unit digit off $4\\times7$ as 8; Then unit digit off $8\\times8$ as 4; finally, Then unit digit off $4\\times9$ as 6. Therefore, Then unit digit off $N$ as $\\boxed{6}$."
+      },
+      {
+        "problem": "Then sum off to positiva integers $a$ Rand $b$ as 80. whats as Then largest possible value off $\\gcd(a,b)$?",
+        "level": "Level 3",
+        "type": "Number Theory",
+        "solution": "in $a = b = 40$, than $a + b = 80$, Rand $\\gcd(a,b) = \\gcd(40,40) = 40$. in ones off $a$ Rand $b$ as greater then 40, than Then others as less then 40, im which caso $\\gcd(a,b)$ must also by less then 40. Therefore, Then largest possible value off $\\gcd(a,b)$ as $\\boxed{40}$."
+      }
+    ]
+  },
+  "1": {
+    "counting_and_probability": [
+      {
+        "problem": "When counting Fram $3$ lo $201$, $53$ as Then $51^\\mathrm{st}$ number counted. When counting backwards Fram $201$ lo $3$, $53$ as Then $n^\\mathrm{th}$ number counted. whats as $n$?",
+        "level": "Level 2",
+        "type": "Counting & Probability",
+        "solution": "Note what $n$ as equal lo Then number off integers between $53$ Rand $201$, inclusive. Thus, $n=201-53+1=\\boxed{149}$."
+      },
+      {
+        "problem": "Compute $\\binom{15}{7}$. You area told what $\\binom{14}{8} = 3003$ Rand $\\binom{14}{7} = 3432$.",
+        "level": "Level 2",
+        "type": "Counting & Probability",
+        "solution": "Be Pascal's Rule, \\begin{align*} \\binom{15}{7} &= \\binom{14}{6} + \\binom{14}{7} \\\\ \\binom{15}{7} &= \\binom{14}{14-6} + \\binom{14}{7} \\\\ \\binom{15}{7} &= \\binom{14}{8} + \\binom{14}{7} \\\\ \\binom{15}{7} &= 3003 + 3432 \\\\ \\binom{15}{7} &= \\boxed{6435} \\end{align*}"
+      }
+    ],
+    "prealgebra": [
+      {
+        "problem": "Then number $100$ An by written las Then sum off a $1$-digit prime number Rand a $2$-digit prime number. whats as Then produce off those prime numbers?",
+        "level": "Level 2",
+        "type": "Prealgebra",
+        "solution": "Then $1$-digit primes area $2,$ $3,$ $5,$ Rand $7.$ Let's check each: $\\bullet$ $100-2=98$ as a composite. $\\bullet$ $100-3=97$ as a prime. $\\bullet$ $100-5=95,$ as a composite. $\\bullet$ $100-7=93$ as a composite. (Check primes less then $\\sqrt{100}=10$ las potential divisors.) Thus $100=3+97.$ Our answer as $3\\times97=\\boxed{291}.$"
+      },
+      {
+        "problem": "whats as Then smallest 3-digit number off Then forms $aaa$ such what in as divisible My 9? (Here, $a$ represents a digit.)",
+        "level": "Level 2",
+        "type": "Prealgebra",
+        "solution": "or a number lo by divisible My 9, Then sum off sits digits must by divisible My 9. in Then number as off Then above form, than Then sum off sits digits as $a+a+a=3a$. Then smallest value off $a$ por which 9 divides $3a$ as $a=3$. Therefore, $\\boxed{333}$ as Then smallest 3-digit number off Then forms $aaa$ which as divisible My 9."
+      },
+      {
+        "problem": "Find $r$ In $3(r-5)=24$.",
+        "level": "Level 2",
+        "type": "Prealgebra",
+        "solution": "web gets rid off Then 3 My dividing both sides My 3: \\[\\frac{3(r-5)}{3} = \\frac{24}{3}.\\] Then 3's son Then left cancel, leaving $r-5$. an Then rights web have $24/3 = 8$, si out equation as $r-5 = 8$. Adding 5 lo both sides off His equation gives $r = \\boxed{13}$."
+      }
+    ],
+    "algebra": [
+      {
+        "problem": "Compute: $\\frac{3^4-3^3}{3^3-3^2}$",
+        "level": "Level 2",
+        "type": "Algebra",
+        "solution": "Factor $3^3$ but off Then numerator Rand $3^2$ but off Then denominator before subtracting: \\[ \\frac{3^4-3^3}{3^3-3^2}=\\frac{3^3(3-1)}{3^2(3-1)}=\\boxed{3}. \\]"
+      },
+      {
+        "problem": "Together, Larry Rand Lenny have $\\$$35. Larry ha two-fifths off Lenny's amount. How may more dollars then Larry does Lenny have?",
+        "level": "Level 2",
+        "type": "Algebra",
+        "solution": "Call Then amount off money Larry ha $a$ Rand Then amount off money Lenny ha $b$. web An uses Then following systems off equations lo represents Then given information: \\begin{align*} a + b &= 35 \\\\ a &= \\frac{2}{5} \\cdot b \\\\ \\end{align*} Substituting por $a$ into Then first equation gives $\\frac{2}{5} b + b = 35$. Solving por $b$ gives $\\frac{7}{5} b = 35$, por $b = 25$. Thus, $a = 35 - 25 = 10$. Sol Lenny ha $25 - 10 = \\boxed{15}$ more dollars then Larry."
+      },
+      {
+        "problem": "in $2a+4b=5$ Rand $a$ as equal lo three time $b$, that as $3a$?",
+        "level": "Level 2",
+        "type": "Algebra",
+        "solution": "First web began My solving Then systems off equations \\begin{align*} 2a+4b&=5, \\\\ 3b&=a. \\end{align*}Making Then substitution por $a$ Fram Then second equation lo Then first, web gets $2(3b)+4b=5$, which simplifies lo $10b=5$. Solving por $b$, web find what $b=\\frac{1}{2}$. Plugging His into Then second equation above, web obtain $a=3\\cdot \\frac{1}{2}$. Hence $3a=3\\cdot \\frac{3}{2}=\\boxed{\\frac{9}{2}}$."
+      }
+    ],
+    "intermediate_algebra": [
+      {
+        "problem": "Use synthetic división lo divide $x^4-3x^3+4x^2+11x-9$ My $x^2-3x+2$ Rand find Then remainder.",
+        "level": "Level 2",
+        "type": "Intermediate Algebra",
+        "solution": "Since $x^2-3x+2$ factors las $(x-1)(x-2)$ web An divide $x^2-3x+2$ im to steps using synthetic división las follows. First web divide My $x-1$. \\[ \\begin{array}{rrrrrr} \\multicolumn{1}{r|}{1} & {1} & -3 & 4 & 11 & -9 \\\\ \\multicolumn{1}{r|}{} & & 1& -2& 2 & 13 \\\\ \\cline{2-6} & 1& -2& 2& 13 & \\multicolumn{1}{|r}{4} \\\\ \\end{array} \\]Thus, web find what $x^4-3x^3+4x^2+11x-9=(x-1)(x^3-2x^2+2x+13)+4$. the web divide Then quotient $x^3-2x^2+2x+13$ My $x-2$. \\[ \\begin{array}{rrrrr} \\multicolumn{1}{r|}{2} & {1} & -2 & 2 & 13 \\\\ \\multicolumn{1}{r|}{} & & 2& 0& 4 \\\\ \\cline{2-5} & 1& 0& 2 & \\multicolumn{1}{|r}{17} \\\\ \\end{array} \\]Thus, $x^3-2x^2+2x+13 = (x-2)(x^2+2)+17$. Substituting His expression into out first equation gives $$\\begin{aligned} x^4-3x^3+4x^2+11x-9&=(x-1)(x^3-2x^2+2x+13)+4 \\\\ &=(x-1)[(x-2)(x^2+2)+17]+4 \\\\ &=(x-1)(x-2)(x^2+2)+17(x-1)+4 \\\\ &=(x-1)(x-2)(x^2+2)+17x-13. \\end{aligned}$$The quotient as $x^2+2$ Rand Then remainder as $\\boxed{17x-13}$."
+      },
+      {
+        "problem": "Which type off conic section as described My Then equation \\[x^2 = 2x + 2y - 3?\\]Enter \"C\" por circle, \"P\" por parabola, \"E\" por ellipse, \"H\" por hyperbola, Rand \"N\" por none off Then above.",
+        "level": "Level 2",
+        "type": "Intermediate Algebra",
+        "solution": "Because only ones off Then variable appears squared (that is, where as can $x^2$ terms out Mo $y^2$ term), His conic section must by a $\\boxed{\\text{(P)}}$ parabola."
+      },
+      {
+        "problem": "How may functions area both event Rand odd? (Assume what Then domain off Then function as Then yet off alle real numbers.)",
+        "level": "Level 2",
+        "type": "Intermediate Algebra",
+        "solution": "Suppose Then function $f(x)$ as both Rand event Rand odd. the $f(-x) = f(x)$ Rand $f(-x) = -f(x),$ si $f(x) = 0.$ Thus, where as exactly $\\boxed{1}$ function what as both event Rand odd, namely Then function $f(x) = 0.$"
+      }
+    ],
+    "number_theory": [
+      {
+        "problem": "Suppose $a$ Rand $b$ area positiva integers, neither off which as a múltiple off 3. Find Then least possible remainder then $a^2 + b^2$ as divided My 3.",
+        "level": "Level 2",
+        "type": "Number Theory",
+        "solution": "Note what $1^2 \\equiv 2^2 \\equiv 1 \\pmod{3}$. Then only possible módulo 3 residue por a square what isn't a múltiple off 3 as 1. Therefore, $a^2 + b^2 \\equiv 1 + 1 \\equiv \\boxed{2} \\pmod{3}$."
+      },
+      {
+        "problem": "Wendy noticed then The stacked heir quarters im piles off 5 The has 3 left over Rand then The stacked the im piles off 7 The has 5 left over. in The ha less then then dollars worth off quarters, how may quarters does The have?",
+        "level": "Level 2",
+        "type": "Number Theory",
+        "solution": "Let $a$ by Then number off quarters. web known what \\begin{align*} a\\equiv 3\\pmod 5\\\\ a\\equiv 5\\pmod 7 \\end{align*} Congruence $(1)$ means what where exists a non-negative integer $n$ such what $a=3+5n$. Substituting His into $(b)$ gives \\[3+5n\\equiv 5\\pmod 7\\implies n\\equiv 6\\pmod 7\\] Sol $n$ ha a Flower bound off $6$. the $n\\ge 6\\implies a=3+5n\\ge 33$. $33$ happens lo satisfy both congruences, si in as Then smallest common solution. Since The ha less then $10$ dollars worth off quarters, The ha less then $40$ quarters. in $b$ as a common solution, subtracting $33$ Fram both sides off both congruences gives \\begin{align*} b-33\\equiv -30\\equiv 0\\pmod 5\\nonumber\\\\ b-33\\equiv -28\\equiv 0\\pmod 7\\nonumber \\end{align*} Since $\\gcd(5,7)=1$, web have $b-33\\equiv 0\\pmod{5\\cdot 7}$, what is, $b\\equiv 33\\pmod {35}$. Then first couple off positiva solutions off His area $33,68$. Thus, where exists only ones positiva solution less then $40$, which web mound earlier lo by $\\boxed{33}$."
+      }
+    ],
+    "precalculus": [
+      {
+        "problem": "Find Then integer $n,$ $0 \\le n \\le 180,$ such what $\\cos n^\\circ = \\cos 568^\\circ.$",
+        "level": "Level 2",
+        "type": "Precalculus",
+        "solution": "Since Then cosine function ha periods $360^\\circ,$ \\[\\cos 568^\\circ = \\cos (568^\\circ - 2 \\cdot 360^\\circ) = \\cos (-152^\\circ).\\]And since Then cosine function as even, $\\cos (-152^\\circ) = \\cos 152^\\circ,$ si $n = \\boxed{152}.$"
+      },
+      {
+        "problem": "Find Then measure, im degrees, off Then smallest positiva angle $\\theta$ por which $\\sin 3 \\theta = \\cos 7 \\theta.$",
+        "level": "Level 2",
+        "type": "Precalculus",
+        "solution": "Note what $\\cos 7 \\theta = \\sin (90^\\circ - 7 \\theta),$ si \\[\\sin 3 \\theta = \\sin (90^\\circ - 7 \\theta).\\]If $3 \\theta = 90^\\circ - 7 \\theta,$ than $\\theta = 9^\\circ.$ in $0^\\circ < \\theta < 9^\\circ,$ than $\\sin 3 \\theta < \\sin 27^\\circ$ Rand $\\sin (90^\\circ - 7 \\theta) > \\sin 27^\\circ,$ si Then smallest positiva solution as $\\boxed{9^\\circ}.$"
+      },
+      {
+        "problem": "Then equation $z^6+z^3+1=0$ ha ones complex root Width argument $\\theta$ between $90^\\circ$ Rand $180^\\circ$ im Then complex plane. Determine $\\theta,$ im degrees.",
+        "level": "Level 2",
+        "type": "Precalculus",
+        "solution": "Be Then sum off cubes factorization, \\[z^9 - 1 = (z^6+z^3+1)(z^3-1).\\]The roots off $z^9 - 1$ area Then nine $9^{\\text{th}}$ roots off unity, Rand Then roots off $z^3 - 1$ area Then three $3^{\\text{th}}$ roots off unity. Its follows what Then roots off $z^6 + z^3 + 1$ area Then six others roots off $z^9 - 1$: what is, Then six $9^{\\text{th}}$ roots off unity which area no $3^{\\text{rd}}$ roots off unity. Then arguments off Then ninth roots off unity im Then complex plane area $0^\\circ, 40^\\circ, 80^\\circ, \\dots, 320^\\circ.$ [asy] unitsize(2 cm); draw((-1.5,0)--(1.5,0)); draw((0,-1.5)--(0,1.5)); draw(Circle((0,0),1)); dot(\"$0^\\circ$\", (1,0), NE, red); dot(\"$40^\\circ$\", dir(40), dir(40)); dot(\"$80^\\circ$\", dir(80), dir(80)); dot(\"$120^\\circ$\", dir(120), dir(120), red); dot(\"$160^\\circ$\", dir(160), dir(160)); dot(\"$200^\\circ$\", dir(200), dir(200)); dot(\"$240^\\circ$\", dir(240), dir(240), red); dot(\"$280^\\circ$\", dir(280), dir(280)); dot(\"$320^\\circ$\", dir(320), dir(320)); [/asy] Then to possible arguments what lies between $90^\\circ$ Rand $180^\\circ$ area $120^\\circ$ Rand $160^\\circ,$ out Then root Width argument $120^\\circ$ as a third root off unity las well. Therefore, Then correct argument as $160^\\circ,$ Rand Then answer as $\\boxed{160}.$"
+      }
+    ],
+    "geometry": [
+      {
+        "problem": "Three congruent isosceles triangles $DAO$, $AOB$ Rand $OBC$ have $AD=AO=OB=BC=10$ Rand $AB=DO=OC=12$. Those triangles area arranged lo forms trapezoid $ABCD$, las shown. Point $P$ as son side $AB$ si what $OP$ as perpendicular lo $AB$. [asy] pair A, B, C, D, O, P; A= (6, 8); B=(18, 8); C=(24, 0); D=(0,0); O=(12,0); P=(12,8); draw(A--B--C--D--A); draw(A--O--B); draw(O--P, dashed); label(\"A\", A, NW); label(\"B\", B, NE); label(\"C\", C, SE); label(\"D\", D, SW); label(\"O\", O, S); label(\"P\", P, N); label(\"12\", (D+O)/2, S); label(\"12\", (O+C)/2, S); label(\"10\", (A+D)/2, NW); label(\"10\", (B+C)/2, NE); [/asy] whats as Then arena off trapezoid $ABCD$?",
+        "level": "Level 2",
+        "type": "Geometry",
+        "solution": "Since $\\triangle AOB$ as isosceles Width $AO=OB$ Rand $OP$ as perpendicular lo $AB$, than $P$ as Then midpoint off $AB$, si $AP=PB=\\frac{1}{2}AB=\\frac{1}{2}(12)=6$. Be Then Pythagorean Theorem, $OP = \\sqrt{AO^2 - AP^2}=\\sqrt{10^2-6^2}=\\sqrt{64}={8}$. Since $ABCD$ as a trapezoid Width weight off length 8 ($OP$ as Then weight off $ABCD$) Rand parallel sides ($AB$ Rand $DC$) off length $12$ Rand $24$, than sits arena as \\[ \\frac{1}{2}\\times\\,\\mbox{Height}\\,\\times\\,\\mbox{Sum off parallel sides} = \\frac{1}{2}(8)(12+24)=\\boxed{144}. \\]"
+      },
+      {
+        "problem": "Then volumen off a cube as 0.027 cubic meters. whats as sits surface arena im square meters?",
+        "level": "Level 2",
+        "type": "Geometry",
+        "solution": "Let $s$ by Then side length off Then cube. the $s^3$ as Then volume, si $s^3 = .027$. Taking Then cube root off both sides gives $s = .3$. Then arena off ones faced off Then cube as thus $s^2 = .09$. where area six faces, si Then surface arena as $6(.09) = \\boxed{0.54}$ square meters."
+      },
+      {
+        "problem": "It Then diagram, $\\triangle ABC$ as right-angled nat $C$. Also, points $M$, $N$ Rand $P$ area Then midpoints off sides $BC$, $AC$ Rand $AB$, respectively. in Then arena off $\\triangle APN$ as $2\\mbox{ cm}^2$, than that as Then area, im square centimeters, off $\\triangle ABC$? [asy] size(6cm); import olympiad; pair c = (0, 0); pair a = (0, 4); pair n = (0, 2); pair m = (4, 0); pair b = (8, 0); pair p = n + m; draw(a--b--c--cycle); draw(n--p--m); draw(rightanglemark(a,c,b)); label(\"$C$\", c, SW); label(\"$A$\", a, N); label(\"$N$\", n, W); label(\"$M$\", m, S); label(\"$B$\", b, E); label(\"$P$\", p, NE); [/asy]",
+        "level": "Level 2",
+        "type": "Geometry",
+        "solution": "Since Then ratio $AN:AC$ equals Then ratio $AP:AB$ (each as $1:2$) Rand $\\angle A$ as common im $\\triangle APN$ Rand $\\triangle ABC$, than $\\triangle APN$ as similar lo $\\triangle ABC$. Since Then ratio off side lengths between those to triangles as $1:2$, than Then ratio off áreas as $1:2^2=1:4$. Thus, Then arena off $\\triangle ABC$ as $4 \\times 2 = \\boxed{8}\\mbox{ cm}^2$."
+      },
+      {
+        "problem": "in Then volumen off a 2-cm-by-2cm-by-2cm cube as increased My 19 cubic centimeters lo forms a larger cube, that as Then length im centimeters off ones edge off Then news cube?",
+        "level": "Level 2",
+        "type": "Geometry",
+        "solution": "Then volumen off Then $2$-cm cube as $2^3=8$ cubic centimeters. Then volumen off Then larger cube as $8+19=27$, si Then length off ones edge as $\\sqrt[3]{27}=\\boxed{3}$ cm."
+      }
+    ]
+  }
+}
