@@ -1,5 +1,5 @@
 #!/bin/bash
-# orchestrator.sh
+# orchestrator_single_experiment.sh
 # This script orchestrates SLURM job submissions based on direct command-line parameters.
 # It now accepts an optional initial dependency job ID and outputs the last submitted job ID.
 
@@ -10,7 +10,10 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 LOG_FILE="" # Will be set after parameters are known
 
 log_message() {
-    echo "$(date +"%Y-%m-%d %H:%M:%S") - $1" | tee -a "$LOG_FILE"
+    # Send message to stderr (visible in terminal, but not captured by calling script)
+    echo "$(date +"%Y-%m-%d %H:%M:%S") - $1" >&2
+    # Also write to the log file
+    echo "$(date +"%Y-%m-%d %H:%M:%S") - $1" >> "$LOG_FILE"
 }
 
 # --- Parameter Parsing ---
@@ -39,18 +42,16 @@ INITIAL_DEPENDENCY_JOB_ID="${10}"
 
 # Validate essential parameters
 if [ -z "$MODEL" ] || [ -z "$QTYPE" ] || [ -z "$DTYPES" ] || [ -z "$STAGES_STRING" ]; then
-    echo "Usage: $0 <MODEL> <QTYPE> <DTYPES> <SUBSET_NUM> <TEMPERATURE> <TOP_P> <VLLM_MODEL_NAME> <DEBUG> \"<STAGES_STRING>\" [initial_dependency_job_id]"
+    echo "Usage: $0 <MODEL> <QTYPE> <DTYPES> <SUBSET_NUM> <TEMPERATURE> <TOP_P> <VLLM_MODEL_NAME> <DEBUG> \"<STAGES_STRING>\" [initial_dependency_job_id]" >&2 # Send usage to stderr
     exit 1
 fi
 
 # Set the log file based on the parameters
-# Using a hash of parameters to create a unique, but consistent log file name
-# This helps avoid issues with very long names or special characters in paths
 PARAMS_HASH=$(echo "${MODEL}_${QTYPE}_${DTYPES}_${SUBSET_NUM}_${TEMPERATURE}_${TOP_P}_${VLLM_MODEL_NAME}_${DEBUG}" | md5sum | cut -d ' ' -f 1)
 LOG_FILE="./$LOG_DIR/orchestrator/${PARAMS_HASH}_orchestrator_$TIMESTAMP.log"
 mkdir -p "$(dirname "$LOG_FILE")" # Ensure orchestrator log directory exists
 
-log_message "Starting orchestrator.sh with parameters:"
+log_message "Starting orchestrator_single_experiment.sh with parameters:"
 log_message "  MODEL: $MODEL"
 log_message "  QTYPE: $QTYPE"
 log_message "  DTYPES: $DTYPES"
@@ -73,7 +74,6 @@ if [ ${#STAGES[@]} -eq 0 ]; then
 fi
 
 # --- Define the worker script filename ---
-# This path is relative to where orchestrator.sh is executed
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Define the base output folder for SLURM job logs
@@ -85,7 +85,6 @@ log_message "SLURM job outputs will be written to: $OUTPUT_BASE_FOLDER/run_JOBNA
 log_message "============================================================="
 
 # Initialize the job ID for dependency.
-# The first job in this orchestrator run will depend on INITIAL_DEPENDENCY_JOB_ID if provided.
 PREV_JOB_ID="$INITIAL_DEPENDENCY_JOB_ID"
 
 # --- Loop through stages and submit jobs ---
@@ -98,24 +97,41 @@ for i in "${!STAGES[@]}"; do
     JOB_NAME="run_${MODEL}_${QTYPE}_${DTYPES}_stage${STAGE_NUM}"
     OUTPUT_FILE="$OUTPUT_BASE_FOLDER/${JOB_NAME}_%j.txt"
 
-    SBATCH_CMD="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
-
-    # Add dependency if PREV_JOB_ID is set (either initial or from previous stage)
+    SBATCH_CMD_BASE="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
+    DEPENDENCY_OPT=""
     if [ -n "$PREV_JOB_ID" ]; then
-        SBATCH_CMD+=" --dependency=afterok:$PREV_JOB_ID"
+        DEPENDENCY_OPT="--dependency=afterok:$PREV_JOB_ID"
         log_message "  Dependent on Job ID: $PREV_JOB_ID"
     fi
 
-    # Append worker script and its arguments
-    # CRITICAL CHANGE: Explicitly tell sbatch to execute the script with bash
-    SBATCH_CMD+=" --wrap=\"bash \\\"$WORKER_SCRIPT\\\" $START_INDEX $END_INDEX \\\"$MODEL\\\" \\\"$QTYPE\\\" \\\"$DTYPES\\\" \\\"$SUBSET_NUM\\\" \\\"$TEMPERATURE\\\" \\\"$TOP_P\\\" \\\"$VLLM_MODEL_NAME\\\" \\\"$DEBUG\\\"\""
+    # Construct the command for --wrap carefully
+    # Use single quotes for the outer wrap string to avoid excessive backslashes
+    # Arguments passed to the worker script need to be properly quoted for it to receive them as distinct arguments.
+    # The inner quotes around variables like "$MODEL" need to be escaped for bash within the wrap.
+    # So "$MODEL" becomes \"$MODEL\" for sbatch.
+    WRAP_COMMAND="bash \\\"$WORKER_SCRIPT\\\" \\\"$START_INDEX\\\" \\\"$END_INDEX\\\" \\\"$MODEL\\\" \\\"$QTYPE\\\" \\\"$DTYPES\\\" \\\"$SUBSET_NUM\\\" \\\"$TEMPERATURE\\\" \\\"$TOP_P\\\" \\\"$VLLM_MODEL_NAME\\\" \\\"$DEBUG\\\""
 
-    # Execute the sbatch command and capture the job ID
-    CURRENT_JOB_ID=$(eval "$SBATCH_CMD")
+    # Combine everything for sbatch
+    # Use an array to pass arguments to sbatch more robustly than a single string for eval
+    SBATCH_ARGS=(
+        "--parsable"
+        "--job-name=$JOB_NAME" # Job name doesn't need outer quotes with array
+        "--output=$OUTPUT_FILE"
+    )
+
+    if [ -n "$DEPENDENCY_OPT" ]; then
+        SBATCH_ARGS+=("$DEPENDENCY_OPT")
+    fi
+
+    SBATCH_ARGS+=("--wrap=$WRAP_COMMAND")
+
+    # Execute sbatch directly from the array. This avoids the 'eval' problem.
+    CURRENT_JOB_ID=$(sbatch "${SBATCH_ARGS[@]}")
     CURRENT_JOB_ID=$(echo "$CURRENT_JOB_ID" | tr -d '[:space:]') # Remove any whitespace
 
     if [ -z "$CURRENT_JOB_ID" ]; then
-        log_message "Error: sbatch command failed to return a Job ID for Stage $STAGE_NUM. Command: $SBATCH_CMD"
+        log_message "Error: sbatch command failed to return a Job ID for Stage $STAGE_NUM."
+        log_message "Command attempted: sbatch ${SBATCH_ARGS[@]}" # Log the exact command
         exit 1 # Exit if a job submission fails
     fi
 
@@ -129,4 +145,5 @@ log_message "============================================================="
 log_message "Pipeline orchestration complete. All stages submitted to SLURM."
 
 # Output the last submitted job ID to stdout for the calling script to capture
+# This must be the ONLY thing printed to stdout by this script.
 echo "$PREV_JOB_ID"
