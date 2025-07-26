@@ -107,7 +107,8 @@ for i in "${!STAGES[@]}"; do
     fi
 
     # Append worker script and its arguments
-    SBATCH_CMD+=" \"$WORKER_SCRIPT\" $START_INDEX $END_INDEX \"$MODEL\" \"$QTYPE\" \"$DTYPES\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\""
+    # CRITICAL CHANGE: Explicitly tell sbatch to execute the script with bash
+    SBATCH_CMD+=" --wrap=\"bash \\\"$WORKER_SCRIPT\\\" $START_INDEX $END_INDEX \\\"$MODEL\\\" \\\"$QTYPE\\\" \\\"$DTYPES\\\" \\\"$SUBSET_NUM\\\" \\\"$TEMPERATURE\\\" \\\"$TOP_P\\\" \\\"$VLLM_MODEL_NAME\\\" \\\"$DEBUG\\\"\""
 
     # Execute the sbatch command and capture the job ID
     CURRENT_JOB_ID=$(eval "$SBATCH_CMD")

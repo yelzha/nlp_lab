@@ -12,12 +12,17 @@ DEBUGS=("False")
 COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12;12 14"
 
 
-ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
+ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh" # This is the script causing the permission denied
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
     echo "Error: orchestrator.sh not found at $ORCHESTRATOR_SCRIPT."
     echo "Please ensure 'orchestrator.sh' is in the same directory or provide its full path."
     exit 1
 fi
+# Remove or comment out this check as we will explicitly call bash
+# if [ ! -x "$ORCHESTRATOR_SCRIPT" ]; then
+#     echo "Error: orchestrator.sh is not executable. Please run 'chmod +x $ORCHESTRATOR_SCRIPT'."
+#     exit 1
+# fi
 
 # Initialize the last job ID. The first orchestrator.sh run will have no external dependency.
 LAST_SLURM_ID=""
@@ -32,7 +37,8 @@ for MODEL in "${MODELS[@]}"; do
                         for VLLM_MODEL_NAME in "${VLLM_MODEL_NAMES[@]}"; do
                             for DEBUG in "${DEBUGS[@]}"; do
                                 # Construct the command to run orchestrator.sh with current parameters
-                                RUN_CMD="$ORCHESTRATOR_SCRIPT"
+                                # Explicitly call bash to run the script
+                                RUN_CMD="bash \"$ORCHESTRATOR_SCRIPT\"" # <--- THIS IS THE CRUCIAL CHANGE
                                 RUN_CMD+=" \"$MODEL\""
                                 RUN_CMD+=" \"$QTYPE\""
                                 RUN_CMD+=" \"$DTYPES\""

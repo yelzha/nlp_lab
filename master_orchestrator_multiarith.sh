@@ -1,23 +1,28 @@
 #!/bin/bash
-# master_orchestrator_.sh
+# master_orchestrator_math.sh  (assuming this is the file that's throwing the error)
 
 MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-QTYPES=("multiarith")
+QTYPES=("math")
 DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo")
 SUBSET_NUMS=(100)
 TEMPERATURES=(1)
 TOP_PS=(1)
 VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 DEBUGS=("False")
-COMMON_STAGES="0 2"
+COMMON_STAGES="0 1"
 
 
-ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
+ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh" # This is the script causing the permission denied
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
     echo "Error: orchestrator.sh not found at $ORCHESTRATOR_SCRIPT."
     echo "Please ensure 'orchestrator.sh' is in the same directory or provide its full path."
     exit 1
 fi
+# Remove or comment out this check as we will explicitly call bash
+# if [ ! -x "$ORCHESTRATOR_SCRIPT" ]; then
+#     echo "Error: orchestrator.sh is not executable. Please run 'chmod +x $ORCHESTRATOR_SCRIPT'."
+#     exit 1
+# fi
 
 # Initialize the last job ID. The first orchestrator.sh run will have no external dependency.
 LAST_SLURM_ID=""
@@ -32,7 +37,8 @@ for MODEL in "${MODELS[@]}"; do
                         for VLLM_MODEL_NAME in "${VLLM_MODEL_NAMES[@]}"; do
                             for DEBUG in "${DEBUGS[@]}"; do
                                 # Construct the command to run orchestrator.sh with current parameters
-                                RUN_CMD="$ORCHESTRATOR_SCRIPT"
+                                # Explicitly call bash to run the script
+                                RUN_CMD="bash \"$ORCHESTRATOR_SCRIPT\"" # <--- THIS IS THE CRUCIAL CHANGE
                                 RUN_CMD+=" \"$MODEL\""
                                 RUN_CMD+=" \"$QTYPE\""
                                 RUN_CMD+=" \"$DTYPES\""
