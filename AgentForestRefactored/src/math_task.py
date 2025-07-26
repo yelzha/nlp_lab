@@ -12,7 +12,7 @@ class MATH(MoreAgent):
         super().__init__(agents_num, model_type, nums, temperature, top_p)
 
     def get_question_datas(self):
-        path = "../dataset/math_dataset/math_subset_20.json"
+        path = f"../dataset/math/math_dataset_{self.dtype}/math_subset_20.json"
         sampledMathSet = json.load(open(path))
         question_datas = []
         for level in sampledMathSet.keys():

@@ -6,37 +6,31 @@ from prompt_lib import interaction_prompt
 import re
 
 
-class GSM8K(MoreAgent):
+class MULTIARITH(MoreAgent):
     def __init__(self, agents_num, model_type, nums=1, temperature=1, top_p=1, dtype="clean"):
-        self.qtype = "gsm"
+        self.qtype = "multiarith"
         self.dtype = dtype
         self.ans_parser = utils.gsm_ans_parser
         self.format_prompt = "Your final answer should be a single numerical number, in the form \\boxed{{answer}}, at the end of your response."
         super().__init__(agents_num, model_type, nums, temperature, top_p)
 
     def get_question_datas(self):
-        path = f"../dataset/gsm/gsm_dataset_{self.dtype}/test.jsonl"
+        path = f"../dataset/multiarith/multiarith_dataset_{self.dtype}/test.json"
 
         question_datas = []
 
-        def read_jsonl(path: str):
-            with open(path) as fh:
-                return [json.loads(line) for line in fh.readlines() if line]
+        def read_json(path: str):
+            with open(path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data
 
-        def solve_math_problems(input_str):
-            pattern = r"\d+\.?\d*"
-            matches = re.findall(pattern, input_str)
-            if matches:
-                return matches[-1]
-            return None
-
-        questions = read_jsonl(path)
+        questions = read_json(path)
         # random.seed(0)
         # random.shuffle(questions)
         # questions = questions[0:100]
         for q in questions:
             question_state = interaction_prompt["gsm"]["question"].format(q['question'])
-            gt = solve_math_problems(q['answer'])
+            gt = q['final_ans']
             if gt is not None:
                 gt = float(gt)
             question_data = {
@@ -53,3 +47,11 @@ class GSM8K(MoreAgent):
 
     def evaluation(self, df):
         return df.apply(utils.is_final_answer_correct, axis=1).mean()
+
+
+
+if __name__ == "__main__":
+    ma = MULTIARITH(1, "test")
+    test = ma.get_question_datas()
+    print(len(test))
+    print(test[:2])

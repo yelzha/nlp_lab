@@ -43,6 +43,8 @@ class Agent:
             sys_prompt = ""
         elif self.qtype == "gsm":
             sys_prompt = ""
+        elif self.qtype == "multiarith":
+            sys_prompt = ""
         elif self.qtype == "istask":
             sys_prompt = ""
         elif self.qtype == "sstask":

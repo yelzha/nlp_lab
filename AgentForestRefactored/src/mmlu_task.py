@@ -27,20 +27,13 @@ class MMLU(MoreAgent):
 
     def get_question_datas(self, question_num=100):
         math_files = [
+            'abstract_algebra_test.csv',
             'college_mathematics_test.csv',
             'elementary_mathematics_test.csv',
             'high_school_mathematics_test.csv',
-            'high_school_statistics_test.csv',
-            'econometrics_test.csv'  # includes applied math/stat
+            'high_school_statistics_test.csv'
         ]
-        math_files += [
-            'high_school_physics_test.csv',  # math-heavy
-            'college_physics_test.csv',
-            'conceptual_physics_test.csv',
-            'machine_learning_test.csv',  # applied math
-            'electrical_engineering_test.csv',
-        ]
-        tasks = glob("../dataset/mmlu_dataset/*.csv")
+        tasks = glob(f"../dataset/mmlu/mmlu_dataset_{self.dtype}/*.csv")
         category = {}
         reverseCategory = {}
         resultInCategory = {}
@@ -57,7 +50,10 @@ class MMLU(MoreAgent):
             subCate = categories.subcategories[fileName][0]
             category[index] = reverseCategory[subCate]
             index += 1
-        dfs = [pd.read_csv(task) for task in tasks]
+        dfs = [
+            pd.read_csv(task) for task in tasks
+            if windows_to_linux_path(task).split("/")[-1] in math_files
+        ]
 
         question_datas = []
         for df in dfs:
@@ -70,8 +66,8 @@ class MMLU(MoreAgent):
                 }
                 question_datas.append(question_data)
 
-        random.seed(0)
-        random.shuffle(question_datas)
+        # random.seed(0)
+        # random.shuffle(question_datas)
         return question_datas
 
     def get_final_answer(self, idxs, question_data):
@@ -87,4 +83,4 @@ if __name__ == "__main__":
     mmlu = MMLU(1, "test")
     test = mmlu.get_question_datas()
     print(len(test))
-    print(test[:50])
+    print(test[:2])

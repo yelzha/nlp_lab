@@ -32,6 +32,9 @@ interaction_prompt = {
     },
     "gsm":{
         "question" : "Can you solve the following math problem? {} Explain your reasoning. Your final answer should be a single numerical number, in the form \\boxed{{answer}}, at the end of your response. "
+    },
+    "multiarith":{
+        "question" : "Can you solve the following math problem? {} Explain your reasoning. Your final answer should be a single numerical number, in the form \\boxed{{answer}}, at the end of your response. "
     }
 }
 
