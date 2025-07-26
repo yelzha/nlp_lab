@@ -15,7 +15,7 @@ interaction_prompt = {
         "reflection": "Now carefully reflect on your most recent answer. Ensure it is logically consistent, factually accurate, and best supported by the reasoning. If you believe a different choice is better, update it. End with your final answer on a new line in the format: (A), (B), (C), or (D), and do not write anything else after that."
     },
     "math":{
-        "question": "Here is a math problem written in LaTeX, Put your answer as latex math rational or single numerical number in the form \\boxed{{answer}}, at the end of your response:{}",
+        "question": "Here is a math problem written in LaTeX, Put your answer as latex code of math rational or single numerical number in the form \\boxed{{answer}}, at the end of your response:{}",
         "debate": [
             "These are the solutions to the problem from other agents:",
             "\n\nUsing the reasoning from other agents as additional information and referring to your historical answers, can you give an updated answer? Put your answer in the form \\boxed{{answer}}, at the end of your response."
