@@ -9,7 +9,7 @@ TEMPERATURES=(1)
 TOP_PS=(1)
 VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 DEBUGS=("False")
-COMMON_STAGES="0 1" # Assuming this is a single string like "0 1;1 2" for stages.
+COMMON_STAGES="0 2" # Assuming this is a single string like "0 1;1 2" for stages.
 
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
