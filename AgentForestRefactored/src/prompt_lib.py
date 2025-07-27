@@ -56,9 +56,11 @@ def construct_message(question, qtype):
         return {"role": "user", "content": question}
     elif qtype == "gsm":
         return {"role": "user", "content": question}
+    elif qtype == "multiarith":
+        return {"role": "user", "content": question}
     elif qtype == "istask":
         return {"role": "user", "content": question}
     elif qtype == "sstask":
         return {"role": "user", "content": question}
     else:
-        raise NotImplementedError
+        return {"role": "user", "content": question}
