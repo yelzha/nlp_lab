@@ -12,6 +12,7 @@ TEMPERATURE=1
 TOP_P=1
 DEBUG="False"
 COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12"
+WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
@@ -57,7 +58,8 @@ for MODEL in "${MODELS[@]}"; do
             "$VLLM_MODEL_NAME" \
             "$DEBUG" \
             "$COMMON_STAGES" \
-            "$DEPENDENCY_ARG")
+            "$DEPENDENCY_ARG" \
+            "$WORKER_SCRIPT")
 
         NEW_SLURM_ID=$(echo "$NEW_SLURM_ID" | tail -n 1 | tr -d '[:space:]')
 

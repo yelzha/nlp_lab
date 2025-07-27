@@ -39,6 +39,9 @@ VLLM_MODEL_NAME="$7"
 DEBUG="$8"
 STAGES_STRING="$9"
 INITIAL_DEPENDENCY_JOB_ID="${10}"
+WORKER_SCRIPT="${11}"
+# --- Define the worker script filename ---
+# WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Validate essential parameters
 if [ -z "$MODEL" ] || [ -z "$QTYPE" ] || [ -z "$DTYPE" ] || [ -z "$STAGES_STRING" ]; then
@@ -48,7 +51,7 @@ fi
 
 # Set the log file based on the parameters
 PARAMS_HASH=$(echo "${MODEL}_${QTYPE}_${DTYPE}_${SUBSET_NUM}_${TEMPERATURE}_${TOP_P}_${VLLM_MODEL_NAME}_${DEBUG}" | md5sum | cut -d ' ' -f 1)
-LOG_FILE="./$LOG_DIR/orchestrator/orchestrator_$TIMESTAMP_${MODEL}_${QTYPE}_${DTYPE}_${SUBSET_NUM}.log"
+LOG_FILE="./$LOG_DIR/orchestrator/orchestrator_$MODEL_$QTYPE_$DTYPE_$SUBSET_NUM_$TIMESTAMP.log"
 mkdir -p "$(dirname "$LOG_FILE")" # Ensure orchestrator log directory exists
 
 log_message "Starting orchestrator_single_experiment.sh with parameters:"
@@ -72,9 +75,6 @@ if [ ${#STAGES[@]} -eq 0 ]; then
     log_message "Error: No STAGES defined in STAGES_STRING: $STAGES_STRING."
     exit 1
 fi
-
-# --- Define the worker script filename ---
-WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Define the base output folder for SLURM job logs
 OUTPUT_BASE_FOLDER="./$LOG_DIR/$DTYPE/$MODEL/$QTYPE"
