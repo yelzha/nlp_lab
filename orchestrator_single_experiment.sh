@@ -20,7 +20,7 @@ log_message() {
 # Expected arguments:
 # 1: MODEL
 # 2: QTYPE
-# 3: DTYPES
+# 3: DTYPE
 # 4: SUBSET_NUM
 # 5: TEMPERATURE
 # 6: TOP_P
@@ -31,7 +31,7 @@ log_message() {
 
 MODEL="$1"
 QTYPE="$2"
-DTYPES="$3"
+DTYPE="$3"
 SUBSET_NUM="$4"
 TEMPERATURE="$5"
 TOP_P="$6"
@@ -41,20 +41,20 @@ STAGES_STRING="$9"
 INITIAL_DEPENDENCY_JOB_ID="${10}"
 
 # Validate essential parameters
-if [ -z "$MODEL" ] || [ -z "$QTYPE" ] || [ -z "$DTYPES" ] || [ -z "$STAGES_STRING" ]; then
-    echo "Usage: $0 <MODEL> <QTYPE> <DTYPES> <SUBSET_NUM> <TEMPERATURE> <TOP_P> <VLLM_MODEL_NAME> <DEBUG> \"<STAGES_STRING>\" [initial_dependency_job_id]" >&2 # Send usage to stderr
+if [ -z "$MODEL" ] || [ -z "$QTYPE" ] || [ -z "$DTYPE" ] || [ -z "$STAGES_STRING" ]; then
+    echo "Usage: $0 <MODEL> <QTYPE> <DTYPE> <SUBSET_NUM> <TEMPERATURE> <TOP_P> <VLLM_MODEL_NAME> <DEBUG> \"<STAGES_STRING>\" [initial_dependency_job_id]" >&2 # Send usage to stderr
     exit 1
 fi
 
 # Set the log file based on the parameters
-PARAMS_HASH=$(echo "${MODEL}_${QTYPE}_${DTYPES}_${SUBSET_NUM}_${TEMPERATURE}_${TOP_P}_${VLLM_MODEL_NAME}_${DEBUG}" | md5sum | cut -d ' ' -f 1)
-LOG_FILE="./$LOG_DIR/orchestrator/${PARAMS_HASH}_orchestrator_$TIMESTAMP.log"
+PARAMS_HASH=$(echo "${MODEL}_${QTYPE}_${DTYPE}_${SUBSET_NUM}_${TEMPERATURE}_${TOP_P}_${VLLM_MODEL_NAME}_${DEBUG}" | md5sum | cut -d ' ' -f 1)
+LOG_FILE="./$LOG_DIR/orchestrator/orchestrator_$TIMESTAMP_${MODEL}_${QTYPE}_${DTYPE}_${SUBSET_NUM}.log"
 mkdir -p "$(dirname "$LOG_FILE")" # Ensure orchestrator log directory exists
 
 log_message "Starting orchestrator_single_experiment.sh with parameters:"
 log_message "  MODEL: $MODEL"
 log_message "  QTYPE: $QTYPE"
-log_message "  DTYPES: $DTYPES"
+log_message "  DTYPE: $DTYPE"
 log_message "  SUBSET_NUM: $SUBSET_NUM"
 log_message "  TEMPERATURE: $TEMPERATURE"
 log_message "  TOP_P: $TOP_P"
@@ -77,7 +77,7 @@ fi
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Define the base output folder for SLURM job logs
-OUTPUT_BASE_FOLDER="./$LOG_DIR/$DTYPES/$MODEL/$QTYPE"
+OUTPUT_BASE_FOLDER="./$LOG_DIR/$DTYPE/$MODEL/$QTYPE"
 mkdir -p "$OUTPUT_BASE_FOLDER" # Ensure the base folder exists
 
 log_message "Worker script to be used: $WORKER_SCRIPT"
@@ -94,7 +94,7 @@ for i in "${!STAGES[@]}"; do
 
     log_message "Submitting Stage $STAGE_NUM [$START_INDEX:$END_INDEX]..."
 
-    JOB_NAME="run_${MODEL}_${QTYPE}_${DTYPES}_stage${STAGE_NUM}"
+    JOB_NAME="run_${MODEL}_${QTYPE}_${DTYPE}_stage${STAGE_NUM}"
     OUTPUT_FILE="$OUTPUT_BASE_FOLDER/${JOB_NAME}_%j.txt"
 
     SBATCH_CMD="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
@@ -103,7 +103,7 @@ for i in "${!STAGES[@]}"; do
         log_message "  Dependent on Job ID: $PREV_JOB_ID"
     fi
 
-    SBATCH_CMD+=" \"$WORKER_SCRIPT\" \"$START_INDEX\" \"$END_INDEX\" \"$MODEL\" \"$QTYPE\" \"$DTYPES\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\""
+    SBATCH_CMD+=" \"$WORKER_SCRIPT\" \"$START_INDEX\" \"$END_INDEX\" \"$MODEL\" \"$QTYPE\" \"$DTYPE\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\""
 
 
 
