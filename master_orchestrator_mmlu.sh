@@ -14,6 +14,12 @@ DEBUG="False"
 COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12"
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
+# === RESUME POINT ===
+RESUME_MODEL="Qwen3-14B"
+RESUME_DTYPE="punctuation_50"
+FOUND_START=false
+
+
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
     echo "Error: orchestrator.sh not found at $ORCHESTRATOR_SCRIPT."
@@ -25,6 +31,17 @@ LAST_SLURM_ID=""
 # --- Iterate through all combinations of MODEL × DTYPE ---
 for MODEL in "${MODELS[@]}"; do
     for DTYPE in "${DTYPES[@]}"; do
+
+      # Skip until the resume point is found
+      if [ "$FOUND_START" = false ]; then
+        if [[ "$MODEL" == "$RESUME_MODEL" && "$DTYPE" == "$RESUME_DTYPE" ]]; then
+          FOUND_START=true
+          echo "===> Resuming from MODEL=$MODEL, DTYPE=$DTYPE"
+        else
+          echo "Skipping MODEL=$MODEL, DTYPE=$DTYPE"
+          continue
+        fi
+      fi
 
         # Find matching VLLM model by index
         MODEL_INDEX=-1
