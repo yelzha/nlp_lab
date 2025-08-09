@@ -262,7 +262,13 @@ class GCGMultiPromptAttack(MultiPromptAttack):
         # pdb.set_trace()
         token_goals = self.prompts[j].tokenizer(self.goals).input_ids[0][1:]
         values_sum = torch.abs(grad).sum(dim=1)
-        top_values, top_index = torch.topk(values_sum, len(token_goals), dim=0) #change top k here
+        # top_values, top_index = torch.topk(values_sum, len(token_goals), dim=0) #change top k here
+        k = min(len(token_goals), values_sum.shape[0] if values_sum.ndim > 0 else 0)
+        if k == 0:
+            # nothing to pick — just keep current control and a large loss so the loop continues
+            return self.prompts[0].control_str, float("inf")
+        top_values, top_index = torch.topk(values_sum, k, dim=0)
+        # changed
 
         indices_of_consecutive_thirteens = self.find_consecutive_thirteens(token_goals)
         if len(indices_of_consecutive_thirteens) > 0:
