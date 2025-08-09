@@ -14,7 +14,7 @@ export batch_size=$5           # batch size
 export few_shot=$6
 
 # Create results folder if it doesn't exist
-results_dir="../results"
+results_dir="experiments/results"
 if [ ! -d "$results_dir" ]; then
     mkdir "$results_dir"
     echo "Folder '$results_dir' created."
@@ -26,10 +26,10 @@ if [ "$test_set" = "gsm8k" ]; then
     echo "Usage: $1"
 
     python -u ../main.py \
-            --config="../configs/individual_${model}.py" \
+            --config="experiments/configs/individual_${model}.py" \
             --config.attack="gcg" \
-            --config.train_data="../../data/gsm8k.jsonl" \
-            --config.result_prefix="../results/${model}_gsm8k_${few_shot}_shots" \
+            --config.train_data="data/gsm8k.jsonl" \
+            --config.result_prefix="experiments/results/${model}_gsm8k_${few_shot}_shots" \
             --config.n_train_data=$n_train_data \
             --config.data_offset=0 \
             --config.n_steps=$n_steps \
@@ -44,10 +44,10 @@ if [ "$test_set" = "mmlu" ]; then
     echo "Usage: $1"
 
     python -u ../main.py \
-            --config="../configs/individual_${model}.py" \
+            --config="experiments/configs/individual_${model}.py" \
             --config.attack="gcg" \
-            --config.train_data="../../data/mmlu.json" \
-            --config.result_prefix="../results/${model}_mmlu_${few_shot}_shots" \
+            --config.train_data="data/mmlu.json" \
+            --config.result_prefix="experiments/results/${model}_mmlu_${few_shot}_shots" \
             --config.n_train_data=$n_train_data \
             --config.data_offset=0 \
             --config.n_steps=$n_steps \

@@ -41,6 +41,19 @@ cd launch_scripts
 bash cotrobust.sh mistral gsm8k 10 4 4 0
 ```
 
+```bash
+module load Miniforge3
+module load git/2.41.0-GCCcore-12.3.0-nodocs
+virtualenv venv
+
+source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+source venv/bin/activate
+
+
+cd launch_scripts
+bash noising.sh mistral gsm8k 10 4 4 0
+```
+
 These are the following arguments (in order):
 - model: Victim model ('mistral', 'gemma' or 'llama')
 - test_set: Dataset to be edited ('gsm8k', 'bbh' or 'mmlu')
