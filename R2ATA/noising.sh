@@ -25,7 +25,7 @@ fi
 if [ "$test_set" = "gsm8k" ]; then
     echo "Usage: $1"
 
-    python -u ../main.py \
+    python -u experiments/main.py \
             --config="experiments/configs/individual_${model}.py" \
             --config.attack="gcg" \
             --config.train_data="data/gsm8k.jsonl" \
@@ -43,7 +43,7 @@ fi
 if [ "$test_set" = "mmlu" ]; then
     echo "Usage: $1"
 
-    python -u ../main.py \
+    python -u experiments/main.py \
             --config="experiments/configs/individual_${model}.py" \
             --config.attack="gcg" \
             --config.train_data="data/mmlu.json" \
