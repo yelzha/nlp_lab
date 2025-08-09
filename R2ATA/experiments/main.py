@@ -1,4 +1,7 @@
 '''A main script to run attack for LLMs.'''
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import time
 import importlib
 import numpy as np
