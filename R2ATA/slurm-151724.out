@@ -1,958 +1,0 @@
-Folder 'experiments/results' already exists.
-Usage: llama
-[nltk_data] Downloading package words to /home/s06zyelt/nltk_data...
-[nltk_data]   Package words is already up-to-date!
-allow_non_ascii: false
-anneal: false
-attack: gcg
-batch_size: 4
-control_init: '! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !'
-control_weight: 0.0
-conversation_templates:
-- llama-3
-data_offset: 0
-devices:
-- cuda:0
-few_shot: 0
-filter_cand: true
-gbda_deterministic: true
-incr_control: false
-lr: 0.01
-model_kwargs:
-- low_cpu_mem_usage: true
-  use_cache: false
-model_paths:
-- meta-llama/Meta-Llama-3-8B-Instruct
-n_steps: 4
-n_test_data: 0
-n_train_data: 10
-num_train_models: 1
-progressive_goals: false
-progressive_models: false
-result_prefix: experiments/results/llama_gsm8k_0_shots
-stop_on_success: false
-target_weight: 1.0
-temp: 1
-test_data: ''
-test_set: gsm8k
-test_steps: 1
-tokenizer_kwargs:
-- use_fast: false
-tokenizer_paths:
-- meta-llama/Meta-Llama-3-8B-Instruct
-topk: 64
-train_data: data/gsm8k.jsonl
-transfer: false
-verbose: true
-
-Loaded 10 train goals
-Loaded 10 test goals
-/home/s06zyelt/nlp_lab/R2ATA/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-Loaded 1 tokenizers
-Loaded 1 conversation templates
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.37s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.26s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.05it/s]
-Started worker 1699567 for model meta-llama/Meta-Llama-3-8B-Instruct
-Loaded 1 train models
-Loaded 0 test models
-Goal 1/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-[nltk_data] Downloading package words to /home/s06zyelt/nltk_data...
-[nltk_data]   Package words is already up-to-date!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.2705
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]/home/s06zyelt/nlp_lab/R2ATA/venv/lib/python3.10/site-packages/torch/nested/__init__.py:250: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /pytorch/aten/src/ATen/NestedTensorImpl.cpp:178.)
-  return _nested.nested_tensor(
-loss=2.8504:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.8504: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]loss=2.8504: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
-Current length: 43
-Question: Edgar eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his brother eat in a week?
-Answer: Let's think step by step.
-Current Loss: 2.850400686264038 Best Loss: 2.850400686264038
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (2.113 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5963
-control='Question: Edgar eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his brother eat in a week?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7391:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7391: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s]loss=2.7391: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s]
-Current length: 44
-Question: Edgar  eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his brother eat in a week?
-Answer: Let's think step by step.
-Current Loss: 2.7391197681427 Best Loss: 2.7391197681427
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (1.91 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.6308
-control='Question: Edgar  eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his brother eat in a week?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7214:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7214: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s]loss=2.7214: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s]
-Current length: 45
-Question: Edgar  eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his  brother eat in a week?
-Answer: Let's think step by step.
-Current Loss: 2.721435308456421 Best Loss: 2.721435308456421
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (1.905 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.6261
-control='Question: Edgar  eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his  brother eat in a week?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6718:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.6718: 100%|██████████| 1/1 [00:01<00:00,  1.30s/it]loss=2.6718: 100%|██████████| 1/1 [00:01<00:00,  1.30s/it]
-Current length: 47
-Question: Edgar  eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his  bfother eat in a week?
-Answer: Let's think step by step.
-Current Loss: 2.6718056201934814 Best Loss: 2.6718056201934814
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (2.447 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5848
-control='Question: Edgar  eats 18 pretzels a dsy. If his brother eats 1/2 as many, how many does his  bfother eat in a week?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 2/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.0843
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.8337:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.8337: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]loss=2.8337: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]
-Current length: 61
-Question: Jay is making snowballs to pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long will it take before he has 60 snowballs?
-Answer: Let's think step by step.!
-Current Loss: 2.8336563110351562 Best Loss: 2.8336563110351562
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.93 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.6077
-control='Question: Jay is making snowballs to pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long will it take before he has 60 snowballs?
-Answer: Let's think step by step.!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6894:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.6894: 100%|██████████| 1/1 [00:01<00:00,  1.01s/it]loss=2.6894: 100%|██████████| 1/1 [00:01<00:00,  1.01s/it]
-Current length: 62
-Question: Jay is making snowballs to  pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long will it take before he has 60 snowballs?
-Answer: Let's think step by step.!
-Current Loss: 2.689380407333374 Best Loss: 2.689380407333374
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (2.013 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.6151
-control='Question: Jay is making snowballs to  pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long will it take before he has 60 snowballs?
-Answer: Let's think step by step.!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6554:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.6554: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]loss=2.6554: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
-Current length: 63
-Question: Jay is making snowballs  to  pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long will it take before he has 60 snowballs?
-Answer: Let's think step by step.!
-Current Loss: 2.6554205417633057 Best Loss: 2.6554205417633057
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (1.997 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5808
-control='Question: Jay is making snowballs  to  pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long will it take before he has 60 snowballs?
-Answer: Let's think step by step.!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6619:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.6619: 100%|██████████| 1/1 [00:01<00:00,  1.00s/it]loss=2.6619: 100%|██████████| 1/1 [00:01<00:00,  1.00s/it]
-Current length: 64
-Question: Jay is making snowballs  to  pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long willl it take before he has 60 snowballs?
-Answer: Let's think step by step.!
-Current Loss: 2.6619110107421875 Best Loss: 2.6619110107421875
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (2.004 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5532
-control='Question: Jay is making snowballs  to  pepare for a snowball fight with his sister. He can build 20 snowballs in an hour, but 2 melt every 15 minutes. How long willl it take before he has 60 snowballs?
-Answer: Let's think step by step.!'
-====================================================
-
-Goal 3/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.2881
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=3.0012:   0%|          | 0/1 [00:00<?, ?it/s]loss=3.0012: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]loss=3.0012: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]
-Current length: 66
-Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and travels east for 8 hours. If he was driving at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.
-Current Loss: 3.001237392425537 Best Loss: 3.001237392425537
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.998 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7440
-control='Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and travels east for 8 hours. If he was driving at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7883:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7883: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s]loss=2.7883: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s]
-Current length: 67
-Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and travels  east for 8 hours. If he was driving at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.
-Current Loss: 2.788261890411377 Best Loss: 2.788261890411377
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (2.025 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7292
-control='Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and travels  east for 8 hours. If he was driving at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7068:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7068: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]loss=2.7068: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
-Current length: 69
-Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and trabels  east for 8 hours. If he was driving at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.
-Current Loss: 2.706768035888672 Best Loss: 2.706768035888672
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (1.996 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7443
-control='Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and trabels  east for 8 hours. If he was driving at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7658:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7658: 100%|██████████| 1/1 [00:01<00:00,  1.01s/it]loss=2.7658: 100%|██████████| 1/1 [00:01<00:00,  1.01s/it]
-Current length: 71
-Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and trabels  east for 8 hours. If he was drivinng at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.
-Current Loss: 2.7657968997955322 Best Loss: 2.7657968997955322
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (2.011 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7404
-control='Question: Elvis starts sriving from his house and travels west for 5 hours. Then he turns around and trabels  east for 8 hours. If he was drivinng at an average speed of 18mph for both parts of the journey, how far is he from his house now?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 4/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.2358
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.8584:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.8584: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]loss=2.8584: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
-Current length: 92
-Question: The basketball team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a one-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, how many ounces of meat were consumed by the team?
-Answer: Let's think step by step.
-Current Loss: 2.858368158340454 Best Loss: 2.858368158340454
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.974 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8308
-control='Question: The basketball team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a one-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, how many ounces of meat were consumed by the team?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6396:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.6396: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]loss=2.6396: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
-Current length: 93
-Question: The basketball team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a one-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, hpw many ounces of meat were consumed by the team?
-Answer: Let's think step by step.
-Current Loss: 2.639634370803833 Best Loss: 2.639634370803833
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (2.089 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7887
-control='Question: The basketball team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a one-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, hpw many ounces of meat were consumed by the team?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.5844:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.5844: 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]loss=2.5844: 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]
-Current length: 94
-Question: The basketball team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a ond-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, hpw many ounces of meat were consumed by the team?
-Answer: Let's think step by step.
-Current Loss: 2.5843992233276367 Best Loss: 2.5843992233276367
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (2.102 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7375
-control='Question: The basketball team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a ond-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, hpw many ounces of meat were consumed by the team?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7167:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7167: 100%|██████████| 1/1 [00:01<00:00,  1.06s/it]loss=2.7167: 100%|██████████| 1/1 [00:01<00:00,  1.06s/it]
-Current length: 96
-Question: The basketbll team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a ond-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, hpw many ounces of meat were consumed by the team?
-Answer: Let's think step by step.
-Current Loss: 2.716651439666748 Best Loss: 2.716651439666748
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (2.12 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8283
-control='Question: The basketbll team went to the stsakhouse to eat dinner.  The first player ate a 6-ounce steak.  The second player ate beef tips, containing 8 beef tips, each an ounce in size.  The third player ate a ond-pound steak.  And the fourth and fifth players ordered vegetarian meals.  In total, hpw many ounces of meat were consumed by the team?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 5/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.1872
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.8390:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.8390: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]loss=2.8390: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]
-Current length: 51
-Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports from 8:00 AM until 11:00 PM, how many reports did he staple altogether?
-Answer: Let's think step by step.
-Current Loss: 2.8389811515808105 Best Loss: 2.8389811515808105
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.932 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5964
-control='Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports from 8:00 AM until 11:00 PM, how many reports did he staple altogether?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6774:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.6774: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]loss=2.6774: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]
-Current length: 52
-Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports from 8:00 AM until 11:00 PM, how many reports  did he staple altogether?
-Answer: Let's think step by step.
-Current Loss: 2.6774489879608154 Best Loss: 2.6774489879608154
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (1.984 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5720
-control='Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports from 8:00 AM until 11:00 PM, how many reports  did he staple altogether?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6971:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.6971: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]loss=2.6971: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
-Current length: 53
-Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports from 8:00 AM until 11:00 PM, jow many reports  did he staple altogether?
-Answer: Let's think step by step.
-Current Loss: 2.697101593017578 Best Loss: 2.697101593017578
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (1.984 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7214
-control='Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports from 8:00 AM until 11:00 PM, jow many reports  did he staple altogether?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7170:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7170: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]loss=2.7170: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
-Current length: 54
-Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports crom 8:00 AM until 11:00 PM, jow many reports  did he staple altogether?
-Answer: Let's think step by step.
-Current Loss: 2.716981887817383 Best Loss: 2.716981887817383
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (1.977 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7108
-control='Question: Vince can staple 30 reports every 15 minutes.  If he was stapling  reports crom 8:00 AM until 11:00 PM, jow many reports  did he staple altogether?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 6/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.3717
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=3.0558:   0%|          | 0/1 [00:00<?, ?it/s]loss=3.0558: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]loss=3.0558: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
-Current length: 90
-Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 slices and wrapped individually for sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise in dollars?
-Answer: Let's think step by step.
-Current Loss: 3.055778980255127 Best Loss: 3.055778980255127
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.987 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7115
-control='Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 slices and wrapped individually for sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise in dollars?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7741:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7741: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]loss=2.7741: 100%|██████████| 1/1 [00:01<00:00,  1.04s/it]
-Current length: 91
-Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 slices and wrapped individually for sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise  in dollars?
-Answer: Let's think step by step.
-Current Loss: 2.774073362350464 Best Loss: 2.774073362350464
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (2.099 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7375
-control='Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 slices and wrapped individually for sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise  in dollars?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7695:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7695: 100%|██████████| 1/1 [00:01<00:00,  1.02s/it]loss=2.7695: 100%|██████████| 1/1 [00:01<00:00,  1.02s/it]
-Current length: 92
-Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 skices and wrapped individually for sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise  in dollars?
-Answer: Let's think step by step.
-Current Loss: 2.7695415019989014 Best Loss: 2.7695415019989014
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (2.055 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8945
-control='Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 skices and wrapped individually for sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise  in dollars?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.8329:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.8329: 100%|██████████| 1/1 [00:01<00:00,  1.02s/it]loss=2.8329: 100%|██████████| 1/1 [00:01<00:00,  1.02s/it]
-Current length: 93
-Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 skices and wrapped individually fof sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise  in dollars?
-Answer: Let's think step by step.
-Current Loss: 2.832873582839966 Best Loss: 2.832873582839966
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (2.061 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8933
-control='Question: Every hour, Paige can bake 2 banana bread loaves  in the oven.  Each banana bread loaf is cut into 8 skices and wrapped individually fof sale.  Each slice is sold for 50 cents for a fundraiser.  If she baked from 1:00 PM - 6:00 PM straight, and sold all the slices, how much did she raise  in dollars?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 7/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.4327
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.9720:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.9720: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]loss=2.9720: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]
-Current length: 53
-Question: There are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmanned ruined castles are there in Scotland?
-Answer: Let's think step by step.
-Current Loss: 2.9719841480255127 Best Loss: 2.9719841480255127
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.923 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.5554
-control='Question: There are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmanned ruined castles are there in Scotland?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6830:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.6830: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]loss=2.6830: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]
-Current length: 54
-Question: Thdre are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmanned ruined castles are there in Scotland?
-Answer: Let's think step by step.
-Current Loss: 2.6830101013183594 Best Loss: 2.6830101013183594
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (1.975 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7099
-control='Question: Thdre are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmanned ruined castles are there in Scotland?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7970:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7970: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]loss=2.7970: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]
-Current length: 55
-Question: Thdre are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmanned ruined castlrs are there in Scotland?
-Answer: Let's think step by step.
-Current Loss: 2.7969939708709717 Best Loss: 2.7969939708709717
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (1.971 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7843
-control='Question: Thdre are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmanned ruined castlrs are there in Scotland?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7746:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7746: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]loss=2.7746: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
-Current length: 57
-Question: Thdre are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmannned ruined castlrs are there in Scotland?
-Answer: Let's think step by step.
-Current Loss: 2.77457594871521 Best Loss: 2.77457594871521
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (1.982 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7796
-control='Question: Thdre are 220 castles in Scotland.  40 percent of them are rjins, and half of the ruined castles are unmanned.  How many unmannned ruined castlrs are there in Scotland?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 8/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.1604
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7862:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7862: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]loss=2.7862: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]
-Current length: 57
-Question: In a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, and in each class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.
-Current Loss: 2.7862415313720703 Best Loss: 2.7862415313720703
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.925 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7774
-control='Question: In a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, and in each class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.8589:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.8589: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]loss=2.8589: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
-Current length: 58
-Question: Ij a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, and in each class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.
-Current Loss: 2.858891725540161 Best Loss: 2.858891725540161
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (2.009 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7256
-control='Question: Ij a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, and in each class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.8161:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.8161: 100%|██████████| 1/1 [00:01<00:00,  1.17s/it]loss=2.8161: 100%|██████████| 1/1 [00:01<00:00,  1.17s/it]
-Current length: 59
-Question: Ij a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, andd in each class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.
-Current Loss: 2.8161277770996094 Best Loss: 2.8161277770996094
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (2.197 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7338
-control='Question: Ij a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, andd in each class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7411:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.7411: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]loss=2.7411: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]
-Current length: 61
-Question: Ij a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, andd in eacu class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.
-Current Loss: 2.741083860397339 Best Loss: 2.741083860397339
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (1.926 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8449
-control='Question: Ij a certain school, two classes have a total of 80 students. Each clasz has the same amount of students, andd in eacu class 40% of the students are girls. How many boys are in each class?
-Answer: Let's think step by step.'
-====================================================
-
-Goal 9/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.2792
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.6822:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.6822: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]loss=2.6822: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]
-Current length: 51
-Question: A car is on a road trip and drives 60 mph for 2 hours, and then 30 mph for 1 hour. What is the car's average speed in mph during this trip?
-Answer: Let's think step by step.!
-Current Loss: 2.6821534633636475 Best Loss: 2.6821534633636475
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (1.862 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.7239
-control='Question: A car is on a road trip and drives 60 mph for 2 hours, and then 30 mph for 1 hour. What is the car's average speed in mph during this trip?
-Answer: Let's think step by step.!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.5798:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.5798: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]loss=2.5798: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]
-Current length: 52
-Question: A car is on a road trip and drives 60 mph for 2 hours, and then 30 mph for 1 hour. What is the czr's average speed in mph during this trip?
-Answer: Let's think step by step.!
-Current Loss: 2.579805612564087 Best Loss: 2.579805612564087
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (1.909 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.4080
-control='Question: A car is on a road trip and drives 60 mph for 2 hours, and then 30 mph for 1 hour. What is the czr's average speed in mph during this trip?
-Answer: Let's think step by step.!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.5675:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.5675: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]loss=2.5675: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]
-Current length: 53
-Question: A car is on a road trip and drives 60 mph for 2 hours, and then 30 mph for 1 hour. What is the czr's average speed in mph during this trip?
-Answer: Let's think step by step.!!
-Current Loss: 2.5674819946289062 Best Loss: 2.5674819946289062
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (1.907 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.4794
-control='Question: A car is on a road trip and drives 60 mph for 2 hours, and then 30 mph for 1 hour. What is the czr's average speed in mph during this trip?
-Answer: Let's think step by step.!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.4675:   0%|          | 0/1 [00:00<?, ?it/s]loss=2.4675: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]loss=2.4675: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]
-Current length: 54
-Question: A car is on a road trip and drives 60 mph for 2 hoirs, and then 30 mph for 1 hour. What is the czr's average speed in mph during this trip?
-Answer: Let's think step by step.!!
-Current Loss: 2.467463254928589 Best Loss: 2.467463254928589
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (1.92 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.4503
-control='Question: A car is on a road trip and drives 60 mph for 2 hoirs, and then 30 mph for 1 hour. What is the czr's average speed in mph during this trip?
-Answer: Let's think step by step.!!'
-====================================================
-
-Goal 10/10
-An instance of GCGPromptManager has been created!
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    0/   4 (0.0 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 3.1090
-control='!!!!!!!!!!!!!!!!!!!'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7649:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7649: 100%|██████████| 1/1 [00:01<00:00,  1.03s/it]loss=2.7649: 100%|██████████| 1/1 [00:01<00:00,  1.03s/it]
-Current length: 197
-Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station for 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and this is the train Paul will board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.
-Current Loss: 2.7648839950561523 Best Loss: 2.7648839950561523
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    1/   4 (2.066 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8762
-control='Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station for 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and this is the train Paul will board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7934:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7934: 100%|██████████| 1/1 [00:01<00:00,  1.15s/it]loss=2.7934: 100%|██████████| 1/1 [00:01<00:00,  1.15s/it]
-Current length: 198
-Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station for 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and tthis is the train Paul will board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.
-Current Loss: 2.7934341430664062 Best Loss: 2.7934341430664062
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    2/   4 (2.295 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8466
-control='Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station for 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and tthis is the train Paul will board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7988:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7988: 100%|██████████| 1/1 [00:01<00:00,  1.16s/it]loss=2.7988: 100%|██████████| 1/1 [00:01<00:00,  1.16s/it]
-Current length: 199
-Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station for 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and tthis is the train Paul will  board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.
-Current Loss: 2.7988288402557373 Best Loss: 2.7988288402557373
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    3/   4 (2.294 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8521
-control='Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station for 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and tthis is the train Paul will  board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.'
-====================================================
-
-  0%|          | 0/1 [00:00<?, ?it/s]loss=2.7932:   0%|          | 0/1 [00:01<?, ?it/s]loss=2.7932: 100%|██████████| 1/1 [00:01<00:00,  1.15s/it]loss=2.7932: 100%|██████████| 1/1 [00:01<00:00,  1.15s/it]
-Current length: 200
-Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station fkr 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and tthis is the train Paul will  board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.
-Current Loss: 2.7932043075561523 Best Loss: 2.7932043075561523
-An instance of GCGPromptManager has been created!
-
-====================================================
-Step    4/   4 (2.313 s)
-(id_id) | Passed   1/1   | EM   0/1   | Loss 2.8281
-control='Question: Paul is at a train station and is waiting for his train. He isn't zure how long he needs to wait, but he knows that the fourth train scheduled to arrive at the station is the one he needs to get on. The first train is scheduled to arrive in 10 minutes, and this train will stay in the station fkr 20 minutes. The second train is to arrive half an hour after the first train leaves the station, and this second train will stay in the station for a quarter of the amount of time that the first train stayed in the station. The third train is to arrive an hour after the second train leaves the station, and this third train is to leave the station immediately after it arrives.  The fourth train will arrive 20 minutes after the third train leaves, and tthis is the train Paul will  board.  In total, how long, in minutes, will Paul wait for his train?
-Answer: Let's think step by step.'
-====================================================
-
-test
-Ahaha, I love the enthusiasm! Let's break it down
-test_loss
-grad
-logits
-test
-To find out how many pretzels Edgar's brother eats in
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that!
-### Human:
-test_loss
-grad
-logits
-test
-First, we need to find out how many pretzels Edgar
-test_loss
-grad
-logits
-test
-To find out how many pretzels Edgar's brother eats in
-test_loss
-test
-Hi there! I'd be happy to help Jay with his snow
-test_loss
-grad
-logits
-test
-First, let's break down the information given. Jay can build
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Let's break
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Let's break
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! First, let
-test_loss
-test
-Ahaha, I love a good math problem! Let's break
-test_loss
-grad
-logits
-test
-I'd be happy to help! To solve this problem, we
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! First, let
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Since Elvis drove
-test_loss
-grad
-logits
-test
-Ahaha, nice Elvis-themed question! Let's break it down
-test_loss
-test
-Ahaha, I love the enthusiasm! Let's break it down
-test_loss
-grad
-logits
-test
-Ahaha, a clever question! Let's break it down.
-test_loss
-grad
-logits
-test
-Ahah, a math problem! I'd be happy to help
-test_loss
-grad
-logits
-test
-Ahaha, nice try on the typo, human! Let's
-test_loss
-grad
-logits
-test
-Ahah, a delicious math problem! Let's break it down
-test_loss
-test
-I'd be happy to help you with that! To find the
-test_loss
-grad
-logits
-test
-Hi there! I'd be happy to help you with that.
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! To find out
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that!
-
-To find out
-test_loss
-grad
-logits
-test
-Ahaha, I see a few typos there! Don't
-test_loss
-test
-Ahaha, I love the enthusiasm! Let's break it down
-test_loss
-grad
-logits
-test
-That's a great question! Let's break it down.
-
-First
-test_loss
-grad
-logits
-test
-Ah, a delightful math problem! Let's break it down together
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that!  Let's
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Let's break
-test_loss
-test
-Ahaha, I love a good puzzle! Let's break it
-test_loss
-grad
-logits
-test
-To find the number of ruined castles, we need to calculate
-test_loss
-grad
-logits
-test
-Ah, a delightful math problem! Let's break it down.
-test_loss
-grad
-logits
-test
-Ahaha, I love a good math problem! Let's break
-test_loss
-grad
-logits
-test
-Ahaha, I see what's going on here! You're
-test_loss
-test
-Hi there! I'm happy to help you with your question.
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! First, let
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that!
-
-First, let
-test_loss
-grad
-logits
-test
-Ahah, sounds like a fun problem! Let's break it
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Let's break
-test_loss
-test
-Ahaha, I love the enthusiasm! Let's break it down
-test_loss
-grad
-logits
-test
-First, we need to calculate the total distance traveled by the car
-test_loss
-grad
-logits
-test
-I think there might be a small typo in your question. You
-test_loss
-grad
-logits
-test
-Ahaha, I think you meant to ask about the "car
-test_loss
-grad
-logits
-test
-The total distance traveled is the sum of the distances driven at each
-test_loss
-test
-Ahaha, I love a good puzzle! Let's break it
-test_loss
-grad
-logits
-test
-Ahaha, I love a good puzzle! Let's break it
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Let's break
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! Let's break
-test_loss
-grad
-logits
-test
-I'd be happy to help you with that! It sounds like
-test_loss
