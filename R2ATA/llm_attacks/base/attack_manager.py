@@ -1677,6 +1677,38 @@ def get_goals_and_targets(params):
             test_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
             test_targets.append('Sorry, I\'m unable to answer the question.')
 
+    if params.test_set == 'multiarith':
+        dataset = []
+        with open(params.train_data, 'r') as file:
+            for line in file:
+                json_obj = json.loads(line.strip())
+                dataset.append(json_obj)
+        # sample_data = random.sample(dataset, params.n_train_data)
+        for data in dataset:
+            train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
+            train_targets.append('Sorry, I\'m unable to answer the question.')
+            ground_truth.append(data['answer'])
+            test_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
+            test_targets.append('Sorry, I\'m unable to answer the question.')
+
+    if params.test_set == 'math':
+        dataset = []
+
+        path = f"../dataset/math/math_dataset_{self.dtype}/math_subset_20.json"
+        sampledMathSet = json.load(open(path))
+        question_datas = []
+        for level in sampledMathSet.keys():
+            for category in sampledMathSet[level].keys():
+                for problem in sampledMathSet[level][category]:
+                    question_state = problem["problem"]
+                    question_data = {
+                        "level": level,
+                        "category": category,
+                        "state": question_state,
+                        "ground_truth": solution,
+                    }
+                    question_datas.append(question_data)
+
     if params.test_set == 'mmlu':
         with open(params.train_data, 'r') as file:
             dataset = json.load(file)

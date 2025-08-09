@@ -50,8 +50,8 @@ source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/
 source venv/bin/activate
 
 
-cd launch_scripts
-bash noising.sh mistral gsm8k 10 4 4 0
+sbatch noising.sh mistral gsm8k 4 16 0
+sbatch noising.sh mistral mmlu 4 16 0
 ```
 
 These are the following arguments (in order):
