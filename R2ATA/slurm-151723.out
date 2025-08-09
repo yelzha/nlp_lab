@@ -1,0 +1,86 @@
+Folder 'experiments/results' already exists.
+Usage: llama
+[nltk_data] Downloading package words to /home/s06zyelt/nltk_data...
+[nltk_data]   Package words is already up-to-date!
+allow_non_ascii: false
+anneal: false
+attack: gcg
+batch_size: 4
+control_init: '! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !'
+control_weight: 0.0
+conversation_templates:
+- llama-3
+data_offset: 0
+devices:
+- cuda:0
+few_shot: 0
+filter_cand: true
+gbda_deterministic: true
+incr_control: false
+lr: 0.01
+model_kwargs:
+- low_cpu_mem_usage: true
+  use_cache: false
+model_paths:
+- meta-llama/Meta-Llama-3-8B-Instruct
+n_steps: 4
+n_test_data: 0
+n_train_data: 10
+num_train_models: 1
+progressive_goals: false
+progressive_models: false
+result_prefix: experiments/results/llama_gsm8k_0_shots
+stop_on_success: false
+target_weight: 1.0
+temp: 1
+test_data: ''
+test_set: gsm8k
+test_steps: 1
+tokenizer_kwargs:
+- use_fast: false
+tokenizer_paths:
+- meta-llama/Meta-Llama-3-8B-Instruct
+topk: 256
+train_data: data/gsm8k.jsonl
+transfer: false
+verbose: true
+
+Loaded 10 train goals
+Loaded 10 test goals
+/home/s06zyelt/nlp_lab/R2ATA/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loaded 1 tokenizers
+Loaded 1 conversation templates
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.56s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.38s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.05s/it]
+Started worker 1699443 for model meta-llama/Meta-Llama-3-8B-Instruct
+Loaded 1 train models
+Loaded 0 test models
+Goal 1/10
+An instance of GCGPromptManager has been created!
+An instance of GCGPromptManager has been created!
+[nltk_data] Downloading package words to /home/s06zyelt/nltk_data...
+[nltk_data]   Package words is already up-to-date!
+
+====================================================
+Step    0/   4 (0.0 s)
+(id_id) | Passed   1/1   | EM   0/1   | Loss 3.2705
+control='!!!!!!!!!!!!!!!!!!!'
+====================================================
+
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/R2ATA/experiments/main.py", line 108, in <module>
+    app.run(main)
+  File "/home/s06zyelt/nlp_lab/R2ATA/venv/lib/python3.10/site-packages/absl/app.py", line 316, in run
+    _run_main(main, args)
+  File "/home/s06zyelt/nlp_lab/R2ATA/venv/lib/python3.10/site-packages/absl/app.py", line 261, in _run_main
+    sys.exit(main(argv))
+  File "/home/s06zyelt/nlp_lab/R2ATA/experiments/main.py", line 87, in main
+    attack.run(
+  File "/home/s06zyelt/nlp_lab/R2ATA/llm_attacks/base/attack_manager.py", line 1328, in run
+    attack.run(
+  File "/home/s06zyelt/nlp_lab/R2ATA/llm_attacks/base/attack_manager.py", line 769, in run
+    control, loss = self.step(
+  File "/home/s06zyelt/nlp_lab/R2ATA/llm_attacks/gcg/gcg_attack.py", line 265, in step
+    top_values, top_index = torch.topk(values_sum, len(token_goals), dim=0) #change top k here
+RuntimeError: selected index k out of range
+slurmstepd: error: *** JOB 151723 ON node-01 CANCELLED AT 2025-08-09T15:56:40 ***
