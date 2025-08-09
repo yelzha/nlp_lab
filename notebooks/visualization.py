@@ -50,42 +50,12 @@ def plot_grid_models_by_noise(df: pd.DataFrame, save_path: Path = None):
                 ax.set_ylabel(dataset.upper())
             ax.set_xlabel("Agent Num")
             ax.grid(True, linestyle="--", alpha=0.5)
-
-            if i == 0 and j == 0:
-                ax.legend(fontsize=8)
+            ax.legend(fontsize=8)
 
     fig.suptitle("Accuracy by Agent Num — Rows: Dataset, Cols: Noise, Labels: Models", y=1.02, fontsize=14)
     plt.tight_layout()
     if save_path:
         fig.savefig(save_path, bbox_inches="tight", dpi=200)
-    plt.show()
-
-def plot_means_by_noise(df: pd.DataFrame, save_path: = None):
-    """
-    2x2 grid of dataset-level mean accuracy per noise (across models).
-    """
-    datasets = sorted(df["dataset"].unique())
-    fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharey=True)
-
-    for ax, dataset in zip(axes.flatten(), datasets):
-        sub = df[df["dataset"] == dataset]
-        mean_df = (
-            sub.groupby(["noise", "agent_num"], as_index=False)["accuracy"]
-            .mean()
-            .sort_values(["noise", "agent_num"])
-        )
-        for noise, g in mean_df.groupby("noise"):
-            ax.plot(g["agent_num"], g["accuracy"], marker="o", label=noise)
-
-        ax.set_title(dataset.upper())
-        ax.set_xlabel("Agent Num")
-        ax.set_ylabel("Accuracy")
-        ax.grid(True, linestyle="--", alpha=0.6)
-        ax.legend(title="Noise", fontsize=8)
-
-    plt.tight_layout()
-    if save_path:
-        plt.savefig(save_path, bbox_inches="tight", dpi=200)
     plt.show()
 
 def main():
