@@ -41,7 +41,8 @@
 
 ## Experiments Overview
 
-<img width="2379" height="1380" alt="image" src="https://github.com/user-attachments/assets/616ee6c1-825c-4788-a214-3ff7fe76391a" />
+<img width="3580" height="2458" alt="grid_models_by_noise" src="https://github.com/user-attachments/assets/2c0ab390-4fac-42fe-b2d3-28eb82c3411d" />
+
 
 ### 2.2 Experimental Runs & Data Collection
 - **Status:** Pending  
