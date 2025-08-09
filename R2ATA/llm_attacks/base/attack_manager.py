@@ -1621,6 +1621,10 @@ def get_workers(params, eval=False):
         elif conv.name == 'llama-2':
             conv.sep2 = conv.sep2.strip()
         conv_templates.append(conv)
+
+    for conv in conv_templates:
+        if not hasattr(conv, "system"):
+            setattr(conv, "system", getattr(conv, "system_message", ""))
         
     print(f"Loaded {len(conv_templates)} conversation templates")
     workers = [
