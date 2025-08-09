@@ -12,10 +12,9 @@ export WANDB_MODE=disabled
 # Read arguments
 export model=$1                # 'mistral', 'gemma' or 'llama'
 export test_set=$2              # 'gsm8k', 'mmlu'
-export n_train_data=$3         # sampled number of each topic
-export n_steps=$4              # number of edits
-export batch_size=$5           # batch size
-export few_shot=$6
+export n_steps=$3              # number of edits
+export batch_size=$4           # batch size
+export few_shot=$5
 
 # Create results folder if it doesn't exist
 results_dir="experiments/results"
@@ -34,7 +33,6 @@ if [ "$test_set" = "gsm8k" ]; then
             --config.attack="gcg" \
             --config.train_data="data/gsm8k.jsonl" \
             --config.result_prefix="experiments/results/${model}_gsm8k_${few_shot}_shots" \
-            --config.n_train_data=$n_train_data \
             --config.data_offset=0 \
             --config.n_steps=$n_steps \
             --config.test_steps=1 \
@@ -52,7 +50,6 @@ if [ "$test_set" = "mmlu" ]; then
             --config.attack="gcg" \
             --config.train_data="data/mmlu.json" \
             --config.result_prefix="experiments/results/${model}_mmlu_${few_shot}_shots" \
-            --config.n_train_data=$n_train_data \
             --config.data_offset=0 \
             --config.n_steps=$n_steps \
             --config.test_steps=1 \

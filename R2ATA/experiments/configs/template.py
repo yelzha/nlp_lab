@@ -33,7 +33,7 @@ def get_config():
     # data
     config.train_data = ''
     config.test_data = ''
-    config.n_train_data = 50
+    config.n_train_data = 1
     config.n_test_data = 0
     config.data_offset = 0
     config.test_set = 'bbh'

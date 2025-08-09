@@ -1669,8 +1669,8 @@ def get_goals_and_targets(params):
             for line in file:
                 json_obj = json.loads(line.strip())
                 dataset.append(json_obj)
-        sample_data = random.sample(dataset, params.n_train_data)
-        for data in sample_data:
+        # sample_data = random.sample(dataset, params.n_train_data)
+        for data in dataset:
             train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
             train_targets.append('Sorry, I\'m unable to answer the question.')
             ground_truth.append(data['answer'])
@@ -1680,8 +1680,8 @@ def get_goals_and_targets(params):
     if params.test_set == 'mmlu':
         with open(params.train_data, 'r') as file:
             dataset = json.load(file)
-        sample_data = random.sample(dataset, params.n_train_data)
-        for data in sample_data:
+        # sample_data = random.sample(dataset, params.n_train_data)
+        for data in dataset:
             task_instruction = data['question'].split('\n\n')[0]
             examples = data['question'].split('\n\n')[1:-1]
             few_prompt = task_instruction + '\n\n' + '\n\n'.join(examples[:params.few_shot]) + '\n\n'

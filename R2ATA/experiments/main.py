@@ -49,7 +49,7 @@ def main(_):
         "MPA": attack_lib.MultiPromptAttack,
     }
 
-    timestamp = time.strftime("%Y%m%d-%H:%M:%S")
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
     if params.transfer:
         attack = attack_lib.ProgressiveMultiPromptAttack(
             train_goals,
