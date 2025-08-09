@@ -9,8 +9,8 @@ def get_config():
 
     config.result_prefix = 'results/individual_mistral'
 
-    config.tokenizer_paths = ["mistralai/Mistral-7B-v0.2"]
-    config.model_paths = ["mistralai/Mistral-7B-v0.2"]
+    config.tokenizer_paths = ["mistralai/Mistral-7B-v0.3"]
+    config.model_paths = ["mistralai/Mistral-7B-v0.3"]
 
     config.conversation_templates=['mistral']
 

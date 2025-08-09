@@ -64,7 +64,7 @@ def main(argv):
     training_number = int(argv[3])
 
     if test_model_name_orginal == 'mistral':
-        test_model_name = "mistralai/Mistral-7B-v0.2"
+        test_model_name = "mistralai/Mistral-7B-v0.3"
         model = AutoModelForCausalLM.from_pretrained(test_model_name, device_map='auto')
         tokenizer = AutoTokenizer.from_pretrained(test_model_name)
         directory = "../results/"
