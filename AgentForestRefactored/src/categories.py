@@ -64,3 +64,15 @@ categories = {
     "social sciences": ["politics", "culture", "economics", "geography", "psychology"],
     "other (business, health, misc.)": ["other", "business", "health"],
 }
+
+# subcategories = {
+#     "abstract_algebra": ["math"],
+#     "college_mathematics": ["math"],
+#     "elementary_mathematics": ["math"],
+#     "high_school_mathematics": ["math"],
+#     "high_school_statistics": ["math"],
+# }
+#
+# categories = {
+#     "STEM": ["math",]
+# }

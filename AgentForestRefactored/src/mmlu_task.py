@@ -1,3 +1,5 @@
+import csv
+
 import pandas as pd
 import random
 import utils
@@ -34,22 +36,22 @@ class MMLU(MoreAgent):
             'high_school_statistics_test.csv'
         ]
         tasks = glob(f"../dataset/mmlu/mmlu_dataset_{self.dtype}/*.csv")
-        category = {}
-        reverseCategory = {}
-        resultInCategory = {}
-        for key in categories.categories.keys():
-            for c in categories.categories[key]:
-                reverseCategory[c] = key
-            resultInCategory[key] = []
-        index = 0
-        for task in tasks:
-            l_task = windows_to_linux_path(task)
-            fileName = l_task.split("/")[-1]
-            tail = fileName.rfind("_")
-            fileName = fileName[0:tail]
-            subCate = categories.subcategories[fileName][0]
-            category[index] = reverseCategory[subCate]
-            index += 1
+        # category = {}
+        # reverseCategory = {}
+        # resultInCategory = {}
+        # for key in categories.categories.keys():
+        #     for c in categories.categories[key]:
+        #         reverseCategory[c] = key
+        #     resultInCategory[key] = []
+        # index = 0
+        # for task in tasks:
+        #     l_task = windows_to_linux_path(task)
+        #     fileName = l_task.split("/")[-1]
+        #     tail = fileName.rfind("_")
+        #     fileName = fileName[0:tail]
+        #     subCate = categories.subcategories[fileName][0]
+        #     category[index] = reverseCategory[subCate]
+        #     index += 1
         dfs = [
             pd.read_csv(task) for task in tasks
             if windows_to_linux_path(task).split("/")[-1] in math_files
@@ -65,6 +67,19 @@ class MMLU(MoreAgent):
                     "ground_truth": ground_truth,
                 }
                 question_datas.append(question_data)
+
+        # question_datas = []
+        # for task in tasks:
+        #     with open(task, mode="r", encoding="utf-8") as csvfile:
+        #         reader = csv.reader(csvfile)
+        #         for row in reader:
+        #             question = interaction_prompt["mmlu"]["question"].format(
+        #                 row[0], row[1], row[2], row[3], row[4])
+        #             answer = row[5]
+        #             question_datas.append({
+        #                 "state": question,
+        #                 "ground_truth": answer
+        #             })
 
         # random.seed(0)
         # random.shuffle(question_datas)

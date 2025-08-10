@@ -1,10 +1,3 @@
-
-MMLU_QUESTION = "Can you answer the following question as accurately as possible? {}: A) {}, B) {}, C) {}, D) {} "
-
-MATH_TASK_SYSTEM_PROMPT = "Imagine you are an expert skilled in solving mathematical problems and are confident in your answer and often persuades other agents to believe in you. Please keep this in mind."
-
-CODE_COMPLETION_SYSTEM_PROMPT = f"You are an intelligent programmer. You must complete the python function given to you by the user. And you must follow the format they present when giving your answer! You can only respond with comments and actual code, no free-flowing text (unless in a comment)." # from https://github.com/getcursor/eval.git
-
 interaction_prompt = {
     "mmlu": {
         "question": "Can you answer the following question as accurately as possible? Question: {}: \n Choices: A) {}, B) {}, C) {}, D) {}. Briefly explain your reasoning. At the end, output only one final answer like \\boxed{{(A)}}, \\boxed{{(B)}}, \\boxed{{(C)}}, or \\boxed{{(D)}}.",
