@@ -17,7 +17,8 @@ from transformers import (AutoModelForCausalLM, AutoTokenizer, GPT2LMHeadModel,
                           GPTJForCausalLM, GPTNeoXForCausalLM, MistralForCausalLM, GemmaForCausalLM,Qwen2ForCausalLM,
                           LlamaForCausalLM)
 import pdb
-import json
+from glob import glob
+import csv
 
 random.seed(112)
 
@@ -1669,6 +1670,7 @@ def get_goals_and_targets(params):
             for line in file:
                 json_obj = json.loads(line.strip())
                 dataset.append(json_obj)
+
         # sample_data = random.sample(dataset, params.n_train_data)
         for data in dataset:
             train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
@@ -1678,11 +1680,9 @@ def get_goals_and_targets(params):
             test_targets.append('Sorry, I\'m unable to answer the question.')
 
     if params.test_set == 'multiarith':
-        dataset = []
-        with open(params.train_data, 'r') as file:
-            for line in file:
-                json_obj = json.loads(line.strip())
-                dataset.append(json_obj)
+        with open(params.train_data, 'r', encoding='utf8') as file:
+            dataset = json.load(file)
+
         # sample_data = random.sample(dataset, params.n_train_data)
         for data in dataset:
             train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
@@ -1692,35 +1692,48 @@ def get_goals_and_targets(params):
             test_targets.append('Sorry, I\'m unable to answer the question.')
 
     if params.test_set == 'math':
-        dataset = []
+        sampledMathSet = json.load(open(params.train_data))
 
-        path = f"../dataset/math/math_dataset_{self.dtype}/math_subset_20.json"
-        sampledMathSet = json.load(open(path))
-        question_datas = []
+        dataset = []
         for level in sampledMathSet.keys():
             for category in sampledMathSet[level].keys():
                 for problem in sampledMathSet[level][category]:
-                    question_state = problem["problem"]
                     question_data = {
-                        "level": level,
-                        "category": category,
-                        "state": question_state,
-                        "ground_truth": solution,
+                        "question": problem["problem"],
+                        "answer": problem["solution"]
                     }
-                    question_datas.append(question_data)
+                    dataset.append(question_data)
+
+        for data in dataset:
+            train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
+            train_targets.append('Sorry, I\'m unable to answer the question.')
+
+            ground_truth.append(data['answer'])
+
+            test_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
+            test_targets.append('Sorry, I\'m unable to answer the question.')
 
     if params.test_set == 'mmlu':
-        with open(params.train_data, 'r') as file:
-            dataset = json.load(file)
-        # sample_data = random.sample(dataset, params.n_train_data)
+        tasks = glob(f"{params.train_data}/*.csv")
+
+        dataset = []
+        for task in tasks:
+            with open(task, mode="r", encoding="utf-8") as csvfile:
+                reader = csv.reader(csvfile)
+                for row in reader:
+                    question = f"{row[0]} \n Choices: A) {row[1]}, B) {row[2]}, C) {row[3]}, D) {row[4]}"
+                    dataset.append({
+                        "question": question,
+                        "answer": row[5]
+                    })
+
         for data in dataset:
-            task_instruction = data['question'].split('\n\n')[0]
-            examples = data['question'].split('\n\n')[1:-1]
-            few_prompt = task_instruction + '\n\n' + '\n\n'.join(examples[:params.few_shot]) + '\n\n'
-            train_goals.append(few_prompt + data['question'].split('\n\n')[-1])
+            train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
             train_targets.append('Sorry, I\'m unable to answer the question.')
-            ground_truth.append([data['answer'], data['subject']])
-            test_goals.append(few_prompt + data['question'].split('\n\n')[-1])
+
+            ground_truth.append(data['answer'])
+
+            test_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
             test_targets.append('Sorry, I\'m unable to answer the question.')
     
     assert len(train_goals) == len(train_targets)

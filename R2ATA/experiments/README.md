@@ -51,6 +51,8 @@ source venv/bin/activate
 
 
 sbatch noising.sh mistral gsm8k 4 16 0
+sbatch noising.sh mistral math 4 16 0
+sbatch noising.sh mistral multiarith 4 16 0
 sbatch noising.sh mistral mmlu 4 16 0
 ```
 
