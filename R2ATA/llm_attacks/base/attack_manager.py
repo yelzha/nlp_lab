@@ -1687,7 +1687,7 @@ def get_goals_and_targets(params):
         for data in dataset:
             train_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
             train_targets.append('Sorry, I\'m unable to answer the question.')
-            ground_truth.append(data['answer'])
+            ground_truth.append(data['final_ans'])
             test_goals.append(f'Question: ' + data['question'] + '\nAnswer: Let\'s think step by step.')
             test_targets.append('Sorry, I\'m unable to answer the question.')
 
