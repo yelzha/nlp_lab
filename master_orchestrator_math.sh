@@ -2,7 +2,7 @@
 # master_orchestrator_math.sh
 
 MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo")
+DTYPES=("r2ata")
 VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
 # Fixed parameters
@@ -15,8 +15,8 @@ COMMON_STAGES="0 2"
 WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
 
 # === RESUME POINT ===
-RESUME_MODEL="Qwen3-14B"
-RESUME_DTYPE="punctuation_50"
+RESUME_MODEL=""
+RESUME_DTYPE=""
 FOUND_START=false
 
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
