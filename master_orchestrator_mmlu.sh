@@ -19,6 +19,11 @@ RESUME_MODEL=""
 RESUME_DTYPE=""
 FOUND_START=false
 
+# If no resume point specified, start immediately
+if [ -z "$RESUME_MODEL" ] && [ -z "$RESUME_DTYPE" ]; then
+  FOUND_START=true
+fi
+
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
     echo "Error: orchestrator.sh not found at $ORCHESTRATOR_SCRIPT."
