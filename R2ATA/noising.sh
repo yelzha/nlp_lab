@@ -16,10 +16,10 @@ export n_steps=$3              # number of edits
 export batch_size=$4           # batch size
 export few_shot=$5
 
-module load Miniforge3
-module load git/2.41.0-GCCcore-12.3.0-nodocs
-source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
-source venv/bin/activate
+#module load Miniforge3
+#module load git/2.41.0-GCCcore-12.3.0-nodocs
+#source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+#source venv/bin/activate
 
 # Create results folder if it doesn't exist
 results_dir="experiments/results"
