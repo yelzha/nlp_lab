@@ -29,7 +29,7 @@ module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
 module load CUDA/12.1.1
 
-source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+# source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
 source /home/s06zyelt/nlp_lab/env/bin/activate
 
 pip install numpy pandas
