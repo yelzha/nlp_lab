@@ -23,21 +23,14 @@ def get_vllm_name():
 VLLM_MODEL_NAME = get_vllm_name()
 DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 try:
-    if "gemma" in VLLM_MODEL_NAME:
-        global_llm_model = LLM(
-            model=VLLM_MODEL_NAME,
-            max_model_len=16384
-            # gpu_memory_utilization=0.98,
-        )
-    else:
-        global_llm_model = LLM(
-            model=VLLM_MODEL_NAME
-            # gpu_memory_utilization=0.98,
-        )
+    global_llm_model = LLM(
+        model=VLLM_MODEL_NAME
+        # gpu_memory_utilization=0.98,
+    )
     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
 except Exception as e:
     print(f"Error initializing global vLLM model: {e}")
-    global_llm_model = None # Handle case where vLLM fails to initialize
+    global_llm_model = None  # Handle case where vLLM fails to initialize
 
 
 def get_mmlu_qa_pairs(df, ix):
@@ -151,7 +144,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
             temperature=temperature,
             top_p=top_p,
             n=nums,
-            max_tokens=3072,
+            max_tokens=2048,
             # seed=0
         )
 
