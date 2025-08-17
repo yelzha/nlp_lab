@@ -151,7 +151,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
             temperature=temperature,
             top_p=top_p,
             n=nums,
-            max_tokens=2048,
+            max_tokens=3072,
             # seed=0
         )
 
