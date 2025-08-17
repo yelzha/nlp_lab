@@ -5,18 +5,18 @@ from vllm import LLM, SamplingParams
 # Define the model name. This should match what you pass to vLLM.
 # It can also be read from an environment variable, similar to your SLURM script.
 # For direct testing, we'll hardcode it or use an env var if set.
-MODEL_NAME = os.environ.get("VLLM_MODEL_NAME", "google/gemma-3-4b-it")
+MODEL_NAME = "google/gemma-3-4b-it"
 
 print(f"Loading model: {MODEL_NAME}...")
 
 # Create a sampling_params object.
 # You can adjust these parameters as needed for your test.
-sampling_params = SamplingParams(temperature=0.7, top_p=0.95, max_tokens=100)
+sampling_params = SamplingParams(temperature=1, top_p=1, max_tokens=2048)
 
 # Create an LLM. This will download the model if not cached.
 # For local models, 'model' should be the path to the model directory.
 # For Hugging Face models, it's the model ID.
-llm = LLM(model=MODEL_NAME, gpu_memory_utilization=0.9) # Adjust gpu_memory_utilization as needed
+llm = LLM(model=MODEL_NAME, max_model_len=12288)  # Adjust gpu_memory_utilization as needed
 
 # Define a simple prompt for testing
 prompts = [
