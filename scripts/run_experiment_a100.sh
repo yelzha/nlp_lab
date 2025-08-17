@@ -25,6 +25,18 @@ echo "Hello from Slurm on node $(hostname)!"
 
 # ... (Environment setup commands omitted for brevity, assumed to be correct) ...
 
+mkdir -p /home/s06zyelt/.my_tmp
+export TMPDIR=/home/s06zyelt/.my_tmp
+export TMP=/home/s06zyelt/.my_tmp
+export TEMP=/home/s06zyelt/.my_tmp
+
+mkdir -p /home/s06zyelt/.my_tmp/{triton,cache,nv}
+export TRITON_CACHE_DIR=/home/s06zyelt/.my_tmp/triton
+export XDG_CACHE_HOME=/home/s06zyelt/.my_tmp/cache
+export CUDA_CACHE_PATH=/home/s06zyelt/.my_tmp/nv
+
+# python
+
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
 module load CUDA/12.1.1
