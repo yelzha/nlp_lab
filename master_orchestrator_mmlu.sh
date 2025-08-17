@@ -12,7 +12,7 @@ TEMPERATURE=1
 TOP_P=1
 DEBUG="False"
 COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12"
-WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
+WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
 
 # === RESUME POINT ===
 RESUME_MODEL=""
