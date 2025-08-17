@@ -77,10 +77,12 @@ class MoreAgent():
             f"Expected {len(self.nodes)} completions, but got {len(content_list)}"
 
         all_parsed_answers = []
+        all_completions = []
         # Post-process each agent's raw completion to extract the final answer
         for node_idx in range(len(self.nodes)):
             # print(f"{node_idx} th agent process", flush=True)
             self.nodes[node_idx].postprocess(content_list[node_idx], question_state)
+            all_completions.append(content_list[node_idx])
             all_parsed_answers.append(self.nodes[node_idx].get_answer())
 
         # Return all parsed answers and token usage. The final voting logic
