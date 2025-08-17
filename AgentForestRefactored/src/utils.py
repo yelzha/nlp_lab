@@ -358,9 +358,9 @@ def math_ans_parser(answer_text, question=None):
     #     return matches[-1], True
     # return None, False
 
-    match = re.search(r'\\boxed{(.*)}', answer_text)
+    match = re.search(r'\\boxed{(.*)}', answer_text.replace(" ", ""))
     if match:
-        return match.group(1),True
+        return match.group(1), True
     else:
         return None , False
     # return match.group(1), True if match else None,False
