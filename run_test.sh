@@ -2,19 +2,15 @@
 #SBATCH --partition=A100devel
 #SBATCH --time=0:59:00
 #SBATCH --gpus=1
-#SBATCH --ntasks=4
+#SBATCH --ntasks=1
 #SBATCH --output=../logs/slurm_output_test.txt   # Log everything here
 cd ../
 
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
-module load CUDA/12.1.1
 
 source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
-conda activate /home/s06zyelt/nlp_lab/env
-
-pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+source env/bin/activate
 
 python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'PyTorch CUDA version: {torch.version.cuda}')"
 python -c "import vllm; print(f'vLLM version: {vllm.__version__}')"

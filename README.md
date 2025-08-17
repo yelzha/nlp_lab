@@ -85,6 +85,13 @@ module load git/2.41.0-GCCcore-12.3.0-nodocs
 conda activate /home/s06zyelt/nlp_lab/env
 huggingface-cli download meta-llama/Llama-3.1-8B-Instruct
 huggingface-cli download mistralai/Mistral-7B-Instruct-v0.3
+
+
+module load Miniforge3
+module load git/2.41.0-GCCcore-12.3.0-nodocs
+virtualenv env
+source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+source env/bin/activate
 ```
 
 
