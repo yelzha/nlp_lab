@@ -23,10 +23,17 @@ def get_vllm_name():
 VLLM_MODEL_NAME = get_vllm_name()
 DEBUG = (os.getenv('DEBUG', 'False') == 'True')
 try:
-    global_llm_model = LLM(
-        model=VLLM_MODEL_NAME
-        # gpu_memory_utilization=0.98,
-    )
+    if "gemma" in VLLM_MODEL_NAME:
+        global_llm_model = LLM(
+            model=VLLM_MODEL_NAME,
+            max_model_len=12288  # 16384
+            # gpu_memory_utilization=0.98,
+        )
+    else:
+        global_llm_model = LLM(
+            model=VLLM_MODEL_NAME
+            # gpu_memory_utilization=0.98,
+        )
     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
 except Exception as e:
     print(f"Error initializing global vLLM model: {e}")
