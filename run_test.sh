@@ -3,8 +3,7 @@
 #SBATCH --time=0:59:00
 #SBATCH --gpus=1
 #SBATCH --ntasks=1
-#SBATCH --output=../logs/slurm_output_test.txt   # Log everything here
-cd ../
+#SBATCH --output=slurm_output_test.txt   # Log everything here
 
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
