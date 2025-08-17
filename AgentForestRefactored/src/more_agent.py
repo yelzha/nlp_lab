@@ -93,9 +93,9 @@ class MoreAgent():
         #     "total_completion_tokens": total_completion_tokens,
         # }
 
-        print(all_parsed_answers)
+        # print(all_parsed_answers)
 
-        print(all_completions)
+        # print(all_completions)
         completions, answers = get_completions_and_answers()
         result_dict = {
             "final_answer": None,
