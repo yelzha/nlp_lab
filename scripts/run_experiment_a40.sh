@@ -25,15 +25,17 @@ echo "Hello from Slurm on node $(hostname)!"
 
 # ... (Environment setup commands omitted for brevity, assumed to be correct) ...
 
-mkdir -p /home/s06zyelt/.my_tmp
+mkdir -p /home/s06zyelt/.my_tmp /home/s06zyelt/.cache/{huggingface,triton,nv}
 export TMPDIR=/home/s06zyelt/.my_tmp
-export TMP=/home/s06zyelt/.my_tmp
-export TEMP=/home/s06zyelt/.my_tmp
-
-mkdir -p /home/s06zyelt/.my_tmp/{triton,cache,nv}
-export TRITON_CACHE_DIR=/home/s06zyelt/.my_tmp/triton
+export TMP=$TMPDIR; export TEMP=$TMPDIR
 export XDG_CACHE_HOME=/home/s06zyelt/.my_tmp/cache
-export CUDA_CACHE_PATH=/home/s06zyelt/.my_tmp/nv
+export TRITON_CACHE_DIR=/home/s06zyelt/.cache/triton
+export CUDA_CACHE_PATH=/home/s06zyelt/.cache/nv
+
+# Hugging Face auth + caches
+export HF_HOME=/home/s06zyelt/.cache/huggingface
+export HUGGINGFACE_HUB_CACHE="$HF_HOME"
+export TRANSFORMERS_CACHE="$HF_HOME/hub"
 
 # python
 
