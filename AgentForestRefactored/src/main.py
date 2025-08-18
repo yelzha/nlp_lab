@@ -93,8 +93,9 @@ def main():
             for k, v in result_dict.items():
                 if isinstance(v, list):
                     for i, sub_v in enumerate(v):
-                        new_k = k + f"_{i}"
-                        one_record[new_k] = sub_v
+                        if i < K:
+                            new_k = k + f"_{i}"
+                            one_record[new_k] = sub_v
                 else:
                     one_record[k] = v
 

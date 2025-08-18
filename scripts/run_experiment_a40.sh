@@ -25,26 +25,13 @@ echo "Hello from Slurm on node $(hostname)!"
 
 # ... (Environment setup commands omitted for brevity, assumed to be correct) ...
 
-mkdir -p /home/s06zyelt/.my_tmp /home/s06zyelt/.cache/{huggingface,triton,nv}
-export TMPDIR=/home/s06zyelt/.my_tmp
-export TMP=$TMPDIR; export TEMP=$TMPDIR
-export XDG_CACHE_HOME=/home/s06zyelt/.my_tmp/cache
-export TRITON_CACHE_DIR=/home/s06zyelt/.cache/triton
-export CUDA_CACHE_PATH=/home/s06zyelt/.cache/nv
-
-# Hugging Face auth + caches
-export HF_HOME=/home/s06zyelt/.cache/huggingface
-export HUGGINGFACE_HUB_CACHE="$HF_HOME"
-export TRANSFORMERS_CACHE="$HF_HOME/hub"
-
-# python
-
 module load Miniforge3
 module load git/2.41.0-GCCcore-12.3.0-nodocs
 module load CUDA/12.1.1
 
-# source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
-source /home/s06zyelt/nlp_lab/env/bin/activate
+source /software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/etc/profile.d/conda.sh
+conda activate /home/s06zyelt/nlp_lab/env
+# source /home/s06zyelt/nlp_lab/env/bin/activate
 
 pip install numpy pandas
 pip install sacrebleu
