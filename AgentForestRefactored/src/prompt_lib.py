@@ -1,6 +1,6 @@
 interaction_prompt = {
     "mmlu": {
-        "question": "Can you answer the following question as accurately as possible? Question: {}: \n Choices: A) {}, B) {}, C) {}, D) {}. Briefly explain your reasoning. At the end, output only one final answer like \\boxed{{(A)}}, \\boxed{{(B)}}, \\boxed{{(C)}}, or \\boxed{{(D)}}.",
+        "question": "Can you answer the following question as accurately as possible? Question: {}: \n Choices: A) {}, B) {}, C) {}, D) {}. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \\boxed{{(A)}}, \\boxed{{(B)}}, \\boxed{{(C)}}, or \\boxed{{(D)}}. Do not add extra commentary after the answer. Do not include anything else on that final line.",
         "debate": [
             "These are the solutions to the problem from other agents:\n\n{other_agents}\n",
             "Using the reasoning from other agents as additional input, re-evaluate your own answer step by step. Choose only one of A, B, C, or D. End your updated response on a new line in the format: (A), (B), (C), or (D). Do not add extra commentary after the answer."
@@ -8,7 +8,7 @@ interaction_prompt = {
         "reflection": "Now carefully reflect on your most recent answer. Ensure it is logically consistent, factually accurate, and best supported by the reasoning. If you believe a different choice is better, update it. End with your final answer on a new line in the format: (A), (B), (C), or (D), and do not write anything else after that."
     },
     "math":{
-        "question": "Here is a math problem written in LaTeX:{}\n Explain your reasoning briefly. Put your answer in the form \\boxed{{answer}}, at the end of your response.",
+        "question": "Here is a math problem written in LaTeX: {}\n\nSolve it step by step. \n- If the correct answer has units, write the units OUTSIDE the box in plain text. \n- Inside \\boxed{...} put only the simplest exact numeric expression (no units), fully simplified \n(e.g., rationalized denominator, reduced fractions, simplified radicals). \nAt the very end of your response, output exactly one line: \\boxed{<simplest_exact_value>} \nIf units are required, add a space and then the units in words after the box, e.g.: \boxed{8\sqrt{3}} square inches \n Do not add any extra commentary after that line.",
         "debate": [
             "These are the solutions to the problem from other agents:",
             "\n\nUsing the reasoning from other agents as additional information and referring to your historical answers, can you give an updated answer? Put your answer in the form \\boxed{{answer}}, at the end of your response."
