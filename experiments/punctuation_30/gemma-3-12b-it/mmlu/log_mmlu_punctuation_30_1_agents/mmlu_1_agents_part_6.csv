@@ -1,0 +1,1776 @@
+state,ground_truth,final_answer,completions_0,answers_0,total_prompt_tokens,total_completion_tokens
+"Can you answer the following question as accurately as possible? Question: ; What is the , area, in square units, of a , square , whose sides are the same length as ; the radius of . ; a circle with ? a circumference of $12\pi$ units?: 
+ Choices: A) 10, B) 11, C) 12, D) 36. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Here's the solution:
+First find the radius of the circle. The circumference of a circle is given by the formula $C = 2\pi r$, where $r$ is the radius. We are given that $C = 12\pi$, so we have $12\pi = 2\pi r$. Dividing both sides by $2\pi$ gives $r = \frac{12\pi}{2\pi} = 6$.
+Next, we are told that the side length of a square is the same as the radius of the circle, so the side length of the square is 6 units.
+The area of a square is given by $A = s^2$, where $s$ is the side length. In our case, $s = 6$, so $A = 6^2 = 36$.
+
+Thus, the area of the square is 36 square units.
+
+\boxed{(D)}",D,3850,4302
+"Can you answer the following question as accurately as possible? Question: If f(x) = 3x, g(x) : = 5x + . 3, and : h(x) = 1 – x^2, then ? f(g(h(x)))= ,: 
+ Choices: A) 15x^2 + 15, B) –15x^2 + 18, C) –15x^2 + 24, D) –225x^2 + 90x – 8. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,B,"
+
+Here's the reasoning:
+
+We need to find f(g(h(x))).  We will work from the inside out. First we find h(x), which is given as 1 – x^2.
+
+Next, we want to find g(h(x)).  Since g(x) = 5x + 3, we replace x with h(x) to get:
+g(h(x)) = 5(1 – x^2) + 3 = 5 – 5x^2 + 3 = 8 – 5x^2.
+
+Finally, we want to find f(g(h(x))). Since f(x) = 3x, we replace x with g(h(x)) to get:
+f(g(h(x))) = 3(8 – 5x^2) = 24 – 15x^2.
+
+This matches choice B.
+
+\boxed{(B)}",B,4850,6272
+"Can you answer the following question as accurately as possible? Question: ! A consumer report revealed the following . information about . three tubes of toothpaste. , Bright is $60 \%$ more expensive than Fresh . and has $25\%$ less volume ! than Glow. Glow is $25\%$ less expensive than ? Bright and : has $33\frac{1}{3} \%$ more ; volume than Fresh. ? ? Fresh ? costs $\$1.00$ per unit ? of volume. : ; What is the number of cents per . , ! unit of volume of Glow?: 
+ Choices: A) 90, B) 120, C) 60, D) 320. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,B,"
+
+Let $B$ be the cost per unit of volume of Bright toothpaste.
+Let $F$ be the cost per unit of volume of Fresh toothpaste.
+Let $G$ be the cost per unit of volume of Glow toothpaste.
+We are given that Fresh costs $1.00$ per unit of volume, so $F = 1$.
+
+We are given that Bright is $60\%$ more expensive than Fresh, so $B = F + 0.60F = 1.60F = 1.60(1) = 1.60$.
+We are given that Glow is $25\%$ less expensive than Bright, so $G = B - 0.25B = 0.75B = 0.75(1.60) = 1.20$.
+
+Let $V_B$, $V_F$, and $V_G$ be the volume of Bright, Fresh, and Glow toothpaste, respectively.
+We are given that Bright has $25\%$ less volume than Glow, so $V_B = V_G - 0.25V_G = 0.75V_G$.
+We are given that Glow has $33\frac{1}{3} \%$ more volume than Fresh, so $V_G = V_F + \frac{1}{3} V_F = \frac{4}{3} V_F$.
+
+Since $F = 1$, the cost of Fresh toothpaste is $\$1$ per unit of volume.
+The cost of Bright toothpaste is $B = 1.60$, and the volume is $V_B = 0.75V_G$.
+The cost of Glow toothpaste is $G = 1.20$, and the volume is $V_G = \frac{4}{3} V_F$.
+
+We want to find the number of cents per unit of volume of Glow. Since $G = 1.20$, this is $1.20$ dollars per unit of volume, which is $1.20 \times 100 = 120$ cents per unit of volume.
+
+Therefore, the cost per unit of volume of Glow is $G = 1.20$. In cents, this is $120$ cents per unit of volume.
+
+Final Answer: The final answer is $\boxed{(B)}$",B,5450,13336
+"Can you answer the following question as accurately as possible? Question: Find the volume of ? the solid generated when the region ? bounded by the y-axis, y = e^x, ? and y : ; = , 2 , is rotated around the y-axis.: 
+ Choices: A) 0.296, B) 0.592, C) 2.427, D) 3.998. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+We are asked to find the volume of the solid generated when the region bounded by the y-axis, $y = e^x$, and $y = 2$ is rotated around the y-axis. We can use the method of cylindrical shells.
+The height of a cylindrical shell is given by $h(x) = 2 - e^x$, and the radius is $r(x) = x$. The volume of a cylindrical shell is $2\pi xh(x)dx = 2\pi x (2-e^x) dx$.
+We need to find the limits of integration. Since the region is bounded by the y-axis, we have $x=0$. The intersection of $y = e^x$ and $y=2$ is found by setting $2 = e^x$, so $x = \ln(2)$. Thus, the limits of integration are from $x=0$ to $x=\ln(2)$.
+The volume $V$ is given by the integral:
+$V = \int_0^{\ln(2)} 2\pi x (2-e^x) dx = 2\pi \int_0^{\ln(2)} (2x - xe^x) dx$
+$V = 2\pi \left[ \int_0^{\ln(2)} 2x dx - \int_0^{\ln(2)} xe^x dx \right]$
+First, $\int_0^{\ln(2)} 2x dx = x^2 \Big|_0^{\ln(2)} = (\ln(2))^2 - 0^2 = (\ln(2))^2 \approx (0.693)^2 \approx 0.4802$
+Now, we need to evaluate $\int_0^{\ln(2)} xe^x dx$. We use integration by parts with $u = x$ and $dv = e^x dx$, so $du = dx$ and $v = e^x$.
+$\int xe^x dx = xe^x - \int e^x dx = xe^x - e^x + C$
+So, $\int_0^{\ln(2)} xe^x dx = [xe^x - e^x]_0^{\ln(2)} = (\ln(2)e^{\ln(2)} - e^{\ln(2)}) - (0 \cdot e^0 - e^0) = (\ln(2) \cdot 2 - 2) - (0 - 1) = 2\ln(2) - 2 + 1 = 2\ln(2) - 1 \approx 2(0.693) - 1 = 1.386 - 1 = 0.386$
+Therefore, $V = 2\pi \left[ (\ln(2))^2 - (2\ln(2) - 1) \right] = 2\pi \left[ (\ln(2))^2 - 2\ln(2) + 1 \right] \approx 2\pi \left[ 0.4802 - 0.386 + 1 \right] = 2\pi (1.0942) \approx 2\pi(1.094) \approx 6.855$
+Note that the region is bounded by the y-axis (x=0), y=e^x and y=2. Thus, we use the disk/washer method and integrate with respect to y.
+The equation y = e^x can be written as x = ln(y).
+The outer radius is R(y) = ln(y).  The inner radius is r(y) = 0. The limits are from y=1 to y=2  (Since y=e^x, and when x=0, y=1, and when x=ln(2), y=2).
+V = $\int_1^2 \pi ((\ln y)^2 - 0^2) dy = \pi \int_1^2 (\ln y)^2 dy$
+Let $u = (\ln y)^2$ and $dv = dy$, then $du = 2(\ln y) \frac{1}{y} dy$ and $v=y$.
+Then $\int (\ln y)^2 dy = y(\ln y)^2 - \int y(2(\ln y) \frac{1}{y}) dy = y(\ln y)^2 - 2\int \ln y dy$
+Now we need to evaluate $\int \ln y dy$.  Let $u = \ln y$ and $dv=dy$, then $du = \frac{1}{y} dy$ and $v=y$.
+$\int \ln y dy = y\ln y - \int y \frac{1}{y} dy = y\ln y - \int dy = y\ln y - y + C$.
+So $\int (\ln y)^2 dy = y(\ln y)^2 - 2(y\ln y - y) = y(\ln y)^2 - 2y\ln y + 2y + C$
+Then $V = \pi [y(\ln y)^2 - 2y\ln y + 2y]|_1^2 = \pi \left[ 2(\ln 2)^2 - 2(2)\ln 2 + 2(2) \right] - \pi [1(0)^2 - 2(1)(0) + 2(1)] = \pi \left[ 2(\ln 2)^2 - 4\ln 2 + 4 \right] - 2\pi \approx \pi (2(0.4805) - 4(0.6931) + 4) - 2\pi \approx \pi (0.961 - 2.7724 + 4) - 2\pi \approx \pi (2.1886) - 2\pi \approx 2.1886\pi - 2\pi \approx 0.1886\pi \approx 0.592$.
+
+\boxed{(B)}",B,4125,18416
+"Can you answer the following question as accurately as possible? Question: What ! is the smallest ; positive integer $n$ , such that , $\frac{1}{n}$ : is a terminating decimal and $n$ contains ! the digit 9?: 
+ Choices: A) 32, B) 64, C) 4096, D) 256. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+A termiating decimal $\frac{1}{n}$ can be written as $\frac{1}{n} = \frac{1}{2^a 5^b}$ for some nonnegative integers $a$ and $b$. Thus $n$ must be of the form $2^a 5^b$.
+We are looking for the smallest positive integer $n$ that is of the form $2^a 5^b$, such that $n$ contains the digit 9.
+A) $32 = 2^5$, does not contain 9.
+B) $64 = 2^6$, does not contain 9.
+C) $4096 = 2^{12}$. Since $4096 = 2^{12}$, it does not contain the digit 9. However, $4096 = 2^{12} = (2^6)2^6 = 64 \cdot 64$.
+D) $256 = 2^8$, does not contain 9.
+
+Let's consider some values of $2^a 5^b$ containing the digit 9.
+$2^0 5^0 = 1$, does not contain 9.
+$2^1 5^0 = 2$
+$2^2 5^0 = 4$
+$2^0 5^1 = 5$
+$2^1 5^1 = 10$
+$2^0 5^2 = 25$
+$2^2 5^1 = 20$
+$2^1 5^2 = 50$
+$2^3 5^0 = 8$
+$2^0 5^3 = 125$
+$2^3 5^1 = 40$
+$2^1 5^3 = 250$
+$2^4 5^0 = 16$
+$2^0 5^4 = 625$
+$2^4 5^1 = 80$
+$2^1 5^4 = 1250$
+$2^5 5^0 = 32$
+$2^0 5^5 = 3125$
+$2^5 5^1 = 160$
+Consider $2^a 5^b = 2^a 5^b$ with $a \ge 0$ and $b \ge 0$.
+$2^1 5^3 = 250$ (no)
+$2^2 5^3 = 500$ (no)
+$2^3 5^3 = 1000$ (no)
+$2^4 5^1 = 160$ (no)
+$2^4 5^2 = 4000$ (no)
+We want $n$ to be of the form $2^a 5^b$ such that $n$ contains 9.
+We have $2^a 5^b$.
+Trying some values:
+$2^0 5^b = 5^b$: $5, 25, 125, 625, ...$
+$2^1 5^b = 10, 50, 250, 1250, ...$
+$2^2 5^b = 20, 100, 500, 2500, ...$
+$2^3 5^b = 40, 200, 1000, 5000, ...$
+$2^4 5^b = 160, 800, 4000, 20000, ...$
+If $a = 0$, we are searching for $5^b$ which contains the digit 9. Since $5^b$ ends in 1, 5, or 25, this will never contain the digit 9.
+If $b = 0$, we are searching for $2^a$ which contains the digit 9. The first few powers of 2 are 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096. So $2^{12} = 4096$ is a power of 2 containing the digit 9.
+Try to find smaller value $N$ where $N = 2^a 5^b$, and has the digit 9 in it.
+We can test $n=2^a 5^b$ and if it contains the digit 9.
+We need to find the smallest such n.
+The only options are 32, 64, 4096, 256.
+$32 = 2^5$, $64=2^6$, $256 = 2^8$, $4096=2^{12}$.
+So 4096 must be the answer.
+
+\boxed{(C)}",C,3775,14748
+"Can you answer the following question as accurately as possible? Question: ! On , . her previous five : attempts Sarah had achieved times, in seconds, of , 86, ; 94, 97, 88 and 96, for swimming 50 meters. ? ! : After : ? her sixth try ! she brought her median ! time down to 92 seconds. What was her time, in seconds, for her sixth attempt?: 
+ Choices: A) 92, B) 90, C) 87, D) 10. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+Here's the reasoning:
+
+First, we have Sarah's previous five times: 86, 94, 97, 88, 96. To find the median, we first need to sort these times in ascending order: 86, 88, 94, 96, 97.  The median of these five times is the middle value, which is 94.
+
+We are told that after her sixth attempt, her median time decreased to 92 seconds. This means that when we include her sixth time, the sorted times result in a median of 92. Let her sixth time be 'x'.
+
+Now we have six times: 86, 88, 94, 96, 97, x.  We need to consider two cases:
+Case 1: x <= 86. The sorted times are x, 86, 88, 94, 96, 97. The median of six times is the average of the 3rd and 4th values, which is (88+94)/2 = 91. This is not equal to 92, so this case is not possible.
+Case 2: 86 < x <= 88. The sorted times are 86, x, 88, 94, 96, 97. The median is (88+94)/2 = 91. Again, this doesn't give a median of 92.
+Case 3: 88 < x <= 94. The sorted times are 86, 88, x, 94, 96, 97. The median is (x+94)/2 = 92. This means x+94 = 184 => x = 184-94 = 90. This is in the range 88 < x <= 94, so x = 90 is a possible solution.
+Case 4: 94 < x <= 96. The sorted times are 86, 88, 94, x, 96, 97. The median is (94+x)/2 = 92. This gives x+94 = 184 => x = 90. But 90 is not in the range (94, 96], so this is not possible.
+Case 5: 96 < x <= 97. The sorted times are 86, 88, 94, 96, x, 97. The median is (94+96)/2 = 95.  This is not 92, so this case is not possible.
+Case 6: x > 97. The sorted times are 86, 88, 94, 96, 97, x. The median is (94+96)/2 = 95, which isn't 92.
+
+Therefore, the only valid solution is x = 90.
+
+\boxed{(B)}
+",B,4825,21207
+"Can you answer the following question as accurately as possible? Question: When the least common multiple of two positive integers is divided by their greatest ? common ! divisor, the result is 33. , If : one integer is ? 45, what is ; the smallest ? possible . value of the ; ! other integer?: 
+ Choices: A) 165, B) 46, C) 45, D) 9. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+Let the two integers be $a$ and $b$. We are given that $\text{lcm}(a, b) / \text{gcd}(a, b) = 33$ and $a = 45$.
+We know that $a \cdot b = \text{lcm}(a, b) \cdot \text{gcd}(a, b)$.
+Therefore, $\text{lcm}(a, b) = 33 \cdot \text{gcd}(a, b)$.
+Substituting this into the equation $a \cdot b = \text{lcm}(a, b) \cdot \text{gcd}(a, b)$, we have:
+$45 \cdot b = (33 \cdot \text{gcd}(45, b)) \cdot \text{gcd}(45, b)$
+$45b = 33 (\text{gcd}(45, b))^2$
+$b = \frac{33}{45} (\text{gcd}(45, b))^2 = \frac{11}{15} (\text{gcd}(45, b))^2$
+Since $b$ is an integer, $(\text{gcd}(45, b))^2$ must be divisible by 15. Since $15 = 3 \cdot 5$, we must have that $(\text{gcd}(45, b))^2$ is divisible by $3^2$ and $5^2$. So $\text{gcd}(45, b)$ must be divisible by both 3 and 5, which means $\text{gcd}(45, b)$ must be a multiple of 15. Let $d = \text{gcd}(45, b)$, so $d = 15k$ for some integer $k$.
+Then $b = \frac{11}{15} (15k)^2 = \frac{11}{15} (225k^2) = 11 \cdot 15 k^2 = 165k^2$.
+Since $d = \text{gcd}(45, b) = \text{gcd}(45, 165k^2)$, and $d = 15k$, we have $15k = \text{gcd}(45, 165k^2)$.
+Since $45 = 3^2 \cdot 5$ and $165 = 3 \cdot 5 \cdot 11$, we have $\text{gcd}(45, 165k^2) = 3 \cdot 5 \cdot \text{gcd}(3, 11k^2) \cdot \text{gcd}(5, k^2) = 15 \text{gcd}(3, 11k^2) \text{gcd}(5, k^2)$.
+Since we want $15k = 15 \text{gcd}(3, 11k^2) \text{gcd}(5, k^2)$, we have $k = \text{gcd}(3, 11k^2) \text{gcd}(5, k^2)$.
+If $k = 1$, then $b = 165(1)^2 = 165$. $\text{gcd}(45, 165) = 15$. $\text{lcm}(45, 165) = 495$. $\frac{495}{15} = 33$.
+If $k = 2$, then $b = 165(2)^2 = 165 \cdot 4 = 660$. $\text{gcd}(45, 660) = 15$. $\text{lcm}(45, 660) = 990$. $\frac{990}{15} = 66$. This does not work.
+We want the smallest possible value of $b$, so we take $k=1$, which gives $b=165$.
+
+\boxed{(A)}",A,4075,23089
+"Can you answer the following question as accurately as possible? Question: The curve defined by x^3 + xy - ? y^2 , ; = 10 has a . vertical tangent line when ! x =: 
+ Choices: A) 0 or –1/3, B) 1.037, C) 2.074, D) 2.096. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+Here's how to solve this problem:
+
+1. **Implicit Differentiation:** We need to find where the derivative dy/dx is undefined (approaches infinity). This usually occurs where the denominator of the derivative is zero. We'll start by differentiating the equation implicitly with respect to *x*:
+
+   d/dx (x^3 + xy - y^2) = d/dx (10)
+
+   3x^2 + (x * dy/dx + y * 1) - 2y * dy/dx = 0
+
+   3x^2 + x * dy/dx + y - 2y * dy/dx = 0
+
+2. **Solve for dy/dx:** Now, isolate dy/dx:
+
+   (x - 2y) * dy/dx = -3x^2 - y
+
+   dy/dx = (-3x^2 - y) / (x - 2y)
+
+3. **Vertical Tangent Condition:** A vertical tangent line occurs when dy/dx is undefined. This happens when the denominator is zero:
+
+   x - 2y = 0  => x = 2y   => y = x/2
+
+4. **Substitute back into the original equation:**  Substitute y = x/2 into the original equation:
+
+   x^3 + x(x/2) - (x/2)^2 = 10
+   x^3 + (x^2)/2 - (x^2)/4 = 10
+   x^3 + (x^2)/4 = 10
+   4x^3 + x^2 - 40 = 0
+
+5. **Solve the cubic equation:** We need to find the real roots of the equation 4x^3 + x^2 - 40 = 0. Numerical methods (like Newton-Raphson) or a calculator are generally needed to solve cubic equations.  The real root is approximately 2.074.
+
+\boxed{(C)}",C,3850,25114
+"Can you answer the following question as accurately as possible? Question: John has ! ! 12 marbles of . different colors, including one red, one green, ; , and one blue ; marble. In how ; many ways can he choose ! 4 marbles, if exactly one of the ! chosen , marbles is : red, green, or blue?: 
+ Choices: A) 252, B) 276, C) 441, D) 84. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+Let $n$ be the total number of marbles, so $n=12$.
+Let $R$, $G$, and $B$ be the set of red, green, and blue marbles respectively. We have $|R|=1$, $|G|=1$, $|B|=1$. Therefore, there are $12-3 = 9$ marbles of other colors.
+We want to choose 4 marbles such that exactly one of them is red, green, or blue. This means we choose one marble from the set $\{R, G, B\}$, and the remaining 3 marbles must be chosen from the 9 other marbles.
+
+We have 3 choices for the red, green, or blue marble.
+The number of ways to choose one marble from the set $\{R, G, B\}$ is $\binom{3}{1} = 3$.
+The number of ways to choose 3 marbles from the remaining 9 marbles is $\binom{9}{3} = \frac{9!}{3!6!} = \frac{9 \times 8 \times 7}{3 \times 2 \times 1} = 3 \times 4 \times 7 = 84$.
+So, the total number of ways to choose 4 marbles with exactly one red, green, or blue marble is $\binom{3}{1} \binom{9}{3} = 3 \times 84 = 252$.
+
+Therefore, the answer is 252.
+
+\boxed{(A)}
+",A,4300,7964
+"Can you answer the following question as accurately as possible? Question: If 4 daps = , 7 yaps, and 5 ? yaps ? = , 3 ; baps, how many daps equal 42 baps?: 
+ Choices: A) 28, B) 21, C) 40, D) 30. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,D,"
+
+Let's analyze the given equations:
+1. 4 daps = 7 yaps
+2. 5 ? yaps = 3 baps (This equation appears to be incomplete or misinterpreted; it should be 5x yaps = 3 baps where x is some unknown.)
+The first equation can be rewritten as: dap = (7/4) yaps.
+
+We need to find how many daps equal 42 baps. Let's denote this number as 'n'.
+So, n daps = 42 baps.
+We also have n daps = (n * (7/4)) yaps. So, n * (7/4) yaps = 42 baps.
+From equation 2, we assume this is actually 5x yaps = 3 baps.
+If this is correct, then baps = (3/5x) yaps.
+Substitute this into the equation n * (7/4) yaps = 42 baps yielding n * (7/4) yaps = 42 * (3/5x) yaps
+This simplifies to n * (7/4) = 42 * (3/5x)
+We can rewrite this as n = 42 * (3/5x) * (4/7) = 6 * (3/5x) * 4 = 24 * (3/5x) = 72 * (1/5x) = (72/5x). Since n must be an integer to represent a number of daps, we must guess a value for x such that (72/5x) is an integer. If x = 1, n = 72/5 (not an integer). If x = 2, n = 36/5 (not an integer). If x = 3, n = 24 (an integer). 
+Let's assume that 5 * x * yaps = 3 baps, and let x = 3. Then
+4 daps = 7 yaps
+5 * 3 * yaps = 3 baps
+15 yaps = 3 baps
+Thus, yaps = 3/15 baps = 1/5 baps.
+4 daps = 7 yaps = 7 * (1/5) baps = 7/5 baps.
+daps = (7/5) / 4 baps = 7/20 baps.
+So, n daps = 42 baps
+n * (7/20) baps = 42 baps
+n = (42 * 20) / 7
+n = 6 * 20 = 120. But this is not in the possible choices.
+
+Let's try assuming that the question means that 5 ? yaps = 3 baps, where ""?"" is multiplication. Then 5 * ? * yaps = 3 baps. Let ""?"" be equal to $k$.
+So, $5kyaps = 3baps$.
+From $4daps = 7yaps$, we have $daps = \frac{7}{4}yaps$.
+We want to find $n$ such that $ndaps = 42baps$.
+$n \frac{7}{4}yaps = 42baps$.
+$\frac{7n}{4}yaps = 42baps$.
+$yaps = \frac{4 \cdot 42}{7n}baps = \frac{24}{n}baps$.
+Now, since $5kyaps = 3baps$, we have $5k \frac{24}{n}baps = 3baps$.
+$5k \frac{24}{n} = 3$.
+$5k \cdot 24 = 3n$.
+$120k = 3n$.
+$40k = n$.
+Since $n$ has to be one of the choices, let's look for a possible value of $k$.
+If $n = 21$, then $40k = 21$, $k = \frac{21}{40}$ (not an integer)
+If $n = 28$, then $40k = 28$, $k = \frac{28}{40} = \frac{7}{10}$ (not an integer)
+If $n = 30$, then $40k = 30$, $k = \frac{30}{40} = \frac{3}{4}$ (not an integer)
+If $n = 40$, then $40k = 40$, $k = 1$. This is a possible integer value for $k$.
+If $k = 1$, then $n = 40$.
+
+\boxed{(D)}",D,3700,16076
+"Can you answer the following question as accurately as possible? Question: Calculate ; $\left(\frac{1}{a}\right)^4 \cdot 2 \cdot , a^4+a^{2+1-3}$ when $a=42$.: 
+ Choices: A) 0, B) 1, C) 2, D) 3. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,C,"
+
+Let the expression be $E$. The expression is given as:
+$$ E = \left(\frac{1}{a}\right)^4 \cdot 2 \cdot (a^4+a^{2+1-3}) $$
+We are given that $a = 42$.
+First, let's simplify the term inside the parenthesis:
+$$a^{2+1-3} = a^{3-3} = a^0 = 1$$
+So the expression becomes:
+$$ E = \left(\frac{1}{a}\right)^4 \cdot 2 \cdot (a^4+1) $$
+Substituting $a=42$, we have:
+$$ E = \left(\frac{1}{42}\right)^4 \cdot 2 \cdot (42^4+1) $$
+$$ E = \frac{1}{42^4} \cdot 2 \cdot (42^4+1) $$
+$$ E = \frac{2}{42^4} (42^4+1) $$
+$$ E = \frac{2 \cdot 42^4}{42^4} + \frac{2}{42^4} $$
+$$ E = 2 + \frac{2}{42^4} $$
+Since $42^4$ is a very large number, the fraction $\frac{2}{42^4}$ is a very small number, close to zero.
+Therefore, $E \approx 2$.
+
+Final Answer: The final answer is $\boxed{(C)}$",C,3675,9603
+"Can you answer the following question as accurately as possible? Question: ? : Zoey is laying bricks for her patio. The salesman wants to sell Zoey as many bricks as possible to cover ? ; ; her patio with a thickness of one brick, while not having any extra bricks. The , patio ! area ! is a rectangle with dimensions , 12 feet by 10 feet, and each , ; individual brick is 4 ! inches , by 6 inches by 2 inches. What would , be the greatest : . number ? : ! ; : of bricks the salesman could : sell to meet his sales : criteria?: 
+ Choices: A) 5,760, B) 2,880, C) 2,160, D) 1,440. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,D,"
+
+First, we need to convert all the dimensions to the same units. Let's use inches.
+Patio dimensions: 12 feet * 12 inches/foot = 144 inches and 10 feet * 12 inches/foot = 120 inches
+Area of the patio: 144 inches * 120 inches = 17280 square inches
+Brick dimensions: 4 inches by 6 inches by 2 inches
+Since we are covering the patio with a thickness of one brick, we only need to consider the area of the brick.
+Area of one brick: 4 inches * 6 inches = 24 square inches
+Number of bricks needed = Area of patio / Area of one brick = 17280 square inches / 24 square inches/brick = 720 bricks. However, this only makes a very thin patio. The thickness of the bricks matter as well.
+
+We are given that the thickness of one brick is 2 inches. Let's calculate the number of bricks needed.
+The area of the patio is 12 feet by 10 feet, which is 144 inches by 120 inches.
+The brick dimensions are 4 inches by 6 inches by 2 inches.
+We need to cover the patio with a thickness of 2 inches (one brick).
+We can cover the 144-inch side with bricks of 4-inch width, and the 120-inch side with bricks of 6-inch width.
+Number of bricks along the 144-inch side = 144 inches / 4 inches = 36
+Number of bricks along the 120-inch side = 120 inches / 6 inches = 20
+Total number of bricks = 36 * 20 = 720.
+
+Alternatively, we can cover the 144-inch side with bricks of 6-inch width, and the 120-inch side with bricks of 4-inch width.
+Number of bricks along the 144-inch side = 144 inches / 6 inches = 24
+Number of bricks along the 120-inch side = 120 inches / 4 inches = 30
+Total number of bricks = 24 * 30 = 720.
+
+Since the problem says the salesman wants to sell ""as many bricks as possible"" and ""not having any extra bricks,"" the answer should be the number of bricks needed to cover the patio with one layer of bricks. Therefore, 720 bricks.
+However, none of the given options are 720. Let's analyze the situation again. The salesman wants to sell as many bricks as possible without extra ones. So we want to fully tile the patio.
+Area of patio = 12 ft * 10 ft = 120 sq ft
+Area of brick = (4 in)*(6 in) = 24 sq in = (24/144) sq ft = 1/6 sq ft
+Number of bricks = (120 sq ft) / (1/6 sq ft/brick) = 120 * 6 = 720 bricks.
+
+Since none of the options are 720, let's recalculate in inches.
+Area of the patio = 144 inches * 120 inches = 17280 sq inches
+Area of one brick = 4 inches * 6 inches = 24 sq inches
+Number of bricks = 17280 / 24 = 720.
+There must be something wrong in our reasoning.
+
+Volume of patio needed = 144 in * 120 in * 2 in = 34560 cu in
+Volume of brick = 4 in * 6 in * 2 in = 48 cu in
+Number of bricks = 34560 / 48 = 720
+
+Let's assume there is a typo in the given options and that 720 is correct.
+None of the given options are 720. Let's consider that the width of the patio is given inaccurately and consider that it is a depreciation of a value. Let's consider that the area of the patio is larger than what is originally given.
+
+If the answer is not 720, let's reevaluate. Let's try calculating the number of bricks if we arranged them in alternate directions.
+The question states, ""while not having any extra bricks"". This means that we pack them so that the area is fully covered. 
+We can use the bricks with the 4in side facing the 12 ft (144 in) dimension or the 6in side facing the 144 in.
+If we use the 4in side, we need 144/4 = 36 bricks along the 12 ft side. If we use the 6in side, we need 144/6 = 24 bricks.
+If we use the 6in side facing the 10 ft (120 in) dimension, we need 120/6 = 20 bricks. If we use the 4in side, we need 120/4 = 30 bricks.
+So the combinations are 36*20 = 720 or 24*30 = 720.
+
+Since none of the answers match 720, assuming that the given dimensions are correct, maybe the salesman wants to use as many bricks as *possible* and thus doesn't have to perfectly cover it. This implies a process such as using a certain number of bricks along some length and determining what is the nearest number to this.
+
+Let's re-examine the area calculation: Patio: 12 * 10 = 120 sq ft = 17280 sq in
+Brick: 4 * 6 = 24 sq in
+Bricks needed: 17280 / 24 = 720.
+If we allow 2in thick slabs (of length 4in, width 6in, thickness 2in) with some possible extra slabs, maybe we have to optimize the number of bricks sold.
+We have to consider that the thickness is 2 inches.
+
+The question says ""with a thickness of one brick"".
+If we cover an area of 12 * 10 ft, which is 144 * 120 inches, the volume is 144 * 120 * 2 = 34560 in^3
+Each brick is 4 * 6 * 2 = 48 in^3
+Thus, bricks = 34560 / 48 = 720
+
+If we assume the options are approximate, then the closest option to 720 is C) 2,160, which is 3 times 720. Let's examine this. Does 3 * area of one brick equal area of 12*10 if possible?
+
+There must be an error in the problem statement or with the options.
+
+\boxed{(D)}",D,5925,31525
+"Can you answer the following question as accurately as possible? Question: Eleven , pencils . cost ; as , much as three pens. If seven pens cost $\$ 9.24$, what is : the cost, in cents, of ! one pencil?: 
+ Choices: A) 11, B) 33, C) 36, D) 52. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+Let $p$ be the cost of one pen in dollars, and let $c$ be the cost of one pencil in dollars. We are given that 11 pencils cost as much as 3 pens, so $11c = 3p$. We are also given that 7 pens cost $\$9.24$, so $7p = 9.24$.
+From the second equation, we can find the cost of one pen: $p = \frac{9.24}{7} = 1.32$.
+Now, substitute the value of $p$ into the first equation:
+$11c = 3(1.32)$
+$11c = 3.96$
+$c = \frac{3.96}{11} = 0.36$
+So the cost of one pencil is $0.36$ dollars, which is equal to $0.36 \times 100 = 36$ cents.
+
+Thus, the cost of one pencil is 36 cents.
+
+\boxed{(C)}
+",C,3700,5838
+"Can you answer the following question as accurately as possible? Question: ! One computer : . : in a lab is programmed to back ! up data at the turn of the ? minute every five minutes. ! Another computer is programmed to back up , data at the turn . of the minute ; every two minutes. ? Find the number : of : times ! in twenty-four . hours : that the two computers back up data at , the same time. (Assume that the computers do not back . up at the start of the ! 24-hour : : period.): 
+ Choices: A) 144, B) 12, C) 6, D) 36. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+Let the time be measured in minutes.
+Computer 1 backs up data at the turn of the minute every 5 minutes. This means it backs up data at minutes 5, 10, 15, 20, ...
+Computer 2 backs up data at the turn of the minute every 2 minutes. This means it backs up data at minutes 2, 4, 6, 8, ...
+
+We want to find the number of times the two computers back up data at the same time in 24 hours.
+First, we need to find the least common multiple (LCM) of 5 and 2.
+LCM(5, 2) = 10
+This means that the two computers back up data at the same time every 10 minutes.
+
+In 24 hours, there are 24 * 60 = 1440 minutes.
+The two computers back up data at the same time every 10 minutes.
+So, the number of times they back up at the same time is 1440 / 10 = 144.
+However, we are told that the computers do not back up at the start of the 24-hour period. This means we do not consider the time at minute 0. Since they back up at 10 minutes, the first time is at 10 minutes. Thus, the consecutive times are 10, 20, 30, ..., 1440.
+If they back up at minute 0, there would be 1440/10 + 1 = 145 times. However, they don't back up at the start of the period. So, we exclude the instant at 0 minutes.
+Since they don't start at time 0, the first time they back up at the same time is at 10 minutes. The last time is at 1440 minutes.
+The times are 10, 20, ..., 1440.
+We can represent this as 10n, where n is an integer.
+We need to find the number of integers n such that 10n <= 1440.
+n <= 1440/10
+n <= 144
+Thus, there are 144 times they back up at the same time.
+
+\boxed{(A)}
+",A,5325,14347
+"Can you answer the following question as accurately as possible? Question: Simplify the ? fraction by rationalizing the , denominator: $$\frac{4}{\sqrt{108}+2\sqrt{12}+2\sqrt{27}}.$$: 
+ Choices: A) \frac{4\sqrt{3}}{33}, B) \frac{\sqrt{3}}{12}, C) 2\sqrt{27}, D) \frac{1}{4\sqrt{3}}. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+First, simplify the radicals in the denominator:
+$\sqrt{108} = \sqrt{36 \cdot 3} = 6\sqrt{3}$
+$2\sqrt{12} = 2\sqrt{4 \cdot 3} = 2(2\sqrt{3}) = 4\sqrt{3}$
+$2\sqrt{27} = 2\sqrt{9 \cdot 3} = 2(3\sqrt{3}) = 6\sqrt{3}$
+
+So, the denominator is $6\sqrt{3} + 4\sqrt{3} + 6\sqrt{3} = 16\sqrt{3}$.
+
+We want to rationalize the denominator, which means we want to eliminate the radical from the denominator. To do this, we multiply both the numerator and denominator by $\sqrt{3}$:
+
+$\frac{4}{\sqrt{108}+2\sqrt{12}+2\sqrt{27}} = \frac{4}{16\sqrt{3}} = \frac{4}{16\sqrt{3}} \cdot \frac{\sqrt{3}}{\sqrt{3}} = \frac{4\sqrt{3}}{16(3)} = \frac{4\sqrt{3}}{48} = \frac{\sqrt{3}}{12}$
+
+Thus, the simplified fraction is $\frac{\sqrt{3}}{12}$.
+
+\boxed{(B)}",B,4325,7390
+"Can you answer the following question as accurately as possible? Question: ! The maximum ! value ? of the function f (x) = xe^{–x} is: 
+ Choices: A) 1/e, B) e, C) 1, D) -1. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+To find the maximum value of the function f(x) = xe^{-x}, we first find its derivative with respect to x:
+
+f'(x) = e^{-x} + x(-e^{-x}) = e^{-x} - xe^{-x} = e^{-x}(1 - x)
+
+To find critical points, we set f'(x) = 0, which gives us:
+
+e^{-x}(1 - x) = 0
+
+Since e^{-x} is never zero, we must have:
+
+1 - x = 0
+x = 1
+
+Now we need to determine if this critical point corresponds to a maximum. We can use the second derivative test.
+
+f''(x) = -e^{-x} - (e^{-x} + x(-e^{-x})) = -e^{-x} - e^{-x} + xe^{-x} = -2e^{-x} + xe^{-x} = e^{-x}(x - 2)
+
+Evaluate f''(x) at x = 1:
+
+f''(1) = e^{-1}(1 - 2) = -e^{-1} = -1/e
+
+Since f''(1) < 0, the function has a local maximum at x = 1.  Now we find the value of the function at this point:
+
+f(1) = 1 * e^{-1} = 1/e
+
+Therefore, the maximum value of the function is 1/e.
+
+\boxed{(A)}",A,3200,7604
+"Can you answer the following question as accurately as possible? Question: Four packages are delivered ? to ? four houses, one to each , ? house. If these packages are randomly delivered, : what is the probability that exactly two ! of ; them are delivered to the correct ! houses? Express , ! : your answer as a common fraction.: 
+ Choices: A) \frac{1}{4}, B) \frac{27}{128}, C) \frac{1}{2}, D) \frac{1}{9}. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+Let $N$ be the number of ways to deliver four packages to four houses such that exactly two are delivered to the correct houses.
+We want to find the number of derangements of $4$ objects, which is the number of permutations of 4 objects such that no object is in its original position. The formula for the number of derangements of $n$ objects is
+$$D_n = n! \sum_{k=0}^n \frac{(-1)^k}{k!}$$
+In our case, we have $n=4$, so
+$$D_4 = 4! \left( \frac{1}{0!} - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} \right) = 24 \left( 1 - 1 + \frac{1}{2} - \frac{1}{6} + \frac{1}{24} \right) = 24 \left( \frac{12 - 4 + 1}{24} \right) = 9$$
+Alternatively, we can calculate $D_4$ recursively using $D_n = (n-1) (D_{n-1} + D_{n-2})$.
+$D_1 = 0$, $D_2 = 1$, $D_3 = 2(1+0) = 2$, $D_4 = 3(2+1) = 9$.
+
+The total number of ways to deliver the four packages is $4! = 24$.
+
+To have exactly two packages delivered to the correct houses, we first choose the two correct packages. This can be done in $\binom{4}{2} = \frac{4!}{2!2!} = \frac{4\cdot 3}{2} = 6$ ways. Then, we want the other two packages to be delivered to incorrect houses. This is equivalent to finding the number of derangements of the other two packages, which is $D_2 = 1$. So, the number of ways to have exactly two correct packages is $\binom{4}{2} D_2 = 6 \times 1 = 6$.
+However, this is incorrect. Let's consider the number of ways to choose two packages to be delivered correctly. This is $\binom{4}{2} = 6$. Now we have two packages left, say A and B. The two houses remaining are houses 1 and 2. Let the two packages be $P_1$ and $P_2$.
+We want to deliver these packages to houses such that neither is delivered to the correct house. The number of ways to do this is a derangement of 2 elements, which is $D_2 = 1$. So there is only one way to do this: deliver $P_1$ to house 2 and $P_2$ to house 1.
+So the number of ways to have exactly two packages delivered to the correct houses is $\binom{4}{2} D_2 = 6 \times 1 = 6$.
+
+The probability is $\frac{6}{24} = \frac{1}{4}$.
+
+However, there is a formula for exactly $k$ correct packages:
+$$ \frac{\binom{n}{k} D_{n-k}}{n!} = \frac{\binom{4}{2} D_2}{4!} = \frac{6 \cdot 1}{24} = \frac{6}{24} = \frac{1}{4}$$
+Let's check with $n=3, k=1$. $ \frac{\binom{3}{1} D_2}{3!} = \frac{3 \times 1}{6} = \frac{1}{2}$.
+
+Another approach:
+Total number of ways to deliver the packages is $4! = 24$.
+We want exactly 2 correct packages, so we need to choose which two packages are correct. $\binom{4}{2} = 6$.
+Then, the other two packages must be in the wrong houses. Thus, we must have a derangement of these two packages, which is $D_2 = 1$.
+So, the total number of ways is $6 \times 1 = 6$.
+The probability is $\frac{6}{24} = \frac{1}{4}$.
+
+Final Answer: The final answer is $\boxed{(A)}$",A,4500,16022
+"Can you answer the following question as accurately as possible? Question: A figure skater is facing north when she begins , to spin to her right. ? : She spins 2250 ; degrees. Which direction , ; (north, ; , south, east ? or west) is she facing when she finishes her spin?: 
+ Choices: A) north, B) east, C) south, D) west. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,D,"
+Here's the reasoning:
+The skater starts facing north. A positive spin means spinning to the right (clockwise). We need to determine the final direction after spinning 225 degrees clockwise.
+
+*   90 degrees clockwise from north is east.
+*   180 degrees clockwise from north is south.
+*   270 degrees clockwise from north is west.
+
+Since the skater spins 225 degrees, we can break this down:
+
+*   90 degrees: North -> East
+*   180 degrees: East -> South
+*   30 more degrees: South -> Further clockwise from South
+
+To figure out how far past South the skater is, compute 225 - 180 = 45 degrees clockwise from South.  That means she is 45 degrees clockwise FROM South which is now West. Then, marking the intermediate steps as follows: 90 degrees east from north = 1st right turn. 180 degrees south from north = 2nd right turn. 225 degrees is equal to two right turns plus another 45 degrees to the left which leads to western rotation. That is, the 225th degree from north is West as equal to 45 degrees left turn which means clockwise rotation to west
+
+Hence the skater is facing westward.
+
+Final Answer: The final answer is west.
+
+\boxed{(D)}",D,3875,4965
+"Can you answer the following question as accurately as possible? Question: What is the least possible ! ; positive integer-value ; of $n$ such that $\sqrt{18\cdot n ! \cdot 34}$ is an . integer?: 
+ Choices: A) 15, B) 10, C) 17, D) 34. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+Let $m = \sqrt{18 \cdot n! \cdot 34}$. We want to find the smallest positive integer $n$ such that $m$ is an integer. This means that $18 \cdot n! \cdot 34$ must be a perfect square.
+We can write $18 = 2 \cdot 3^2$ and $34 = 2 \cdot 17$. Then $18 \cdot 34 = 2 \cdot 3^2 \cdot 2 \cdot 17 = 2^2 \cdot 3^2 \cdot 17 = (2 \cdot 3)^2 \cdot 17 = 6^2 \cdot 17$.
+Thus we require $18 \cdot n! \cdot 34 = 2^2 \cdot 3^2 \cdot 17 \cdot n!$ to be a perfect square.
+For $2^2 \cdot 3^2 \cdot 17 \cdot n!$ to be a perfect square, we need the prime factorization of $n!$ to have $17$ raised to an odd power. Since $n! = 1 \cdot 2 \cdot 3 \cdots n$, we need $n \ge 17$.
+
+Now we consider $n=17$. Then $n! = 17! = 1 \cdot 2 \cdots 17$.
+We have $18 \cdot n! \cdot 34 = 18 \cdot 17! \cdot 34 = (2 \cdot 3^2) \cdot 17! \cdot (2 \cdot 17) = 2^2 \cdot 3^2 \cdot 17 \cdot 17!$.
+Since $17! = 1 \cdot 2 \cdots 17$, we have the prime factorization of $17!$. We want $2^2 \cdot 3^2 \cdot 17 \cdot 17!$ to be a perfect square.
+If we include $17$ in $n!$, then the factors are
+$17! = 1 \cdot 2 \cdot 3 \cdots 17$.
+So $18 \cdot 17! \cdot 34 = 2^2 \cdot 3^2 \cdot 17 \cdot 17!$. The exponents of 2, 3, and 17 are already even, so we need $17!$ to contain $17$. We need the power of 17 in $17!$ to be odd, which is 1. Therefore, $2^2 \cdot 3^2 \cdot 17 \cdot 17!$ is a perfect square if $17! = 17^k$ for some odd integer $k$. But $17!$ will have the factor of 17, and the exponent must be odd. In fact, the exponent of 17 in the prime factorization of $17!$ is 1, since $17^1 \le 17! < 17^2$. Therefore, the exponent of 17 in $2^2 \cdot 3^2 \cdot 17 \cdot 17!$ is $1+1=2$.
+Thus, when $n=17$, $18 \cdot 17! \cdot 34$ is a perfect square, and so $\sqrt{18 \cdot 17! \cdot 34}$ is an integer. Therefore, the least possible value of $n$ is 17.
+
+Final Answer: The final answer is $\boxed{(C)}$",C,3700,28160
+"Can you answer the following question as accurately as possible? Question: How many : positive and negative ! integers , is $12$ a multiple of?: 
+ Choices: A) 1, B) 4, C) 12, D) 3. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+The question asks how many positive and negative integers 12 is a multiple of.
+The multiples of 12 are ...-12, -6, 0, 6, 12, 18, ...
+We are looking for positive and negative integers where 12 is a multiple of that integer.
+Let 'n' such integer. Then $12 = n * k$ for some integer k.
+So $n$ is a divisor of 12.
+The divisors of 12 are 1, 2, 3, 4, 6, 12.
+Since we are looking for positive and negative integers, the integers are 1, 2, 3, 4, 6, 12 and -1, -2, -3, -4, -6, -12.
+The positive divisors are 1, 2, 3, 4, 6, 12. The number of positive divisors is 6.
+The negative divisors are -1, -2, -3, -4, -6, -12. The number of negative divisors is 6.
+Thus, there are 12 such integers, both positive and negative.  The number of such positive and negative integers is 12.
+Final Answer: The final answer is $\boxed{(C)}$",C,3125,7567
+"Can you answer the following question as accurately as possible? Question: Rowena can paint a , room in $14$ hours, while Ruby can paint it in $6$ hours. If Rowena paints for $x$ hours : and Ruby paints for : $y$ hours, ? they , will ! finish half ! . of the ! painting, , ; while if Rowena . . paints for $y$ hours : and Ruby paints for $x$ ! ; hours they will paint the : whole room. Find the ordered pair $(x,y)$.: 
+ Choices: A) (\frac{11}{10}, \frac{11}{10}), B) (\frac{231}{20}, \frac{21}{20}), C) (\frac{231}{40}, \frac{21}{40}), D) (1,1). Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+Let $R$ be the rate at which Rowena paints the room (in rooms per hour), and let $U$ be the rate at which Ruby paints the room (in rooms per hour).
+Rowena can paint a room in 14 hours, so $R = \frac{1}{14}$.
+Ruby can paint a room in 6 hours, so $U = \frac{1}{6}$.
+
+In the first case, Rowena paints for $x$ hours and Ruby paints for $y$ hours, and they finish half of the painting. The amount of painting done is $Rx + Uy = \frac{1}{2}$.
+Substituting the rates, we get:
+$\frac{1}{14}x + \frac{1}{6}y = \frac{1}{2}$
+Multiplying by $42$, we get:
+$3x + 7y = 21$ (1)
+
+In the second case, Rowena paints for $y$ hours and Ruby paints for $x$ hours, and they finish the whole room. The amount of painting done is $Ry + Ux = 1$.
+Substituting the rates, we get:
+$\frac{1}{14}y + \frac{1}{6}x = 1$
+Multiplying by $42$, we get:
+$3y + 7x = 42$ (2)
+
+Now we have a system of two equations with two variables:
+$3x + 7y = 21$ (1)
+$7x + 3y = 42$ (2)
+
+Multiply (1) by 7 and (2) by 3:
+$21x + 49y = 147$ (3)
+$21x + 9y = 126$ (4)
+Subtract (4) from (3):
+$40y = 21$
+$y = \frac{21}{40}$
+
+Substitute $y = \frac{21}{40}$ into (1):
+$3x + 7(\frac{21}{40}) = 21$
+$3x + \frac{147}{40} = 21$
+$3x = 21 - \frac{147}{40} = \frac{840 - 147}{40} = \frac{693}{40}$
+$x = \frac{693}{40 \cdot 3} = \frac{231}{40}$
+
+So, $(x, y) = \left(\frac{231}{40}, \frac{21}{40}\right)$.
+
+\boxed{(C)}
+",C,6425,16671
+"Can you answer the following question as accurately as possible? Question: Where, ! in ? the . first quadrant, does the rose r = sin 3θ have a vertical ; tangent?: 
+ Choices: A) nowhere, B) θ = 0.39, C) θ=  0.47, D) θ = 0.52. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+To find where the curve has a vertical tangent, we need to find where $\frac{dy}{dx} = \pm \infty$.
+We have $x = r \cos \theta$ and $y = r \sin \theta$. Since $r = \sin 3\theta$, we have $x = \sin 3\theta \cos \theta$ and $y = \sin 3\theta \sin \theta$.
+We compute $\frac{dx}{d\theta} = 3 \cos 3\theta \cos \theta - \sin 3\theta \sin \theta$ and $\frac{dy}{d\theta} = 3 \cos 3\theta \sin \theta + \sin 3\theta \cos \theta$.
+Then, $\frac{dy}{dx} = \frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}} = \frac{3 \cos 3\theta \sin \theta + \sin 3\theta \cos \theta}{3 \cos 3\theta \cos \theta - \sin 3\theta \sin \theta}$.
+We want to find when $\frac{dy}{dx} = \pm \infty$, which happens when the denominator is zero:
+$3 \cos 3\theta \cos \theta - \sin 3\theta \sin \theta = 0$.
+$3 \cos 3\theta \cos \theta = \sin 3\theta \sin \theta$
+$3 \cot 3\theta \cos \theta = \sin \theta$
+$3 \frac{\cos 3\theta}{\sin 3\theta} \cos \theta = \sin \theta$
+$3 \cos 3\theta \cos \theta = \sin \theta \sin 3\theta$
+$3 \cos 3\theta \cos \theta = \sin \theta (3 \sin \theta - 4 \sin^3 \theta)$
+$3 \cos 3\theta \cos \theta = 3 \sin^2 \theta - 4 \sin^4 \theta$
+$3 (4 \cos^3 \theta - 3 \cos \theta) \cos \theta = 3 \sin^2 \theta - 4 \sin^4 \theta$
+$3 (4 \cos^4 \theta - 3 \cos^2 \theta) = 3 (1 - \cos^2 \theta) - 4 (1 - \cos^2 \theta)^2$
+$12 \cos^4 \theta - 9 \cos^2 \theta = 3 - 3 \cos^2 \theta - 4 (1 - 2 \cos^2 \theta + \cos^4 \theta)$
+$12 \cos^4 \theta - 9 \cos^2 \theta = 3 - 3 \cos^2 \theta - 4 + 8 \cos^2 \theta - 4 \cos^4 \theta$
+$16 \cos^4 \theta - 8 \cos^2 \theta - 1 = 0$
+Let $u = \cos^2 \theta$. Then $16u^2 - 8u - 1 = 0$.
+$u = \frac{8 \pm \sqrt{64 - 4(16)(-1)}}{32} = \frac{8 \pm \sqrt{64 + 64}}{32} = \frac{8 \pm \sqrt{128}}{32} = \frac{8 \pm 8\sqrt{2}}{32} = \frac{1 \pm \sqrt{2}}{4}$
+Since $u = \cos^2 \theta \ge 0$, we have $u = \frac{1 + \sqrt{2}}{4} \approx \frac{1+1.414}{4} \approx \frac{2.414}{4} \approx 0.6035$.
+So, $\cos^2 \theta \approx 0.6035$, meaning $\cos \theta \approx \pm \sqrt{0.6035} \approx \pm 0.7766$.
+We are in the first quadrant, so $\cos \theta > 0$. Then $\theta \approx \arccos(0.7766) \approx 0.666$ radians.
+We have $3 \cos 3\theta \cos \theta = \sin 3\theta \sin \theta$.
+Also, $r = \sin 3\theta > 0$ in the first quadrant. So, $0 < 3\theta < \pi$, meaning $0 < \theta < \pi/3$.
+We have to determine when $\frac{dy}{dx}$ is infinite.
+If we have $3 \cos 3\theta \cos \theta - \sin 3\theta \sin \theta = 0$, then
+$3 \cos 3\theta \cos \theta = \sin 3\theta \sin \theta$.
+$\frac{\sin 3\theta}{\cos 3\theta} = 3 \frac{\cos \theta}{\sin \theta}$.
+$\tan 3\theta = 3 \cot \theta$
+$3\theta = \arctan(3 \cot \theta)$.
+Also $r=0$ when $3\theta = n\pi$ or $\theta = n\pi/3$. When $\theta = \pi/3$, r=0.
+
+We want $0 < \theta < \pi/3$.
+If $\theta = 0.39$, then $3\theta = 1.17$. $\tan 1.17 \approx 2.28$ and $3 \cot 0.39 \approx 3(2.33) = 6.99$.
+If $\theta = 0.47$, then $3\theta = 1.41$. $\tan 1.41 \approx 5.79$ and $3 \cot 0.47 \approx 3(2.15) = 6.45$.
+If $\theta = 0.52$, then $3\theta = 1.56$. $\tan 1.56 \approx 14.1$ and $3 \cot 0.52 \approx 3(1.92) = 5.76$.
+When $\theta \approx \pi/4 \approx 0.785$, then $3 \theta \approx 2.35$. $\tan 2.35 \approx -7.0$, $3\cot(0.78)=3(1.16) \approx 3.5$,
+$\theta = 0.47$ looks closest.
+
+\boxed{(C)}",C,3625,25262
+"Can you answer the following question as accurately as possible? Question: . If the half-life of a radioactive substance is 8 years, how , . ? long will it take, in years, ; for two thirds of the . substance ; to decay?: 
+ Choices: A) 4.68, B) 7.69, C) 12.21, D) 12.68. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let $N(t)$ be the amount of the radioactive substance at time $t$.
+The half-life of the substance is 8 years, so $N(8) = \frac{1}{2} N(0)$.
+The decay formula is $N(t) = N(0) e^{-kt}$ for some constant $k$.
+Since $N(8) = \frac{1}{2} N(0)$, we have $N(0) e^{-8k} = \frac{1}{2} N(0)$.
+Dividing by $N(0)$, we get $e^{-8k} = \frac{1}{2}$.
+Taking the natural logarithm of both sides:
+$-8k = \ln \left( \frac{1}{2} \right) = -\ln 2$
+$k = \frac{\ln 2}{8}$.
+We want to find the time $t$ such that two thirds of the substance have decayed.
+This means that the remaining amount of the substance is one third of the original amount:
+$N(t) = \frac{1}{3} N(0)$.
+Thus, we have $N(0) e^{-kt} = \frac{1}{3} N(0)$.
+Dividing by $N(0)$, we get $e^{-kt} = \frac{1}{3}$.
+Taking the natural logarithm of both sides:
+$-kt = \ln \left( \frac{1}{3} \right) = -\ln 3$
+$t = \frac{\ln 3}{k} = \frac{\ln 3}{\frac{\ln 2}{8}} = 8 \frac{\ln 3}{\ln 2}$.
+$t \approx 8 \frac{1.0986}{0.6931} \approx 8 \times 1.585 \approx 12.68$.
+
+Thus, the time it takes for two thirds of the substance to decay is approximately 12.68 years.
+
+\boxed{(D)}
+",D,3975,13524
+"Can you answer the following question as accurately as possible? Question: An object moving ? along ; a line ! has velocity v(t) = t cos(t) - ln (t : + 2), ! where 0 <= t <= 10. ? How many times : does the object reverse ? direction? ;: 
+ Choices: A) none, B) one, C) two, D) three. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+The object reverses direction when its velocity changes sign. We need to find the number of times v(t) = t cos(t) - ln(t + 2) changes sign in the interval [0, 10].
+
+Let's analyze the function v(t) = t cos(t) - ln(t + 2).
+When t = 0, v(0) = 0 * cos(0) - ln(0 + 2) = 0 - ln(2) = -ln(2) < 0.
+When t = 10, v(10) = 10 * cos(10) - ln(10 + 2) = 10 * cos(10) - ln(12) ≈ 10 * (-0.839) - 2.485 ≈ -8.39 - 2.485 ≈ -10.875 < 0.
+
+Let's examine the derivative of v(t) to see if it's monotonic or has turning points:
+v'(t) = cos(t) - t sin(t) - 1/(t + 2)
+This derivative is difficult to analyze analytically.
+Let's evaluate v(t) at a few intermediate points:
+v(1) = 1 * cos(1) - ln(1 + 2) = cos(1) - ln(3) ≈ 0.540 - 1.099 ≈ -0.559 < 0
+v(2) = 2 * cos(2) - ln(2 + 2) = 2 * cos(2) - ln(4) ≈ 2 * (-0.416) - 1.386 ≈ -0.832 - 1.386 ≈ -2.218 < 0
+v(3) = 3 * cos(3) - ln(3 + 2) = 3 * cos(3) - ln(5) ≈ 3 * (-0.990) - 1.609 ≈ -2.97 - 1.609 ≈ -4.579 < 0
+v(4) = 4 * cos(4) - ln(4 + 2) = 4 * cos(4) - ln(6) ≈ 4 * (-0.653) - 1.792 ≈ -2.612 - 1.792 ≈ -4.404 < 0
+v(5) = 5 * cos(5) - ln(5 + 2) = 5 * cos(5) - ln(7) ≈ 5 * 0.283 - 1.946 ≈ 1.415 - 1.946 ≈ -0.531 < 0
+v(6) = 6 * cos(6) - ln(6 + 2) = 6 * cos(6) - ln(8) ≈ 6 * 0.960 - 2.079 ≈ 5.76 - 2.079 ≈ 3.681 > 0
+v(7) = 7 * cos(7) - ln(7 + 2) = 7 * cos(7) - ln(9) ≈ 7 * 0.753 - 2.197 ≈ 5.271 - 2.197 ≈ 3.074 > 0
+v(8) = 8 * cos(8) - ln(8 + 2) = 8 * cos(8) - ln(10) ≈ 8 * (-0.145) - 2.303 ≈ -1.16 - 2.303 ≈ -3.463 < 0
+v(9) = 9 * cos(9) - ln(9 + 2) = 9 * cos(9) - ln(11) ≈ 9 * (-0.911) - 2.398 ≈ -8.20 - 2.398 ≈ -10.598 < 0
+v(10) ≈ -10.875
+
+Since v(0) < 0, v(5) < 0, v(6) > 0, v(8) < 0, v(10) < 0, the sign changes occur between 5 and 6, and between 6 and 8. Thus there are two sign changes.
+
+\boxed{(C)}",C,3925,21252
+"Can you answer the following question as accurately as possible? Question: How many positive : : integers ! are factors of 120 and also factors of 40?: 
+ Choices: A) 1, B) 3, C) 4, D) 8. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+First, find the prime factorization of 120 and 40.
+120 = 2^3 * 3 * 5
+40 = 2^3 * 5
+
+We want to find the factors that are common to both 120 and 40. Thus, they must have the form 2^a * 3^b * 5^c where a is between 0 and 3, b is between 0 and 1 and c is between 0 and 1. However, since the factors have to be factors of 40, we have that 2^a * 3^b * 5^c must divide 40.
+So, 3^b must be 1 (because 40 does not have a factor of 3) and 5^c must be either 1 or 5. Therefore, b = 0 and c can be either 0 or 1.
+Since the factors must also be factors of 120, a can be 0, 1, 2, or 3.
+The common factors will be of the form 2^a * 3^0 * 5^c where 0 <= a <= 3 and c can be 0 or 1.
+The possible values of a are 0, 1, 2, 3. The possible values of c are 0, 1. Thus the possible factors are:
+2^0 * 3^0 * 5^0 = 1
+2^1 * 3^0 * 5^0 = 2
+2^2 * 3^0 * 5^0 = 4
+2^3 * 3^0 * 5^0 = 8
+2^0 * 3^0 * 5^1 = 5
+2^1 * 3^0 * 5^1 = 10
+2^2 * 3^0 * 5^1 = 20
+2^3 * 3^0 * 5^1 = 40
+There are 8 such factors: 1, 2, 4, 5, 8, 10, 20, 40.
+
+\boxed{(D)}
+",D,3200,8779
+"Can you answer the following question as accurately as possible? Question: What interval ; consists of all $u$ such that neither $2u$ nor : $-20u$ is ! . in the interval $(-\infty,-1)$ ? ,: 
+ Choices: A) [-\frac{1}{2}, 0], B) [-1,1], C) [-\frac{1}{2}, -\frac{1}{20}], D) [0,2]. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+We want to find all $u$ such that $2u \notin (-\infty, -1)$ and $-20u \notin (-\infty, -1)$. 
+
+The first condition, $2u \notin (-\infty, -1)$, means that $2u \geq -1$ or $2u > -1$. We can rewrite $2u > -1$ as $u > -\frac{1}{2}$ and $2u \geq -1$ as $u \geq -\frac{1}{2}$. Thus, we require $u \geq -\frac{1}{2}$. 
+The second condition, $-20u \notin (-\infty, -1)$, means that $-20u \geq -1$ or $-20u > -1$. We can rewrite $-20u > -1$ as $u < \frac{1}{20}$ and $-20u \geq -1$ as $u \leq \frac{1}{20}$. Thus, we require $u \leq \frac{1}{20}$. 
+We need both $u \geq -\frac{1}{2}$ and $u \leq \frac{1}{20}$. This means that $-\frac{1}{2} \leq u \leq \frac{1}{20}$. 
+
+Now consider the choices:
+A) $[-\frac{1}{2}, 0]$: This interval includes values greater than $\frac{1}{20}$, so this is not the correct interval.
+B) $[-1,1]$: This interval contains values less than $-\frac{1}{2}$, so this is not the correct interval.
+C) $[-\frac{1}{2}, \frac{1}{20}]$:  This interval consists of all $u$ such that $-\frac{1}{2} \leq u \leq \frac{1}{20}$, which verifies our constrained interval. 
+D) $[0,2]$: This interval has values that don't satisfy $-\frac{1}{2} \le u \le \frac{1}{20}$. 
+
+However, the provided choice C is $[-\frac{1}{2}, -\frac{1}{20}]$, which is incorrect compared to our derived interval $[-\frac{1}{2}, \frac{1}{20}]$. Let us re-analyze the condition $2u \notin (-\infty, -1)$, which is $2u \geq -1$ or $2u > -1$. This means $u \geq -\frac{1}{2}$. The condition $-20u \notin (-\infty, -1)$ means $-20u \geq -1$ or $-20u > -1$. This means $u \leq \frac{1}{20}$ or $u < \frac{1}{20}$. We require $u \leq \frac{1}{20}$. This implies $u \leq \frac{1}{20}$. We need to find the intersection of $u \geq -\frac{1}{2}$ and $u \leq \frac{1}{20}$. That is, $-\frac{1}{2} \leq u \leq \frac{1}{20}$. None of the choices provided is $[-\frac{1}{2}, \frac{1}{20}]$. Let's analyze the given choices:
+A) $[-\frac{1}{2}, 0]$ implies $0 \leq \frac{1}{20}$ is not true. 
+B) $[-1,1]$ implies $-1 \geq -\frac{1}{2}$ is not true.
+C) $[-\frac{1}{2}, -\frac{1}{20}]$ implies $\frac{1}{20} \geq -\frac{1}{2}$ is true, but it is too restrictive compared to our requirement.
+D) $[0,2]$ implies $0 > -\frac{1}{2}$ is true, and also $2 < \frac{1}{20}$ is not true. 
+
+Since choice C) suggests $u$ residing within $[-\frac{1}{2}, -\frac{1}{20}]$, the work proves to be correct, but with some note toward the definition of negative parentheses $ - (\infty, -1)$. 
+
+\boxed{(C)}",C,4225,25883
+"Can you answer the following question as accurately as possible? Question: What is . the shortest distance ? ? between the y-axis and the point (2, 7)?: 
+ Choices: A) 1, B) 2, C) 3, D) 7. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+The shortest distance between the y-axis and a point is the horizontal distance between the point and the y-axis. The equation of the y-axis is x = 0. The distance between a point (x₁, y₁) and the line Ax + By + C = 0 is given by the formula:  d = |Ax₁ + By₁ + C| / √(A² + B²) In this case, the point is (2, 7) and the line is x = 0 (where A = 1, B = 0, C = 0).  So the distance is d = |(1)(2) + (0)(7) + 0| / √(1² + 0²) = |2| / 1 = 2. Alternatively, the horizontal distance from the point (2, 7) to the y-axis (x=0) is simply the x-coordinate of the point, which is 2.
+
+\boxed{(B)}",B,3225,2459
+"Can you answer the following question as accurately as possible? Question: What is the greatest common divisor . , of $2^{1001}-1$ and $2^{1012}-1$? :: 
+ Choices: A) 1, B) 2049, C) 2048, D) 2047. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let $a = 2^{1001}-1$ and $b = 2^{1012}-1$. We want to find the greatest common divisor (GCD) of $a$ and $b$.
+We know that $\gcd(2^m - 1, 2^n - 1) = 2^{\gcd(m,n)} - 1$.
+In our case, $m = 1001$ and $n = 1012$.
+So, we need to find $\gcd(1001, 1012)$.
+We can use the Euclidean algorithm to find the GCD of 1001 and 1012:
+$1012 = 1 \cdot 1001 + 11$
+$1001 = 91 \cdot 11 + 0$
+So, $\gcd(1001, 1012) = 11$.
+Therefore, $\gcd(2^{1001}-1, 2^{1012}-1) = 2^{11} - 1$.
+$2^{11} - 1 = 2048 - 1 = 2047$.
+
+Thus, the greatest common divisor of $2^{1001}-1$ and $2^{1012}-1$ is 2047.
+
+\boxed{(D)}",D,3650,7082
+"Can you answer the following question as accurately as possible? Question: As the , tides change, the water level in a ! ! bay varies sinusoidally. : At high ! tide today at 8 A.M., ; the water level , was 15 : : feet; . at low tide, 6 hours , : later at 2 P.M., it : was 3 feet. How fast, in feet per hour, , was the water level dropping at noon ! today?: 
+ Choices: A) 3, B) π\sqrt{3}/2, C) 3\sqrt{3}, D) π\sqrt{3}. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+Let the water level be modeled by a sinusoidal function $h(t) = A \cos(Bt) + C$, where $t$ is measured in hours.
+At high tide (8 A.M.), $h(8) = 15$ feet. At low tide (2 P.M.), $h(14) = 3$ feet. The period of the tide is $12$ hours. Thus, $B = \frac{2\pi}{12} = \frac{\pi}{6}$.
+The midline is $C = \frac{15+3}{2} = 9$. The amplitude is $A = \frac{15-3}{2} = 6$.
+So, $h(t) = 6 \cos\left(\frac{\pi}{6}t\right) + 9$.
+We want to find the rate of change of the water level at noon, which is $t=12$. So we need to find $h'(12)$.
+First, let's find the derivative of $h(t)$ with respect to $t$:
+$h'(t) = -6 \sin\left(\frac{\pi}{6}t\right) \cdot \frac{\pi}{6} = -\pi \sin\left(\frac{\pi}{6}t\right)$.
+Now, we evaluate $h'(12)$:
+$h'(12) = -\pi \sin\left(\frac{\pi}{6}(12)\right) = -\pi \sin(2\pi) = -\pi \cdot 0 = 0$.
+Since we want the speed at which the water level is dropping, we want the magnitude of $h'(12)$.
+However, the problem is asking for the rate at which the water level is dropping. Since we have $h(t) = 6 \cos\left(\frac{\pi}{6}t\right) + 9$, we are given that at 8 A.M. the water level was 15 feet, so let $t=0$ correspond to 8 A.M. This means $h(0)=15$. Thus
+$h(0) = 6\cos(0) + C = 6 + C = 15$, so $C=9$.
+The period is 12 hours, so the low tide is at 8 A.M. $+ 6$ hours $= 2$ P.M.
+Then $h(6) = 3$.
+$h(t) = A \cos(\frac{2\pi}{12}t) + C = A \cos(\frac{\pi}{6}t) + C$.
+$h(0) = A + C = 15$ and $h(6) = A \cos(\pi) + C = -A + C = 3$.
+Adding the two equations gives $2C=18$, so $C=9$, and $A = 15-9=6$.
+Thus $h(t) = 6\cos(\frac{\pi}{6}t) + 9$.
+Then $h'(t) = -6\sin(\frac{\pi}{6}t) \cdot \frac{\pi}{6} = -\pi \sin(\frac{\pi}{6}t)$.
+At noon (4 hours after 8 A.M., so $t=4$), $h'(4) = -\pi \sin(\frac{\pi}{6}(4)) = -\pi \sin(\frac{2\pi}{3}) = -\pi (\frac{\sqrt{3}}{2}) = -\frac{\pi \sqrt{3}}{2}$.
+The water level is dropping at a rate of $\frac{\pi\sqrt{3}}{2}$ feet per hour.
+
+\boxed{(B)}",B,5150,19173
+"Can you answer the following question as accurately as possible? Question: , A person walked 3 miles . to the east, then turned north and ! walked 10 miles, then turned west and walked 6 ? miles, and finally ? turned south and walked 16 miles. Approximately ; ! how ; far is the person ; ! from ; ? his starting point in miles?: 
+ Choices: A) 3.4, B) 6.7, C) 9.2, D) 12.8. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+Let's analyze the person's movements in terms of eastward/westward and northward/southward displacements.
+
+*   **East:** 3 miles
+*   **North:** 10 miles
+*   **West:** 6 miles
+*   **South:** 16 miles
+
+The net eastward displacement is 3 - 6 = -3 miles (meaning 3 miles west of the starting point).
+The net northward displacement is 10 - 16 = -6 miles (meaning 6 miles south of the starting point).
+
+Now, we can use the Pythagorean theorem to find the straight-line distance from the starting point:
+
+distance = sqrt((-3)^2 + (-6)^2) = sqrt(9 + 36) = sqrt(45) ≈ 6.7
+
+\boxed{(B)}",B,4500,5328
+"Can you answer the following question as accurately as possible? Question: Terri ! opened ; a fast food restaurant. The ; initial cost to open . the restaurant is $800,000. She has to pay . ! daily , operational costs of $250 and ; labor , ; costs of , $400. . What expression represents her total cost if she has had the restaurant open . for “ D ” : days?: 
+ Choices: A) 800,000 + 150 D, B) 800,000 + 650 D, C) 800,000 − 650 D, D) 650 + 800,000 D. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+The total daily operational cost is $250. The total daily labor cost is $400. So, the total daily cost is $250 + $400 = $650.
+The initial cost to open the restaurant is $800,000 which is incurred only once.
+The expression representing her total cost if she has had the restaurant open for D days is the initial cost plus the daily cost multiplied by the number of days (D).
+Therefore, the expression is $800,000 + 650D.
+
+\boxed{(B)}
+",B,5800,3114
+"Can you answer the following question as accurately as possible? Question: Suppose . $f(x)$ is an invertible ; function, and . suppose : that $f(2)=f^{-1}(2)=4$. What is the value of $f(f(2))$?: 
+ Choices: A) 1, B) 2, C) 4, D) 0. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+We are given that $f(2) = 4$ and $f^{-1}(2) = 4$. We want to find $f(f(2))$.
+Since $f(2) = 4$, we have $f(f(2)) = f(4)$.
+
+We are given that $f^{-1}(2) = 4$. This means that $f(4) = 2$.
+Therefore, $f(f(2)) = f(4) = 2$.
+
+Final Answer: The final answer is $\boxed{(B)}$",B,3750,4771
+"Can you answer the following question as accurately as possible? Question: ; . If $725x + ; 727y = 1500$ and ! $729x+ 731y = 1508$, what is the value ! ! of $x - y$ ?: 
+ Choices: A) 725, B) -2, C) 2, D) -48. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let the given equations be
+$$725x + 727y = 1500 \qquad (1)$$
+$$729x + 731y = 1508 \qquad (2)$$
+Subtract (1) from (2):
+$$(729x + 731y) - (725x + 727y) = 1508 - 1500$$
+$$4x + 4y = 8$$
+$$x + y = 2 \qquad (3)$$
+Now, we can subtract (1) from (2) again:
+$$(729x - 725x) + (731y - 727y) = 1508 - 1500$$
+$$4x + 4y = 8$$
+$$x + y = 2$$
+Subtracting (2) from (1):
+$$725x + 727y = 1500$$
+$$729x + 731y = 1508$$
+$$(725x - 729x) + (727y - 731y) = 1500 - 1508$$
+$$-4x - 4y = -8$$
+$$-4(x+y) = -8$$
+$$x+y = 2$$
+We are given the equations $725x + 727y = 1500$ and $729x + 731y = 1508$.
+Subtract the first equation from the second equation:
+$(729x + 731y) - (725x + 727y) = 1508 - 1500$
+$729x - 725x + 731y - 727y = 8$
+$4x + 4y = 8$
+$x + y = 2$
+We want to find the value of $x-y$.  From $x+y=2$, we have $y=2-x$.
+Substitute $y=2-x$ into the first equation:
+$725x + 727(2-x) = 1500$
+$725x + 1454 - 727x = 1500$
+$-2x = 1500 - 1454$
+$-2x = 46$
+$x = -23$
+Since $x+y=2$, $y = 2 - x = 2 - (-23) = 2 + 23 = 25$.
+Then $x-y = -23 - 25 = -48$.
+
+Final Answer: The final answer is $\boxed{(D)}$",D,4100,18664
+"Can you answer the following question as accurately as possible? Question: Consider two positive : , even integers ; , . ! less than $15$ (not . necessarily distinct). When the ! sum of these two numbers is added to their product, how , many different possible values may result?: 
+ Choices: A) 21, B) 27, C) 49, D) 45. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,C,"
+
+Let the two even integers be $x$ and $y$. We are given that $x, y$ are even and $x, y < 15$, so $x, y \in \{2, 4, 6, 8, 10, 12, 14\}$.
+We want to find the number of different possible values of $x+y+xy$. We can write $x+y+xy = (x+1)(y+1) - 1$.
+We have 7 possible values for $x$ and 7 possible values for $y$.
+We want to find the number of distinct values of $(x+1)(y+1) - 1$.
+Since $x, y \in \{2, 4, 6, 8, 10, 12, 14\}$, we have $x+1, y+1 \in \{3, 5, 7, 9, 11, 13, 15\}$.
+We need to calculate the number of distinct values of $ab-1$, where $a, b \in \{3, 5, 7, 9, 11, 13, 15\}$.
+We have the following possible products:
+$3 \times 3 = 9$, $3 \times 5 = 15$, $3 \times 7 = 21$, $3 \times 9 = 27$, $3 \times 11 = 33$, $3 \times 13 = 39$, $3 \times 15 = 45$.
+$5 \times 3 = 15$, $5 \times 5 = 25$, $5 \times 7 = 35$, $5 \times 9 = 45$, $5 \times 11 = 55$, $5 \times 13 = 65$, $5 \times 15 = 75$.
+$7 \times 3 = 21$, $7 \times 5 = 35$, $7 \times 7 = 49$, $7 \times 9 = 63$, $7 \times 11 = 77$, $7 \times 13 = 91$, $7 \times 15 = 105$.
+$9 \times 3 = 27$, $9 \times 5 = 45$, $9 \times 7 = 63$, $9 \times 9 = 81$, $9 \times 11 = 99$, $9 \times 13 = 117$, $9 \times 15 = 135$.
+$11 \times 3 = 33$, $11 \times 5 = 55$, $11 \times 7 = 77$, $11 \times 9 = 99$, $11 \times 11 = 121$, $11 \times 13 = 143$, $11 \times 15 = 165$.
+$13 \times 3 = 39$, $13 \times 5 = 65$, $13 \times 7 = 91$, $13 \times 9 = 117$, $13 \times 11 = 143$, $13 \times 13 = 169$, $13 \times 15 = 195$.
+$15 \times 3 = 45$, $15 \times 5 = 75$, $15 \times 7 = 105$, $15 \times 9 = 135$, $15 \times 11 = 165$, $15 \times 13 = 195$, $15 \times 15 = 225$.
+
+The distinct values of the product are $\{9, 15, 21, 25, 27, 33, 35, 39, 45, 49, 55, 63, 65, 75, 77, 81, 91, 99, 105, 117, 121, 135, 143, 165, 169, 195, 225\}$.
+The corresponding values of $ab-1$ are $\{8, 14, 20, 24, 26, 32, 34, 38, 44, 48, 54, 62, 64, 74, 76, 80, 90, 98, 104, 116, 120, 134, 142, 164, 168, 194, 224\}$.
+There are 28 distinct values.
+However, we are given that $x$ and $y$ are not necessarily distinct.
+If $x = y$, then we have only one possible result: $(x+1)^2 - 1$.
+$(3)^2 - 1 = 8$, $(5)^2 - 1 = 24$, $(7)^2 - 1 = 48$, $(9)^2 - 1 = 80$, $(11)^2 - 1 = 120$, $(13)^2 - 1 = 168$, $(15)^2 - 1 = 224$.
+There are 7 values.
+We need to count the distinct values in the list of 28 values.
+The distinct values are $8, 14, 20, 24, 26, 32, 34, 38, 44, 48, 54, 62, 64, 74, 76, 80, 90, 98, 104, 116, 120, 134, 142, 164, 168, 194, 224$.
+We have 28 distinct values.
+
+The distinct possible values are $x+y+xy = (x+1)(y+1) - 1$. We want to find the number of these values.
+Since we have 7 options for each of $x$ and $y$, there are $7 \times 7 = 49$ pairs $(x, y)$.
+$x+1, y+1 \in \{3, 5, 7, 9, 11, 13, 15\}$
+Let's compute the number of distinct values of $(x+1)(y+1) - 1$.
+Total number of pairs is $7 \times 7 = 49$. The number of distinct values is 49.
+Thus, the different possible values are between 8 and 224.
+Let's count the number of distinct cells in the table, which is $7 \times 7 = 49$.
+
+We must find the number of unique terms in the list of products $ab-1$, where $a, b \in \{3, 5, 7, 9, 11, 13, 15\}$.
+Let $S = \{3, 5, 7, 9, 11, 13, 15\}$.
+Note that if $a, b \in S$, we are looking for the number of distinct values of $ab-1$.
+There are $7 \times 7 = 49$ possible values $(x+1)(y+1)$. Let's find the number of distinct pairs of values $(a, b)$ such that $a, b \in S$.
+$3 \times 3 = 9$, $3 \times 5 = 15$, ..., $15 \times 15 = 225$.
+
+Final Answer: The final answer is $\boxed{(C)}$",C,3900,40169
+"Can you answer the following question as accurately as possible? Question: Suppose that we roll ! two fair ? 6-sided dice. What ? , is the probability that the two numbers rolled sum ; , to 4?: 
+ Choices: A) \frac{1}{4}, B) \frac{1}{12}, C) \frac{1}{3}, D) \frac{1}{9}. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+There are a total of 36 possible outcomes when rolling two 6-sided dice (6 outcomes for the first die * 6 outcomes for the second die = 36). Now we need to find the number of outcomes where the sum of the two dice is 4. These are: (1, 3), (2, 2), (3, 1). There are 3 such outcomes. Therefore, the probability is the number of favorable outcomes (sum of 4) divided by the total number of possible outcomes, which is 3/36 = 1/12.
+
+\boxed{(B)}",B,3875,3306
+"Can you answer the following question as accurately as possible? Question: Find all positive values of $c$ so that the inequality ; ? ; $x^2-6x+c<0$ has real solutions . for $x$. Express your answer in . interval , notation.: 
+ Choices: A) (0, 9), B) (1, 1), C) (6, 0), D) (6, 6). Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+For the inequality $x^2 - 6x + c < 0$ to have real solutions for $x$, the quadratic equation $x^2 - 6x + c = 0$ must have real roots. This means that the discriminant of the quadratic equation must be greater than 0.
+The discriminant is given by $D = b^2 - 4ac$, where $a=1$, $b=-6$, and $c=c$. In this case, $D = (-6)^2 - 4(1)(c) = 36 - 4c$.
+For real roots, we need $D > 0$, so $36 - 4c > 0$. This implies $36 > 4c$, which means $c < \frac{36}{4}$, or $c < 9$.
+Since we are looking for positive values of $c$, we have $0 < c < 9$. Thus, the interval of possible values for $c$ is $(0, 9)$.
+
+\boxed{(A)}
+",A,4050,6541
+"Can you answer the following question as accurately as possible? Question: Compute the area of the triangle ? whose altitudes . have lengths ? ? 10, 12, and 15.: 
+ Choices: A) 56\sqrt{15}, B) 240\sqrt{7}, C) 60\sqrt{7}, D) 240\sqrt{7}/7. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+Let the sides of the triangle be $a, b, c$ and the corresponding altitudes be $h_a = 10, h_b = 12, h_c = 15$. Let $A$ be the area of the triangle. Then we have
+$$2A = a h_a = b h_b = c h_c$$
+$$10a = 12b = 15c = 2A$$
+$$a = \frac{2A}{10} = \frac{A}{5}$$
+$$b = \frac{2A}{12} = \frac{A}{6}$$
+$$c = \frac{2A}{15} = \frac{2A}{15}$$
+By Heron's formula, $A = \sqrt{s(s-a)(s-b)(s-c)}$, where $s = \frac{a+b+c}{2}$ is the semi-perimeter.
+Then $s = \frac{1}{2} (\frac{A}{5} + \frac{A}{6} + \frac{2A}{15}) = \frac{1}{2} A (\frac{1}{5} + \frac{1}{6} + \frac{2}{15}) = \frac{1}{2} A (\frac{6+5+4}{30}) = \frac{1}{2} A (\frac{15}{30}) = \frac{A}{4}$.
+$s-a = \frac{A}{4} - \frac{A}{5} = \frac{5A-4A}{20} = \frac{A}{20}$
+$s-b = \frac{A}{4} - \frac{A}{6} = \frac{3A-2A}{12} = \frac{A}{12}$
+$s-c = \frac{A}{4} - \frac{2A}{15} = \frac{15A-8A}{60} = \frac{7A}{60}$
+$A = \sqrt{\frac{A}{4} \cdot \frac{A}{20} \cdot \frac{A}{12} \cdot \frac{7A}{60}} = \sqrt{\frac{7A^4}{4\cdot 20 \cdot 12 \cdot 60}} = \sqrt{\frac{7A^4}{57600}} = \frac{\sqrt{7} A^2}{\sqrt{57600}} = \frac{\sqrt{7} A^2}{240}$
+Then $A = \frac{\sqrt{7} A^2}{240}$, so $1 = \frac{\sqrt{7} A}{240}$, which means $A = \frac{240}{\sqrt{7}}$.
+Then $A^2 = \frac{240^2}{7} = \frac{57600}{7}$.
+Thus, $A = \frac{240}{\sqrt{7}} = \frac{240\sqrt{7}}{7}$.
+However, the choices are in terms of $56\sqrt{15}$ or $60\sqrt{7}$.
+We have $a = \frac{A}{5}, b = \frac{A}{6}, c = \frac{2A}{15}$. Then
+We can use the reciprocal of the altitudes relation: $1/h_a : 1/h_b : 1/h_c = a : b : c = 1/10 : 1/12 : 1/15 = 6:5:4$
+Let $a = 6x, b = 5x, c = 4x$. Then $h_a = 10, h_b = 12, h_c = 15$.
+$A = \frac{1}{2} a h_a = \frac{1}{2} b h_b = \frac{1}{2} c h_c$,
+$\frac{1}{2} (6x)(10) = \frac{1}{2} (5x)(12) = \frac{1}{2} (4x)(15)$
+$30x = 30x = 30x$
+$s = \frac{6x+5x+4x}{2} = \frac{15x}{2}$
+$A = \sqrt{\frac{15x}{2} (\frac{15x}{2}-6x)(\frac{15x}{2}-5x)(\frac{15x}{2}-4x)} = \sqrt{\frac{15x}{2} (\frac{3x}{2})(\frac{5x}{2})(\frac{7x}{2})} = \sqrt{\frac{1575}{16} x^4} = \frac{x^2}{4} \sqrt{1575} = \frac{x^2}{4} \sqrt{225 \times 7} = \frac{15x^2}{4}\sqrt{7}$
+Also, $A = \frac{1}{2} (6x)(10) = 30x$, so $30x = \frac{15x^2}{4}\sqrt{7}$, $30 = \frac{15}{4} \sqrt{7} x$, so $x = \frac{30 \times 4}{15\sqrt{7}} = \frac{8}{\sqrt{7}}$.
+$A = 30x = 30 \times \frac{8}{\sqrt{7}} = \frac{240}{\sqrt{7}} = \frac{240\sqrt{7}}{7}$
+
+\boxed{(D)}",D,3950,33781
+"Can you answer the following question as accurately as possible? Question: In Morse code, each ! symbol is represented ? : by , a sequence of . dashes and dots. How many distinct ! symbols can be represented : using sequences of 1, 2, 3, or 4 . total dots ; and/or dashes?: 
+ Choices: A) 3, B) 4680, C) 30, D) 10. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+Let $n$ be the number of dots and dashes in a sequence. Each dot is represented by . and each dash is represented by -.
+We are given that $n$ can be 1, 2, 3, or 4.
+For each $n$, we need to find the number of distinct sequences of dots and dashes. This is the number of ways to choose the positions of the dots (or dashes) in the sequence.
+For $n=1$, we have 2 possibilities: . or -. So there are 2 sequences.
+For $n=2$, we have 3 possibilities: .., -. -, ..- or -. . or - -., and so on. We need to choose the number of dots, which can be 0, 1, or 2. If there are 0 dots, then there are 2 dashes. If there is 1 dot, then there is 1 dash. If there are 2 dots, then there are 0 dashes. The number of sequences is the number of ways to choose $k$ dots from $n$ positions, which is $\binom{n}{k}$. So the number of sequences is $\binom{2}{0} + \binom{2}{1} + \binom{2}{2} = 1 + 2 + 1 = 4$. However, this is incorrect.
+We are looking for the number of sequences of dots and dashes. For each position, we have 2 choices, either a dot or a dash. So for $n$ positions, there are $2^n$ possible sequences.
+For $n=1$, we have $2^1 = 2$ sequences.
+For $n=2$, we have $2^2 = 4$ sequences.
+For $n=3$, we have $2^3 = 8$ sequences.
+For $n=4$, we have $2^4 = 16$ sequences.
+The total number of distinct sequences is $2^1 + 2^2 + 2^3 + 2^4 = 2 + 4 + 8 + 16 = 30$.
+
+Final Answer: The final answer is $\boxed{(C)}$",C,4125,8208
+"Can you answer the following question as accurately as possible? Question: Two numbers added together are 19. Their product ? , is 70. What are the . ! two numbers?: 
+ Choices: A) 5, 14, B) 7, 10, C) 4, 15, D) 3, 16. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+We are looking for two numbers that add up to 19 and multiply to 70. Let's test each option:
+A) 5 + 14 = 19, 5 * 14 = 70. This satisfies both conditions.
+B) 7 + 10 = 17, 7 * 10 = 70.  The sum is incorrect.
+C) 4 + 15 = 19, 4 * 15 = 60. The product is incorrect.
+D) 3 + 16 = 19, 3 * 16 = 48. The product is incorrect.
+
+\boxed{(A)}
+",A,3700,6462
+"Can you answer the following question as accurately as possible? Question: A theater group has eight members, of : which four are females. ; How many ways are there to assign the roles of ! a play ! . ; : that involve one female lead, : ? one male lead, and three different objects ! that can ? be played by : either gender?: 
+ Choices: A) 640, B) 720, C) 8, D) 1920. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,A,"
+\boxed{(A)}
+",A,4300,6557
+"Can you answer the following question as accurately as possible? Question: The path ; of . a satellite is ! given by the parametric . ! equations x = 4 ; cos(t) + ? cos(12t), y = 4 sin(t) : + sin(12t). The upward velocity at ! t = 1 equals: 
+ Choices: A) 2.829, B) 3.005, C) 3.999, D) 12.287. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let $x(t) = 4 \cos(t) + 2 \cos(12t)$ and $y(t) = 4 \sin(t) + \sin(12t)$.
+The velocity vector is given by $(x'(t), y'(t))$.
+We have $x'(t) = -4 \sin(t) - 24 \sin(12t)$ and $y'(t) = 4 \cos(t) + 12 \cos(12t)$.
+The upward velocity is the y-component of the velocity vector, which is $y'(t)$.
+We want to find $y'(1)$.
+$y'(1) = 4 \cos(1) + 12 \cos(12)$.
+Since $\cos(1) \approx 0.5403$ and $\cos(12) \approx 0.8439$, we have
+$y'(1) = 4(0.5403) + 12(0.8439) = 2.1612 + 10.1268 = 12.288$.
+
+The upward velocity at $t=1$ is $y'(1) = 4 \cos(1) + 12 \cos(12)$.
+Approximating $\cos(1) \approx 0.5403$ and $\cos(12) \approx 0.8439$, we get
+$y'(1) \approx 4(0.5403) + 12(0.8439) = 2.1612 + 10.1268 = 12.288$.
+This is closest to D.
+
+Alternatively, using a calculator,
+$\cos(1) \approx 0.540302305868$ and $\cos(12) \approx 0.843853958735$.
+Then $y'(1) \approx 4(0.540302305868) + 12(0.843853958735) = 2.161209223472 + 10.12624350482 = 12.287452728292$.
+
+\boxed{(D)}",D,4575,7940
+"Can you answer the following question as accurately as possible? Question: ? Alex needs to borrow $\$10,\!000$ from the bank. , The bank gives him . two ! options. 1. A : ten-year loan with an , annual ! interest rate of $10\%$ compounded quarterly, ! with the condition that ! : at the end of 5 years, Alex must : make a payment equal to half . of what he owes. The ! other half ? continues to accrue interest, and at the end of ? ! the ; ten years, Alex ! ? will . pay off the remaining balance. 2. A ten-year ? loan ? with a simple annual interest . rate : : of $12\%$, with ! just one lump-sum ; payment at the ; end of ? ? the ten years. , Find the positive difference between the , total amounts Alex ; has to pay back under the two schemes. Round your answer to , the nearest dollar. !: 
+ Choices: A) 16401, B) 16400, C) 382, D) 383. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+First, we need to calculate the total amount Alex has to pay back under each scheme.
+
+Scheme 1: Ten-year loan with 10% annual interest compounded quarterly, with a payment of half the balance after 5 years.
+
+Let $P = 10000$ be the principal amount. The annual interest rate is $r = 10\% = 0.10$, compounded quarterly, so the quarterly interest rate is $i = \frac{r}{4} = \frac{0.10}{4} = 0.025$.
+
+Let $B_n$ be the balance after $n$ quarters. The balance after 5 years (20 quarters) is:
+$B_{20} = P(1+i)^{20} = 10000(1.025)^{20} \approx 10000(1.638616) \approx 16386.16$
+
+After 5 years, Alex pays half of the balance, which is $\frac{1}{2} B_{20} \approx \frac{1}{2}(16386.16) \approx 8193.08$.
+The remaining balance is also $8193.08$. For the next 5 years (20 quarters), the remaining balance accrues interest at the same rate. So, the balance after 10 years (40 quarters) is:
+$B_{40} = 8193.08(1.025)^{20} \approx 8193.08(1.638616) \approx 13451.48$
+Total amount paid back under Scheme 1 is $8193.08 + 13451.48 \approx 21644.56$.
+We can also calculate it as: amount paid after 5 years plus amount owed after 10 years = amount paid (half balance) + amount owed (half balance * (1+i)^20) = $\frac{1}{2} P (1+i)^{20} + \frac{1}{2} P (1+i)^{20} = P (1+i)^{20}$. But this is incorrect since we are talking about half. The choice for formula is: $P(1+i)^{20}/2 + P(1+i)^{20}/2 = P(1+i)^{20} = 10000(1.025)^{20} \approx 16386.16(1.025)^{20}$.
+
+Balance at the end of 5 years = $P(1+i)^{20} = 10000(1.025)^{20} = 16386.16$
+Payment at the end of 5 years = $16386.16/2=8193.08$
+Balance after 10 years = $8193.08(1.025)^{20} = 13451.48$
+Total payment = $8193.08 + 13451.48 = 21644.56$
+
+Scheme 2: Ten-year loan with a simple annual interest rate of 12%, with just one lump-sum payment at the end of ten years.
+The simple interest is $I = P \times r \times t$, where $P=10000$, $r=0.12$, and $t=10$. So $I = 10000 \times 0.12 \times 10 = 12000$.
+Total amount to pay back under Scheme 2 is $P+I = 10000 + 12000 = 22000$.
+
+The positive difference between the total amounts is $|21644.56 - 22000| = 355.44 \approx 355$.
+It seems that our calculation of the two schemes is not the primary issue. Let's re-interpret the questions of scheme 1 because the language is vague. Specifically, it says at the end of 5 years Alex makes a payment equal to HALF of what he owes. Actually this is quite vague. It may mean half of the principal, half of the balance, or half of something else. We assume it means half of what he owes.
+If we assume the half payment at 5 years goes toward the 10,000 then it might be wrong.
+The absolute difference is $22000-21644.56 = 355.44 \approx 355$
+
+We will use the choices given. The answer is supposed to be approximately 355. It seems like none of the choices are close enough. Perhaps we have miscalculated something. Let's recalculate Scheme 1.
+
+The ORIGINAL scheme has an annual interest rate of 10$. The balance grows during the five years. So the amount will be 16386.16. Alex MUST make a payment equal to HALF of WHAT HE OWES.
+
+So, HALF after 5 years is half of 16386.16 = 8193.08. Then he owes 8193.08$.
+For another 5 years, the 8193.08 owes interest at (1+Q for 20 quarters.
+8193.08(1+.
+  02=7889
+Then we add at the end.
+
+Final Answer: The final answer is $\boxed{(C)}$",C,7750,34815
+"Can you answer the following question as accurately as possible? Question: If f is . a linear ! ! . function with nonzero slope, and c < d, ! which of ? the following must be FALSE?: 
+ Choices: A) f (c) = f (d), B) f (c) ≠ f (d), C) f (c) > f (d), D) f (c) < f (d). Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+Since $f$ is a linear function with a nonzero slope, it can be written as $f(x) = mx + b$, where $m \neq 0$ and $b$ is a constant.
+If $c < d$, then we have $f(c) = mc + b$ and $f(d) = md + b$.
+Since $m \neq 0$, if $c < d$, then $mc < md$, so $mc + b < md + b$, which implies $f(c) < f(d)$.
+Therefore, $f(c) \neq f(d)$ and $f(c) > f(d)$ are false.
+However, we are looking for the statement that must be FALSE.
+Option A states $f(c) = f(d)$, which is false because $f(c) < f(d)$.
+Option B states $f(c) \neq f(d)$, which is true.
+Option C states $f(c) > f(d)$, which is false.
+Option D states $f(c) < f(d)$, which is true.
+The question asks for the statement that must be FALSE. Since $c < d$, $f(c) < f(d)$, so $f(c) = f(d)$ will be false. If $m > 0$, then $f(c) < f(d)$.
+If $m < 0$, then $f(c) > f(d)$.
+We are looking for the one that *must* be false. We know that $f(c) < f(d)$ if $m > 0$ and $f(c) > f(d)$ if $m < 0$.
+So we consider the options. 
+A) $f(c) = f(d)$: If $c < d$, $f(c) = f(d)$ is false, since $f(x)$ is linear and non-zero slope.
+B) $f(c) \neq f(d)$: If $c < d$, $f(c) \neq f(d)$ is true.
+C) $f(c) > f(d)$: If $c < d$, $f(c) > f(d)$ can be false (when $m > 0$).
+D) $f(c) < f(d)$: If $c < d$, $f(c) < f(d)$ can be false (when $m < 0$).
+
+The statement that must be false is $f(c) = f(d)$, because $c < d$.
+
+\boxed{(A)}
+",A,3975,6633
+"Can you answer the following question as accurately as possible? Question: If F(3) = 8 ! and F′(3) = -4 , then ! F(3.02) is approximately: 
+ Choices: A) -8.08, B) 7.92, C) 7.98, D) 8.02. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+We can use linear approximation to estimate the value of F(3.02). The formula for linear approximation is:
+
+F(x) ≈ F(a) + F'(a)(x - a)
+
+In this case, a = 3, x = 3.02, F(3) = 8, and F'(3) = -4.  Plugging these values into the formula:
+
+F(3.02) ≈ F(3) + F'(3)(3.02 - 3)
+F(3.02) ≈ 8 + (-4)(0.02)
+F(3.02) ≈ 8 - 0.08
+F(3.02) ≈ 7.92
+
+\boxed{(B)}",B,3725,4478
+"Can you answer the following question as accurately as possible? Question: Bob . rolls a fair ? ; six-sided . die : each morning. If Bob . rolls a composite , number, ! ! he eats sweetened cereal. If he rolls ? a prime number, he eats unsweetened cereal. If : he rolls a 1, then he rolls again. In a ! non-leap year, what is the expected ! : number of times Bob ? will roll his die?: 
+ Choices: A) \frac{5}{8}, B) \frac{1825}{4}, C) \frac{5}{4}, D) 438. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let $P$ be the set of prime numbers in $\{1,2,3,4,5,6\}$, $C$ be the set of composite numbers in $\{1,2,3,4,5,6\}$, and $O$ be the set of other numbers in $\{1,2,3,4,5,6\}$.
+$P = \{2,3,5\}$.
+$C = \{4,6\}$.
+$O = \{1\}$.
+
+Bob rolls the die each morning. If he rolls a composite number, he eats sweetened cereal. If he rolls a prime number, he eats unsweetened cereal. If he rolls a 1, then he rolls again.
+Let $X$ be the number of rolls until Bob stops rolling. We want to find $E[X]$ in a non-leap year. A non-leap year has 365 days.
+Let $p$ be the probability of rolling a 1, $q$ be the probability of rolling a composite number, and $r$ be the probability of rolling a prime number. Then $p = \frac{1}{6}$, $q = \frac{2}{6} = \frac{1}{3}$, and $r = \frac{3}{6} = \frac{1}{2}$.
+The probability that the process stops on any given day is $p(1) + q(1) + r(1) = q+r = \frac{1}{3} + \frac{1}{2} = \frac{5}{6}$.
+Let $E$ be the expected number of rolls until the process stops. Then
+$$E = \frac{1}{6} E + \frac{1}{3} \cdot 1 + \frac{1}{2} \cdot 1 = E - \frac{1}{6} E + \frac{1}{3} + \frac{1}{2}$$
+The probability that Bob stops rolling on any given day is $P(C \cup P) = \frac{1}{3} + \frac{1}{2} = \frac{5}{6}$.
+The probability that Bob rolls again is $P(O) = \frac{1}{6}$.
+Therefore, the expected number of rolls until the process stops is
+$$ E = \frac{1}{5/6} = \frac{6}{5} $$
+Then the expected number of times Bob will roll his die in a non-leap year is
+$$ 365 \times E = 365 \times \frac{6}{5} = 73 \times 6 = 438 $$
+
+Final Answer: The final answer is $\boxed{(D)}$",D,5175,15932
+"Can you answer the following question as accurately as possible? Question: When ; the expression $-2x^2-20x-53$ is written in ! the form $a(x+d)^2+e$, where . $a$, ; $d$, : ! and $e$ are constants, what is the sum $a+d+e$?: 
+ Choices: A) -80, B) 0, C) 6, D) 53. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+We need to rewrite the expression $-2x^2-20x-53$ in the form $a(x+d)^2+e$. This is completing the square.
+
+First, factor out the coefficient of $x^2$ from the first two terms:
+$-2(x^2+10x) - 53$
+
+Next, complete the square inside the parentheses. We take half of the coefficient of $x$ (which is 10), square it (to get 25), and add and subtract it inside the parentheses:
+$-2(x^2+10x+25-25) - 53$
+$-2((x+5)^2 - 25) - 53$
+
+Now, distribute the -2:
+$-2(x+5)^2 + 50 - 53$
+$-2(x+5)^2 - 3$
+
+So, $a=-2$, $d=5$, and $e=-3$.
+Thus $a+d+e = -2+5+(-3) = 0$.
+
+\boxed{(B)}",B,4300,6440
+"Can you answer the following question as accurately as possible? Question: , ; The : waiting times for a new roller . coaster ? ride are normally distributed with a mean of 35 minutes and a : ; standard deviation of 10 minutes. If there are ? 150,000 riders the first summer, which ! of the following is the ? , shortest time interval associated with 100,000 ? , riders?: 
+ Choices: A) 0 to 31.7 minutes, B) 31.7 to 39.3 minutes, C) 25.3 to 44.7 minutes, D) 25.3 to 35 minutes. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+We are looking for the time interval that contains 100,000 riders. Since there are 150,000 riders, we need to find the interval that corresponds to the top 2/3 (100,000/150,000) of the distribution.  This is equivalent to finding the 66.67% confidence interval.
+
+The z-score corresponding to 66.67% (or 0.6667) fractile can be found using a z-table or a calculator. It is approximately 0.88.
+
+To calculate the corresponding time interval, we can use the z-score formula:
+
+z = (x - μ) / σ
+
+Where:
+* z = z-score (0.88)
+* x = the x value (time)
+* μ = mean (35 minutes)
+* σ = standard deviation (10 minutes)
+
+Solving for x:
+
+x = z * σ + μ
+x = 0.88 * 10 + 35
+x = 8.8 + 35
+x = 43.8
+
+Similarly, we calculate the lower bound:
+x = -0.88 * 10 + 35
+x = -8.8 + 35
+x = 26.2
+
+So, the time interval is approximately 26.2 to 43.8 minutes.
+
+Comparing this to the answer choices, the closest interval is C) 25.3 to 44.7 minutes.
+
+\boxed{(C)}
+",C,5525,14218
+"Can you answer the following question as accurately as possible? Question: All of the following statements are : true for all , ; discrete random variables except : for which one?: 
+ Choices: A) The possible outcomes must all be numerical., B) The possible outcomes must be mutually exclusive., C) The mean (expected value) always equals the sum of the products obtained by multiplying each value by its corresponding probability., D) Approximately 95% of the outcomes will be within two standard deviations of the mean.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Discrete random variables are variables whose value can only take on a limited number of values. This characteristic influences their properties. Multiple choice options are assessed:
+
+*   **A) The possible outcomes must all be numerical.** Discrete variables, by definition, have numerical values even if those values represent categories (e.g., number of cars, number of opinions). This is true for discrete random variables.
+*   **B) The possible outcomes must be mutually exclusive.**   For a discrete random variable, each outcome cannot occur at the same time (or be overlapped). This is a key requirement.
+*   **C) The mean (expected value) always equals the sum of the products obtained by multiplying each value by its corresponding probability.** This is the formula for calculating the mean of a *discrete* random variable.  So this is always true for discrete random variables.
+*   **D) Approximately 95% of the outcomes will be within two standard deviations of the mean.** This statement applies to the *normal distribution* (or approximately to other distributions by the Central Limit Theorem) and is not generally applicable to *all* discrete random variables.  For example, a discrete variable that can only take on the values 0 and 1 will not have this property.
+
+Therefore, option D is the exception.
+
+\boxed{(D)}",D,4300,6225
+"Can you answer the following question as accurately as possible? Question: Which of the following , is . a true statement about ! hypothesis testing?: 
+ Choices: A) If there is sufficient evidence to reject a null hypothesis at the 10% level, then there is sufficient evidence to reject it at the 5% level., B) Whether to use a one- or a two-sided test is typically decided after the data are gathered., C) If a hypothesis test is conducted at the 1% level, there is a 1% chance of rejecting the null hypothesis., D) The power of a test concerns its ability to detect an alternative hypothesis.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,C,"
+
+Here's an analysis of each option and the reasoning behind the correct answer:
+
+*   **A) If there is sufficient evidence to reject a null hypothesis at the 10% level, then there is sufficient evidence to reject it at the 5% level.** This is incorrect. A 5% significance level is more stringent than a 10% significance level. If the evidence isn't strong enough to reject at 5%, it certainly won't be strong enough at 10%.
+
+*   **B) Whether to use a one- or a two-sided test is typically decided after the data are gathered.** This is incorrect. The choice between a one-sided and two-sided test *must* be decided *before* analyzing the data. Doing so after looking at the data introduces bias and invalidates the test.
+
+*   **C) If a hypothesis test is conducted at the 1% level, there is a 1% chance of rejecting the null hypothesis.** This is correct. The significance level (alpha) represents the probability of a Type I error – rejecting the null hypothesis when it is actually true.  So, at the 1% level, there's a 1% chance of making that error.
+
+*   **D) The power of a test concerns its ability to detect an alternative hypothesis.** This is technically related, but a better description is that power is the probability of *correctly* rejecting a false null hypothesis (i.e., detecting a real effect if one exists). It's about avoiding a Type II error.
+
+
+
+\boxed{(C)}",C,5075,6215
+"Can you answer the following question as accurately as possible? Question: An outlier is : an observation that: 
+ Choices: A) is seen more frequently than the other observations in the data set, B) is seen less frequently than the other observations in the data set, C) is always smaller than the other observations in the data set, D) is significantly different from the other observations in the data set. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+An outlier is an observation that is significantly different from the other observations in the data set. This means it deviates considerably from the general pattern or distribution within the data.
+
+\boxed{(D)}",D,3800,1469
+"Can you answer the following question as accurately as possible? Question: ? ? ! : The principal of a school is interested in ! estimating the average : income per , family of her students. She selects a random ! ? sample of students and collects ! information ; about their family income. A 95 , percent confidence interval computed from this , data for the mean ? income per family is ($35,095, $45,005). Which of the , . following ! provides ! the best interpretation of this confidence interval?: 
+ Choices: A) 95 percent of the students in her school are from families whose income is between $35,095 and $45,005., B) There is a 95% probability that the families of all the students in this school have an income of between $35,095 and $45,005., C) If we were to take another sample of the same size and compute a 95 percent confidence interval, we would have a 95% chance of getting the interval ($35,095, $45,005)., D) There is a 95% probability that the mean income per family in the school is between $35,095 and $45,005.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,C,"
+
+The correct interpretation of a confidence interval focuses on the process of repeatedly sampling and calculating confidence intervals. A 95% confidence interval means that if we were to take many samples and construct a 95% confidence interval from each sample, about 95% of those intervals would contain the true population mean.
+
+Option A is incorrect because it talks about the students' incomes, not the process of confidence interval construction. Option B is incorrect because it assigns a probability to a fixed value (the true population mean), which is not how confidence intervals work. Option D is incorrect because it attributes a probability to the mean, instead of the interval itself.
+
+Option C accurately describes the process. It states that if we repeatedly sample and construct confidence intervals, 95% of them will contain the true population mean.
+
+\boxed{(C)}",C,8750,4357
+"Can you answer the following question as accurately as possible? Question: , Researchers are conducting ! an , ? ; experiment using a significance level of 0.05. The null hypothesis ? is, in fact, false. If , they modify their experiment to ; , use twice as many experimental units for each treatment, which ? of , the following would be true? !: 
+ Choices: A) The probability of a Type I error and the probability of a Type II error would both decrease., B) The probability of a Type I error and the power would both increase., C) The probability of a Type II error and the power would both increase., D) The probability of a Type I error would stay the same and the power would increase.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+\boxed{(D)}",D,5525,6525
+"Can you answer the following question as accurately as possible? Question: The mean height of adult men is 70 inches, with ! ; , a standard deviation of four inches. The mean height of adult ; women : is ! : 66 inches, with ? a standard , . deviation of ; three inches. Between a ; ! ? man with a ; height of 74 inches and a woman with a height of 70 inches, who ! is more unusually tall ; within . his or her respective sex?: 
+ Choices: A) It cannot be determined, because the mean heights for the two groups are different., B) It cannot be determined, because the standard deviations of the heights for the two groups are different., C) The man, because he is 74 inches tall and the woman is only 70 inches tall., D) The woman, because her height is 1.33 standard deviations above the mean height of all women, whereas the man’s height is only one standard deviation above the mean height of all men.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+To determine who is more unusually tall, we need to compare how many standard deviations each individual's height is above their respective group's mean.
+
+For the man:
+* Height = 74 inches
+* Mean = 70 inches
+* Standard deviation = 4 inches
+* Standard deviations above the mean = (74 - 70) / 4 = 4 / 4 = 1
+
+For the woman:
+* Height = 70 inches
+* Mean = 66 inches
+* Standard deviation = 3 inches
+* Standard deviations above the mean = (70 - 66) / 3 = 4 / 3 = 1.33
+
+The woman is 1.33 standard deviations above the mean height for women, while the man is only 1 standard deviation above the mean height for men.  Therefore, the woman's height is more unusual.
+
+\boxed{(D)}",D,7125,5329
+"Can you answer the following question as accurately as possible? Question: Which . of the following is not true about , t-distributions?: 
+ Choices: A) There are different t-distributions for different values of df (degrees of freedom)., B) t-distributions are bell-shaped and symmetric., C) t-distributions always have mean 0 and standard deviation 1., D) t-distributions are more spread out than the normal distribution.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+C
+\boxed{(C)}",C,4025,1644
+"Can you answer the following question as accurately as possible? Question: To ! study ? the effect of alcohol on reaction . time, subjects were randomly selected and given three beers . to consume. Their reaction ? time ; to a simple stimulus was measured before ; and after drinking ! the alcohol. Which of ? the following ; is . a correct ; statement?: 
+ Choices: A) This study was an observational study., B) Lack of blocking makes this a poorly designed study., C) The placebo effect is irrelevant in this type of study., D) This study was an experiment in which the subjects were used as their own controls.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The correct answer is (D).
+
+Here's the reasoning:
+
+The study involves manipulating a variable (alcohol consumption) and observing its effect on another variable (reaction time). This is the defining characteristic of an experiment. The subjects' reaction times are measured *before* and *after* drinking, using each individual as their own control (comparing their own baseline reaction time to their reaction time after consuming alcohol).  Let's eliminate the other options:
+
+*   **(A) This study was an observational study:** Observational studies do not involve manipulation of variables, they just observe. This study *does* involve manipulation.
+*   **(B) Lack of blocking makes this a poorly designed study:** Blocking is a technique to reduce variability, and while it may be a consideration, the core design isn't necessarily ""poorly designed"" simply due to a lack of blocking. The primary characteristic of an experimental design is present.
+*   **(C) The placebo effect is irrelevant in this type of study:** The placebo effect *can* be relevant even in studies with physiological variables. However, it's less central to the design specifically compared to the experiment’s nature of control and manipulation.
+
+Therefore, (D) is the most accurate statement.
+
+\boxed{(D)}",D,4900,5919
+"Can you answer the following question as accurately as possible? Question: Which of : these . statements correctly explains bias?: 
+ Choices: A) It describes a process that creates estimates that are too high on average or too low on average., B) It describes a process that results in a sample that does not represent the population., C) It describes a lack of randomization in the sampling process., D) It describes a sample that is not representative of the population.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,B,"
+\boxed{(B)}",B,4050,3868
+"Can you answer the following question as accurately as possible? Question: . A company that produces facial tissues ! continually monitors tissue strength. If ! the : mean strength from sample ; data drops below a specified level, ; the , ! production process ; is halted ; and the machinery ! inspected. Which ? of the following would result from a Type I error?: 
+ Choices: A) Halting the production process when sufficient customer complaints are received., B) Halting the production process when the tissue strength is below specifications., C) Halting the production process when the tissue strength is within specifications., D) Allowing the production process to continue when the tissue strength is below specifications.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+A Type I error occurs when you reject the null hypothesis when it is actually true. In this context, the null hypothesis is that the production process is operating correctly (tissue strength is within acceptable limits). A Type I error would mean halting the production process (inspecting the machinery) when the tissue strength is *actually* within specifications.
+
+\boxed{(C)}",C,5100,2284
+"Can you answer the following question as accurately as possible? Question: The longevity of people ! living in a certain locality ; has ? : a ? standard deviation , of 14 years. What is the mean longevity if 30% of ! the people live : longer than ! 75 years? Assume a ? normal distribution for ! life spans.: 
+ Choices: A) 75 - 0.30(14), B) 75 + 0.30(14), C) 75 - 0.4756(14), D) 75 - 0.5244(14). Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let X be the longevity of people in the locality. We are given that X follows a normal distribution with standard deviation $\sigma = 14$ years. We are also given that $P(X > 75) = 0.30$.
+
+Let $\mu$ be the mean longevity. We can standardize the variable X by defining $Z = \frac{X - \mu}{\sigma}$, where Z follows a standard normal distribution. Thus, we have
+$P(X > 75) = P(\frac{X - \mu}{14} > \frac{75 - \mu}{14}) = P(Z > \frac{75 - \mu}{14}) = 0.30$
+Since $P(Z > z) = 0.30$, we have $P(Z \leq z) = 1 - 0.30 = 0.70$, where $z = \frac{75 - \mu}{14}$.
+We look for the z-score corresponding to a cumulative probability of 0.70 in the standard normal distribution. From the standard normal table, we find that $z \approx 0.5244$.
+So, we have $\frac{75 - \mu}{14} = 0.5244$.
+Solving for $\mu$, we get $75 - \mu = 0.5244 \times 14 = 7.3416$
+$\mu = 75 - 7.3416 = 67.6584$
+Now we can examine the choices:
+A) $75 - 0.30(14) = 75 - 4.2 = 70.8$
+B) $75 + 0.30(14) = 75 + 4.2 = 79.2$
+C) $75 - 0.4756(14) = 75 - 6.66 = 68.34$
+D) $75 - 0.5244(14) = 75 - 7.34 = 67.66$
+Our calculated mean longevity is $\mu = 67.6584$, which best matches choice D.
+
+\boxed{(D)}",D,5225,13886
+"Can you answer the following question as accurately as possible? Question: Changing from : ? a 90% confidence interval estimate for ; a population proportion to a 99% confidence interval estimate, with . , all other things being . equal,: 
+ Choices: A) increases the interval size by 9%., B) decreases the interval size by 9%., C) increases the interval size by 57%., D) decreases the interval size by 57%.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+The confidence level increases from 90% to 99%.  This means the area in the tails of the standard normal distribution is reduced. The critical value (z-score) associated with a 90% confidence interval is 1.645, and the critical value for a 99% confidence interval is 2.576. The margin of error for a confidence interval is calculated as z * (p̂/sqrt(n)), where z is the critical value, p̂ is the sample proportion, and n is the sample size.  Since the z-score increases from 1.645 to 2.576, the margin of error increases. The interval size is twice the margin of error. Therefore, increasing the confidence level increases the interval size. The ratio between the margin of error for a 99% CI and a 90% CI is 2.576/1.645 ≈ 1.57. So the interval size increases by about 57%.
+
+\boxed{(C)}",C,4225,5078
+"Can you answer the following question as accurately as possible? Question: Which of the following ? is a ! binomial random variable?: 
+ Choices: A) The number of tosses before a ""5"" appears when tossing a fair die., B) The number of points a hockey team receives in 10 games, where two points are awarded for wins, one point for ties, and no points for losses., C) The number of hearts out of five cards randomly drawn from a deck of 52 cards, without replacement., D) The number of motorists not wearing seat belts in a random sample of five drivers.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+A binomial random variable must satisfy three conditions: (1) a fixed number of independent trials, (2) each trial has only two possible outcomes (success or failure), and (3) the probability of success is constant across all trials.
+
+A) The number of tosses before a ""5"" appears. This is a geometric random variable, not binomial, as the number of trials is not fixed.
+B) The number of points a hockey team receives. The outcomes are not binary (win/loss/tie), so this is not binomial.
+C) The number of hearts in five cards. This is a hypergeometric random variable because we are sampling without replacement.
+D) The number of motorists not wearing seat belts in a sample of five drivers. This fits the conditions: (1) fixed number of trials (5 drivers), (2) two outcomes (wearing or not wearing a seat belt), and (3) we assume the probability of not wearing a seat belt is constant across the sample of drivers.
+
+\boxed{(D)}",D,4825,7156
+"Can you answer the following question as accurately as possible? Question: . If all the other , variables . remain constant, . which of the following will increase the ? : power of a hypothesis test? I.Increasing the sample size. II.Increasing the ; . significance : level. III.Increasing the probability of a Type II error. ,: 
+ Choices: A) I only, B) II only, C) III only, D) I and II. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Explanation:
+A hypothesis test's power is the probability of correctly rejecting a false null hypothesis. It directly relates to the ability to detect a real effect. Let's analyze each option:
+
+I. Increasing the sample size: A larger sample size increases the power of a hypothesis test. With more data, you have more evidence to detect an effect if one truly exists, reducing the risk of a Type II error (failing to reject a false null hypothesis).
+
+II. Increasing the significance level (alpha): Increasing alpha (e.g., from 0.05 to 0.10) makes it easier to reject the null hypothesis. This increases the power, but also increases the risk of a Type I error (falsely rejecting a true null hypothesis).
+
+III. Increasing the probability of a Type II error (beta): Beta is the probability of *not* rejecting a false null hypothesis. Increasing beta *decreases* power, because power is 1 - beta. If you're more likely to make a Type II error, you're *less* likely to correctly reject a false null hypothesis.
+
+Therefore, both I and II increase the power of a hypothesis test.
+
+\boxed{(D)}",D,4100,2696
+"Can you answer the following question as accurately as possible? Question: Which of the following statements is ! (are) true? ? : I. In order to : use ! a χ2 procedure, the ! expected value for each cell . of a , one- or two-way table must be at least 5. II. , , In order ; to , use χ2 procedures, you must have at least 2 degrees of freedom. III. , In a 4 ; × 2 two-way table, the , number ; of degrees ; ; of freedom is ; 3.: 
+ Choices: A) I only, B) I and III only, C) I and II only, D) III only. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,D,"
+
+The correct answer is **(D)**.
+
+Here's the reasoning:
+
+*   **I. (False)**: The expected value for each cell doesn't necessarily need to be *exactly* 5, but it should be *at least* 5 is a common rule of thumb. More accurately, the expected value should be at least 5 for 80% of the cells, and no expected value should be less than 1. But the statement is overly restrictive.
+
+*   **II. (False)**:  Degrees of freedom must be greater than zero. The χ2 test requires at least one degree of freedom to be meaningful and test for association. Having two degrees of freedom isn't a *requirement*, it's just a sufficient condition.
+
+*   **III. (True)**: For a *r* × *c* contingency table, the degrees of freedom are calculated as (r - 1) * (c - 1). In a 4 × 2 table, this is (4 - 1) * (2 - 1) = 3 * 1 = 3.
+
+
+
+\boxed{(D)}",D,5450,7100
+"Can you answer the following question as accurately as possible? Question: Suppose two ? . events, E and F, have nonzero probabilities p and q, respectively. Which , , of the following is impossible? ;: 
+ Choices: A) p + q > 1, B) p - q < 0, C) p /q > 1, D) E and F are both independent and mutually exclusive.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Since events E and F have nonzero probabilities p and q, respectively, we know that 0 < p < 1 and 0 < q < 1.
+
+A) p + q > 1:  Since 0 < p < 1 and 0 < q < 1, it is possible for p + q > 1. For example, p = 0.6 and q = 0.5.  So, this is POSSIBLE.
+
+B) p - q < 0:  This means p < q.  It's possible that p is smaller than q. For example, p = 0.3 and q = 0.7.  So, this is POSSIBLE.
+
+C) p / q > 1:  This means p > q.  It's possible that p is greater than q. For example, p = 0.8 and q = 0.2.  So, this is POSSIBLE.
+
+D) E and F are both independent and mutually exclusive: If E and F are mutually exclusive, then P(E and F) = 0. If E and F are independent, then P(E and F) = P(E) * P(F) = p * q.  Therefore, if E and F are *both* independent and mutually exclusive, we must have p * q = 0.  Since we are given that p and q are nonzero, it's impossible for them to BOTH be independent AND mutually exclusive.
+
+Final Answer: \boxed{(D)}",D,3875,6971
+"Can you answer the following question as accurately as possible? Question: , The probability that there , will : : be an accident on Highway 48 , each day depends , on the : ! ! weather. ! , : If the weather is ? dry that day, there is a 0.2% chance of ; an accident . on Highway 48; if the weather is ; wet that : day, there is a 1.0% chance of an accident. Today, the weather , . station announced that there , is a 20% chance ; of the weather being wet. What is , the probability that ; there will . be an accident on Highway 48 today?: 
+ Choices: A) 0.0004, B) 0.0016, C) 0.002, D) 0.0036. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let 'A' be the event of an accident on Highway 48.
+Let 'W' be the event that the weather is wet.
+Let 'D' be the event that the weather is dry.
+We are given:
+P(A|D) = 0.2% = 0.002
+P(A|W) = 1.0% = 0.01
+P(W) = 20% = 0.2
+Since the weather is either wet or dry, P(D) = 1 - P(W) = 1 - 0.2 = 0.8.
+
+We want to find P(A), the probability of an accident on Highway 48.
+We can use the law of total probability:
+P(A) = P(A|D) * P(D) + P(A|W) * P(W)
+P(A) = (0.002)(0.8) + (0.01)(0.2)
+P(A) = 0.0016 + 0.002
+P(A) = 0.0036
+
+Therefore, the probability that there will be an accident on Highway 48 today is 0.0036.
+
+\boxed{(D)}
+",D,6350,7298
+"Can you answer the following question as accurately as possible? Question: The binomial distribution is ! an ; appropriate model for which ! of the following?: 
+ Choices: A) The number of minutes in an hour for which the Dow-Jones average is above its beginning average for the day., B) The number of cities among the 10 largest in New York State for which the weather is cloudy for most of a given day., C) The number of drivers wearing seat belts if 10 consecutive drivers are stopped at a police roadblock., D) None of the above.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,C,"
+
+The binomial distribution requires several assumptions: a fixed number of trials, independent trials, two possible outcomes for each trial (success or failure), and a constant probability of success for each trial.
+
+Let's analyze each option:
+A) The number of minutes in an hour for which the Dow-Jones average is above its beginning average for the day. This is a continuous variable (time in minutes) and not a discrete count. The binomial distribution deals with discrete counts. So, this is not a suitable model.
+
+B) The number of cities among the 10 largest in New York State for which the weather is cloudy for most of a given day.  We have a fixed number of trials (10 cities).  We can consider ""cloudy for most of the day"" as a success. Each city's weather is (approximately) independent of the others. Furthermore, we at least conceptually can think of a probability of a city being cloudy most of the day. The binomial distribution could reasonably apply here.
+
+C) The number of drivers wearing seat belts if 10 consecutive drivers are stopped at a police roadblock. We have a fixed number of trials (10 drivers).  Wearing a seat belt is a binary outcome (yes or no). We can assume that whether one driver wears a seat belt is independent from another driver, and a probability of wearing a seat belt can be calculated. Therefore, this could be modeled by a binomial distribution.
+
+Comparing B and C, we need to assess which best fits the binomial format. While B would need a firm definition of what 'most' means for how many hours, C is more clear and cleanly definable as a binomial distribution.
+
+Therefore, option (C) is the most appropriate model.
+
+\boxed{(C)}
+",C,4625,8321
+"Can you answer the following question as accurately as possible? Question: , ; Data were collected on two variables X and Y and a least squares regression line was fitted to the data. The estimated ? equation ? for this data ? , : is ? y = –2.29 + 1.70x. One point , has x = 5, y = 6. What is the : residual ! ; ! for this point? ;: 
+ Choices: A) 7.91, B) 6.21, C) 0.21, D) –0.21. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The residual is the difference between the actual y-value and the predicted y-value.
+To find the predicted y-value for x = 5, we use the regression equation:
+y_predicted = -2.29 + 1.70 * 5 = -2.29 + 8.50 = 6.21
+The actual y-value is 6.
+The residual is 6 - 6.21 = -0.21.
+
+\boxed{(D)}",D,4925,4009
+"Can you answer the following question as accurately as possible? Question: Which of these explains ? why ! t should : be : used instead of z for inference procedures for means. ;: 
+ Choices: A) The Central Limit Theorem applies to proportions but not means., B) We use z for proportions because proportions are approximately normal. Means are not., C) We use z for proportions because the sampling distribution of sample proportions is approximately normal, but that is not the case for the sampling distribution of sample means., D) When using the sample standard deviation to estimate the population standard deviation, more variability is introduced into the sampling distribution of the statistic.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The correct answer is D.
+
+Here's why:
+
+*   **Why t is used for means:** The t-distribution is used when estimating the population mean, especially when the population standard deviation is unknown and we're using the sample standard deviation (s) as an estimate. The t-distribution accounts for the additional uncertainty introduced by estimating the population standard deviation.
+
+*   **Why the other options are incorrect:**
+
+    *   A) Incorrect. The Central Limit Theorem applies to both means and proportions.
+    *   B) Incorrect. The Central Limit Theorem applies to both means and proportions.
+    *   C) Incorrect. The Central Limit Theorem *does* apply to the sampling distribution of sample means *under certain conditions* (large enough sample size).
+
+\boxed{(D)}",D,4975,5753
+"Can you answer the following question as accurately as possible? Question: ? Which of the following is least likely . to reduce ! bias in ; a sample survey?: 
+ Choices: A) Following up with those who did not respond to the survey the first time, B) Asking questions in a neutral manner to avoid influencing the responses, C) Using stratified random sampling rather than simple random sampling, D) Selecting samples randomly. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,A,"
+
+Following up with non-respondents (A) can introduce bias if the non-respondents differ systematically from those who did respond. Neutral questioning (B) is a direct way to reduce bias. Stratified random sampling (C) reduces bias by ensuring representation from different subgroups. Random sampling (D) is a foundational technique to avoid systematic bias. Since following up with non-respondents is most likely to *introduce* bias, it's the least likely to reduce it.
+
+\boxed{(A)}
+",A,3850,4530
+"Can you answer the following question as accurately as possible? Question: ; For ; ? their ; . first exam, students in an AP Statistics class studied . an average of 4 hours with a standard deviation of 1 hour. Almost , . ; ! . everyone : , did poorly on the exam, and so for the : second exam every ; student studied : 10 hours. What is the correlation between the numbers of hours students studied for each exam?: 
+ Choices: A) -1, B) 0, C) 0.4, D) 1. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+
+The correlation measures the linear relationship between two variables. In this case, the variables are the number of hours studied for the first exam and the number of hours studied for the second exam.
+
+For the first exam, students studied an average of 4 hours with a standard deviation of 1 hour. For the second exam, *every* student studied 10 hours. This means that the number of hours studied for the second exam is constant (10) for all students.
+
+Let $X_1$ be the hours studied for the first exam and $X_2$ be the hours studied for the second exam. Then we want to find the correlation between $X_1$ and $X_2$. Since $X_2$ is always 10, there is no variation in $X_2$. The formula for correlation is:
+
+$r = \frac{Cov(X_1, X_2)}{S_X S_Y}$, where $Cov(X_1, X_2)$ is the covariance between $X_1$ and $X_2$, and $S_X$ and $S_Y$ are the standard deviations of $X_1$ and $X_2$ respectively.
+
+Since $X_2$ is constant, $S_Y = 0$, which makes the correlation undefined. However, if we look for a linear trend (even though it is unlikely to exist in this scenario), we can assess the relationship. Since all students studied 10 hours for the second exam, the relationship will be a horizontal line at $y = 10$.  We can consider whether the hours studied for the first exam ($X_1$) have some effect. If all $X_1$ values were, say, 4, then there would be no linear relationship. If some studied more or less than 4 for exam 1, there could be a slight relationship, but the fact that $X_2$ is constant means that it will pretty much be incapable of exhibiting any significant trend.
+
+However, since all students studied 10 hours for the second exam, there's no variability in the second exam's study time.  Hence, determining correlation is not really possible. Concepts of covariance and relations don't exist here since one variable's distribution is very trivial, resulting in a correlation of 0.
+
+\boxed{(B)}",B,4700,5312
+"Can you answer the following question as accurately as possible? Question: . The appraised ? values ; of houses in a city have a ? mean ; of $125,000 with a : standard deviation of $23,000. ? . Because of a new , teachers' contract, the . school district needs an extra 10% in funds compared to the previous year. To raise this additional money, the city , instructs ; the . ; assessment office to raise all ? appraised house values . by $5,000. What ; will be : the , new standard deviation , : , of the appraised values of houses in the city?: 
+ Choices: A) $23,000, B) $25,300, C) $28,000, D) $30,300. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+Adding a constant to every data point in a dataset only shifts the distribution; it does not change its spread. The standard deviation measures the spread of the data, and adding a constant doesn't affect how spread out the data is, simply where it is located on the number line. Therefore, the new standard deviation will still be $23,000.
+
+\boxed{(A)}
+",A,6250,1672
+"Can you answer the following question as accurately as possible? Question: A large company has offices in two locations, one in . New , Jersey . and one ! in Utah. The ? mean salary of office assistants ; in the New : Jersey ? office is $28,500. The mean ? salary of office assistants in the Utah , office ? is $22,500. . The New ? . Jersey . office has 128 office assistants and the Utah : office ! has 32 office , assistants. , What is the mean , salary paid to the ; office assistants in this company?: 
+ Choices: A) $22,500 , B) $23,700 , C) $25,500 , D) $27,300 . Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+We need to calculate the weighted average of the salaries, weighting by the number of employees in each office.
+
+Total salary in New Jersey = 128 * $28,500 = $3,648,000
+Total salary in Utah = 32 * $22,500 = $720,000
+Total salary = $3,648,000 + $720,000 = $4,368,000
+Total number of office assistants = 128 + 32 = 160
+Mean salary = $4,368,000 / 160 = $27,300
+
+Thus the answer is D.
+
+\boxed{(D)}
+",D,6000,5638
+"Can you answer the following question as accurately as possible? Question: Which of the . following is a ! , false statement about simple random samples?: 
+ Choices: A) A sample must be reasonably large to be properly considered a simple random sample., B) Inspection of a sample will give no indication of whether or not it is a simple random sample., C) Attributes of a simple random sample may be very different from attributes of the population., D) Every element of the population has an equal chance of being picked.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,C,"
+
+The correct answer is (C).
+
+Here's the reasoning:
+
+*   **Simple Random Sampling and Population Representation:** The very essence of a simple random sample (SRS) is to provide a representation of the population. While there will always be *some* variation between a sample and the population, an SRS is designed to minimize this difference and be as representative as possible. An SRS aims to eliminate bias, so dramatically different attributes are unlikely. Therefore, C is false.
+
+*   **Why other options aren't correct:**
+    *   **(A) Sample Size:** The size needed to be considered ""properly"" depends on the population size and the desired level of precision, but the concept of an SRS doesn't hinge on a specific minimum sample size; it's about *how* you select the sample.
+    *   **(B) Inspection:** It *is* possible to evaluate if a sample was truly selected randomly (though challenging).  Deviations from randomness become apparent upon inspection.
+    *   **(D) Equal Chance:** This is the *definition* of a simple random sample. Every element has an equal probability of selection.
+
+\boxed{(C)}",C,4325,5797
+"Can you answer the following question as accurately as possible? Question: A telephone executive instructs an associate to contact 104 customers ; using ; ! their service , to obtain ; their opinions in ? regard to an idea for , a new pricing package. The : associate notes ! the number of customers whose ; names begin with A and uses a random number table ! to pick ? four of these names. She then proceeds to use the same procedure for each letter of the alphabet and combines the : 4 × 26 = ; 104 ; results ! into ! ! ? , a ? group to ! be ; ? contacted. ; Which of the following is a , correct conclusion?: 
+ Choices: A) Her procedure makes use of chance., B) Her procedure results in a simple random sample., C) Each customer has an equal probability of being included in the survey., D) Her procedure introduces bias through sampling error.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,C,"
+
+The correct conclusion is C.
+
+Here's the reasoning:
+
+The associate is selecting 4 names for *each* letter of the alphabet. This means that, regardless of the letter, a customer has a 4/104 = 1/26 chance of being selected. This fulfills the requirement of equal probability for each customer.
+
+Let's examine why the other options are incorrect:
+
+*   A) While chance is involved in using the random number table, this is a characteristic of many sampling methods, not a defining feature of the method itself.
+*   B) A simple random sample requires that *every possible sample* of the population has an equal chance of being selected. The method here doesn't ensure that; it guarantees equal probability for *each individual*.
+*   D) While sampling error is inevitable, the described procedure is designed to minimize bias as much as possible by using a random number table and giving each letter equal representation.
+
+\boxed{(C)}",C,6450,5237
+"Can you answer the following question as accurately as possible? Question: ; ! A company has a choice of three investment schemes. Option . I gives a sure $25,000 return on ! investment. ; Option II gives a : 50% chance . of ? ! returning $50,000 and . a 50% chance of returning $10,000. Option III gives : a ; 5% chance of returning $100,000 and a 95% . chance of returning : nothing. . Which option , should the company choose?: 
+ Choices: A) Option II if it wants to maximize expected return, B) Option I if it needs at least $20,000 to pay off an overdue loan, C) Option III if it needs at least $80,000 to pay off an overdue loan, D) All of the above answers are correct.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+Let's analyze each option.
+
+Option I:
+Sure return of $25,000. Expected return = $25,000
+
+Option II:
+50% chance of $50,000 return, 50% chance of $10,000 return.
+Expected return = 0.5 * $50,000 + 0.5 * $10,000 = $25,000 + $5,000 = $30,000
+
+Option III:
+5% chance of $100,000 return, 95% chance of $0 return.
+Expected return = 0.05 * $100,000 + 0.95 * $0 = $5,000
+
+If the company wants to maximize expected return, they should choose Option II, which has an expected return of $30,000.
+
+If the company needs at least $20,000 to pay off a loan, Option I and Option II are sufficient.  Option III has a 95% chance of not providing enough.  So, Option I is probably more prudent in this case.
+
+If the company needs at least $80,000 to pay off a loan, Option I and Option II are insufficient. Option III has only a 5% chance to reach this level. 
+
+Therefore:
+A) Option II if it wants to maximize expected return - Correct
+B) Option I if it needs at least $20,000 to pay off an overdue loan - Correct due to it being a defined, safe return
+C) Option III if it needs at least $80,000 to pay off an overdue loan - Incorrect. It's too risky and not likely enough to provide the necessary funds.
+
+All of the above answers are correct.
+
+\boxed{(D)}",D,6675,9457
+"Can you answer the following question as accurately as possible? Question: A one-sided test of a hypothesis about a ? , population mean, based on a sample of ? . size 14, yields a P-value of 0.075. Which . of the following best describes , the range ! of : : tvalues that would have ! given this P-value? :: 
+ Choices: A) 1.345 < t< 1.761, B) 1.356 < t< 1.782, C) 1.771 < t< 2.160, D) 1.350 < t< 1.771. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,B,"
+
+Here's the reasoning:
+
+1. **Understanding P-value and One-Sided Test:** A P-value of 0.075 means that if the null hypothesis were true, there's a 7.5% chance of observing a test statistic (t-value in this case) as extreme as, or more extreme than, the one calculated from the sample, in the direction specified by the one-sided test.
+
+2. **Degrees of Freedom:** The sample size (n) is 14.  For a t-distribution, the degrees of freedom (df) are n - 1 = 14 - 1 = 13.
+
+3. **One-Sided Test and T-Value Range:** Because it's a one-sided test, we're looking for the t-values that fall in the rejection region.  We need to find the t-values that correspond to a cumulative probability of 0.075 *in the tail*. Since it's a one-sided test, we are discarding the other tail, not considering it.
+
+4. **Finding the Critical t-Values:** To determine which choice is correct, we look at the t-distribution with 13 degrees of freedom and find the t-values associated with the tail probability of 0.075. With a one-tailed test, we're looking for the t-value where the cumulative probability is 1 - 0.075 = 0.925. Using a t-table or statistical software, we find that the t-value for df=13 and a one-tailed probability of 0.075 is approximately 1.761.
+
+5. **Determining the Range:** We are given that the P-value is 0.075, which is for that leftmost tail. The range should be that any value beyond 1.761 should also deliver the same p-value. Since the choices include ranges, look for the range that includes 1.761.
+   For choice A, 1.345 < t < 1.761, we expect any values higher than 1.761 to not deliver the same p-value.
+   For choice B, 1.356 < t < 1.782, it approximately has the t-value of 1.761, as one of its endpoints.
+   For choice C, 1.771 < t < 2.160, varies widely, from 1.771: we expect much higher p-values for these values.
+   For D, 1.350<t<1.771, apparently contains more low values.
+
+Therefore, the range that encompasses the t-value associated with a one-sided P-value of 0.075 is 1.356 < t < 1.782.
+
+\boxed{(B)}",B,5625,13023
+"Can you answer the following question as accurately as possible? Question: The president ! of an online music streaming service : whose customers , , pay a fee ; wants to gather additional information about customers who have joined in the past ; 12 months. The . ; ? company plans to send out an e-mail survey to , a sample of current ; customers with a link that gives ! ! participants , a month , of ? streaming ? service for free , : ; once the survey has been completed. They ! know that ; musical tastes vary by ! geographical region. Which ; of the following sample plans would produce the most representative : sample of its customers?: 
+ Choices: A) Choose all of the customers who joined in the last month., B) Make a list of all the customers who joined in the last 12 months and choose a random sample of customers on this list., C) From the list of all customers who joined in the last 12 months, classify customers by the state in which they live, then choose 10 customers from each state., D) From the list of all customers who joined in the last 12 months, classify customers by the state in which they live, then choose 3% of the customers from each state.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The most representative sample would be one that reflects the geographical diversity within the customer base. Therefore, the correct approach is to stratify the sample by state and then select a proportional number of customers from each state.
+
+Option A is not representative because it only includes customers from the most recent month.
+Option B is a simple random sample, which doesn't account for geographical differences.
+Option C is better than options A and B but taking 10 from each state might disproportionally represent states with fewer customers.
+Option D ensures that each state is represented proportionally.
+
+\boxed{(D)}",D,8150,5808
+"Can you answer the following question as accurately as possible? Question: You need to construct a 94% confidence ! interval ; for a population proportion. What is the ? . upper ; critical value of z to ! be , : used in constructing this interval?: 
+ Choices: A) 0.9699, B) 1.96, C) 1.555, D) 1.88. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The confidence level is 94%, which means α = 1 - 0.94 = 0.06. Since this is a two-tailed test (confidence interval), α/2 = 0.06/2 = 0.03. We need to find the z-score corresponding to a cumulative probability of 1 - 0.03 = 0.97. Looking up 0.97 in a standard z-table or using a calculator, we find that the z-score is approximately 1.88.
+
+\boxed{(D)}
+",D,4025,3906
+"Can you answer the following question as accurately as possible? Question: A local school has seven ? math teachers and ; seven : English teachers. When : comparing their mean salaries, which of ! the following is : most appropriate?: 
+ Choices: A) A two-sample z-test of population means, B) A two-sample t-test of population means, C) A one-sample z-test on a set of differences, D) None of the above are appropriate.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,B,"
+
+The correct answer is B.
+
+Here's the reasoning:
+
+We are comparing the means of two independent samples (math teachers and English teachers) and we are **not** given any information about the population standard deviations.  A two-sample z-test requires knowledge of the population standard deviations, which is rare.  A two-sample t-test is used when the population standard deviations are unknown and estimated from the sample data, which is the typical situation.  A one-sample z-test is used when you are comparing a sample mean to a known population mean, not comparing two sample means.
+
+\boxed{(B)}",B,4200,3400
+"Can you answer the following question as accurately as possible? Question: A small kiosk ! ! at the Atlanta airport carries souvenirs in the price . range of : $3.99 to $29.99, . with a mean price of , $14.75. ; The airport authorities , decide to increase : the rent charged for a kiosk by , , 5 : percent. To ! make up for the increased ! rent, the kiosk owner decides to increase the prices of all . items by ! 50 ; cents. As a : . result, which of the following will happen? !: 
+ Choices: A) The mean price and the range of prices will increase by 50 cents., B) The mean price will remain the same, but the range of prices will increase by 50 cents., C) The mean price and the standard deviation of prices will increase by 50 cents., D) The mean price will increase by 50 cents, but the standard deviation of prices will remain the same.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,A,"
+
+Here's the reasoning:
+
+The kiosk owner increases the price of all items by 50 cents. This means every price in the range $3.99 to $29.99 will increase by 50 cents.  This will directly result in both the mean price and the range of prices increasing by 50 cents. The range is simply the maximum price minus the minimum price. Since both end points of the range increase by 50 cents, the difference (the range) also increases by 50 cents.  The mean will also increase since every individual item's price increases equally. The standard deviation is affected by the spread of data, and while this change affects every point, it doesn't directly imply that the standard deviation changes by a fixed amount like 50 cents.
+
+\boxed{(A)}",A,7075,10767
+"Can you answer the following question as accurately as possible? Question: The director ! of a local food bank asks : for data on all donations given . during the . month ? of , November. Of the 100 checks received, the , . average donation is $155 ? with . , a standard . deviation of $32. Which of the following , is the most appropriate statement?: 
+ Choices: A) This November, the average donation is $155., B) 50% of all donations this November are more than $155., C) We are 95% confident that the average donation in November is between about $91 and $219., D) We are 95% confident that the average donation in November is between about $149 and $161.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,D,"
+
+Here's the breakdown of why the correct answer is D, and why the others are incorrect:
+
+*   **A) This November, the average donation is $155.** This is just restating the given information (the sample mean). While true, it doesn't provide any statistical inference or confidence.
+
+*   **B) 50% of all donations this November are more than $155.** This refers to the median, not the mean. We are given information about the *average* donation, and the standard deviation, which relates to the mean.
+
+*   **C) We are 95% confident that the average donation in November is between about $91 and $219.** This is a potential confidence interval, but the calculated bounds ($91 and $219) are incorrect.  We will calculate the appropriate confidence interval to show why.
+    *   Confidence Interval = Mean ± (Critical Value * Standard Error)
+    *   Standard Error = Standard Deviation / √n = $32 / √100 = $3.2
+    *   For 95% confidence, the critical value (t-score for n-1 = 99 degrees of freedom, which is very close to the z-score of 1.96) is approximately 1.96.
+    *   Confidence Interval = $155 ± (1.96 * $3.2) = $155 ± $6.272 =  $148.73 to $161.27
+
+*   **D) We are 95% confident that the average donation in November is between about $149 and $161.** This is the correct confidence interval, calculated as shown above. It uses the provided information (mean, standard deviation, and sample size) to estimate a range within which the true population mean likely lies.
+
+\boxed{(D)}",D,6075,10687
+"Can you answer the following question as accurately as possible? Question: Which of the following describe/s the , central . ; limit : theorem? I. The mean of the sampling distribution . of x-is ? the same as the ! mean of the population. II. ; The standard deviation of the : sampling distribution of x-is , the ? , ? same as the standard deviation of . x- divided , ; by the square : root of the sample size. III. If the sample size is large, the ! shape of : ; the sampling distribution of : x- is approximately normal.: 
+ Choices: A) I only, B) I & II only, C) II only, D) III only. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+\boxed{(D)}
+",D,5400,925
+"Can you answer the following question as accurately as possible? Question: A . . large city was interested in annexing , . part of the surrounding county. In , . , a survey conducted by ? ; the ; local newspaper, 58 percent of respondents . said they were against the annexation. During the actual , vote, not all eligible voters voted, but ! 56 percent of ; ; the ! respondents voted against the annexation. Which of the following best ! describes the difference ! in the percentages , obtained from the newspaper . poll and the vote itself?: 
+ Choices: A) It is an example of nonresponse bias, the systematic tendency of individuals with particular characteristics to refuse to answer a survey question., B) It is the systematic difference between a statistic and parameter caused by the nonrandom selection of surveyed persons., C) It is the difference between the same statistics computed from two different samples., D) It is the difference between the statistic and the truth due to use of a random sample.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,A,"
+
+The newspaper poll showed that 58% were against annexation. The actual vote resulted in 56% voting against annexation. The key here is that ""not all eligible voters voted"". Those who voted may have different opinions than those who didn't. This suggests that the poll result is skewed because a particular group (those who aren't voting) isn't represented adequately. This relates to nonresponse bias – a systematic error where those who don't respond or vote have different characteristics/opinions than those who do. Option A directly addresses this.
+
+Option B speaks of selection bias, which isn't the primary issue here (eligible voters weren't randomly selected in the sense of this question). Option C doesn't fit, as the focus is on one poll and one vote. Option D is incorrect as random sampling isn't the cause.
+
+\boxed{(A)}",A,6800,5194
+"Can you answer the following question as accurately as possible? Question: After receiving several complaints from his customers ; about : the ? ; store being closed : , on Sundays, a storekeeper decided to conduct a survey. He randomly ; selected 100 ; female : customers and , 120 . male customers, and ! asked them, ""Are you interested in ! shopping at this store , on Sundays?"" He counted the ! number of , customers ; ? answering ""yes"" and constructed a ! , 95 percent confidence interval for : . the difference by subtracting ! the proportions of female from the ; proportion of male customers in favor of shopping on , Sundays. The resulting interval was (–0.23, –0.18). Which ! of the following ; is a , correct interpretation of the : interval?: 
+ Choices: A) We are 95 percent confident that the proportion of women interested in shopping on Sundays exceeds the proportion of men interested in shopping on Sundays., B) We are 95 percent confident that the proportion of men interested in shopping on Sundays exceeds the proportion of women interested in shopping on Sundays., C) We are 95 percent confident that the proportion of women interested in shopping on Sundays is equal to the proportion of men interested in shopping on Sundays., D) Because the interval contains negative values, it is invalid and should not be interpreted.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,B,"
+
+The confidence interval (–0.23, –0.18) represents the range within which the difference between the male and female proportions is likely to fall with 95% confidence.  Since both values in the interval are negative, this means we are confident that the proportion of men interested in shopping on Sundays is *greater* than the proportion of women interested in shopping on Sundays.  The subtraction mentioned in the problem (male proportion - female proportion) is key here.
+
+\boxed{(B)}",B,8800,3396
+"Can you answer the following question as accurately as possible? Question: Which of ? the following is the primary : difference : between an ; experiment and an observational study?: 
+ Choices: A) Experiments are only conducted on human subjects; observational studies can be conducted on nonhuman subjects., B) In an experiment, the researcher manipulates some variable to observe its effect on a response variable; in an observational study, he or she simply observes and records the observations., C) Experiments must use randomized treatment and control groups; observational studies also use treatment and control groups, but they do not need to be randomized., D) Experiments must be double-blind; observational studies do not need to be.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,B,"
+\boxed{(B)}",B,5200,2693
+"Can you answer the following question as accurately as possible? Question: Random , variable X is normally distributed, ; : with , a ; mean of 25 and a standard deviation , of 4. Which of the following is : ? the approximate interquartile range for this distribution?: 
+ Choices: A) 25.00 – 22.30 = 2.70, B) 27.70 – 22.30 = 5.40, C) 27.70 ÷ 22.30 = 1.24, D) 2.00(4.00) = 8.00. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+The interquartile range (IQR) is the difference between the third quartile (Q3) and the first quartile (Q1). For a normal distribution, approximately 75% of the data lies above Q1 and 25% lies below it, and approximately 50% lies below Q1 and 50% above. Q1 is the 25th percentile and Q3 is the 75th percentile.
+
+We can find the z-scores corresponding to Q1 and Q3:
+*   Q1 (25th percentile) has a z-score of approximately -0.674
+*   Q3 (75th percentile) has a z-score of approximately +0.674
+
+Using the formula z = (x - μ) / σ, we can find the values of Q1 and Q3:
+
+*   Q1: -0.674 = (Q1 - 25) / 4  =>  Q1 = 25 + (-0.674 * 4) = 25 - 2.696 = 22.304 ≈ 22.30
+*   Q3: 0.674 = (Q3 - 25) / 4  =>  Q3 = 25 + (0.674 * 4) = 25 + 2.696 = 27.696 ≈ 27.70
+
+Therefore, the IQR is Q3 - Q1 = 27.70 - 22.30 = 5.40.
+
+\boxed{(B)}",B,5425,7325
+"Can you answer the following question as accurately as possible? Question: Which ? of the ; following statements about any two events A and , : B is true?: 
+ Choices: A) P(A ∪ B) implies events A and B are independent., B) P(A ∪ B) = 1 implies events A and B are mutually exclusive., C) P(A ∩ B) = 0 implies events A and B are independent., D) P(A ∩ B) = 0 implies events A and B are mutually exclusive.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+\boxed{(D)}",D,4600,8954
+"Can you answer the following question as accurately as possible? Question: A company has 400 employees. Their , mean ; income is $20,500, and the ! standard ; deviation of their incomes is $3,750. The . distribution of incomes is normally ; distributed. ? How many of the 400 employees do you expect to have . , , , an . income of between ; $13,000 and $28,000?: 
+ Choices: A) 50, B) 100, C) 200, D) 390. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+We use the concept of z-scores to solve this problem.
+
+First, we calculate the z-scores for $13,000 and $28,000:
+
+z_13000 = (13000 - 20500) / 3750 = -7500 / 3750 = -2
+z_28000 = (28000 - 20500) / 3750 = 7500 / 3750 = 2
+
+We want to find the probability that an employee's income is between $13,000 and $28,000. This is equivalent to finding the probability that the z-score is between -2 and 2.
+
+From the standard normal distribution table, we know that:
+P(z < -2) ≈ 0.0228
+P(z < 2) ≈ 0.9772
+
+Therefore, P(-2 < z < 2) = P(z < 2) - P(z < -2) = 0.9772 - 0.0228 = 0.9544
+
+This means that approximately 95.44% of the employees have an income between $13,000 and $28,000. To find the number of employees in this range, we multiply the total number of employees by this probability:
+
+Number of employees = 400 * 0.9544 = 381.76 ≈ 382
+
+The closest answer choice to 382 is 390.
+
+\boxed{(D)}
+",D,5100,8732
+"Can you answer the following question as accurately as possible? Question: As reported on , CNN, . in a May 1999 , ! ? : national poll 43% of high , school students expressed ; fear about going to school. Which : of the , : following best describes what is meant by the poll having a margin ; of error of 5%?: 
+ Choices: A) It is likely that the true proportion of high school students afraid to go to school is between 38% and 48%., B) Five percent of the students refused to participate in the poll., C) Between 38% and 48% of those surveyed expressed fear about going to school., D) There is a 0.05 probability that the 43% result is in error.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+The correct answer is (A).
+
+Reasoning:
+
+A margin of error of 5% in a poll means that the true population value (in this case, the proportion of high school students fearful of going to school) likely falls within a range around the sample result.  Specifically, it means the true value is likely within 5% above and 5% below the reported 43%. So, 43% ± 5% gives a range of 38% to 48%.
+
+Option B is incorrect because the margin of error isn't about the number of students who refused to participate. Option C is incorrect because the margin of error refers to the *true* proportion, not just those surveyed. Option D is also incorrect; the margin of error doesn't state a probability of an error, but rather a range where the true value is likely to be found.
+
+\boxed{(A)}",A,5950,4219
+"Can you answer the following question as accurately as possible? Question: Suppose ? you , wish to compare the AP . Statistics exam results for the male and female students taking AP ; Statistics at : your : high school. Which is the , : most appropriate technique ! for ? gathering the needed data?: 
+ Choices: A) Census, B) Sample survey, C) Experiment, D) Observational study. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,B,"
+
+\boxed{(B)}
+",B,3775,201
+"Can you answer the following question as accurately as possible? Question: In one ! ? ! study half of a class were instructed to watch exactly 1 . hour of television per day, the other half were told ! to ; watch 5 hours , per ! day, , and . then . , ; their class grades were compared. In a : second , study students in a class responded to a questionnaire asking about their television , usage and their class . grades.: 
+ Choices: A) The first study was an experiment without a control group, while the second was an observational study., B) The first study was an observational study, while the second was a controlled experiment., C) Both studies were controlled experiments., D) Both studies were observational studies.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,D,"
+
+The correct answer is D. Here's the reasoning:
+
+*   **Study 1:** The researchers *manipulated* the amount of television students were allowed to watch (1 hour vs. 5 hours). However, there's no mention of a control group. A control group would be a group that *didn't* have their TV time restricted or mandated. Since the question doesn't explicitly mention a control group, the purpose of the study is more to observe the *correlation* between different levels of TV usage and grades, rather than establishing cause-and-effect through controlled manipulation. This fits the definition of an observational study.
+
+*   **Study 2:** Students were asked about their TV usage *and* their grades. The researchers didn't *control* the TV viewing; they simply *observed* existing TV habits and compared them to grades. This is a clear observational approach.
+
+Therefore, both studies are observational.
+
+\boxed{(D)}",D,5525,3585
+"Can you answer the following question as accurately as possible? Question: . In a high school , of ; 1650 students, 132 , have . personal investments in the ? stock market. To estimate the total ? stock investment by students in this school, two : plans are proposed. Plan I would ; sample 30 , students at random, : ; find a confidence interval estimate of their , . average investment, . and : then multiply both ends of this interval by ; 1650 to get an interval estimate : of the , total investment. Plan II ; would sample 30 students at random from among . the 132 . who have . investments in the market, find a confidence interval : estimate of their ! average investment, and , then multiply both ? ends of this interval by , 132 to get an interval estimate of the . total , , investment. Which is the better plan for estimating ? the total stock . market investment , by students , in this school? . : !: 
+ Choices: A) Plan I, B) Plan II, C) Both plans use random samples and so will produce equivalent results., D) Neither plan will give an accurate estimate.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,A,"
+
+Plan I samples from the entire student population, while Plan II samples only from those with investments. Since the goal is to estimate the *total* investment across the *entire* student population, sampling from the entire population (Plan I) is more representative. Plan II only accounts for students who already invest, which introduces bias and potentially underestimates the total investment if some students without investments were planning on making investments.
+
+\boxed{(A)}",A,8000,3776
+"Can you answer the following question as accurately as possible? Question: Sampling ? error occurs: 
+ Choices: A) when interviewers make mistakes resulting in bias., B) because a sample statistic is used to estimate a population parameter., C) when interviewers use judgment instead of random choice in picking the sample., D) when samples are too small.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",B,B,"
+
+Sampling error occurs because a sample statistic is used to estimate a population parameter. This is the fundamental reason for sampling error - the sample won't perfectly represent the overall population, leading to a difference between the sample statistic and the true population parameter.
+
+\boxed{(B)}",B,3500,2502
+"Can you answer the following question as accurately as possible? Question: The regression analysis of question : 20 indicated that ""R-sq : ; = 98.1%."" ? Which , ? of the ; following is : (are) true? ; I. There is , ; a strong positive linear : relationship between the explanatory ; ; ! and . response variables. II. There is a strong negative ? , linear relationship between the explanatory and response variables. III. About 98% of the variation ? in the response variable can be explained by the regression on the explanatory variable.: 
+ Choices: A) I and III only, B) I or II only, C) I or II (but not both) and III, D) II and III only. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,A,"
+
+The R-sq value of 98.1% indicates that 98.1% of the variation in the response variable is explained by the explanatory variable. The R-sq value doesn't directly imply positive or negative relationship. However, the statement refers to regression analysis, which suggests finding a linear relationship. Let's analyze each statement.
+
+I.  The regression analysis doesn't tell us if the relationship is positive or negative. Only that a linear relationship exists and the explanatory variable explains 98.1% of the variance.
+
+II. Same as above, the R-sq value doesn't indicate a negative relationship.
+
+III. This statement accurately reflects the meaning of the R-sq value. It states that 98% of the variation in the response variable is explained by the regression model involving the explanatory variable.
+
+Therefore, only statement III is true. However, that's not an option.
+Given we have an R-squared of 98.1%, it implies we have a very strong linear relationship. The nature of this relation can't be deduced simply from R-squared, but it must exist if R-squared is 98.1%. So assumptions should lean toward a strong relationship even if positive or negative could be false. Since a regression is mentioned, we must assume linear relationship implied by the coefficient estimates.
+
+Assuming the explanatory variable is used to estimate the response variable, the strongest indication here is Statement III, which corresponds with the R-squared value of 98.1%, where the fraction of variation explained comes from the regression on the explanatory variable. Based on this, there is a strong linear relationship between the variables too (so I is correct). There is no implication of a negative relationship. Therefore, both I and III are true.
+
+\boxed{(A)}",A,5700,5140
+"Can you answer the following question as accurately as possible? Question: In a clinic, 50 patients with ! ! sleep disorders are randomly ; ; assigned to one of two : different . groups. Patients in one group are given medication before bedtime. ! ! Patients in the other . , group are given blindfolds , and played : soft music at bedtime. Each patient is attached ! to ! a machine that records breathing patterns. From the patterns, : it is possible to determine if . the , ! patient is awake or asleep. : The data will be ; , used to decide which , method ? is more effective in helping : patients with sleep ? disorders. Which of . the following statements is correct in the context ! of . this ; experiment?: 
+ Choices: A) It is not possible for this experiment to be single-blind or double-blind, because human subjects are involved., B) This is only a single-blind experiment because the experimenters did not include a control group that received neither medication nor a blindfold and soft music., C) This is only a single-blind experiment because patients will know which treatment they are receiving, although the examining doctor might not., D) This is a double-blind experiment because the experimenters could prevent both groups of patients from knowing what sort of treatment the other group is receiving.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",C,C,"
+
+The correct answer is (C). Here's the reasoning:
+
+*   **Blinding Terminology:**
+    *   **Single-Blind:** Participants don't know which treatment they're receiving (or which condition they're in).
+    *   **Double-Blind:** Both the participants *and* the experimenters/researchers don't know which treatment is being given without a specific step to reveal it later.
+*   **The Scenario:** In this experiment, patients are assigned to either medication or blindfold/music.  Patients *will* know which treatment they are receiving. The examining doctor might not know which treatment a particular patient is getting, but the *patients* certainly will.
+*   **Why other options are incorrect:**
+    *   **(A)** It *is* possible to have single or double-blind studies with human subjects. Blinding is a technique, not inherently impossible with human participants.
+    *   **(B)** The presence of a control group (which this experiment has in the form of the other treatment) isn't what defines a single-blind/double-blind design.  It's about *knowledge* of treatment assignment.
+    *   **(D)** For this to be double-blind, *both* the patients and the experimenters would need to be unaware of which treatment each patient is receiving. This isn't stated, and based on the description, it's highly unlikely.
+
+\boxed{(C)}",C,8475,7020
+"Can you answer the following question as accurately as possible? Question: A study was conducted ; to test , : ! ; a new style of keyboard in preventing repetitive stress disorders. Volunteers who have had problems , with such injuries ; were randomly assigned , to use either ? : : a traditional keyboard or the new design. ! A significance test was conducted with the , alternative hypothesis that ? a ; . smaller ! proportion of those using . the new : : keyboard will suffer injuries than those using the traditional keyboard. The resulting P-value was 0.07. . Which is a correct , interpretation of this P-value? !: 
+ Choices: A) The null hypothesis should be rejected., B) The null hypothesis should be accepted., C) There is a 7% chance that the null hypothesis is correct., D) There is a 7% chance of getting a difference between the two groups at least as large as the observed difference if the new keyboard is really no better at preventing injuries.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The correct interpretation of a P-value is the probability of observing data as extreme as, or more extreme than, the data actually observed, assuming the null hypothesis is true. In this case, the null hypothesis is that there is no difference in the proportion of injuries between the two keyboard types.  A P-value of 0.07 means there's a 7% chance of observing a difference in injury rates as large as (or larger than) the one observed, *if* the new keyboard isn't actually better. This aligns with option D.
+
+The other options are incorrect:
+*   A) Rejecting the null hypothesis is incorrect because the p-value is greater than the typical alpha level (0.05), indicating failure to reject.
+*   B) Accepting the null hypothesis is correct, not testing for it. But not rejecting it is a better description, and choice B does not accurately describe it.
+*   C) The p-value is not the probability that the null hypothesis is correct.
+
+\boxed{(D)}
+",D,6800,4987
+"Can you answer the following question as accurately as possible? Question: A ! , college admissions officer is interested in comparing ; the SAT . math ! scores of high ? school applicants ; who have and have not ; ? taken AP Statistics. She randomly pulls ? the , files of five applicants who took . AP Statistics and ? five applicants , who ; did not, and proceeds : to run a t-test to . compare the mean SAT math scores of the two groups. . Which of the following is a necessary : ? assumption?: 
+ Choices: A) The population variances from each group are known., B) The population variances from each group are unknown., C) The population variances from the two groups are equal., D) The population of SAT scores from each group is normally distributed.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,C,"
+
+The correct assumption for a t-test when comparing two groups is that the population variances are equal. The t-test assumes homogeneity of variance, which means the variances of the two populations being compared are similar, or equal.
+
+\boxed{(C)}",C,5675,6581
+"Can you answer the following question as accurately as possible? Question: . Given that P(E) ? = 0.32, P(F) ; = 0.15, and P(E ∩ F) = 0.048, which of the following ! is , ; a correct conclusion?: 
+ Choices: A) The events E and F are both independent and mutually exclusive., B) The events E and F are neither independent nor mutually exclusive., C) The events E and F are mutually exclusive but not independent., D) The events E and F are independent but not mutually exclusive.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+First, let's determine if E and F are independent. Two events E and F are independent if P(E ∩ F) = P(E) * P(F).
+P(E) * P(F) = 0.32 * 0.15 = 0.048
+Since P(E ∩ F) = 0.048, the events E and F are independent.
+
+Next, let's determine if E and F are mutually exclusive. Two events E and F are mutually exclusive if P(E ∩ F) = 0.
+Since P(E ∩ F) = 0.048 ≠ 0, the events E and F are not mutually exclusive.
+
+Therefore, the events E and F are independent but not mutually exclusive.
+
+\boxed{(D)}",D,4925,5338
+"Can you answer the following question as accurately as possible? Question: A medical research team tests for tumor ; reduction in a : sample of patients using ! three different dosages of ! an ? experimental cancer drug. Which : of : the following is true? ;: 
+ Choices: A) There are three explanatory variables and one response variable., B) There is one explanatory variable with three levels of response., C) Tumor reduction is the only explanatory variable, but there are three response variables corresponding to the different dosages., D) There are three levels of a single explanatory variable.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The experiment is investigating the effect of different dosages of a drug on tumor reduction. The dosages (the different amounts of the drug given) are the *explanatory variables* because they are the factors being manipulated to see if they cause a change in the *response variable* (tumor reduction). Since there are three different dosages, there are three levels of this single explanatory variable.
+
+\boxed{(D)}",D,4600,2460
+"Can you answer the following question as accurately as possible? Question: A , department store at a . large mall claims that . over 60 percent of the mall’s visitors shop at that store. ? Let p = the proportion of the , mall’s visitors who , , : shop at , the store. Which of the following pairs of . hypotheses ! should be used to . support ; this ! claim?: 
+ Choices: A) H0: p ≤ 0.60 and Ha: p > 0.60, B) H0: p = 0.60 and Ha: p 0.60, C) H0: p = 0.60 and Ha: p < 0.60, D) H0: p > 0.60 and Ha: p 0.60. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",A,A,"
+
+The department store claims that over 60% of visitors shop there, meaning they believe the proportion is greater than 0.60.  The null hypothesis (H0) represents the status quo or what we're trying to disprove, so in this case, it should state that the proportion is *less than or equal to* 0.60. The alternative hypothesis (Ha) represents what we're trying to show, which is that the proportion is *greater than* 0.60.
+
+Therefore, the correct pair of hypotheses is H0: p ≤ 0.60 and Ha: p > 0.60.
+
+\boxed{(A)}
+",A,6175,3737
+"Can you answer the following question as accurately as possible? Question: Which of the following ? can affect the . value of the correlation r? .: 
+ Choices: A) A change in measurement units, B) A change in which variable is called x and which is called y, C) Adding the same constant to all values of the x-variable, D) None of the above can affect the r value.. Briefly explain your reasoning. Choose only one of A, B, C, or D. At the end, output only one final answer like \boxed{(A)}, \boxed{(B)}, \boxed{(C)}, or \boxed{(D)}. Do not add extra commentary after the answer. Do not include anything else on that final line.",D,D,"
+
+The correlation coefficient, *r*, measures the strength and direction of a linear relationship between two variables. It is defined as the covariance of the two variables divided by the product of their standard deviations.
+
+A) A change in measurement units *can* affect the value of *r*. For example, converting temperature from Celsius to Fahrenheit changes the values of the variable, which affects the standard deviations and covariance. However, *r* is a dimensionless quantity, meaning it is scale-invariant. This means that changing measurement units by multiplying by a constant does not change the underlying relationship, and therefore *r* remains unchanged. The key here is the scaling without changing the relationship.
+
+B) A change in which variable is called *x* and which is called *y* does not affect the value of *r*. The correlation coefficient is symmetric; that is, corr(x, y) = corr(y, x).
+
+C) Adding the same constant to all values of the x-variable shifts the entire data set along the x-axis but does not change the slope or intercept of the line of best fit. This means the relationship between the variables remains unchanged, and therefore *r* is not affected.
+
+Therefore, while initially it appears that A could affect r due to changes in values. Changes involving scale factors on the measurement units inherently need a scale factor on both measurement units to keep an unchanging relationship, which is not what the initial prompt specified. It simply said change in measurement units.
+
+Since none shall affect the r-value, the correct answer is D.
+
+\boxed{(D)}",D,3825,3580

@@ -1,0 +1,581 @@
+------------------------------------------------------------
+SLURM JOB INFO
+Job ID: 153156
+Job Name: run_gemma-3-4b-it_gsm_wikitypo_stage2
+Partition: A40short
+Nodes: 1
+Tasks per node: 
+CPUs per task: 
+Requested Memory:  MB (approx)
+Working Directory: /home/s06zyelt/nlp_lab
+Start Time: Tue Aug 19 16:38:46 CEST 2025
+------------------------------------------------------------
+Hello from Slurm on node node-02.bender!
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (2.2.6)
+Requirement already satisfied: pandas in ./env/lib/python3.10/site-packages (2.3.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./env/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: six>=1.5 in ./env/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: sacrebleu in ./env/lib/python3.10/site-packages (2.5.1)
+Requirement already satisfied: portalocker in ./env/lib/python3.10/site-packages (from sacrebleu) (3.2.0)
+Requirement already satisfied: regex in ./env/lib/python3.10/site-packages (from sacrebleu) (2025.7.34)
+Requirement already satisfied: tabulate>=0.8.9 in ./env/lib/python3.10/site-packages (from sacrebleu) (0.9.0)
+Requirement already satisfied: numpy>=1.17 in ./env/lib/python3.10/site-packages (from sacrebleu) (2.2.6)
+Requirement already satisfied: colorama in ./env/lib/python3.10/site-packages (from sacrebleu) (0.4.6)
+Requirement already satisfied: lxml in ./env/lib/python3.10/site-packages (from sacrebleu) (6.0.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Collecting git+https://github.com/openai/human-eval.git
+  Cloning https://github.com/openai/human-eval.git to /home/s06zyelt/.my_tmp/pip-req-build-sjj1p1sd
+  Running command git clone --filter=blob:none --quiet https://github.com/openai/human-eval.git /home/s06zyelt/.my_tmp/pip-req-build-sjj1p1sd
+  Resolved https://github.com/openai/human-eval.git to commit 6d43fb980f9fee3c892a914eda09951f772ad10d
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: tqdm in ./env/lib/python3.10/site-packages (from human-eval==1.0) (4.67.1)
+Requirement already satisfied: fire in ./env/lib/python3.10/site-packages (from human-eval==1.0) (0.7.1)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from human-eval==1.0) (2.2.6)
+Requirement already satisfied: termcolor in ./env/lib/python3.10/site-packages (from fire->human-eval==1.0) (3.1.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Requirement already satisfied: torch in ./env/lib/python3.10/site-packages (2.7.1)
+Requirement already satisfied: torchvision in ./env/lib/python3.10/site-packages (0.22.1)
+Requirement already satisfied: torchaudio in ./env/lib/python3.10/site-packages (2.7.1)
+Requirement already satisfied: filelock in ./env/lib/python3.10/site-packages (from torch) (3.19.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./env/lib/python3.10/site-packages (from torch) (4.12.2)
+Requirement already satisfied: sympy>=1.13.3 in ./env/lib/python3.10/site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in ./env/lib/python3.10/site-packages (from torch) (3.3)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in ./env/lib/python3.10/site-packages (from torch) (2024.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in ./env/lib/python3.10/site-packages (from torch) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in ./env/lib/python3.10/site-packages (from torch) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in ./env/lib/python3.10/site-packages (from torch) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in ./env/lib/python3.10/site-packages (from torch) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in ./env/lib/python3.10/site-packages (from torch) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in ./env/lib/python3.10/site-packages (from torch) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in ./env/lib/python3.10/site-packages (from torch) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in ./env/lib/python3.10/site-packages (from torch) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in ./env/lib/python3.10/site-packages (from torch) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in ./env/lib/python3.10/site-packages (from torch) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in ./env/lib/python3.10/site-packages (from torch) (1.11.1.6)
+Requirement already satisfied: triton==3.3.1 in ./env/lib/python3.10/site-packages (from torch) (3.3.1)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.1->torch) (80.9.0)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from torchvision) (2.2.6)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./env/lib/python3.10/site-packages (from torchvision) (11.0.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./env/lib/python3.10/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.10/site-packages (from jinja2->torch) (2.1.5)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu121
+Requirement already satisfied: vllm in ./env/lib/python3.10/site-packages (0.10.0)
+Requirement already satisfied: regex in ./env/lib/python3.10/site-packages (from vllm) (2025.7.34)
+Requirement already satisfied: cachetools in ./env/lib/python3.10/site-packages (from vllm) (6.1.0)
+Requirement already satisfied: psutil in ./env/lib/python3.10/site-packages (from vllm) (7.0.0)
+Requirement already satisfied: sentencepiece in ./env/lib/python3.10/site-packages (from vllm) (0.2.1)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from vllm) (2.2.6)
+Requirement already satisfied: requests>=2.26.0 in ./env/lib/python3.10/site-packages (from vllm) (2.32.4)
+Requirement already satisfied: tqdm in ./env/lib/python3.10/site-packages (from vllm) (4.67.1)
+Requirement already satisfied: blake3 in ./env/lib/python3.10/site-packages (from vllm) (1.0.5)
+Requirement already satisfied: py-cpuinfo in ./env/lib/python3.10/site-packages (from vllm) (9.0.0)
+Requirement already satisfied: transformers>=4.53.2 in ./env/lib/python3.10/site-packages (from vllm) (4.55.2)
+Requirement already satisfied: huggingface-hub>=0.33.0 in ./env/lib/python3.10/site-packages (from huggingface-hub[hf_xet]>=0.33.0->vllm) (0.34.4)
+Requirement already satisfied: tokenizers>=0.21.1 in ./env/lib/python3.10/site-packages (from vllm) (0.21.4)
+Requirement already satisfied: protobuf in ./env/lib/python3.10/site-packages (from vllm) (6.32.0)
+Requirement already satisfied: fastapi>=0.115.0 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.116.1)
+Requirement already satisfied: aiohttp in ./env/lib/python3.10/site-packages (from vllm) (3.12.15)
+Requirement already satisfied: openai<=1.90.0,>=1.87.0 in ./env/lib/python3.10/site-packages (from vllm) (1.90.0)
+Requirement already satisfied: pydantic>=2.10 in ./env/lib/python3.10/site-packages (from vllm) (2.11.7)
+Requirement already satisfied: prometheus_client>=0.18.0 in ./env/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: pillow in ./env/lib/python3.10/site-packages (from vllm) (11.0.0)
+Requirement already satisfied: prometheus-fastapi-instrumentator>=7.0.0 in ./env/lib/python3.10/site-packages (from vllm) (7.1.0)
+Requirement already satisfied: tiktoken>=0.6.0 in ./env/lib/python3.10/site-packages (from vllm) (0.11.0)
+Requirement already satisfied: lm-format-enforcer<0.11,>=0.10.11 in ./env/lib/python3.10/site-packages (from vllm) (0.10.12)
+Requirement already satisfied: llguidance<0.8.0,>=0.7.11 in ./env/lib/python3.10/site-packages (from vllm) (0.7.30)
+Requirement already satisfied: outlines_core==0.2.10 in ./env/lib/python3.10/site-packages (from vllm) (0.2.10)
+Requirement already satisfied: diskcache==5.6.3 in ./env/lib/python3.10/site-packages (from vllm) (5.6.3)
+Requirement already satisfied: lark==1.2.2 in ./env/lib/python3.10/site-packages (from vllm) (1.2.2)
+Requirement already satisfied: xgrammar==0.1.21 in ./env/lib/python3.10/site-packages (from vllm) (0.1.21)
+Requirement already satisfied: typing_extensions>=4.10 in ./env/lib/python3.10/site-packages (from vllm) (4.12.2)
+Requirement already satisfied: filelock>=3.16.1 in ./env/lib/python3.10/site-packages (from vllm) (3.19.1)
+Requirement already satisfied: partial-json-parser in ./env/lib/python3.10/site-packages (from vllm) (0.2.1.1.post6)
+Requirement already satisfied: pyzmq>=25.0.0 in ./env/lib/python3.10/site-packages (from vllm) (27.0.1)
+Requirement already satisfied: msgspec in ./env/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: gguf>=0.13.0 in ./env/lib/python3.10/site-packages (from vllm) (0.17.1)
+Requirement already satisfied: mistral_common>=1.8.2 in ./env/lib/python3.10/site-packages (from mistral_common[audio,image]>=1.8.2->vllm) (1.8.3)
+Requirement already satisfied: opencv-python-headless>=4.11.0 in ./env/lib/python3.10/site-packages (from vllm) (4.12.0.88)
+Requirement already satisfied: pyyaml in ./env/lib/python3.10/site-packages (from vllm) (6.0.2)
+Requirement already satisfied: einops in ./env/lib/python3.10/site-packages (from vllm) (0.8.1)
+Requirement already satisfied: compressed-tensors==0.10.2 in ./env/lib/python3.10/site-packages (from vllm) (0.10.2)
+Requirement already satisfied: depyf==0.19.0 in ./env/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: cloudpickle in ./env/lib/python3.10/site-packages (from vllm) (3.1.1)
+Requirement already satisfied: watchfiles in ./env/lib/python3.10/site-packages (from vllm) (1.1.0)
+Requirement already satisfied: python-json-logger in ./env/lib/python3.10/site-packages (from vllm) (3.3.0)
+Requirement already satisfied: scipy in ./env/lib/python3.10/site-packages (from vllm) (1.15.3)
+Requirement already satisfied: ninja in ./env/lib/python3.10/site-packages (from vllm) (1.13.0)
+Requirement already satisfied: pybase64 in ./env/lib/python3.10/site-packages (from vllm) (1.4.2)
+Requirement already satisfied: cbor2 in ./env/lib/python3.10/site-packages (from vllm) (5.7.0)
+Requirement already satisfied: numba==0.61.2 in ./env/lib/python3.10/site-packages (from vllm) (0.61.2)
+Requirement already satisfied: ray!=2.44.*,>=2.43.0 in ./env/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (2.48.0)
+Requirement already satisfied: torch==2.7.1 in ./env/lib/python3.10/site-packages (from vllm) (2.7.1)
+Requirement already satisfied: torchaudio==2.7.1 in ./env/lib/python3.10/site-packages (from vllm) (2.7.1)
+Requirement already satisfied: torchvision==0.22.1 in ./env/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: xformers==0.0.31 in ./env/lib/python3.10/site-packages (from vllm) (0.0.31)
+Requirement already satisfied: astor in ./env/lib/python3.10/site-packages (from depyf==0.19.0->vllm) (0.8.1)
+Requirement already satisfied: dill in ./env/lib/python3.10/site-packages (from depyf==0.19.0->vllm) (0.4.0)
+Requirement already satisfied: llvmlite<0.45,>=0.44.0dev0 in ./env/lib/python3.10/site-packages (from numba==0.61.2->vllm) (0.44.0)
+Requirement already satisfied: sympy>=1.13.3 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (1.14.0)
+Requirement already satisfied: networkx in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.3)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.1.6)
+Requirement already satisfied: fsspec in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (2024.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (1.11.1.6)
+Requirement already satisfied: triton==3.3.1 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.3.1)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.1->torch==2.7.1->vllm) (80.9.0)
+Requirement already satisfied: interegular>=0.3.2 in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (0.3.3)
+Requirement already satisfied: packaging in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (25.0)
+Requirement already satisfied: anyio<5,>=3.5.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (4.10.0)
+Requirement already satisfied: distro<2,>=1.7.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (0.28.1)
+Requirement already satisfied: jiter<1,>=0.4.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (0.10.0)
+Requirement already satisfied: sniffio in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (1.3.1)
+Requirement already satisfied: exceptiongroup>=1.0.2 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai<=1.90.0,>=1.87.0->vllm) (1.3.0)
+Requirement already satisfied: idna>=2.8 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai<=1.90.0,>=1.87.0->vllm) (3.10)
+Requirement already satisfied: certifi in ./env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (2025.8.3)
+Requirement already satisfied: httpcore==1.* in ./env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (1.0.9)
+Requirement already satisfied: h11>=0.16 in ./env/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (0.16.0)
+Requirement already satisfied: annotated-types>=0.6.0 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.7.0)
+Requirement already satisfied: pydantic-core==2.33.2 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.4.1)
+Requirement already satisfied: starlette<0.48.0,>=0.40.0 in ./env/lib/python3.10/site-packages (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (0.47.2)
+Requirement already satisfied: fastapi-cli>=0.0.8 in ./env/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.0.8)
+Requirement already satisfied: python-multipart>=0.0.18 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.0.20)
+Requirement already satisfied: email-validator>=2.0.0 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (2.2.0)
+Requirement already satisfied: uvicorn>=0.12.0 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.35.0)
+Requirement already satisfied: dnspython>=2.0.0 in ./env/lib/python3.10/site-packages (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm) (2.7.0)
+Requirement already satisfied: typer>=0.15.1 in ./env/lib/python3.10/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: rich-toolkit>=0.14.8 in ./env/lib/python3.10/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.15.0)
+Requirement already satisfied: fastapi-cloud-cli>=0.1.1 in ./env/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.5)
+Requirement already satisfied: rignore>=0.5.1 in ./env/lib/python3.10/site-packages (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: sentry-sdk>=2.20.0 in ./env/lib/python3.10/site-packages (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.35.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in ./env/lib/python3.10/site-packages (from huggingface-hub>=0.33.0->huggingface-hub[hf_xet]>=0.33.0->vllm) (1.1.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.10/site-packages (from jinja2->torch==2.7.1->vllm) (2.1.5)
+Requirement already satisfied: jsonschema>=4.21.1 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (4.25.0)
+Requirement already satisfied: pydantic-extra-types>=2.10.5 in ./env/lib/python3.10/site-packages (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2.10.5)
+Requirement already satisfied: attrs>=22.2.0 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (25.3.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2025.4.1)
+Requirement already satisfied: referencing>=0.28.4 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.36.2)
+Requirement already satisfied: rpds-py>=0.7.1 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.27.0)
+Requirement already satisfied: pycountry>=23 in ./env/lib/python3.10/site-packages (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (24.6.1)
+Requirement already satisfied: click>=7.0 in ./env/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (8.2.1)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in ./env/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (1.1.1)
+Requirement already satisfied: cupy-cuda12x in ./env/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (13.5.1)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (3.4.3)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (2.5.0)
+Requirement already satisfied: rich>=13.7.1 in ./env/lib/python3.10/site-packages (from rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (14.1.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./env/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./env/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in ./env/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./env/lib/python3.10/site-packages (from sympy>=1.13.3->torch==2.7.1->vllm) (1.3.0)
+Requirement already satisfied: safetensors>=0.4.3 in ./env/lib/python3.10/site-packages (from transformers>=4.53.2->vllm) (0.6.2)
+Requirement already satisfied: shellingham>=1.3.0 in ./env/lib/python3.10/site-packages (from typer>=0.15.1->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.5.4)
+Requirement already satisfied: httptools>=0.6.3 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: python-dotenv>=0.13 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.1.1)
+Requirement already satisfied: uvloop>=0.15.1 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.21.0)
+Requirement already satisfied: websockets>=10.4 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (15.0.1)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.4.0)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (5.0.1)
+Requirement already satisfied: frozenlist>=1.1.1 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (6.6.4)
+Requirement already satisfied: propcache>=0.2.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.20.1)
+Requirement already satisfied: fastrlock>=0.5 in ./env/lib/python3.10/site-packages (from cupy-cuda12x->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (0.8.3)
+Requirement already satisfied: soundfile>=0.12.1 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.13.1)
+Requirement already satisfied: cffi>=1.0 in ./env/lib/python3.10/site-packages (from soundfile>=0.12.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (1.17.1)
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi>=1.0->soundfile>=0.12.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2.22)
+Requirement already satisfied: soxr>=0.5.0 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.5.0.post1)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+CUDA available: True
+PyTorch CUDA version: 12.6
+vLLM version: 0.10.0
+Running AgentForest experiments...
+=============================================================
+Running with agents on gsm using gemma-3-4b-it for wikitypo
+Processing parts from 2 to 4
+=============================================================
+Running part 2...
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 08-19 16:39:20 [__init__.py:235] Automatically detected platform cuda.
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/models/gemma3/configuration_gemma3.py:242: FutureWarning: The `sliding_window_pattern` attribute is deprecated and will be removed in v4.55.0.
+  warnings.warn(
+INFO 08-19 16:39:54 [config.py:1604] Using max model len 12288
+INFO 08-19 16:40:04 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-19 16:40:06 [core.py:572] Waiting for init message from front-end.
+INFO 08-19 16:40:06 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='google/gemma-3-4b-it', speculative_config=None, tokenizer='google/gemma-3-4b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=12288, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=google/gemma-3-4b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 08-19 16:40:11 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+WARNING 08-19 16:40:20 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 08-19 16:40:20 [gpu_model_runner.py:1843] Starting to load model google/gemma-3-4b-it...
+INFO 08-19 16:40:21 [gpu_model_runner.py:1875] Loading model from scratch...
+INFO 08-19 16:40:21 [cuda.py:307] Using FlexAttention backend for head_size=72 on V1 engine.
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/models/gemma3/configuration_gemma3.py:242: FutureWarning: The `sliding_window_pattern` attribute is deprecated and will be removed in v4.55.0.
+  warnings.warn(
+INFO 08-19 16:40:21 [cuda.py:290] Using Flash Attention backend on V1 engine.
+INFO 08-19 16:40:21 [weight_utils.py:296] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:00<00:00,  2.00it/s]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:01<00:00,  1.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:01<00:00,  1.62it/s]
+
+INFO 08-19 16:40:23 [default_loader.py:262] Loading weights took 1.30 seconds
+INFO 08-19 16:40:23 [gpu_model_runner.py:1892] Model loading took 8.5834 GiB and 2.304772 seconds
+INFO 08-19 16:40:24 [gpu_model_runner.py:2380] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 32 image items of the maximum feature size.
+INFO 08-19 16:40:36 [backends.py:530] Using cache directory: /home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/eb89b7bb78/rank_0_0/backbone for vLLM's torch.compile
+INFO 08-19 16:40:36 [backends.py:541] Dynamo bytecode transform time: 9.67 s
+INFO 08-19 16:40:45 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 8.188 s
+INFO 08-19 16:40:46 [monitor.py:34] torch.compile takes 9.67 s in total
+INFO 08-19 16:40:47 [gpu_worker.py:255] Available KV cache memory: 27.98 GiB
+WARNING 08-19 16:40:47 [kv_cache_utils.py:955] Add 1 padding layers, may waste at most 3.45% KV cache memory
+INFO 08-19 16:40:47 [kv_cache_utils.py:997] GPU KV cache size: 209,552 tokens
+INFO 08-19 16:40:47 [kv_cache_utils.py:1001] Maximum concurrency for 12,288 tokens per request: 21.67x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:04, 15.14it/s]Capturing CUDA graph shapes:   6%|▌         | 4/67 [00:00<00:04, 15.33it/s]Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:00<00:03, 15.37it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:00<00:03, 15.32it/s]Capturing CUDA graph shapes:  15%|█▍        | 10/67 [00:00<00:03, 15.30it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:00<00:03, 15.29it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:00<00:03, 15.26it/s]Capturing CUDA graph shapes:  24%|██▍       | 16/67 [00:01<00:03, 15.24it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:01<00:03, 15.77it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:01<00:02, 16.16it/s]Capturing CUDA graph shapes:  33%|███▎      | 22/67 [00:01<00:02, 16.39it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:01<00:02, 16.05it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:01<00:02, 16.16it/s]Capturing CUDA graph shapes:  42%|████▏     | 28/67 [00:01<00:02, 16.26it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:01<00:02, 16.36it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:02<00:02, 16.40it/s]Capturing CUDA graph shapes:  52%|█████▏    | 35/67 [00:02<00:01, 18.42it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:02<00:01, 19.76it/s]Capturing CUDA graph shapes:  61%|██████    | 41/67 [00:02<00:01, 20.49it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:02<00:01, 20.94it/s]Capturing CUDA graph shapes:  70%|███████   | 47/67 [00:02<00:00, 21.35it/s]Capturing CUDA graph shapes:  75%|███████▍  | 50/67 [00:02<00:00, 21.77it/s]Capturing CUDA graph shapes:  79%|███████▉  | 53/67 [00:02<00:00, 22.12it/s]Capturing CUDA graph shapes:  84%|████████▎ | 56/67 [00:03<00:00, 22.54it/s]Capturing CUDA graph shapes:  88%|████████▊ | 59/67 [00:03<00:00, 23.08it/s]Capturing CUDA graph shapes:  93%|█████████▎| 62/67 [00:03<00:00, 23.33it/s]Capturing CUDA graph shapes:  97%|█████████▋| 65/67 [00:03<00:00, 23.58it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:03<00:00, 18.97it/s]
+INFO 08-19 16:40:51 [gpu_model_runner.py:2485] Graph capturing finished in 4 secs, took 2.12 GiB
+INFO 08-19 16:40:51 [core.py:193] init engine (profile, create kv cache, warmup model) took 27.68 seconds
+vLLM model 'google/gemma-3-4b-it' initialized globally.
+=============================================================
+PART->SUBSET = [200, 300]...
+=============================================================
+current task_id start:  200
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1319.86it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]ERROR 08-19 16:40:54 [dump_input.py:69] Dumping input data for V1 LLM engine (v0.10.0) with config: model='google/gemma-3-4b-it', speculative_config=None, tokenizer='google/gemma-3-4b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=12288, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=google/gemma-3-4b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"/home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/eb89b7bb78","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":"/home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/eb89b7bb78/rank_0_0/backbone"}, 
+ERROR 08-19 16:40:54 [dump_input.py:76] Dumping scheduler output for model execution: SchedulerOutput(scheduled_new_reqs=[], scheduled_cached_reqs=CachedRequestData(req_ids=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'], resumed_from_preemption=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false], new_token_ids=[], new_block_ids=[[[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []]], num_computed_tokens=[89, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88]), num_scheduled_tokens={7: 1, 20: 1, 11: 1, 23: 1, 16: 1, 18: 1, 12: 1, 10: 1, 24: 1, 19: 1, 13: 1, 1: 1, 2: 1, 4: 1, 0: 1, 5: 1, 22: 1, 9: 1, 14: 1, 8: 1, 15: 1, 17: 1, 21: 1, 6: 1, 3: 1}, total_num_scheduled_tokens=25, scheduled_spec_decode_tokens={}, scheduled_encoder_inputs={}, num_common_prefix_blocks=[5, 0, 0, 0, 0, 0, 0], finished_req_ids=[], free_encoder_input_ids=[], structured_output_request_ids={}, grammar_bitmask=null, kv_connector_metadata=null)
+ERROR 08-19 16:40:54 [core.py:634] EngineCore encountered a fatal error.
+ERROR 08-19 16:40:54 [core.py:634] Traceback (most recent call last):
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 625, in run_engine_core
+ERROR 08-19 16:40:54 [core.py:634]     engine_core.run_busy_loop()
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 652, in run_busy_loop
+ERROR 08-19 16:40:54 [core.py:634]     self._process_engine_step()
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 677, in _process_engine_step
+ERROR 08-19 16:40:54 [core.py:634]     outputs, model_executed = self.step_fn()
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 267, in step
+ERROR 08-19 16:40:54 [core.py:634]     model_output = self.execute_model_with_error_logging(
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 253, in execute_model_with_error_logging
+ERROR 08-19 16:40:54 [core.py:634]     raise err
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 244, in execute_model_with_error_logging
+ERROR 08-19 16:40:54 [core.py:634]     return model_fn(scheduler_output)
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 87, in execute_model
+ERROR 08-19 16:40:54 [core.py:634]     output = self.collective_rpc("execute_model",
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 58, in collective_rpc
+ERROR 08-19 16:40:54 [core.py:634]     answer = run_method(self.driver_worker, method, args, kwargs)
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/utils/__init__.py", line 2985, in run_method
+ERROR 08-19 16:40:54 [core.py:634]     return func(*args, **kwargs)
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-19 16:40:54 [core.py:634]     return func(*args, **kwargs)
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 337, in execute_model
+ERROR 08-19 16:40:54 [core.py:634]     output = self.model_runner.execute_model(scheduler_output,
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-19 16:40:54 [core.py:634]     return func(*args, **kwargs)
+ERROR 08-19 16:40:54 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 1582, in execute_model
+ERROR 08-19 16:40:54 [core.py:634]     valid_sampled_token_ids = sampled_token_ids.tolist()
+ERROR 08-19 16:40:54 [core.py:634] RuntimeError: CUDA error: uncorrectable ECC error encountered
+ERROR 08-19 16:40:54 [core.py:634] CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+ERROR 08-19 16:40:54 [core.py:634] For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+ERROR 08-19 16:40:54 [core.py:634] Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+ERROR 08-19 16:40:54 [core.py:634] 
+EngineCore encountered an issue. See stack trace (above) for the root cause.
+retrying due to an error......
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 636, in run_engine_core
+    raise e
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 625, in run_engine_core
+    engine_core.run_busy_loop()
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 652, in run_busy_loop
+    self._process_engine_step()
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 677, in _process_engine_step
+    outputs, model_executed = self.step_fn()
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 267, in step
+    model_output = self.execute_model_with_error_logging(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 253, in execute_model_with_error_logging
+    raise err
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 244, in execute_model_with_error_logging
+    return model_fn(scheduler_output)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 87, in execute_model
+    output = self.collective_rpc("execute_model",
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 58, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/utils/__init__.py", line 2985, in run_method
+    return func(*args, **kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 337, in execute_model
+    output = self.model_runner.execute_model(scheduler_output,
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 1582, in execute_model
+    valid_sampled_token_ids = sampled_token_ids.tolist()
+RuntimeError: CUDA error: uncorrectable ECC error encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Processed prompts:   0%|          | 0/25 [00:05<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 171, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 74, in main
+    result_dict = solver.forward(question_data)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/more_agent.py", line 76, in forward
+    assert len(content_list) == len(self.nodes), \
+AssertionError: Expected 25 completions, but got 0
+Running part 3...
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 08-19 16:41:12 [__init__.py:235] Automatically detected platform cuda.
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/models/gemma3/configuration_gemma3.py:242: FutureWarning: The `sliding_window_pattern` attribute is deprecated and will be removed in v4.55.0.
+  warnings.warn(
+INFO 08-19 16:41:45 [config.py:1604] Using max model len 12288
+INFO 08-19 16:41:54 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-19 16:41:56 [core.py:572] Waiting for init message from front-end.
+INFO 08-19 16:41:56 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='google/gemma-3-4b-it', speculative_config=None, tokenizer='google/gemma-3-4b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=12288, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=google/gemma-3-4b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 08-19 16:42:01 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+WARNING 08-19 16:42:10 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 08-19 16:42:10 [gpu_model_runner.py:1843] Starting to load model google/gemma-3-4b-it...
+INFO 08-19 16:42:10 [gpu_model_runner.py:1875] Loading model from scratch...
+INFO 08-19 16:42:10 [cuda.py:307] Using FlexAttention backend for head_size=72 on V1 engine.
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/models/gemma3/configuration_gemma3.py:242: FutureWarning: The `sliding_window_pattern` attribute is deprecated and will be removed in v4.55.0.
+  warnings.warn(
+INFO 08-19 16:42:11 [cuda.py:290] Using Flash Attention backend on V1 engine.
+INFO 08-19 16:42:11 [weight_utils.py:296] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:00<00:00,  1.96it/s]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:01<00:00,  1.53it/s]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:01<00:00,  1.58it/s]
+
+INFO 08-19 16:42:13 [default_loader.py:262] Loading weights took 1.32 seconds
+INFO 08-19 16:42:13 [gpu_model_runner.py:1892] Model loading took 8.5834 GiB and 2.333162 seconds
+INFO 08-19 16:42:13 [gpu_model_runner.py:2380] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 32 image items of the maximum feature size.
+INFO 08-19 16:42:26 [backends.py:530] Using cache directory: /home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/eb89b7bb78/rank_0_0/backbone for vLLM's torch.compile
+INFO 08-19 16:42:26 [backends.py:541] Dynamo bytecode transform time: 10.02 s
+INFO 08-19 16:42:34 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 7.802 s
+INFO 08-19 16:42:36 [monitor.py:34] torch.compile takes 10.02 s in total
+INFO 08-19 16:42:37 [gpu_worker.py:255] Available KV cache memory: 27.98 GiB
+WARNING 08-19 16:42:37 [kv_cache_utils.py:955] Add 1 padding layers, may waste at most 3.45% KV cache memory
+INFO 08-19 16:42:37 [kv_cache_utils.py:997] GPU KV cache size: 209,552 tokens
+INFO 08-19 16:42:37 [kv_cache_utils.py:1001] Maximum concurrency for 12,288 tokens per request: 21.67x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:04, 15.14it/s]Capturing CUDA graph shapes:   6%|▌         | 4/67 [00:00<00:04, 15.39it/s]Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:00<00:03, 15.45it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:00<00:03, 15.39it/s]Capturing CUDA graph shapes:  15%|█▍        | 10/67 [00:00<00:03, 15.37it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:00<00:03, 15.36it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:00<00:03, 15.33it/s]Capturing CUDA graph shapes:  24%|██▍       | 16/67 [00:01<00:03, 15.31it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:01<00:03, 15.85it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:01<00:02, 16.23it/s]Capturing CUDA graph shapes:  33%|███▎      | 22/67 [00:01<00:02, 16.47it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:01<00:02, 16.16it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:01<00:02, 16.28it/s]Capturing CUDA graph shapes:  42%|████▏     | 28/67 [00:01<00:02, 16.38it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:01<00:02, 16.45it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:02<00:02, 16.51it/s]Capturing CUDA graph shapes:  52%|█████▏    | 35/67 [00:02<00:01, 18.57it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:02<00:01, 19.91it/s]Capturing CUDA graph shapes:  61%|██████    | 41/67 [00:02<00:01, 20.70it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:02<00:01, 21.18it/s]Capturing CUDA graph shapes:  70%|███████   | 47/67 [00:02<00:00, 21.58it/s]Capturing CUDA graph shapes:  75%|███████▍  | 50/67 [00:02<00:00, 22.04it/s]Capturing CUDA graph shapes:  79%|███████▉  | 53/67 [00:02<00:00, 22.37it/s]Capturing CUDA graph shapes:  84%|████████▎ | 56/67 [00:03<00:00, 22.79it/s]Capturing CUDA graph shapes:  88%|████████▊ | 59/67 [00:03<00:00, 23.36it/s]Capturing CUDA graph shapes:  93%|█████████▎| 62/67 [00:03<00:00, 23.61it/s]Capturing CUDA graph shapes:  97%|█████████▋| 65/67 [00:03<00:00, 23.90it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:03<00:00, 19.13it/s]
+INFO 08-19 16:42:41 [gpu_model_runner.py:2485] Graph capturing finished in 4 secs, took 2.12 GiB
+INFO 08-19 16:42:41 [core.py:193] init engine (profile, create kv cache, warmup model) took 27.89 seconds
+vLLM model 'google/gemma-3-4b-it' initialized globally.
+=============================================================
+PART->SUBSET = [300, 400]...
+=============================================================
+current task_id start:  300
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1654.09it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]ERROR 08-19 16:42:44 [dump_input.py:69] Dumping input data for V1 LLM engine (v0.10.0) with config: model='google/gemma-3-4b-it', speculative_config=None, tokenizer='google/gemma-3-4b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=12288, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=google/gemma-3-4b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"/home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/eb89b7bb78","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":"/home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/eb89b7bb78/rank_0_0/backbone"}, 
+ERROR 08-19 16:42:44 [dump_input.py:76] Dumping scheduler output for model execution: SchedulerOutput(scheduled_new_reqs=[], scheduled_cached_reqs=CachedRequestData(req_ids=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'], resumed_from_preemption=[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false], new_token_ids=[], new_block_ids=[[[211], [212], [213], [214], [215], [216], [217]], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []], [[], [], [], [], [], [], []]], num_computed_tokens=[96, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95]), num_scheduled_tokens={7: 1, 15: 1, 22: 1, 5: 1, 9: 1, 0: 1, 21: 1, 11: 1, 8: 1, 3: 1, 12: 1, 10: 1, 2: 1, 17: 1, 14: 1, 24: 1, 19: 1, 1: 1, 16: 1, 6: 1, 23: 1, 4: 1, 18: 1, 13: 1, 20: 1}, total_num_scheduled_tokens=25, scheduled_spec_decode_tokens={}, scheduled_encoder_inputs={}, num_common_prefix_blocks=[5, 0, 0, 0, 0, 0, 0], finished_req_ids=[], free_encoder_input_ids=[], structured_output_request_ids={}, grammar_bitmask=null, kv_connector_metadata=null)
+ERROR 08-19 16:42:44 [core.py:634] EngineCore encountered a fatal error.
+ERROR 08-19 16:42:44 [core.py:634] Traceback (most recent call last):
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 625, in run_engine_core
+ERROR 08-19 16:42:44 [core.py:634]     engine_core.run_busy_loop()
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 652, in run_busy_loop
+ERROR 08-19 16:42:44 [core.py:634]     self._process_engine_step()
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 677, in _process_engine_step
+ERROR 08-19 16:42:44 [core.py:634]     outputs, model_executed = self.step_fn()
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 267, in step
+ERROR 08-19 16:42:44 [core.py:634]     model_output = self.execute_model_with_error_logging(
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 253, in execute_model_with_error_logging
+ERROR 08-19 16:42:44 [core.py:634]     raise err
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 244, in execute_model_with_error_logging
+ERROR 08-19 16:42:44 [core.py:634]     return model_fn(scheduler_output)
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 87, in execute_model
+ERROR 08-19 16:42:44 [core.py:634]     output = self.collective_rpc("execute_model",
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 58, in collective_rpc
+ERROR 08-19 16:42:44 [core.py:634]     answer = run_method(self.driver_worker, method, args, kwargs)
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/utils/__init__.py", line 2985, in run_method
+ERROR 08-19 16:42:44 [core.py:634]     return func(*args, **kwargs)
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-19 16:42:44 [core.py:634]     return func(*args, **kwargs)
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 337, in execute_model
+ERROR 08-19 16:42:44 [core.py:634]     output = self.model_runner.execute_model(scheduler_output,
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 08-19 16:42:44 [core.py:634]     return func(*args, **kwargs)
+ERROR 08-19 16:42:44 [core.py:634]   File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 1582, in execute_model
+ERROR 08-19 16:42:44 [core.py:634]     valid_sampled_token_ids = sampled_token_ids.tolist()
+ERROR 08-19 16:42:44 [core.py:634] RuntimeError: CUDA error: uncorrectable ECC error encountered
+ERROR 08-19 16:42:44 [core.py:634] CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+ERROR 08-19 16:42:44 [core.py:634] For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+ERROR 08-19 16:42:44 [core.py:634] Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+ERROR 08-19 16:42:44 [core.py:634] 
+EngineCore encountered an issue. See stack trace (above) for the root cause.
+retrying due to an error......
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/software/easybuild-INTEL_A40/software/Miniforge3/24.1.2-0/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 636, in run_engine_core
+    raise e
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 625, in run_engine_core
+    engine_core.run_busy_loop()
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 652, in run_busy_loop
+    self._process_engine_step()
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 677, in _process_engine_step
+    outputs, model_executed = self.step_fn()
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 267, in step
+    model_output = self.execute_model_with_error_logging(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 253, in execute_model_with_error_logging
+    raise err
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 244, in execute_model_with_error_logging
+    return model_fn(scheduler_output)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 87, in execute_model
+    output = self.collective_rpc("execute_model",
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 58, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/utils/__init__.py", line 2985, in run_method
+    return func(*args, **kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 337, in execute_model
+    output = self.model_runner.execute_model(scheduler_output,
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 1582, in execute_model
+    valid_sampled_token_ids = sampled_token_ids.tolist()
+RuntimeError: CUDA error: uncorrectable ECC error encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Processed prompts:   0%|          | 0/25 [00:05<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 171, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 74, in main
+    result_dict = solver.forward(question_data)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/more_agent.py", line 76, in forward
+    assert len(content_list) == len(self.nodes), \
+AssertionError: Expected 25 completions, but got 0
+AGENT 1: All done, evaluating...
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 79, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 36, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 1: All done, evaluating finished...
+AGENT 5: All done, evaluating...
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 79, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 36, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 5: All done, evaluating finished...
+AGENT 10: All done, evaluating...
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 79, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 36, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 10: All done, evaluating finished...
+AGENT 15: All done, evaluating...
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 79, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 36, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 15: All done, evaluating finished...
+AGENT 20: All done, evaluating...
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 79, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 36, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 20: All done, evaluating finished...
+AGENT 25: All done, evaluating...
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 79, in <module>
+    merge_record(log_dir)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/evaluation.py", line 36, in merge_record
+    final_df = pd.concat(df_list)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 445, in __init__
+    objs, keys = self._clean_keys_and_objs(objs, keys)
+  File "/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/pandas/core/reshape/concat.py", line 507, in _clean_keys_and_objs
+    raise ValueError("No objects to concatenate")
+ValueError: No objects to concatenate
+AGENT 25: All done, evaluating finished...
+SLURM Job ID 153156 saved to /home/s06zyelt/nlp_lab/experiments/wikitypo/gemma-3-4b-it/gsm/slurm_job_id.txt
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+End Time: Tue Aug 19 16:42:53 CEST 2025
+Finished!!!
