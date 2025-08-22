@@ -1,0 +1,1736 @@
+state,ground_truth,final_answer,completions_0,answers_0,total_prompt_tokens,total_completion_tokens
+"Can you solve the following math problem? , Pierson scored 278 points in one game ! : of bowling. : Nikita ? scored 11 more than half : as many : as : Pierson. , How many : : points . : did : Pierson and Nikita have in total? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",428.0,428.0,"
+
+Here's how to solve the problem:
+
+1. **Find half of Pierson's score:** Half of Pierson's score is 278 / 2 = 139 points.
+2. **Calculate Nikita's score:** Nikita scored 11 more than half of Pierson's score, so she scored 139 + 11 = 150 points.
+3. **Find the total score:** To find the total score, add Pierson's score and Nikita's score: 278 + 150 = 428 points.
+
+Therefore, the combined number of points are :
+
+\boxed{428}
+",428,2325,4088
+"Can you solve the following math problem? At Ashley's : school, they start ? , a , reforestation campaign , where each , child ! plants : a tree and each teacher ; plants 2 trees. The ? school ; ! , has 40 classes with an average of . 25 students and . ; 3 teachers , per class. How many trees will ! they , , : have planted at the , . end of ! the campaign? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1240.0,1240.0,"
+
+Let $N_{classes}$ be the number of classes, $N_{students/class}$ be the average number of students per class, and $N_{teachers/class}$ be the number of teachers per class. We are given that $N_{classes} = 40$, $N_{students/class} = 25$, and $N_{teachers/class} = 3$.
+
+The total number of students is $N_{students} = N_{classes} \times N_{students/class} = 40 \times 25 = 1000$.
+Each child plants a tree, so the number of trees planted by the students is $N_{trees\_students} = N_{students} \times 1 = 1000 \times 1 = 1000$.
+
+The total number of teachers is $N_{teachers} = N_{classes} \times N_{teachers/class} = 40 \times 3 = 120$.
+Each teacher plants 2 trees, so the number of trees planted by the teachers is $N_{trees\_teachers} = N_{teachers} \times 2 = 120 \times 2 = 240$.
+
+The total number of trees planted is the sum of the trees planted by the students and the trees planted by the teachers:
+$N_{total\_trees} = N_{trees\_students} + N_{trees\_teachers} = 1000 + 240 = 1240$.
+
+Therefore, the total number of trees planted at the end of the campaign is 1240.
+
+\boxed{1240}
+Final Answer: The final answer is $\boxed{1240}$",1240,3100,6161
+"Can you solve the following math problem? Bubbles collects ! , stuffed animals. She : ! has three stuffed puppies, five : : stuffed , koalas, two : . stuffed , zebras and ? four ! ! stuffed frogs. : If she wants . . ? to buy enough stuffed goats, , such that the : percentage of , , , stuffed goats is 30% of all of her stuffed animals, , how , many stuffed goats should she buy? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",6.0,6.0,"
+
+Let G be the number of stuffed goats Bubbles needs to buy.
+The total number of stuffed animals Bubbles has is:
+3 (puppies) + 5 (koalas) + 2 (zebras) + 4 (frogs) = 14 stuffed animals.
+Let T be the total number of stuffed animals after Bubbles buys the goats. Then T = 14 + G.
+The percentage of stuffed goats is 30% of the total number of stuffed animals. So,
+G / T = 0.30
+G / (14 + G) = 0.30
+G = 0.30(14 + G)
+G = 4.2 + 0.30G
+G - 0.30G = 4.2
+0.70G = 4.2
+G = 4.2 / 0.70
+G = 6
+Therefore, Bubbles needs to buy 6 stuffed goats.
+The total number of stuffed animals will be 14 + 6 = 20.
+The number of goats is 6, which is 6/20 = 0.3 = 30% of the total number of stuffed animals.
+
+Final Answer: The final answer is $\boxed{6}$",6,3125,12446
+"Can you solve the following math problem? ? Kris is ? trying to earn a video game achievement , for , : playing a total of , . 30 hours. ? If Kris ? plays for half an hour every day . for 2 weeks then plays for 2 hours every day ? for a : week, ! how many hours , . does . ! she . still . need to ; ? play to ! earn : the achievement? , , Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",9.0,9.0,"
+
+First, we need to determine how many hours Kris plays in the first two weeks. Since Kris plays for half an hour every day for 2 weeks, which is 14 days, the total hours played in the first two weeks is:
+
+(1/2 hour/day) * (14 days) = 7 hours
+
+Next, we need to determine how many hours Kris plays in the next week. Since Kris plays for 2 hours every day for a week, which is 7 days, the total hours played in the next week is:
+
+(2 hours/day) * (7 days) = 14 hours
+
+Now, we can calculate the total hours played so far:
+
+7 hours + 14 hours = 21 hours
+
+Finally, we need to find how many more hours Kris needs to play to reach the 30-hour achievement:
+
+30 hours - 21 hours = 9 hours
+
+Therefore, Kris still needs to play 9 hours to earn the achievement.
+
+\boxed{9}",9,3050,6460
+"Can you solve the following math problem? ! Two cars ? ? are driving : on a highway. The . first car , is traveling at an ? average speed of 60 ; miles per hour ! when the second car ! passes , it at ? an , : ; average speed : : of 70 miles per hour. If both cars , continue ! on , the , highway at , ; : , the same speed, how many miles will . : separate them after ? 2 hours? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",20.0,20.0,"
+
+The problem states that and clearly identifies the speeds and the time. We want to know how many miles separate the cars at 2 hours.
+
+Let the speed of the first car be $v_1 = 60$ mph and the speed of the second car be $v_2 = 70$ mph.
+Let the time be $t = 2$ hours.
+
+Since the second car passes the first car, the second car is faster than the first car.
+The relative speed of the second car with respect to the first car is $v_2 - v_1 = 70 - 60 = 10$ mph.
+The distance between the two cars after 2 hours is the relative speed multiplied by the time.
+Distance = (Relative speed) $\times$ time = $(v_2 - v_1) \times t = 10 \times 2 = 20$ miles.
+
+Therefore, the distance separating the two cars after 2 hours is 20 miles.
+
+\boxed{20}
+",20,3300,8099
+"Can you solve the following math problem? James buys a ring for his ? bride-to-be. ? ; The diamond ? cost ! $600 and the gold . cost $300. He pays ! a 30% ! premium ! for . it to be made. How . ! much did he pay? , . ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1170.0,1170.0,"
+
+Let's break down the problem step-by-step:
+
+1. **Calculate the total cost of the materials:** The diamond cost $600 and the gold cost $300, so the total cost of the materials is $600 + $300 = $900.
+
+2. **Calculate the premium:** James pays a 30% premium on the material cost. So, the premium amount is 30% of $900.  To calculate this, we convert 30% to a decimal by dividing by 100: 30/100 = 0.30.  Then multiply 0.30 by $900: 0.30 * $900 = $270.
+
+3. **Calculate the total cost:**  The total cost is the material cost plus the premium amount. So, $900 + $270 = $1170.
+
+Therefore, James paid $1170 for the ring.
+
+\boxed{1170}
+",1170,2550,4713
+"Can you solve the following math problem? Janet ! is collecting the ; results ? ! ! : ; of Herbert Hoover , Elementary School's ? annual . : standardized test. 340 out ! of 500 third-graders passed, along with 40 out of ; , 100 fourth , graders. The 400 ? ? fifth , graders had a pass , ; ; rate that was twice the ; fourth grades' pass , rate. . What is the school's overall ? pass rate? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",70.0,70.0,"4.  Write an Answer that is at least one paragraph long that explains your calculations clearly and logically.
+
+Here's how to solve this problem:
+
+1.  **Calculate the number of third-graders who passed:** 340 out of 500 passed.
+2.  **Calculate the number of fourth-graders who passed:** 40 out of 100 passed.
+3.  **Calculate the fifth-graders' pass rate:** The fourth-grade pass rate is 40/100 = 0.40 or 40%. The fifth-grade pass rate is twice that, so 0.40 * 2 = 0.80 or 80%.
+4.  **Calculate the number of fifth-graders who passed:** 80% of 400 fifth-graders passed, which is 0.80 * 400 = 320.
+5.  **Calculate the total number of students who passed:** 340 (third grade) + 40 (fourth grade) + 320 (fifth grade) = 700.
+6.  **Calculate the total number of students:** 500 (third grade) + 100 (fourth grade) + 400 (fifth grade) = 1000.
+7.  **Calculate the overall pass rate:** (Total number of students who passed / Total number of students) = 700 / 1000 = 0.70 or 70%.
+
+Therefore, the school's overall pass rate is 70%.
+
+\boxed{70}",70,3525,7927
+"Can you solve the following math problem? : Milo is making a mosaic with chips , . ! , , of glass. ? ; It takes ; twelve . glass chips ? ? to make every square inch ; of ! the mosaic. A ; bag of . glass ! chips holds 72 chips. Milo wants , ? : his ? mosaic ? ; to be three inches tall. If he has two bags of glass chips, how many : ; ? inches long can he make his ? mosaic? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",4.0,4.0,"
+Let's analyze the problem step by step:
+1. Chips per square inch: 12
+2. Chips per bag: 72
+3. Number of bags: 2
+4. Total chips: 72 chips/bag * 2 bags = 144 chips
+5. Area the chips can cover: 144 chips / 12 chips/square inch = 12 square inches
+6. Height of the mosaic: 3 inches
+7. Let 'L' be the length of the mosaic.
+8. Area of the mosaic = height * length = 3 * L
+9. 3L = 12 square inches
+10. L = 12 square inches / 3 inches = 4 inches
+
+Therefore, Milo can make his mosaic 4 inches long.
+
+\boxed{4}",4,3275,5440
+"Can you solve the following math problem? There are 10 quarts of tea left , from ! the ? party. Four students , : each ? drank , ; 1.5 . quarts : of ; tea and : 16 students , each drank ? 2 . quarts of tea. , How many ! gallons : of tea were at the beginning of ; the party? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",12.0,12.0,"3
+Let $q$ be the total number of quarts of tea at the beginning of the party.
+Let $s_1$ be the number of students who drank 1.5 quarts of tea, so $s_1 = 4$.
+Let $s_2$ be the number of students who drank 2 quarts of tea, so $s_2 = 16$.
+The total amount of tea the first group of students drank is $s_1 \times 1.5 = 4 \times 1.5 = 6$ quarts.
+The total amount of tea the second group of students drank is $s_2 \times 2 = 16 \times 2 = 32$ quarts.
+The total amount of tea consumed by the students is $6 + 32 = 38$ quarts.
+The amount of tea left is 10 quarts.
+The total amount of tea at the beginning of the party is the sum of the tea consumed and the tea left: $q = 38 + 10 = 48$ quarts.
+We are asked to find the total amount of tea in gallons. Since 1 gallon = 4 quarts, we can convert 48 quarts to gallons by dividing by 4:
+$48 \div 4 = 12$ gallons.
+
+Thus, there were 48 quarts of tea at the beginning of the party, which is equal to 12 gallons of tea.
+We are asked to give the final answer as a single numerical number in the form \boxed{answer}.
+So we need to give the answer in gallons, which is 12.
+
+Final Answer: The final answer is $\boxed{12}$",12,2700,6014
+"Can you solve the following math problem? Dale is . selling . , butterscotch candies . to ? raise : money for his club at school. He , ; ; doesn't have ; the : , candies yet and is instead just taking orders. He ! started ! : ; off with ; ! : 100 total ? that he ordered and , wanted to sell, ? but he ended . up selling , 150 butterscotch candies. Then ! ; he ! . ordered 100 , more. How many does Dale still need , to sell to , sell all of his ? candy? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",50.0,50.0,"
+Let's analyze the situation step by step.
+
+1. Dale initially planned to sell 100 candies.
+2. He actually sold 150 candies, which is more than planned.
+3. He ordered 100 more candies after selling 150. Now he has a total of 100 + 100 = 200 candies.
+4. He has already sold 150 candies.
+5. To find out how many more he needs to sell, subtract the already sold candies from the total number of candies he has: 200 - 150 = 50 candies.
+
+Dale still needs to sell 50 candies to sell all of his candy.
+
+\boxed{50}
+",50,3875,4510
+"Can you solve the following math problem? In one , year, the . number of ? ? . students : on campus ! , doubles . : : ; ? at the end of every month. , If ; ; there are 10 students ; on campus ; at the beginning of the ! year, how many additional students would have joined by the end of May, above and ; : beyond : the number of students already on campus , at the : beginning of the . : year? , . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",310.0,310.0,"
+
+Here's how to solve this problem:
+
+*   **Month-by-Month Growth:** The student population doubles *every month*.
+*   **Initial Population:** We start with 10 students.
+
+Let's track the population month by month:
+
+*   **January:** 10 * 2 = 20 students
+*   **February:** 20 * 2 = 40 students
+*   **March:** 40 * 2 = 80 students
+*   **April:** 80 * 2 = 160 students
+*   **May:** 160 * 2 = 320 students
+
+*   **Additional Students:**  To find the additional students, we subtract the initial number from the population at the end of May:  320 - 10 = 310
+
+\boxed{310}",310,3275,9244
+"Can you solve the following math problem? Felix : notices that kids in the neighborhood ? ! are always getting , things stuck : in ; ! ? , trees. Since he . is an expert tree climber, he decided to , start ; charging kids : to get their stuff ; ! out. ! He charges based on how high ; he has to climb. Every branch he . ! ? has to climb up costs : $.25. During . the : : week ? he made ? ? . ? $105. On average, how many branches ? ! did he : climb per day? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",60.0,60.0,"
+
+Here's how to solve the problem:
+
+1.  **Find the total number of branches climbed:** Felix earned $105, and each branch costs $0.25. So, the total number of branches climbed is $105 / $0.25 = 420 branches.
+
+2.  **Calculate the average branches climbed per day:** Felix worked for a week, which is 7 days. So, the average branches climbed per day is 420 branches / 7 days = 60 branches/day.
+
+\boxed{60}",60,3800,4251
+"Can you solve the following math problem? Rose : is out picking . flowers . , for ; a , vase she ! ; wants to fill. She : starts off ! . by ; picking 3 flowers with 5 : petals , each. She then picks 4 flowers ! with 6 petals each. She ; then ; . adds ! another ! 5 flowers with , 4 petals ; each. Lastly she : . picks ! 6 : flowers with 7 petals ; : ! each. As she's carrying these flowers over , to fill the vase, ; she drops . : 1 of each and the , wind blows them ; away. She puts the . remaining flowers in the vase. How many : . : ? ! ! , petals in total are on the flowers in ; the vase? , : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",79.0,79.0,"
+
+Here's how to solve the problem:
+
+1. **Calculate petals from the first type of flowers:** 3 flowers * 5 petals/flower = 15 petals
+2. **Calculate petals from the second type of flowers:** 4 flowers * 6 petals/flower = 24 petals
+3. **Calculate petals from the third type of flowers:** 5 flowers * 4 petals/flower = 20 petals
+4. **Calculate petals from the fourth type of flowers:** 6 flowers * 7 petals/flower = 42 petals
+5. **Calculate the total number of petals picked:** 15 + 24 + 20 + 42 = 101 petals
+6. **Calculate the number of flowers dropped:** 1 flower from each group, so 1 + 1 + 1 + 1 = 4 flowers
+7. **Adjust the number of flowers (and petals) for each type:**
+   * Type 1: 3 - 1 = 2 flowers.  2 * 5 = 10 petals
+   * Type 2: 4 - 1 = 3 flowers.  3 * 6 = 18 petals
+   * Type 3: 5 - 1 = 4 flowers.  4 * 4 = 16 petals
+   * Type 4: 6 - 1 = 5 flowers.  5 * 7 = 35 petals
+8. **Calculate the total number of petals in the vase:** 10 + 18 + 16 + 35 = 79 petals
+
+\boxed{79}",79,4925,8087
+"Can you solve the following math problem? John and DeSean , : ; bought : a bag , of . marshmallows ? to make s'mores together. ? ? The ; bag ? has : 35 marshmallows. Each S'more . uses one : marshmallow. ; If John : makes 9 S'mores, DeSean ; makes 9 S'mores, ! and they dropped 3 marshmallows ! on the . ground, , ! how many S'mores ? can each ! ? kid have with the marshmallows left in the bag? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",7.0,7.0,"
+
+John and DeSean started with 35 marshmallows.
+John made 9 S'mores, which used 9 marshmallows.
+DeSean made 9 S'mores, which used 9 marshmallows.
+They dropped 3 marshmallows on the ground.
+
+Total marshmallows used: 9 (John) + 9 (DeSean) + 3 (dropped) = 21 marshmallows.
+
+Marshmallows left in the bag: 35 (initial) - 21 (used) = 14 marshmallows.
+
+Each S'more uses 1 marshmallow.
+So, with 14 marshmallows, they can make 14 S'mores in total.
+Since there are two kids (John and DeSean), they can each have 14 / 2 = 7 S'mores.
+
+\boxed{7}",7,3550,5514
+"Can you solve the following math problem? A new arcade opens up and ! Jack decides to ! : play with . his 3 friends. Jack , can play a game with 1 ; quarter for 20 minutes. Two of ; ; his . friends ; ! are : significantly worse than him and can only . play . : half as ; long. . One ; of them ; is significantly ? : better and ? can play for 1.5 times ? : as long. They play ; ? ? for 4 hours. How ; much ? money is , used? , ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",11.0,68.0,"
+
+Let the time Jack can play a game with one quarter be 20 minutes.
+Jack's playing time per quarter = 20 minutes.
+Two friends can play for half as long as Jack, so their playing time per quarter = 20/2 = 10 minutes.
+One friend can play for 1.5 times as long as Jack, so their playing time per quarter = 20 * 1.5 = 30 minutes.
+Total playing time of the group per quarter = 20 + 10 + 10 + 30 = 70 minutes.
+They play for 4 hours, which is equal to 4 * 60 = 240 minutes.
+Number of quarters used = total minutes / minutes per quarter = 240 / 70 = 24/7 quarters.
+Since they can only play with whole quarters, we need to find the number of quarters such that the total playing time is at least 240 minutes.
+
+However, the above calculation is incorrect. Let's consider the number of games each person can play for 4 hours (240 minutes).
+Jack can play 240 / 20 = 12 games.
+Two friends can play 240 / 10 = 24 games each.
+One friend can play 240 / 30 = 8 games.
+So, the total number of games played is 12 + 24 + 24 + 8 = 70 - 2 = 68 games.
+Since each game costs 1 quarter, the total money used is 68 quarters.
+However, this assumes that they play simultaneously.
+
+Let's calculate the money used in the following way:
+Jack's time: 240 minutes / 20 minutes/quarter = 12 quarters.
+Two friends' time: 240 minutes / 10 minutes/quarter = 24 quarters each. Total: 2 * 24 = 48 quarters.
+One friend's time: 240 minutes / 30 minutes/quarter = 8 quarters.
+Total number of quarters used = 12 + 48 + 8 = 68 quarters.
+
+However, the question states that Jack plays with his 3 friends, so they are playing together. Let the total time be 240 minutes.
+The group's playing time per quarter is 70 minutes.
+The number of quarters needed = 240/70 = 24/7 which is approximately 3.428
+Since they must use whole quarters, we can estimate the cost.
+If they use 3 quarters, then the total playing time is 3*70 = 210 minutes. They still need to play for 30 more minutes.
+If they use 4 quarters, then the total playing time is 4*70 = 280 minutes, which is more than 240 minutes.
+So, we round up to 4.
+
+Another interpretation is that each friend plays their respective time, and the total time played is 240 minutes.
+Jack plays 12 games, which uses 12 quarters.
+2 friends play 24 games each, which uses 2*24 = 48 quarters.
+1 friend plays 8 games, which uses 8 quarters.
+Total quarters = 12 + 48 + 8 = 68 quarters.
+
+We should assume that each person uses the given amounts of time and the problem asks for total money spent. So, the calculation is 12 + 48 + 8 = 68.
+68 quarters = 68 * $0.25 = $17.00
+
+Final Answer: The final answer is $\boxed{68}$",68,3750,19766
+"Can you solve the following math problem? Tanya makes a ! salt scrub from salt, oil, fragrance, citrus ; zest, and sugar. , : . She makes ? enough . to fill : : a . 10-ounce jar ! each time. She uses the . same amount : of citrus zest as ! fragrance ? . ; and the ! same amount , of salt as sugar. ? She uses twice as much oil as salt and ; twice : as much . ! salt ; as zest. ? How , , , many ounces . ? of oil does she use? ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",4.0,4.0,"
+Let's denote the amounts of each ingredient in ounces as follows:
+- Salt (S)
+- Oil (O)
+- Fragrance (F)
+- Citrus zest (Z)
+- Sugar (Su)
+
+We are given the following information:
+1. The total amount of scrub in a jar is 10 ounces. So, S + O + F + Z + Su = 10.
+2. The amount of citrus zest is the same as the amount of fragrance. Z = F.
+3. The amount of salt is the same as the amount of sugar. S = Su.
+4. The amount of oil is twice the amount of salt. O = 2S.
+5. The amount of salt is twice the amount of zest. S = 2Z.
+
+Now we can express everything in terms of Z:
+- F = Z
+- S = 2Z
+- Su = S = 2Z
+- O = 2S = 2(2Z) = 4Z
+
+Substitute these expressions into the equation for the total amount of scrub:
+S + O + F + Z + Su = 10
+2Z + 4Z + Z + Z + 2Z = 10
+10Z = 10
+Z = 1
+
+Now we can find the amount of oil:
+O = 4Z = 4(1) = 4
+
+Therefore, Tanya uses 4 ounces of oil.
+
+Final Answer: The final answer is $\boxed{4}$",4,3700,10217
+"Can you solve the following math problem? John goes , . ; to the . market ; ; and buys 3 : goats for $500 each and , 2 cows for $1500 each. How , much money did ? ? he spend? , Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",4500.0,4500.0,"
+
+John spent $500 * 3 = $1500 on the goats.
+He spent $1500 * 2 = $3000 on the cows.
+In total, he spent $1500 + $3000 = $4500.
+
+\boxed{4500}",4500,2150,4095
+"Can you solve the following math problem? ! Paul : needs 63 ; cupcakes : for a : birthday ! ? party happening on Saturday. He already has , 8 , ? ; chocolate ; cupcakes ; and 40 ! toffee cupcakes. How many more cupcakes should Paul buy? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",15.0,15.0,"
+First, let's find out how many cupcakes Paul already has:
+He has 8 chocolate cupcakes + 40 toffee cupcakes = 48 cupcakes.
+
+Next, let's find out how many more cupcakes he needs:
+He needs 63 cupcakes - 48 cupcakes = 15 cupcakes.
+
+Therefore, Paul should buy 15 more cupcakes.
+
+\boxed{15}",15,2250,2749
+"Can you solve the following math problem? ? Joe ! has twice as many ; cars ; as Robert. He sells 20% of ? them . and ! gives away ; twice as ; many ; cars as the number he sold , to ; his mother. If ! Robert . ! has 20 ; . ; cars, how many cars does joe remain ! with ; after selling and giving ? some to : : his ! mother? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",16.0,16.0,"
+
+Here's how to solve the problem step-by-step:
+
+1. **Find how many cars Joe initially had:** Joe has twice as many cars as Robert, and Robert has 20 cars. So, Joe initially has 2 * 20 = 40 cars.
+
+2. **Calculate how many cars Joe sold:** Joe sells 20% of his cars, which is (20/100) * 40 = 8 cars.
+
+3. **Calculate how many cars Joe gave to his mother:** He gave away twice as many cars as he sold, so he gave away 2 * 8 = 16 cars.
+
+4. **Calculate how many cars Joe has remaining:**  He started with 40 cars, sold 8, and gave away 16.  So he has 40 - 8 - 16 = 16 cars remaining.
+
+Therefore, Joe remains with 16 cars.
+
+\boxed{16}",16,3000,6217
+"Can you solve the following math problem? Twenty students are working ? together ; to . raise , ? : money , , . ! for a ! . ! ! charity. Each earns the same amount. , The charity raises a total of $175,000. ; ? $50,000 comes from organizations and the rest from the students. , How : much did each student raise? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",250.0,6250.0,"
+Let the amount each student raises be $x$.
+The total amount raised is $175,000.
+The amount raised from organizations is $50,000.
+The amount raised from the students is the total amount raised minus the amount raised from organizations, which is $175,000 - $50,000 = $125,000$.
+Since there are 20 students, and each student earns the same amount, we have $20x = 125,000$.
+To find the amount each student raised, we divide the total amount raised by the students by the number of students:
+$x = \frac{125,000}{20} = \frac{12500}{2} = 6250$.
+Each student raised $6250.
+
+Final Answer: The final answer is $\boxed{6250}$",6250,2875,4470
+"Can you solve the following math problem? : ! . Sandy walked from ; ! Holloway Shores to Sun Valley ; Shores for , 8 ; hours ; on a particular day. ; She ; , also ! walked ! half as many : hours on the second day ! as she walked on the first day, to Hollock : valley , ; shores. , Calculate ? : the total ; time Sandy : ! took to walk ; in the two days in minutes. Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",720.0,720.0,"
+Let $t_1$ be the time Sandy walked from Holloway Shores to Sun Valley Shores on the first day. Then $t_1 = 8$ hours.
+Let $t_2$ be the time Sandy walked from Sun Valley Shores to Holloway Shores on the second day. Then $t_2 = \frac{1}{2} t_1 = \frac{1}{2}(8) = 4$ hours.
+The total time Sandy took to walk in the two days is $t_1 + t_2 = 8 + 4 = 12$ hours.
+We want to calculate the total time in minutes. Since there are 60 minutes in an hour, we have
+Total time in minutes = $12 \text{ hours} \times 60 \frac{\text{minutes}}{\text{hour}} = 12 \times 60 = 720$ minutes.
+
+Final Answer: The final answer is $\boxed{720}$",720,3075,4286
+"Can you solve the following math problem? . Hunter counted 50 cars packed in their school ; ; parking lot when . ; ; entering ! class . : one morning. During the , , ? first break, ? he counted 20 more cars : in the : parking lot. When he got out of , class , for the lunch ? ! break, ? he realized that 1/2 the , number of ? : . cars in ; the parking lot had : gone. What's . the total number of ! cars ? ? he ! counted during lunch break? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",35.0,35.0,"
+Here's how to solve the problem step-by-step:
+
+1. **Cars after the first break:** Hunter started with 50 cars and saw 20 more, so there were 50 + 20 = 70 cars in the parking lot.
+
+2. **Cars that left:** During the lunch break, half the cars left, so 70 / 2 = 35 cars left.
+
+3. **Cars remaining during lunch:** This means 70 - 35 = 35 cars were left in the parking lot during the lunch break.
+
+Therefore, Hunter counted 35 cars during the lunch break.
+
+\boxed{35}",35,3700,3834
+"Can you solve the following math problem? , John ? does 30 cycles of work , a day. Each , cycle has 5 different tasks ? and ! each ? task , ? pays $1.20. How much ; . , does , he : make if ; he : works a full 7 day week? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1260.0,1260.0,"
+
+John makes $1.20 per task.
+He does 30 cycles of work a day.
+Each cycle has 5 different tasks.
+So, the number of tasks a day is 30 cycles * 5 tasks/cycle = 150 tasks.
+The amount he makes per day is 150 tasks * $1.20/task = $180.
+He works a full 7-day week.
+So, the total amount he makes in a week is $180/day * 7 days/week = $1260.
+
+\boxed{1260}",1260,2450,4106
+"Can you solve the following math problem? Sasha ? , and Julie : . are , , best friends ? playing ? on opposing : basketball teams. The teams have two practice games scheduled. In the ! first game, . . , ? Sasha had the home ! court : advantage ; and scored 14 points. Julie , : , . scored . 4 fewer points than Sasha . ; in the same game. Sasha always : struggles during away : games and ? : their second match ; was ? at Julie's home court. Sasha ! scored 6 fewer points in ; the second game . ? ! than Julie's score in , the first game. How ; many ? total : . points did Sasha : score during both ? games? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",14.0,18.0,"
+
+Let's analyze the problem step by step:
+
+1. **First Game:**
+   - Sasha scored 14 points.
+   - Julie scored 4 fewer points than Sasha, so Julie scored 14 - 4 = 10 points.
+
+2. **Second Game:**
+   - Sasha scored 6 fewer points than Julie's score in the first game. Julie scored 10 in the first game, so Sasha scored 10 - 6 = 4 points in the second game.
+
+3. **Total Points for Sasha:**
+   - Sasha scored 14 points in the first game and 4 points in the second game.
+   - Total points = 14 + 4 = 18 points.
+
+Therefore, Sasha scored a total of 18 points during both games.
+
+\boxed{18}",18,4525,4862
+"Can you solve the following math problem? Kimberly bought 8 ; . packages of cat food and 6 packages of ; ! . ? dog food. Each ? package of cat food contained 11 tins, , and each . . package of dog food contained : , 6 tins. ? ? ; ? How many more tins ? of cat ! food than dog ? ? food . did Kimberly buy? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",52.0,52.0,"
+
+Let $C$ be the number of tins of cat food Kimberly bought, and let $D$ be the number of tins of dog food Kimberly bought.
+Kimberly bought 8 packages of cat food, and each package contained 11 tins. So the number of tins of cat food is $C = 8 \times 11 = 88$.
+Kimberly bought 6 packages of dog food, and each package contained 6 tins. So the number of tins of dog food is $D = 6 \times 6 = 36$.
+
+We want to find how many more tins of cat food than dog food Kimberly bought. This is the difference between the number of tins of cat food and the number of tins of dog food, which is $C - D = 88 - 36 = 52$.
+
+So Kimberly bought 52 more tins of cat food than dog food.
+
+Final Answer: The final answer is $\boxed{52}$",52,2800,4530
+"Can you solve the following math problem? Becca, , Smendrick, and PJ have collections ! , . ! of Magic Cards. There is ? , a . . total of 341 cards. Becca has 12 more than ; Smendrick, and Smendrick has ! 3 : ? times . the ! ; amount : ! of cards that ? PJ has. ! How many cards does Becca have? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",153.0,153.0,"
+
+Let's use variables to represent the number of cards each person has:
+
+*   B = Number of cards Becca has
+*   S = Number of cards Smendrick has
+*   P = Number of cards PJ has
+
+We are given the following information:
+
+1.  B + S + P = 341 (The total number of cards)
+2.  B = S + 12 (Becca has 12 more than Smendrick)
+3.  S = 3P (Smendrick has 3 times the amount of cards PJ has)
+
+We want to find the value of B.  We can express B and S in terms of P and then substitute into the first equation.
+
+From equation (3), we already have S in terms of P:  S = 3P
+
+From equation (2), we can express B in terms of P using S = 3P:
+B = S + 12 = 3P + 12
+
+Now, substitute these expressions for B and S into equation (1):
+
+(3P + 12) + (3P) + P = 341
+
+Combine the terms with P:
+
+7P + 12 = 341
+
+Subtract 12 from both sides:
+
+7P = 329
+
+Divide both sides by 7:
+
+P = 329 / 7 = 47
+
+Now that we know P = 47, we can find S and B:
+
+S = 3P = 3 * 47 = 141
+
+B = S + 12 = 141 + 12 = 153
+
+Therefore, Becca has 153 cards.
+
+We can check our answer:
+
+B + S + P = 153 + 141 + 47 = 341.  This is correct.
+
+\boxed{153}
+",153,3025,14271
+"Can you solve the following math problem? On Easter Sunday Cindy went to the city park to participate ? : in ! the , ; Easter Egg ; Hunt, and : . ; . ended : up with ? a basket full of eggs. : She had . 5 green ones, ! , ? twice as . . many blue ones as ; green ones, one . fewer . pink , eggs ! ? than blue eggs, and one-third as ; many yellow eggs as : pink eggs. How many eggs : did Cindy ? have altogether? : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",27.0,27.0,"
+
+Here's a breakdown of how to solve the problem step-by-step:
+
+1. **Blue Eggs:** Cindy had twice as many blue eggs as green eggs, and she had 5 green eggs. So, she had 2 * 5 = 10 blue eggs.
+
+2. **Pink Eggs:** She had one fewer pink egg than blue eggs. So, she had 10 - 1 = 9 pink eggs.
+
+3. **Yellow Eggs:** She had one-third as many yellow eggs as pink eggs. So, she had 9 / 3 = 3 yellow eggs.
+
+4. **Total Eggs:** To find the total number of eggs, add the number of each color: 5 (green) + 10 (blue) + 9 (pink) + 3 (yellow) = 27 eggs.
+
+Therefore, Cindy had 27 eggs altogether.
+
+\boxed{27}
+",27,3500,4668
+"Can you solve the following math problem? , Milly needs to , return ! a ; book ; she decided was : really boring. The book ; . , weighs 4 : ! ? pounds, cost $32, and , needs to ? ; ! ! ! be returned to a ; distribution : center 20 ! . miles away. If the shipping company charges $0.35 per . pound plus $0.08 per mile, and Amazon will only , . refund 75% of the book's : purchase . price, ! how much money will Milly lose? : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",11.0,11.0,"
+Here's how to break down the problem and solve it:
+
+1.  **Calculate the shipping cost:**
+    *   Cost per pound: 4 pounds \* $0.35/pound = $1.40
+    *   Cost per mile: 20 miles \* $0.08/mile = $1.60
+    *   Total shipping cost: $1.40 + $1.60 = $3.00
+
+2.  **Calculate the refund amount:**
+    *   Refund percentage: 75%
+    *   Original price: $32
+    *   Refund amount: $32 \* 0.75 = $24
+
+3.  **Calculate Milly's total loss:**
+    *   Shipping cost: $3.00
+    *   Original price: $32
+    *   Refund amount: $24
+    *   Milly's loss: $32 - $24 + $3.00 = $11.00
+
+Therefore, Milly will lose $11.00.
+
+\boxed{11}
+",11,3850,7178
+"Can you solve the following math problem? : Mulan has $40. Her ! ; father gave . her ! $100. ? She buys two : ; , pairs of jeans at ? $30 each and a bag for $20. : ? How much ? ; money does Mulan have left? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",60.0,60.0,"
+
+Here's the breakdown:
+
+1.  **Calculate the total amount Mulan received:**
+    *   Mulan starts with $40.
+    *   Her father gives her $100.
+    *   Total received: $40 + $100 = $140
+
+2.  **Calculate the cost of the jeans:**
+    *   She buys two pairs of jeans at $30 each.
+    *   Total cost of jeans: 2 * $30 = $60
+
+3.  **Calculate the total cost of her purchases:**
+    *   Jeans cost $60.
+    *   Bag costs $20.
+    *   Total cost: $60 + $20 = $80
+
+4.  **Calculate the money Mulan has left:**
+    *   She had $140.
+    *   She spent $80.
+    *   Money left: $140 - $80 = $60
+
+\boxed{60}
+",60,2425,4620
+"Can you solve the following math problem? ? ! ; Boris ! owns a chocolate factory. He produces 50,000 bars ; of chocolate each month. Boris , produces 8,000 bars : of chocolate the first week. The second week, ; ? ! Boris ! only ! , produces , half . ? as ? much ; as the : first , . week. But, the ; : : third , week, ! Boris produces three times as much as : the first week. How much does he . produce the fourth week? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",0.0,14000.0,"
+
+Let's break down the problem step by step to find the chocolate production for each week, and finally determine the production for the fourth week:
+
+Total Monthly Production: 50,000 bars
+Week 1 Production: 8,000 bars
+Week 2 Production: Half of Week 1 = 8,000 / 2 = 4,000 bars
+Week 3 Production: Three times Week 1 = 8,000 * 3 = 24,000 bars
+
+Now, let's calculate the total production in the first three weeks:
+Total Production (Week 1-3) = 8,000 + 4,000 + 24,000 = 36,000 bars
+
+The problem asks for the production in the fourth week. As we know the total monthly production, we can find it by subtracting the first three weeks production from the total montage production.
+Week 4 Production = Total Monthly Production - Total Production (Week 1-3)
+Week 4 Production = 50,000 - 36,000 = 14,000 bars
+
+\boxed{14000}",14000,3600,6828
+"Can you solve the following math problem? ? ! Britany records ! 18 ; : 4-minute TikTok ! , videos each week. She spends 2 ? hours a week writing amateur ? , songs to sing on TikTok, ? , ? , and 15 minutes six ! days a week : doing her , makeup before , filming herself for TikTok. How much . . time does Britany spend : . on TikTok in a , . month ? with four weeks? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1128.0,1128.0,"
+
+Here's the solution:
+
+First, let's calculate the time Britany spends on TikTok videos each week. She records 18 videos, each 4 minutes long, so she spends 18 * 4 = 72 minutes on videos per week.
+
+Next, let's calculate the time she spends writing songs. She spends 2 hours a week, which is equal to 2 * 60 = 120 minutes.
+
+Then, let's calculate the time she spends on makeup. She spends 15 minutes each of six days a week, so she spends 15 * 6 = 90 minutes on makeup per week.
+
+Now, let's add up the total time she spends on TikTok-related activities each week: 72 minutes (videos) + 120 minutes (songs) + 90 minutes (makeup) = 282 minutes per week.
+
+Finally, let's calculate the total time she spends on TikTok in a month with four weeks: 282 minutes/week * 4 weeks/month = 1128 minutes.
+
+\boxed{1128}",1128,3200,7112
+"Can you solve the following math problem? ? An , interior design ! ! . firm offers installation for $129.00. ! It includes hanging , 4 mirrors, 2 shelves, 1 chandelier, and 10 ! . pictures. They : will install additional items , for , an extra $15.00 ! per . item. ? : Angela , has 6 mirrors and 2 chandeliers ? ? and ! ! : 20 pictures , that she needs installed/hung. How . much will ! this cost her? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",324.0,324.0,"
+Let's break down the problem and calculate the cost of Angela's installation.
+
+* **Base Installation Cost:** $129.00 (This covers the initial 4 mirrors, 2 shelves, 1 chandelier, and 10 pictures).
+
+* **Additional Mirrors:** Angela wants 6 mirrors installed, but the base package includes 4.  She needs an extra 6 - 4 = 2 mirrors. These will cost 2 * $15.00 = $30.00.
+
+* **Additional Chandeliers:** Angela wants 2 chandeliers installed, but the base package includes 1.  She needs an extra 2 - 1 = 1 chandelier. This will cost 1 * $15.00 = $15.00.
+
+* **Additional Pictures:** Angela wants 20 pictures installed, but the base package includes 10. She needs an extra 20 - 10 = 10 pictures. This will cost 10 * $15.00 = $150.00.
+
+* **Total Additional Cost:** $30.00 + $15.00 + $150.00 = $195.00
+
+* **Total Cost:** Base Installation Cost + Total Additional Cost = $129.00 + $195.00 = $324.00
+
+\boxed{324}
+",324,3625,7698
+"Can you solve the following math problem? . Roy has , saved , 40% : more in money ? earned by : . , chores ; ? than his ! brother Anthony. Anthony has saved $10.00 : more than their sister Eva. : Eva has saved . $20.00. How much money , ? does Roy have? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",42.0,42.0,"
+
+Here's how to solve the problem step-by-step:
+
+1.  **Find how much Anthony has saved:** Anthony has saved $10.00 more than Eva, who has saved $20.00. So, Anthony has saved $20.00 + $10.00 = $30.00.
+
+2.  **Find how much Roy has saved:** Roy has saved 40% more than Anthony, who has saved $30.00. To find 40% of $30.00, calculate 0.40 * $30.00 = $12.00. Roy saved $12.00 more than Anthony.  Therefore, Roy has saved $30.00 + $12.00 = $42.00.
+
+\boxed{42}
+",42,2625,5027
+"Can you solve the following math problem? . Naruto can lift a mountain ten times ! higher than Kagiyami can. But , . Kagiyami can : lift , ? a : : mountain 4 . . ? times higher ? than Saskay can. ; ? , And Saskay can lift a mountain 12 times higher than Pompei ; can. If Pompei can lift a mountain ; 1 , . ? : inch, how high can Naruto lift ? a ; mountain, in : . feet? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",40.0,40.0,"47.
+
+Here's how we can solve this problem step-by-step:
+
+1. **Saskay:** Saskay can lift a mountain 12 times higher than Pompei, who can lift it 1 inch. So, Saskay can lift 12 * 1 = 12 inches.
+
+2. **Kagiyami:** Kagiyami can lift a mountain 4 times higher than Saskay, who can lift it 12 inches. So, Kagiyami can lift 4 * 12 = 48 inches.
+
+3. **Naruto:** Naruto can lift a mountain 10 times higher than Kagiyami, who can lift it 48 inches. So, Naruto can lift 10 * 48 = 480 inches.
+
+4. **Convert to feet:** There are 12 inches in a foot. So, Naruto can lift 480 / 12 = 40 feet.
+
+Therefore, Naruto can lift a mountain 40 feet.
+
+$\boxed{40}$",40,3375,6058
+"Can you solve the following math problem? Mason ! is . , on his ; ! bike journey at a , , rate of ? 8 . miles per hour. He travels ? ; ? for 4 hours, takes some rest, and then goes ! on for ; another 6 , ; ; hours. How many miles , has he traveled : in total? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",80.0,80.0,"
+
+The provided text contains many punctuation marks. They are simply there to confuse and don't need to be considered in solving the mathematical problem. We have the following information:
+* Rate: 8 miles per hour
+* Initial time: 4 hours
+* Subsequent time: 6 hours
+
+First, calculate the distance traveled during the first 4 hours:
+Distance = Rate × Time = 8 miles/hour × 4 hours = 32 miles
+
+Next, calculate the distance traveled during the next 6 hours:
+Distance = Rate × Time = 8 miles/hour × 6 hours = 48 miles
+
+Finally, add the two distances to find the total distance traveled:
+Total distance = 32 miles + 48 miles = 80 miles
+
+\boxed{80}",80,2600,4231
+"Can you solve the following math problem? , . If it takes 3 kangaroos ? traveling at the same ; , speed ; ; a ? total of 18 hours ! to travel across a highway, : how ? many hours ; will it take ? four turtles, : ? ; each traveling , , at half the speed of , a kangaroo, to do so? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",48.0,27.0,"
+
+Here's how we can solve this problem:
+
+1. **Find the highway's length:**  If 3 kangaroos take 18 hours, and they travel at the same speed, the highway length is 3 kangaroos * 18 hours/kangaroo = 54 kangaroo-hours. This means it takes 54 kangaroo-hours to cross the highway.
+
+2. **Find the speed of a kangaroo:**  We can consider highway length as distance, and time as time taken over equivalent units of kangaroos (or turtles).
+3. **Find the speed of a turtle:** A turtle travels at half the speed of a kangaroo, so its speed is kangaroo-speed / 2.
+
+4. **Calculate the time for four turtles:**  The highway length is the same (54 kangaroo-hours). The total speed of four turtles is 4 turtles * (kangaroo-speed / 2) = 2 * kangaroo-speed.
+
+5. **Express time taken by turtles** Time = Distance(54 kangaroo-hours) / speed (2* kangaroo-speed) = 54/2 = 27
+
+Therefore, it will take four turtles 27 hours to cross the highway.
+
+\boxed{27}",27,2650,8906
+"Can you solve the following math problem? Jada, Rory, and . ; Kora make clay : ? dishes . . : to present as art for their ? ! . school project. Jada makes twice as many clay dishes as Rory, while Rory makes ! ! 20 more . clay dishes ; than ; ; . Kora. If Kora , made 20 dishes, how . many clay ! . dishes they . ! all make together? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",140.0,140.0,"
+Let $J$ be the number of clay dishes Jada made.
+Let $R$ be the number of clay dishes Rory made.
+Let $K$ be the number of clay dishes Kora made.
+
+We are given that Jada makes twice as many clay dishes as Rory, so $J = 2R$.
+Rory makes 20 more clay dishes than Kora, so $R = K + 20$.
+Kora made 20 dishes, so $K = 20$.
+
+We want to find the total number of clay dishes they all make together, which is $J + R + K$.
+We know $K = 20$, so we can find $R$.
+$R = K + 20 = 20 + 20 = 40$.
+Now we can find $J$.
+$J = 2R = 2(40) = 80$.
+Finally, we can find the total number of dishes they all made together.
+$J + R + K = 80 + 40 + 20 = 140$.
+
+The total number of clay dishes is $J+R+K = 80+40+20 = 140$.
+
+Final Answer: The final answer is $\boxed{140}$",140,3100,7275
+"Can you solve the following math problem? Erika is saving for a new ; laptop. , The laptop she wants costs $600. ? The sales : ; assistant told ! her , that if she traded in her ? , old laptop, , the price of the : new ; one would be : ; reduced by , ; $200. She thinks this is a good ? deal and agrees ; to ? do it. She ! already has some ! , ! ? savings . , . ? , in her purse, and has also ; been paid $150 this week for ; , her ! ! part-time , job. : ; ! ! Her . ! mom agrees to give her $80 to help her. If . Erika now only needs an extra $50 to : , . ? buy the laptop, . : how much money does she have ; in ? her purse? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",120.0,170.0,"
+
+Here's how to solve the problem step-by-step:
+
+1.  **Calculate the price after the trade-in:** The laptop costs $600, and the trade-in reduces the price by $200, so the new price is $600 - $200 = $400.
+
+2.  **Calculate Erika's total savings so far:** She has $150 from her job and $80 from her mom, totaling $150 + $80 = $230.
+
+3.  **Calculate how much money Erika had before the opportunity:** Erika still needs $50 to buy the laptop. She has already got $230 saved which is still $50 short to buy the laptop, so she had initially $400 - $230 = $170 in her purse.
+
+4.  **Calculate the answer**: Erika has $170 in her purse.
+
+\boxed{170}",170,5350,6420
+"Can you solve the following math problem? Adam ; wants to . eat some sliced apples. A large , apple can be sliced ; into 5 , ; ? pieces, and a small apple ; ; can , be sliced into 3 pieces. Adam ! ? ; decides ; to slice 3 large : and 5 ? small . . . apples and then eats 15 slices. How many ! apple ! ; slices are ! left? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",15.0,15.0,"
+
+Let L be the number of large apples Adam slices, and let S be the number of small apples Adam slices.
+
+We are given that a large apple can be sliced into 5 pieces, and a small apple can be sliced into 3 pieces.
+
+Adam slices 3 large apples, so $L = 3$.
+The number of slices from the large apples is $3 \times 5 = 15$ pieces.
+
+Adam slices 5 small apples, so $S = 5$.
+The number of slices from the small apples is $5 \times 3 = 15$ pieces.
+
+The total number of slices Adam has is $15 + 15 = 30$ slices.
+
+Adam eats 15 slices, so the number of slices left is $30 - 15 = 15$ slices.
+
+Final Answer: The final answer is $\boxed{15}$",15,3000,4745
+"Can you solve the following math problem? A ; : ; farmer extracts 5 liters of milk a day , from , a cow. ; Since : he has 3 cows, how many more cows does he need to have : ? : to produce 25 liters of milk : ; . , a ; , day? ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",2.0,2.0,"
+Here's how to solve this problem:
+
+1. **Calculate the total milk production:** The farmer currently produces 5 liters/cow * 3 cows = 15 liters of milk per day.
+
+2. **Determine the milk deficit:** He needs to produce 25 liters and currently produces 15 liters, so he needs 25 - 15 = 10 more liters.
+
+3. **Calculate the number of additional cows needed:** Since each cow produces 5 liters, he needs 10 liters / 5 liters/cow = 2 more cows.
+
+Therefore, the farmer needs 2 more cows.
+
+\boxed{2}",2,2425,4267
+"Can you solve the following math problem? Patrick has three glue sticks , that , are partially used. One has 1/6 ? , : left, the second has . . ! 2/3 , left ! , : and ! the third ! one has 1/2 , left. If a glue stick is : 12 millimeters long originally, what is the total length of the , . . . glue sticks that are ; not used? . ? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",16.0,20.0,"20
+
+First, we need to determine the fraction of each glue stick that is not used.
+Glue stick 1: 1 - 1/6 = 5/6 is not used.
+Glue stick 2: 1 - 2/3 = 1/3 is not used.
+Glue stick 3: 1 - 1/2 = 1/2 is not used.
+
+Next, we need to find the length of the glue not used for each glue stick. Since each glue stick is 12 millimeters long originally, we can multiply the length by the fraction of glue not used.
+Glue stick 1: (5/6) * 12 = 60/6 = 10 millimeters.
+Glue stick 2: (1/3) * 12 = 12/3 = 4 millimeters.
+Glue stick 3: (1/2) * 12 = 12/2 = 6 millimeters.
+
+Finally, we need to find the total length of the glue sticks that are not used by adding the lengths of the unused glue from each glue stick.
+Total length: 10 + 4 + 6 = 20 millimeters.
+
+\boxed{20}
+",20,3125,9100
+"Can you solve the following math problem? Gabriel wants . to . buy : ! : a car for $10000 and a phone for , $800. Gabriel has $5000 from working , on weekends ! , : and his brother gave him $200 to ? ? ! help , him. . How much money . does he still : need? ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",5600.0,5600.0,"
+
+First, we need to calculate the total cost of the car and the phone.
+Total cost = Cost of car + Cost of phone
+Total cost = $10000 + $800
+Total cost = $10800
+
+Next, we calculate how much money Gabriel has.
+Money from weekends = $5000
+Money from brother = $200
+Total money Gabriel has = $5000 + $200
+Total money Gabriel has = $5200
+
+Now, subtract the total money Gabriel has from the total cost of the items to find out how much money he still needs.
+Money still needed = Total cost - Money Gabriel has
+Money still needed = $10800 - $5200
+Money still needed = $5600
+
+Therefore, Gabriel still needs $5600.
+
+\boxed{5600}
+",5600,2775,4437
+"Can you solve the following math problem? . While on vacation ! ! ! in . Bali, Thea , bought ! a hat from a craftsman worth ; $70. If she ! gave . : the craftsman four ; $20 bills, how much change ! did she get? ? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",10.0,10.0,"
+
+Thea gave the craftsman four $20 bills. This means she gave a total of 4 * $20 = $80. The hat cost $70. To find the change, we subtract the cost of the hat from the amount she gave: $80 - $70 = $10.
+
+\boxed{10}
+",10,2250,2060
+"Can you solve the following math problem? . Craig has 2 twenty dollar bills. He ! buys ? : six squirt ? ; , : ; guns for . ; $2 each. He ; also buys 3 packs of ! water balloons for . $3 each. How much money does he have left? ? : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",19.0,19.0,"20
+Craig starts with 2 twenty-dollar bills, so he has 2 * $20 = $40.
+
+He buys 6 squirt guns for $2 each, so the cost of the squirt guns is 6 * $2 = $12.
+
+He buys 3 packs of water balloons for $3 each, so the cost of the water balloons is 3 * $3 = $9.
+
+The total cost of the squirt guns and water balloons is $12 + $9 = $21.
+
+He started with $40 and spent $21, so he has $40 - $21 = $19 left.
+
+\boxed{19}
+",19,2400,4310
+"Can you solve the following math problem? ! Peter has ? twice ! as : many socks : : as ; Jack and half times as many dishes , as jack. Jack ! . , collected : twice ? as many . ! dishes , , as socks in the store. If jack collected 60 . dishes, calculate the total number of socks and dishes they ; have together? ; ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",180.0,180.0,"
+
+Let's break down the problem step by step:
+
+1. **Jack's dishes:** We are told Jack collected 60 dishes.
+
+2. **Jack's socks:** Jack collected twice as many dishes as socks.  Therefore, the number of Jack's socks is 60 / 2 = 30 socks.
+
+3. **Peter's socks:** Peter has twice as many socks as Jack.  Therefore, Peter has 2 * 30 = 60 socks.
+
+4. **Peter's dishes:** Peter has half as many dishes as Jack.  Therefore, Peter has 60 / 2 = 30 dishes.
+
+5. **Total socks:** Total socks are Jack's socks + Peter's socks = 30 + 60 = 90 socks.
+
+6. **Total dishes:** Total dishes are Jack's dishes + Peter's dishes = 60 + 30 = 90 dishes.
+
+7. **Total socks and dishes:** Total number of socks and dishes = 90 + 90 = 180.
+
+\boxed{180}
+",180,2725,10334
+"Can you solve the following math problem? ; There are 20 students in ! : Miss Susan's class. 5 ; ; of ? them , are good at : math only, ; 8 ? . of them perform , well in English : only, ? and the rest : ! are good , at ? both math and English. How ; many are : good at math? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",12.0,12.0,"
+Here's how to solve the problem:
+1. **Find the number of students good at both subjects:**
+   * Total students: 20
+   * Students in math only: 5
+   * Students in English only: 8
+   * Students in both: 20 - 5 - 8 = 7
+
+2. **Find the number of students good at math:**
+   * Students in math only: 5
+   * Students in both math and English: 7
+   * Total students good at math: 5 + 7 = 12
+
+Therefore, there are 12 students good at math.
+
+\boxed{12}",12,2750,8343
+"Can you solve the following math problem? Vicki is planning a ! pop ; concert ! at ? : her ! high school. The show will ! be ? , 2 hours. She , , ! is , allowing each ? group ! ! 2 minutes to get ! on stage, 6 minutes to perform, . and ; then 2 minutes , to . ? ? exit : the stage. If ; she allows a 10-minute intermission, how many groups ; can perform in the concert? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",11.0,11.0,"
+
+Let's analyze the problem.
+The concert has a total duration of 2 hours, which is equal to 120 minutes.
+
+Each group takes a total time to:
+- Get on stage: 2 minutes
+- Perform: 6 minutes
+- Exit the stage: 2 minutes
+Total time per group = 2 + 6 + 2 = 10 minutes
+
+There is a 10-minute intermission.  So, the total time available for performances and the intermission is 120 minutes. 
+
+Let 'n' be the number of groups that can perform.
+The total time taken by 'n' groups is n * 10 minutes.
+The time taken for the intermission is 10 minutes.
+So, the equation is: n * 10 + 10 = 120
+
+Subtract 10 from both sides:
+n * 10 = 120 - 10
+n * 10 = 110
+
+Divide both sides by 10:
+n = 110 / 10
+n = 11
+
+Therefore, 11 groups can perform in the concert.
+
+\boxed{11}
+",11,3325,5069
+"Can you solve the following math problem? Brenda invested $300 into a . ; scheme that , ; accumulates simple interest at the rate of three-quarters of the original ; ? . amount per year. ? How much ? in . . ? total . will . she have after . 3 years? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",975.0,975.0,"
+
+Here's how to solve the problem:
+
+1.  **Calculate the annual interest:** The interest rate is three-quarters of the original amount, which is (3/4) * $300 = $225 per year.
+
+2.  **Calculate the total interest after 3 years:** Over 3 years, the total interest earned will be $225/year * 3 years = $675.
+
+3.  **Calculate the total amount after 3 years:** The total amount Brenda will have is the original investment plus the total interest earned: $300 + $675 = $975.
+
+\boxed{975}",975,2325,9608
+"Can you solve the following math problem? A clothing store has 40 ; ; white ; shirts and ? ; 50 ; floral shirts. Half ? ! of the white shirts have collars, ? , ! and 20 of the : floral shirts have buttons. ? How ? many more floral shirts with ; ! no buttons are ! there than ; white : shirts with , no collars? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",10.0,10.0,"
+
+Here's how to solve the problem:
+
+1.  **Find the number of white shirts with collars:** Half of the 40 white shirts have collars, so there are 40 / 2 = 20 white shirts with collars.
+
+2.  **Find the number of white shirts with no collars:**  Since there are 40 white shirts total and 20 have collars, there are 40 - 20 = 20 white shirts with no collars.
+
+3.  **Find the number of floral shirts with no buttons:** There are 50 floral shirts total, and 20 have buttons, so there are 50 - 20 = 30 floral shirts with no buttons.
+
+4.  **Find the difference:** The problem asks for the difference between the number of floral shirts with no buttons and the number of white shirts with no collars.  This is 30 - 20 = 10.
+
+\boxed{10}",10,2800,5401
+"Can you solve the following math problem? ! ? . ! A . farmer , ? has 900 eggs. He placed them on a tray, ; which holds 30 eggs : each. How ! much ; : will the farmer earn if : he ? sells it for $2.5 . per tray? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",75.0,75.0,"
+The problem relates to three things: eggs, trays and money.
+
+First, we need to figure out how many trays of eggs the farmer has. Since each tray holds 30 eggs, and the farmer has 900 eggs, we divide the total number of eggs by the number of eggs per tray:
+
+900 eggs / 30 eggs/tray = 30 trays
+
+Next, we determine how much the farmer will earn. The farmer is selling each tray for $2.50. Since has 30 trays, we multiply the number of trays by te price arranged in money listed for each tray
+
+30 trays * $2.50/tray = $75.00
+
+Therefore, the farmer will earn $75.00.
+
+\boxed{75}
+",75,2400,3295
+"Can you solve the following math problem? Mr. Smith ? has two farms, Farm X ; and Farm Y. ! He has 55 ? goats in , Farm X ? and 45 goats in Farm ? Y. He sold , : 10 , goats from Farm : X and twice ! ! : as ! many goats ? ! from ; ! Farm Y. ! : How many goats are left ? in the ; . two farms altogether? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",70.0,70.0,"
+Let:
+* $G_X$ be the initial number of goats in Farm X.
+* $G_Y$ be the initial number of goats in Farm Y.
+* $S_X$ be the number of goats sold from Farm X.
+* $S_Y$ be the number of goats sold from Farm Y.
+* $L_X$ be the number of goats left in Farm X.
+* $L_Y$ be the number of goats left in Farm Y.
+* $T$ be the total number of goats left in both farms.
+
+We are given:
+* $G_X = 55$
+* $G_Y = 45$
+* $S_X = 10$
+* $S_Y = 2 \times S_X = 2 \times 10 = 20$
+
+Now we can find the number of goats left in each farm:
+* $L_X = G_X - S_X = 55 - 10 = 45$
+* $L_Y = G_Y - S_Y = 45 - 20 = 25$
+
+Finally, we can find the total number of goats left in both farms:
+* $T = L_X + L_Y = 45 + 25 = 70$
+
+Therefore, there are 70 goats left in the two farms altogether.
+
+\boxed{70}",70,3075,5702
+"Can you solve the following math problem? James buys 2 pairs of shoes a ? ; month. He spends $2640 on , ; : shoes : ; each year. How ! much does he pay , on ! ; , ! average for each pair of shoes? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",110.0,110.0,"
+Let $x$ be the amount James spends on shoes each month.
+Since James spends $2640 on shoes each year, and there are 12 months in a year, the amount he spends on shoes each month is:
+$x = \frac{2640}{12} = 220$
+
+James buys 2 pairs of shoes each month.
+Let $y$ be the average cost of each pair of shoes.
+Since he buys 2 pairs of shoes each month and spends $220 each month, we have:
+$2y = 220$
+
+To find the average cost of each pair of shoes, divide the total monthly cost by the number of pairs:
+$y = \frac{220}{2} = 110$
+
+Therefore, the average cost of each pair of shoes is $110.
+
+Final Answer: The final answer is $\boxed{110}$",110,2175,5468
+"Can you solve the following math problem? A , basket ; of ? ; green : food costs : $25 ! ; and : a basket of red food costs $18. If you buy 3 baskets of ! green food and red food, : , ; ; how much ? ? will you have to pay in total if , you , ? : ; . get $2 off for each basket of red food? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",123.0,123.0,"
+
+**Here's how to solve the problem:**
+1.  **Cost of 3 baskets of green food:** 3 baskets * $25/basket = $75
+2.  **Discount per basket of red food:** Discount per basket of red food = $2
+3.  **Total discount for 3 baskets of red food:** 3 baskets * $2/basket = $6
+4.  **Cost of 3 baskets of red food before discount:** 3 baskets * $18/basket = $54
+5.  **Cost of 3 baskets of red food after discount:** $54 - $6 = $48
+6.  **Total cost:** $75 (green food) + $48 (red food) = $123
+
+**Final Answer:** \boxed{123}
+",123,2925,6285
+"Can you solve the following math problem? There ; : . are ! 90 ! rooms at the ? KozyInn , Motel. It takes housekeeping 20 minutes to clean each : room. . How : ; many hours would . it take : to clean one-half of the : rooms? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",15.0,15.0,"90/2 =45，45 * 20 =900, 900/60 =15
+
+First, we need to find out how many rooms represent one-half of the total rooms. Since there are 90 rooms, one-half is 90 / 2 = 45 rooms.
+
+Next, we know it takes 20 minutes to clean each room. So, to clean 45 rooms, it will take 45 * 20 = 900 minutes.
+
+Finally, we need to convert minutes to hours. There are 60 minutes in an hour, so we divide the total minutes by 60: 900 / 60 = 15 hours.
+
+\boxed{15}",15,2325,3374
+"Can you solve the following math problem? ! ! A ; : ! , local town is expanding and wants to : : build several new homes across the next , three years. In the first year, they ? will . : build 12 homes. In the next year, they ? ? will build ! three ? times : this . many ? : homes. ; In the third , year, ; they will count how many homes they have built ; , and double the amount. How ; many ; ; homes will the town ? have built , over the ? ? next three years? . , Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",144.0,144.0,"
+Here's how we can solve this problem:
+
+*   **Year 1:** 12 homes
+*   **Year 2:** 3 times the amount from Year 1, so 12 * 3 = 36 homes
+*   **Year 3:** Double the total homes built in the first two years. Total homes built in Years 1 and 2 are 12 + 36 = 48. Doubled, this is 48 * 2 = 96 homes.
+
+**Total:** To find the total number of homes built over the three years, add the number of homes built each year: 12 + 36 + 96 = 144 homes.
+
+\boxed{144} 
+",144,3775,5264
+"Can you solve the following math problem? I : : am three years . younger : than my : brother, and . . I am 2 years older than my sister. ? . ! . My mom's age is ; ! one ? less ! than three times ! my brother's age. When you add all our ages, you get 87. How old am I? , ! , : , Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",13.0,13.0,"2
+Let's use variables to represent the ages:
+
+* Let my age be 'x'.
+* My brother's age is 'x + 3'.
+* My sister's age is 'x - 2'.
+* My mom's age is '3(x + 3) - 1'.
+
+The sum of all our ages is 87, so we can write the equation:
+
+x + (x + 3) + (x - 2) + (3(x + 3) - 1) = 87
+
+Now, let's solve for x:
+
+x + x + 3 + x - 2 + 3x + 9 - 1 = 87
+6x + 9 = 87
+6x = 78
+x = 13
+
+Therefore, my age is 13.
+
+Now let's verify the answer.
+
+My age: x = 13
+Brother's age: x + 3 = 16
+Sister's age: x - 2 = 11
+Mom's age: 3(x + 3) - 1 = 3(16) - 1 = 48 - 1 = 47
+
+Total age: 13 + 16 + 11 + 47 = 87
+
+The answer is correct.
+
+\boxed{13}
+",13,2875,10071
+"Can you solve the following math problem? Mr. Jackson’s fourth-grade class has ! 27 : students. He ? : . wants to give each student 2 glue sticks. The glue ; , sticks . come ? . in ; ? ! packs ? of ? 8. How many : packs will Mr. Jackson , need to buy so every student can ? have 2 glue ! sticks, assuming he can ; only buy whole packs and he expects , to have ; some extra , glue sticks ? left . . ! ! , over? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",7.0,7.0,"
+Let $N$ be the number of students in the fourth-grade class, which is $N=27$. Mr. Jackson wants to give each student 2 glue sticks. So the total number of glue sticks needed is $27 \times 2 = 54$. The glue sticks come in packs of 8.
+To find the number of packs Mr. Jackson needs to buy, we divide the total number of glue sticks needed by the number of glue sticks in each pack, and round up to the nearest whole number, since he can only buy whole packs.
+Number of packs needed = $\frac{54}{8} = 6.75$. Since Mr. Jackson can only buy whole packs, he must buy 7 packs.
+If he buys 6 packs, he will have $6 \times 8 = 48$ glue sticks, which is not enough for 27 students each getting 2 glue sticks (54 glue sticks).
+If he buys 7 packs, he will have $7 \times 8 = 56$ glue sticks, which is enough for the 27 students to each get 2 glue sticks.
+The number of extra glue sticks is $56 - 54 = 2$.
+
+Therefore, Mr. Jackson needs to buy 7 packs of glue sticks.
+
+Final Answer: The final answer is $\boxed{7}$",7,3575,5673
+"Can you solve the following math problem? The ? ; amount , ? of ! ! water . ! passing through a river ? ? at one : ! point in ; time . is 4000 ! gallons. ; ! : After a day of heavy rain, , the amount of water passing through the . river doubles at the same point. , If ? the . volume ; of water . passing through ? the river at ! that point increases , ! . by 6000 gallons on the third day, calculate the total amount of water passing through the river : at , that . ? point. Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",14000.0,26000.0,"
+
+Let's break down the problem:
+
+* **Day 1 (initial):** 4000 gallons of water pass through the river.
+* **Day 2 (after heavy rain):** The water doubles, so 4000 * 2 = 8000 gallons.
+* **Day 3 (volume increased):** The volume increases by 6000 gallons from Day 2, so 8000 + 6000 = 14000 gallons.
+
+The problem asks for the *total* amount of water that passes through the river. This means the sum of the water crossing the point on all three days:
+
+Total = Day 1 + Day 2 + Day 3 = 4000 + 8000 + 14000 = 26000 gallons.
+
+Therefore, the total amount of water passing through the river is 26000 gallons.
+
+\boxed{26000}",26000,3850,4817
+"Can you solve the following math problem? A plague infects ten people. Every . day, each ? infected person infects . six : . . others. : How many people ? ? are infected after three days? : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",3430.0,3430.0,"
+
+Here's the breakdown:
+
+*   **Day 0:** 10 people infected
+*   **Day 1:** Each of the 10 people infects 6 others, so 10 * 6 = 60 new infections. Total infected: 10 + 60 = 70 people.
+*   **Day 2:** Each of the 70 people infects 6 others, so 70 * 6 = 420 new infections. Total infected: 70 + 420 = 490 people.
+*   **Day 3:** Each of the 490 people infects 6 others, so 490 * 6 = 2940 new infections. Total infected: 490 + 2940 = 3430 people.
+
+Therefore, after three days, 3430 people are infected.
+
+\boxed{3430}",3430,1900,9847
+"Can you solve the following math problem? . While ? . working at ! the restaurant, each : of the forty , customers ? who came into ; the : . restaurant gave Rafaela a $20 tip. Julieta received 10% . ! less , . ; ! money in tips than Rafaela. How much ; , money did Julieta and Rafaela receive as tips ? altogether? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1520.0,1520.0,"
+Let's break down the problem step by step:
+
+1. **Rafaela's total tips:** Rafaela received tips from 40 customers, and each customer gave her a $20 tip. So, her total tips were 40 * $20 = $800.
+
+2. **Julieta's tips compared to Rafaela's:** Julieta received 10% less than Rafaela.  10% of Rafaela's tips is 10% of $800, which is (10/100) * $800 = $80.
+
+3. **Julieta's total tips:** Julieta received $80 less than Rafaela, so her tips were $800 - $80 = $720.
+
+4. **Combined tips:** To find the total tips for both women, we add Rafaela's tips and Julieta's tips: $800 + $720 = $1520.
+
+Therefore, Julieta and Rafaela received a total of $1520 as tips.
+
+\boxed{1520}
+",1520,2825,4857
+"Can you solve the following math problem? ; Jennifer bought : 12 ! oranges from the market, she gave her . ? three ! daughters 2 . ? oranges each, , and her : only boy got 3 oranges. How many oranges did ? she ; remain with? ! , Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",3.0,0.0,"
+
+Let's break down the problem step by step:
+
+1. **Oranges given to daughters:** Jennifer gave 3 oranges to each of her 3 daughters, so she gave away 3 * 3 = 9 oranges.
+
+2. **Oranges given to her son:** She gave 3 oranges to her son.
+
+3. **Total oranges given away:** In total, she gave away 9 + 3 = 12 oranges.
+
+4. **Oranges remaining:** Jennifer started with 12 oranges and gave away 12 oranges, so she has 12 - 12 = 0 oranges left.
+
+\boxed{0}
+",0,2250,2766
+"Can you solve the following math problem? . Claire ; earns 1 ; ! girl scout badge every month. : ; It ! takes , Amber ! ! twice as long : ! ? to earn a badge than Claire. ? . Wendy earns three times : the amount of badges ? as Claire in the , ! ; same ! time frame. How many more badges does Wendy earn compared to Amber ? . in ! a 1 year time ? frame? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",30.0,30.0,"112
+
+Here's how to solve this problem:
+
+1. **Claire's badges per year:** Claire earns 1 badge per month, so in a year (12 months) she earns 1 * 12 = 12 badges.
+
+2. **Amber's badges per year:** Amber takes twice as long as Claire to earn a badge, so she earns 1/2 a badge per month. In a year, she earns (1/2) * 12 = 6 badges.
+
+3. **Wendy's badges per year:** Wendy earns three times the amount of badges as Claire, so she earns 3 * 12 = 36 badges.
+
+4. **The difference between Wendy and Amber:** To find how many more badges Wendy earns than Amber, subtract Amber's badges from Wendy's badges: 36 - 6 = 30 badges.
+
+Therefore, Wendy earns 30 more badges than Amber in a year.
+
+\boxed{30}
+",30,3025,5831
+"Can you solve the following math problem? Every hour, Paige can bake , 2 banana bread : , loaves in the ! ; oven. ! Each banana : bread ! loaf is cut into ; 8 ? slices and : ; wrapped ! individually for ! sale. Each : ? slice is sold for 50 ! cents : for a fundraiser. ! If she baked from 1:00 , PM - 6:00 ? PM : ? straight, and sold ! all the slices, how , much ! ; did : she raise in : dollars? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",40.0,40.0,"
+
+Paige baked from 1:00 PM to 6:00 PM, which is a total of 5 hours.
+
+* **Loaves baked:** She bakes 2 loaves per hour, so in 5 hours she baked 2 loaves/hour * 5 hours = 10 loaves.
+* **Total slices:** Each loaf has 8 slices, so she had 10 loaves * 8 slices/loaf = 80 slices.
+* **Total money raised:** Each slice sells for $0.50, so she raised 80 slices * $0.50/slice = $40.00.
+
+\boxed{40}",40,3625,4382
+"Can you solve the following math problem? Gretchen has ? some coins. , , There ! are 30 more gold coins than : silver ; coins. If : she had 70 gold : coins, how many coins did Gretchen have . ; : in , ? total? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",110.0,110.0,"
+
+Let $g$ be the number of gold coins Gretchen has, and let $s$ be the number of silver coins Gretchen has.
+We are given that there are 30 more gold coins than silver coins. This can be written as
+$$g = s + 30.$$
+We are also given that Gretchen has 70 gold coins, so $g = 70$.
+Substituting $g=70$ into the equation $g = s + 30$, we have
+$$70 = s + 30.$$
+Subtracting 30 from both sides, we get
+$$s = 70 - 30 = 40.$$
+So Gretchen has 40 silver coins.
+
+The total number of coins Gretchen has is the sum of the number of gold coins and the number of silver coins, which is $g + s$.
+Since $g = 70$ and $s = 40$, the total number of coins is $70 + 40 = 110$.
+
+Therefore, Gretchen has a total of 110 coins.
+
+Final Answer: The final answer is $\boxed{110}$",110,2175,5493
+"Can you solve the following math problem? George, a : , ; , grade six teacher, , ordered 600 burritos for the sixth-grade class picnic. If there were . ! 50 ! students at the picnic, and each student : was given ! ? ten . burritos, . with Mr. George eating . 20 . . of them, calculate the total , ! ! number of ; leftover burritos from , the picnic? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",80.0,80.0,"
+Let's analyze the problem:
+
+1.  **Burritos given to students:** There were 50 students, and each got 10 burritos, so they ate a total of 50 * 10 = 500 burritos.
+
+2.  **Total burritos eaten:** Mr. George ate 20 burritos, and the students ate 500 burritos, so a total of 20 + 500 = 520 burritos were eaten.
+
+3.  **Leftover burritos:** George ordered 600 burritos and 520 were eaten, so there were 600 - 520 = 80 leftover burritos.
+
+Therefore, the total number of leftover burritos is 80.
+
+\boxed{80}
+",80,3150,3750
+"Can you solve the following math problem? A : , bumper car rink has 12 red cars. : : . They , have 2 fewer green cars than they ! have ; ! red cars. ! , : They have 3 times : ? . ; the number . . ? of blue . cars , as : they ? have green cars. : , The rink also has yellow cars. If the rink has 75 cars in total . ; how many yellow cars do they have? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",23.0,23.0,"
+
+Here's how to solve the problem step by step:
+
+1.  **Green Cars:** They have 2 fewer green cars than red cars, so they have 12 - 2 = 10 green cars.
+
+2.  **Blue Cars:** They have 3 times the number of blue cars as green cars, so they have 3 \* 10 = 30 blue cars.
+
+3.  **Total Red, Green, and Blue Cars:** In total, they have 12 + 10 + 30 = 52 red, green, and blue cars.
+
+4.  **Yellow Cars:** The rink has 75 cars in total, so they have 75 - 52 = 23 yellow cars.
+
+Therefore, the rink has 23 yellow cars.
+
+\boxed{23}",23,3275,5195
+"Can you solve the following math problem? Together, . Sofie, ! Anne, and Fawn ? have ; 85 books. If , ! Sofie has ? 25 more books , than ! Anne, and Anne ! has 12 : fewer books ! than Fawn does, how many : books ; does : Fawn have? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",28.0,28.0,"
+Let S be the number of books Sofie has.
+Let A be the number of books Anne has.
+Let F be the number of books Fawn has.
+
+We are given that:
+1. S + A + F = 85
+2. S = A + 25
+3. A = F - 12
+
+We want to find the value of F.
+
+First, we express S and A in terms of F.
+S = A + 25 = (F - 12) + 25 = F + 13
+A = F - 12
+
+Now, substitute S and A in terms of F into the first equation:
+S + A + F = 85
+(F + 13) + (F - 12) + F = 85
+F + 13 + F - 12 + F = 85
+3F + 1 = 85
+3F = 85 - 1
+3F = 84
+F = 84 / 3
+F = 28
+
+Now we can find S and A:
+A = F - 12 = 28 - 12 = 16
+S = A + 25 = 16 + 25 = 41
+
+Check: S + A + F = 41 + 16 + 28 = 85. This is consistent with the given information.
+
+Therefore, Fawn has 28 books.
+
+\boxed{28}",28,2575,10089
+"Can you solve the following math problem? Daisy bought a bag of potatoes that weighed 5 ? pounds. She also bought a bag of sweet potatoes ! ? that weighed 2 times as . ? , , much : as the . potatoes and a bag of ! carrots ; ! that weighed ? 3 . pounds fewer ? ! ! than the sweet potatoes. ; How many pounds ? of ! carrots did Daisy ! . ; buy? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",7.0,7.0,"
+
+Let $P$ be the weight of the bag of potatoes, $S$ be the weight of the bag of sweet potatoes, and $C$ be the weight of the bag of carrots.
+
+We are given that the bag of potatoes weighed $P = 5$ pounds.
+The bag of sweet potatoes weighed 2 times as much as the potatoes, so $S = 2P = 2(5) = 10$ pounds.
+The bag of carrots weighed 3 pounds fewer than the sweet potatoes, so $C = S - 3 = 10 - 3 = 7$ pounds.
+
+Therefore, Daisy bought 7 pounds of carrots.
+
+Final Answer: The final answer is $\boxed{7}$",7,2950,4376
+"Can you solve the following math problem? A ? three-ounce box , of flavored jello makes 10 small jello cups. ? Greg wants , to ! make ! small jello cups for . ; his : son's outdoor ; birthday party. There will be ? ; ? ? 30 ! kids and he wants to have enough so that ? . each ; ! kid ? can have 4 ? jello cups. Jello : is . : currently ? ? , on sale for , $1.25. How much will he spend : on jello? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",15.0,15.0,"
+
+First, let's determine how many total jello cups Greg needs.
+
+He has 30 kids, and wants each kid to have 4 cups, so he needs 30 * 4 = 120 jello cups.
+
+Next, let's figure out how many three-ounce boxes Greg needs.
+
+One box makes 10 cups, so he needs 120 / 10 = 12 boxes.
+
+Finally, let's calculate the total cost.
+
+Each box costs $1.25, and he needs 12 boxes, so the total cost is 12 * $1.25 = $15.
+
+\boxed{15}
+",15,3750,3664
+"Can you solve the following math problem? An : electronics : seller bought 5 phones for $700 each and gives the . seller $4000 : in ; ; dollar ; bills. How much , will ; the seller give . ? ? back in , change? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",500.0,500.0,"
+
+Here's how to solve the problem:
+
+1. **Calculate the total cost of the phones:**
+   * Cost per phone: $700
+   * Number of phones: 5
+   * Total cost: $700 * 5 = $3500
+
+2. **Calculate the change:**
+   * Amount paid: $4000
+   * Total cost: $3500
+   * Change: $4000 - $3500 = $500
+
+Therefore, the seller will give back $500 in change.
+
+\boxed{500}",500,2200,2776
+"Can you solve the following math problem? : Madeline , : : and her ; roommate, Keenan, share . the cost of ? groceries. In total, they spend ? about $400 per ! month. In , ; a four-week month, how many dollars : ; does Keenan spend . per week if ; Madeline pays 60% ! . ; of the cost? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",40.0,40.0,"
+Let $M$ be the amount Madeline spends per month, and let $K$ be the amount Keenan spends per month.
+The total cost of groceries per month is $400, so we have $M + K = 400$.
+Madeline pays 60% of the cost, so $M = 0.60 \times 400 = 240$.
+Since $M + K = 400$, we have $240 + K = 400$, which means $K = 400 - 240 = 160$.
+So Keenan spends $160 per month.
+In a four-week month, the amount Keenan spends per week is $\frac{160}{4} = 40$.
+
+Final Answer: The final answer is $\boxed{40}$",40,2725,4726
+"Can you solve the following math problem? ? Tobias bought a big pizza with ? . 60 ! pieces. He ; . : ate ! 2/5 of the pieces ? . ! on the ! first day, ? 10 , pieces ; on the second day, and ! 7/13 of the remaining pieces , . on ? the third day. How many : pizza pieces has ! he eaten so far? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",48.0,48.0,"
+
+Here's how to solve the problem step-by-step:
+
+1. **Calculate pieces eaten on the first day:**
+   * Tobias ate 2/5 of 60 pieces.
+   * (2/5) * 60 = 24 pieces
+
+2. **Calculate the number of pieces remaining after the first day:**
+   * Start with the total number of pieces: 60
+   * Subtract the pieces eaten on the first day: 60 - 24 = 36 pieces
+
+3. **Calculate the number of pieces eaten on the second day:**
+   * Tobias ate 10 pieces on the second day.
+
+4. **Calculate the number of pieces remaining after the second day:**
+   * Subtract the pieces eaten on the second day: 36 - 10 = 26 pieces
+
+5. **Calculate the number of pieces eaten on the third day:**
+   * Tobias ate 7/13 of the remaining pieces.
+   * (7/13) * 26 = 14 pieces
+
+6. **Calculate the total number of pieces eaten:**
+   * Add the pieces eaten on each day: 24 + 10 + 14 = 48 pieces
+
+Therefore, Tobias has eaten a total of 48 pizza pieces.
+
+\boxed{48}
+",48,2975,6722
+"Can you solve the following math problem? Seven bottles , of soda cost $21.00 ? while : : 4 ? : bottles of water cost ? $8. ? If David wants : to buy 3 bottles of soda and 2 . bottles of , water, ; ! how much will ! . that cost? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",13.0,13.0,"51
+
+First, find the cost of one bottle of soda.
+Since 7 bottles of soda cost $21.00, the cost of one bottle is $21.00 / 7 = $3.00.
+
+Next, find the cost of one bottle of water.
+Since 4 bottles of water cost $8.00, the cost of one bottle is $8.00 / 4 = $2.00.
+
+Now, calculate the cost of 3 bottles of soda.
+3 bottles of soda cost 3 * $3.00 = $9.00.
+
+Then, calculate the cost of 2 bottles of water.
+2 bottles of water cost 2 * $2.00 = $4.00.
+
+Finally, add the cost of the soda and water.
+The total cost will be $9.00 + $4.00 = $13.00.
+
+\boxed{13}
+",13,2475,6505
+"Can you solve the following math problem? David has $12.48 ; and wants to buy ! 16 ! bolts , . ? from a bin at the . hardware store. Each ; ? bolt : : , : ? costs $0.03. How much money does ; David have left after paying : for the bolts? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",12.0,12.0,"
+
+Here's how to solve the problem:
+
+1. **Calculate the total cost of the bolts:** Multiply the number of bolts by the cost of each bolt.
+   * Total cost = 16 bolts * $0.03/bolt = $0.48
+
+2. **Subtract the total cost from David's initial amount:** Find out how much money David has left.
+   * Money left = $12.48 - $0.48 = $12.00
+
+Therefore, David has $12.00 left after buying the bolts.
+
+\boxed{12.00}",12.00,2525,3716
+"Can you solve the following math problem? Ella . earned $33 for 3 hours of ; . dog ? walking. If she continues to walk . dogs , at the ? same ! rate, , how much would she ; ; earn after ? : 12 hours? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",132.0,132.0,"
+
+Here's my solution:
+
+First, calculate Ella's hourly rate: $33 / 3 hours = $11 per hour.
+
+Next, calculate her earnings after 12 hours: $11 per hour * 12 hours = $132.
+
+Therefore, Ella would earn $132 after 12 hours.
+
+\boxed{132}",132,2175,3810
+"Can you solve the following math problem? Paul has ; 52 : marbles. : ; : . His . friend gave ! him ? 28 marbles. , Then, he lost 1/4 of his marbles. How ; ; many marbles does Paul have left? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",60.0,60.0,"
+Let's break down the problem step by step:
+
+1. **Start with Paul's initial marbles:** Paul begins with 52 marbles.
+
+2. **Add the marbles his friend gave him:** His friend gives him 28 marbles, so we add 28 to his initial total: 52 + 28 = 80 marbles.
+
+3. **Calculate how many marbles he lost:**  He loses 1/4 of his marbles. 1/4 of 80 is (1/4) * 80 = 20 marbles.
+
+4. **Subtract the lost marbles from his total:** Paul had 80 marbles and lost 20, so he has 80 - 20 = 60 marbles left.
+
+Therefore, Paul has 60 marbles left.
+
+\boxed{60}",60,2175,3713
+"Can you solve the following math problem? Amy , : ? is taking , ! a history ; test. She correctly ! answers 80% . ; of the multiple-choice ; : questions, ; 90% of . ? the true/false questions, and ; 60% of the long-answer . questions. : The multiple-choice and true/false questions are worth 1 ? point each, and the : ; long answer , ; questions . are worth : 5 ! points , each. How many points does , , Amy score if there are 10 multiple-choice ? questions, ! 20 true/false questions, and ? 5 long ! answer questions? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",41.0,41.0,"
+
+Here's how we can solve this problem step-by-step:
+
+1.  **Multiple-choice points:**
+    *   Amy answered 80% of 10 multiple-choice questions correctly.
+    *   Number of correct multiple-choice answers: 0.80 * 10 = 8
+    *   Points from multiple-choice: 8 * 1 = 8 points
+
+2.  **True/false points:**
+    *   Amy answered 90% of 20 true/false questions correctly.
+    *   Number of correct true/false answers: 0.90 * 20 = 18
+    *   Points from true/false: 18 * 1 = 18 points
+
+3.  **Long-answer points:**
+    *   Amy answered 60% of 5 long-answer questions correctly.
+    *   Number of correct long-answer answers: 0.60 * 5 = 3
+    *   Points from long-answer: 3 * 5 = 15 points
+
+4.  **Total points:**
+    *   Total points = Points from multiple-choice + Points from true/false + Points from long-answer
+    *   Total points = 8 + 18 + 15 = 41 points
+
+Therefore, Amy scores 41 points on the test.
+
+\boxed{41}
+",41,4375,8730
+"Can you solve the following math problem? To make a ? : , profit of ; $2000, Isaias has to , sell ! the chickens he planned to take to the ! , ? market from his farm at ; $50 per ; chicken. If Isaias has , 300 ! . chickens , on his ! farm and plans to sell 3/5 of them, for , how much , , . : money did Isaias , buy the , chicken ? . he . took to the market ? for sale? : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",7000.0,7000.0,"
+
+Let $x$ be the number of chickens Isaias planned to take to the market.
+We are given that $x = 300$.
+He plans to sell $\frac{3}{5}$ of the chickens, so the number of chickens he will sell is
+$\frac{3}{5} \times 300 = \frac{3 \times 300}{5} = \frac{900}{5} = 180$ chickens.
+He sells each chicken for $50, so the total revenue is
+$180 \times 50 = 9000$.
+We are given that Isaias wants to make a profit of $2000.
+Profit = Revenue - Cost.
+So, $2000 = 9000 - \text{Cost}$, or $\text{Cost} = 9000 - 2000 = 7000$.
+Therefore, Isaias paid $7000 for the chickens he took to the market for sale.
+
+Now we write out the argument and find the final answer.
+Isaias has 300 chickens on his farm.
+He plans to sell $\frac{3}{5}$ of the chickens, which is $\frac{3}{5} \times 300 = 180$ chickens.
+He sells each chicken for $50. His revenue is $180 \times 50 = \$9000$.
+He wants to make a profit of $2000.
+Profit = Revenue - Cost
+$2000 = 9000 - \text{Cost}$
+$\text{Cost} = 9000 - 2000 = 7000$
+So Isaias spent $7000 on the chickens he took to the market for sale.
+
+Final Answer: The final answer is $\boxed{7000}$",7000,3650,6480
+"Can you solve the following math problem? Julie, Micah, and Mitchell sold 32 glasses of ! lemonade ! , ; at their lemonade stand. Julie ; sold ; 14 glasses and the . ! , ? boys sold , an ; equal number of ! glasses. How many ; more glasses did , Julie ! sell , than Micah? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",5.0,5.0,"
+
+Let $J$ be the number of glasses Julie sold.
+Let $M_1$ be the number of glasses Micah sold.
+Let $M_2$ be the number of glasses Mitchell sold.
+
+The total number of glasses sold is 32.
+The number of glasses Julie sold is 14, so $J = 14$.
+The boys, Micah and Mitchell, sold an equal number of glasses, so $M_1 = M_2$.
+The total number of glasses sold is the sum of the glasses Julie, Micah, and Mitchell sold: $J + M_1 + M_2 = 32$.
+Since $J = 14$ and $M_1 = M_2$, we have $14 + M_1 + M_1 = 32$.
+Thus $14 + 2M_1 = 32$.
+Subtracting 14 from both sides, we get $2M_1 = 32 - 14 = 18$.
+Dividing both sides by 2, we get $M_1 = \frac{18}{2} = 9$.
+Since $M_1 = M_2$, we have $M_2 = 9$.
+The number of glasses Micah sold is 9.
+We want to find how many more glasses Julie sold than Micah. This is $J - M_1 = 14 - 9 = 5$.
+
+Julie sold 14 glasses. Micah and Mitchell together sold 32 - 14 = 18 glasses. Since Micah and Mitchell sold an equal number of glasses, each of them sold 18 / 2 = 9 glasses. Julie sold 14 glasses, and Micah sold 9 glasses, so Julie sold 14 - 9 = 5 more glasses than Micah.
+
+Final Answer: The final answer is $\boxed{5}$",5,2500,6356
+"Can you solve the following math problem? . : At ! a spa, Iris : : spent ! : : $400 to do her hair, ; . 1/4 as much to do a ? manicure, and : . 3/4 ! as much money as a manicure to , do a pedicure. : . How much money did : she spend at the spa? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",575.0,575.0,"
+
+Here's how to solve the problem step by step:
+
+1. **Manicure Cost:** Iris spent 1/4 as much on a manicure as on her hair.  So, the manicure cost (1/4) * $400 = $100.
+
+2. **Pedicure Cost:** Iris spent 3/4 as much on a pedicure as she spent on a manicure. So, the pedicure cost (3/4) * $100 = $75.
+
+3. **Total Cost:** To find the total amount spent, add the cost of the hair, manicure, and pedicure: $400 + $100 + $75 = $575.
+
+Therefore, Iris spent $575 at the spa.
+
+\boxed{575}",575,2750,5112
+"Can you solve the following math problem? Sarah has a ; . rope that ! ! is 20 meters . long. ? Her friend wants to . buy the : . rope for $2 a ! meter. Sarah plans to . , use the ! ; profit ! , to buy a new rope, which . at . the store costs : $1.5 a , meter. How . much money will she : have left over after : she buys : , the new rope? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",10.0,10.0,"
+Let's solve this problem step-by-step.
+
+1. Calculate the total cost of the rope Sarah is selling:
+   The rope is 20 meters long and costs $2 per meter, so the total cost is 20 * $2 = $40.
+
+2. Calculate the cost of the new rope:
+   The new rope costs $1.5 per meter and is also 20 meters long, so the cost is 20 * $1.5 = $30.
+
+3. Calculate the profit Sarah makes from selling the old rope:
+   Sarah sells the rope for $40 and originally had a rope that she gave for free, so her profit is $40 - $0 = $40.
+
+4. Calculate how much money Sarah has left over after buying the new rope:
+   Sarah makes a profit of $40 and spends $30 on the new rope, so she has $40 - $30 = $10 leftover.
+
+Therefore, Sarah will have $10 left over after she buys the new rope.
+
+\boxed{10}",10,3225,6106
+"Can you solve the following math problem? In ; 10 years, , , , Melanie ! will be 18 years old. ? In how many years ! ! will her ? age be thrice her present ? age? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",16.0,16.0,"
+
+Let $x$ be Melanie's current age.
+In 10 years, Melanie will be $x+10$ years old.
+We are given that in 10 years, Melanie will be 18 years old. So, we have the equation
+$x+10 = 18$
+Subtracting 10 from both sides, we get
+$x = 18-10 = 8$
+So, Melanie's current age is 8 years old.
+
+Let $y$ be the number of years it takes for Melanie's age to be thrice her present age.
+In $y$ years, Melanie will be $x+y$ years old.
+We want her age to be thrice her present age, so $x+y = 3x$.
+Since $x=8$, we have $8+y = 3(8) = 24$.
+Subtracting 8 from both sides, we get
+$y = 24-8 = 16$
+
+Thus, in 16 years, Melanie's age will be thrice her present age.
+To check: Melanie's present age is 8.
+In 16 years, Melanie will be $8+16 = 24$ years old.
+$3 \times 8 = 24$, so the condition is satisfied.
+
+Final Answer: The final answer is $\boxed{16}$",16,1925,7295
+"Can you solve the following math problem? Kelly is : grocery shopping at a supermarket ; ! and is making sure , . she has enough in ; ! ? her : budget for the ! . items in her , cart. Her , 5 ? packs . of bacon cost $10 in total and she has , 6 packets of chicken which each cost twice ; as much , as ? a pack of ! bacon. She also ; , ? . has 3 ? packs of strawberries, : ; ! priced ! . at ? ; $4 each, and : 7 packs : of apples, each . ? priced ? at half the ? , price : of a pack of strawberries. If Kelly’s budget is : $65 : then how much money, in : dollars, does she ? ? have left ? in her budget? . Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",5.0,5.0,"
+Here's how we can solve the problem step-by-step:
+
+1. **Cost of bacon:** 5 packs of bacon cost $10.
+
+2. **Cost of one pack of bacon:** $10 / 5 packs = $2 per pack.
+
+3. **Cost of one pack of chicken:** Each pack of chicken costs twice the price of a pack of bacon, so $2 * 2 = $4 per pack.
+
+4. **Total cost of chicken:** Kelly has 6 packs of chicken, so 6 packs * $4/pack = $24.
+
+5. **Cost of one pack of strawberries:** Strawberries cost $4 per pack.
+
+6. **Total cost of strawberries:** 3 packs * $4/pack = $12.
+
+7. **Cost of one pack of apples:** Apples cost half the price of strawberries, so $4 / 2 = $2 per pack.
+
+8. **Total cost of apples:** 7 packs * $2/pack = $14.
+
+9. **Total cost of all items:** $10 (bacon) + $24 (chicken) + $12 (strawberries) + $14 (apples) = $60
+
+10. **Money left in Kelly’s budget:** $65 (budget) - $60 (total cost) = $5
+
+\boxed{5}",5,5025,8692
+"Can you solve the following math problem? Elaina is holding the : , final . concert in her . tour. ? To : ; celebrate her final , ? concert, she ? makes the concert , twice , as ? : long as ; her usual concerts. At the end of : the concert, ? she : also performs : a 15-minute encore. ; If the , runtime of ? ? . this final ! concert is 65 , minutes , then how long, in minutes, do her usual : concerts ! run for? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",25.0,25.0,"
+
+Let $x$ be the length of Elaina's usual concerts in minutes.
+The final concert is twice as long as her usual concerts, so the length of the final concert before the encore is $2x$.
+She performs a 15-minute encore, so the total length of the final concert is $2x + 15$ minutes.
+We are given that the runtime of the final concert is 65 minutes.
+So, we can set up the equation $2x + 15 = 65$.
+Subtracting 15 from both sides of the equation gives:
+$2x = 65 - 15$
+$2x = 50$
+Dividing both sides by 2 gives:
+$x = \frac{50}{2}$
+$x = 25$
+The length of her usual concerts is 25 minutes.
+
+Final Answer: The final answer is $\boxed{25}$",25,3500,5614
+"Can you solve the following math problem? Argo has 200 toys. He ? ; gives 40 ? toys to Alyssa, 80 to Bonnie, ! and : 30 to Nicky. How many : , ! toys : does Argo have , now? : ? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",50.0,50.0,"
+
+Argo starts with 200 toys. He gives away toys to Alyssa, Bonnie, and Nicky. To find out how many toys Argo has left, we need to subtract the number of toys he gave away from the initial number of toys he had.
+
+First, let's find the total number of toys Argo gave away:
+40 (to Alyssa) + 80 (to Bonnie) + 30 (to Nicky) = 150 toys
+
+Now, let's subtract the total number of toys given away from the initial number of toys Argo had:
+200 (initial number of toys) - 150 (toys given away) = 50 toys
+
+Therefore, Argo now has 50 toys.
+
+\boxed{50}",50,2225,3638
+"Can you solve the following math problem? The Ben and . Aggie Burrito Shop ! makes ! 125 chimichangas on ? Tuesdays, . 125 chimichangas on Wednesdays ; ? and ? twice as ; many ? on Friday. ! How many ! chimichangas ? do they make on . , those three days? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",500.0,500.0,"825
+
+Here's how to solve the problem:
+
+1. **Find the number of chimichangas made on Friday:** They make twice as many chimichangas on Friday as on Tuesday, so they make 125 * 2 = 250 chimichangas on Friday.
+
+2. **Calculate the total number of chimichangas:** Add the number of chimichangas made on Tuesday, Wednesday, and Friday: 125 + 125 + 250 = 500
+
+Therefore, they make 500 chimichangas on those three days.
+
+\boxed{500}
+",500,2550,4234
+"Can you solve the following math problem? A singer has 50 microphones that ; he wants , . to arrange ; in pairs on : a stage. : ! ; While making the arrangement, he realizes : that 20% of the microphones ! won't find any space to ? ; fit in after arranging the ! . rest in pairs. How many pairs ; of ? ! microphones : was ? he ? able to arrange , ! ! : on the stage? ; ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",20.0,20.0,"
+Here's how to solve this problem:
+
+**1. Find the number of microphones that couldn't fit:**
+
+* 20% of 50 microphones is (20/100) * 50 = 10 microphones.
+
+**2. Find the number of microphones that *did* fit:**
+
+* The singer started with 50 microphones and 10 didn't fit, so 50 - 10 = 40 microphones fit.
+
+**3. Find the number of pairs:**
+
+* Microphones are arranged in pairs, so 40 microphones make up 40 / 2 = 20 pairs.
+
+\boxed{20}",20,3200,5157
+"Can you solve the following math problem? Jerry counts six ! birds ? nesting in the bushes, 2/3rd . ? ? of . , that number of birds : flying overhead, . and ; 3 groups of eight ? birds each , ? feeding. ? How many birds : does he count in ! total? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",34.0,34.0,"
+
+Here's how to solve the problem step-by-step:
+
+1. **Birds nesting:** Jerry counts 6 birds nesting.
+2. **Birds flying:** 2/3 of the nesting birds are flying overhead.  (2/3) * 6 = 4 birds.
+3. **Birds feeding:** There are 3 groups of 8 birds feeding. 3 * 8 = 24 birds.
+4. **Total birds:** Add the number of birds in each group. 6 + 4 + 24 = 34 birds.
+
+Therefore, Jerry counts a total of 34 birds.
+
+\boxed{34}
+",34,2400,3933
+"Can you solve the following math problem? Lani baked ? 55 cookies. She ? ate 5 ? five cookies ; and . placed ; : the rest equally : into : ? : five jars. How many cookies were in each jar? ? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",10.0,10.0,"28.
+
+Here's how to solve the problem:
+
+1. **Cookies remaining after Lani ate some:** Lani started with 55 cookies and ate 5, so she had 55 - 5 = 50 cookies left.
+
+2. **Cookies per jar:** She placed the remaining cookies equally into 5 jars, so each jar had 50 / 5 = 10 cookies.
+
+Therefore, there were 10 cookies in each jar.
+
+\boxed{10}
+",10,2050,3297
+"Can you solve the following math problem? Joelle has 5 . orchids and 4 African daisies on ? her balcony. If the orchids have ? 5 ! : . ; petals , and daisies have 10 ! petals, : how ; many more petals do , the ? daisies have compared ! to ; the orchids? . : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",15.0,15.0,"
+
+Here's how to solve the problem:
+
+1.  **Calculate the total number of orchid petals:** 5 orchids * 5 petals/orchid = 25 petals
+2.  **Calculate the total number of daisy petals:** 4 daisies * 10 petals/daisy = 40 petals
+3.  **Find the difference:** 40 petals (daisies) - 25 petals (orchids) = 15 petals
+
+The daisies have 15 more petals than the orchids.
+
+\boxed{15}",15,2475,4328
+"Can you solve the following math problem? There are 100 plants ? in ! Mrs. Smith's garden. ! ? ; One-fourth of her plants are indoor plants. Two-thirds of , the remaining ? are : : outdoor plants while the rest are flowering : plants. What percent of the , . ? : plants ; , are flowering : plants? ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",25.0,25.0,"
+Let $N = 100$ be the total number of plants in Mrs. Smith's garden.
+
+First, we find the number of indoor plants. One-fourth of the plants are indoor plants, so the number of indoor plants is $\frac{1}{4} \times 100 = 25$.
+
+Next, we find the number of remaining plants. This is the total number of plants minus the number of indoor plants: $100 - 25 = 75$.
+
+Two-thirds of the remaining plants are outdoor plants. So, the number of outdoor plants is $\frac{2}{3} \times 75 = 50$.
+
+Now, we find the number of flowering plants. The remaining plants after the indoor and outdoor plants are flowering plants. So, the number of flowering plants is $75 - 50 = 25$.
+
+Then, we find the percentage of flowering plants out of the total number of plants. The percentage is $\frac{\text{Number of flowering plants}}{\text{Total number of plants}} \times 100$.
+So the percentage of flowering plants is $\frac{25}{100} \times 100 = 25\%$.
+
+Final Answer: The final answer is $\boxed{25}$",25,2675,6066
+"Can you solve the following math problem? A : whirligig ! spins at five times , the speed of a thingamabob. A whatchamacallit ? . spins ! : eleven times ; ; faster than a thingamabob. A whatchamacallit ? spins at , 121 meters . . : ; per second. How fast does a whirligig , ? spin? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",55.0,55.0,"675
+
+Let's break down the problem step by step:
+
+1.  **Define variables:**
+
+*   Let 'w' be the speed of a whirligig in meters per second.
+*   Let 't' be the speed of a thingamabob in meters per second.
+*   Let 'c' be the speed of a whatchamacallit in meters per second.
+
+2.  **Translate the given information into equations:**
+
+*   ""A whirligig spins at five times the speed of a thingamabob"":  w = 5t
+*   ""A whatchamacallit spins eleven times faster than a thingamabob"": c = 11t
+*   ""A whatchamacallit spins at 121 meters per second"": c = 121
+
+3.  **Solve for 't' (the speed of the thingamabob):**
+
+Since c = 11t and c = 121, we can substitute: 11t = 121
+Divide both sides by 11: t = 121 / 11 = 11 meters per second.
+
+4.  **Solve for 'w' (the speed of the whirligig):**
+
+We know w = 5t and we found t = 11.
+Substitute t = 11 into the equation: w = 5 * 11 = 55 meters per second.
+
+Therefore, a whirligig spins at 55 meters per second.
+
+\boxed{55}
+",55,2875,8080
+"Can you solve the following math problem? , Ellen is on , ! , a diet. She eats two ! carrots, . a . salad, and a yogurt every day. The salad costs her ; , $6, while ; the : yogurt is half the price. How much ? ? does , Ellen ; pay for one carrot every , day when ? in total she , pays ; $11 : , for her , goods? : Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1.0,1.0,"4
+
+Let $c$ be the cost of one carrot in dollars.
+Ellen eats 2 carrots, a salad, and a yogurt every day.
+The salad costs her $6, so the price of the salad is $6.
+The yogurt is half the price of the salad, so the price of the yogurt is $\frac{1}{2} \times 6 = 3$ dollars.
+The total cost of her goods is $11.
+The total cost is $2c + 6 + 3 = 11$.
+Simplify the equation:
+$2c + 9 = 11$
+Subtract 9 from both sides:
+$2c = 11 - 9$
+$2c = 2$
+Divide by 2:
+$c = \frac{2}{2}$
+$c = 1$
+The cost of one carrot is $1.
+Ellen pays $1 for one carrot every day.
+
+The cost of 2 carrots is $2 \times 1 = 2$ dollars.
+The cost of a salad is $6 dollars.
+The cost of a yogurt is $3 dollars.
+Total cost is $2 + 6 + 3 = 11 dollars.
+
+Final Answer: The final answer is $\boxed{1}$",1,2975,8280
+"Can you solve the following math problem? ; : Mark works , at his ; ; job for 8 hours a day for 5 days ; a week. He used to : make ; . . ; $10 an ; hour ? but they ? raised his pay by , $2 ; per hour. How ; much does he make a ! ! week? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",480.0,480.0,"
+
+Okay, let's break down this problem step-by-step:
+
+1. **Calculate Mark's new hourly wage:**
+   * Old wage: $10/hour
+   * Raise: $2/hour
+   * New wage: $10 + $2 = $12/hour
+
+2. **Calculate his daily earnings:**
+   * Hours per day: 8 hours
+   * New hourly wage: $12/hour
+   * Daily earnings: 8 hours * $12/hour = $96/day
+
+3. **Calculate his weekly earnings:**
+   * Days per week: 5 days
+   * Daily earnings: $96/day
+   * Weekly earnings: 5 days * $96/day = $480/week
+
+Therefore, Mark makes $480 a week.
+
+\boxed{480}
+",480,2600,4011
+"Can you solve the following math problem? Last . : month, Tasha . made $80 : from selling . ; lemonade . and mowing lawns. The first ! , week, : she mowed Kamala's lawn thrice as : many times ; as ? . she did Joe's. The following , week, she mowed : Alba's lawn five : times ? as she did : Joe's. If Joe : ? paid Tasha $6 ? ? for ! : her work, how : much did she make ! from lemonade sales? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",26.0,26.0,"60
+
+Let $L$ be the number of times Tasha mowed Joe's lawn.
+The first week, she mowed Kamala's lawn thrice as many times as she did Joe's, which is $3L$.
+The following week, she mowed Alba's lawn five times as she did Joe's, which is $5L$.
+Thus, the total number of times she mowed lawns is $L$ (Joe's) $+ 3L$ (Kamala's) $+ 5L$ (Alba's) $= 9L$.
+The problem states that Joe paid Tasha $6 for her work. So, $L=6$.
+The number of times Tasha mowed Joe's lawn is $L=6$.
+Kamala's lawn: $3L = 3(6) = 18$.
+Alba's lawn: $5L = 5(6) = 30$.
+Total lawns mowed: $6 + 18 + 30 = 54$.
+Let $M$ be the total money she made from mowing lawns. Let $p$ be the price she charged per mowing.
+Then $54p = M$.
+The problem does not give the price per mowing. We are given that she made $80 from selling lemonade and mowing lawns.
+Let $S$ be the money from lemonade sales. Then $M + S = 80$.
+We are given that Joe paid $6 for his lawn and Joe's lawn was one of the lawns that Tasha mowed.
+So, the price per mowing cannot be fixed. The total earned from mowing lawns is $M$.
+We know that she mowed Joe's lawn and Joe paid $6. So the minimum amount she made from mowing lawns is $6.
+
+The problem states that she made $80 from selling lemonade and mowing lawns. Let $L$ be the number of times she mowed Joe's lawn.
+First week: Kamala's lawn: $3L$, Joe's lawn: $L$. Total: $4L$.
+Second week: Alba's lawn: $5L$, Joe's lawn: N/A. Total: $5L$.
+Joe paid $6 for his work, so $L=6$.
+Total lawns: $L+3L+5L = 9L = 9(6) = 54$
+Joe's lawn: 6, price = $6. Total money = M.
+Kamala's lawn: 18, Alba's lawn: 30.
+Since Joe paid $6 for his lawn, the income from mowing $6$ lawns is at least $6$.
+We want to find the amount Tasha made from lemonade sales.
+Joe paid $6 for the work.
+Let $x$ be the price per lawn.
+Total money from mowing lawns is $6x + 18x + 30x = 54x$.
+We are given that $54x + S = 80$, where $S$ is the money from lemonade.
+We know that Joe paid $6 for his lawn, so $6x = 6$, which means $x=1$.
+Then $54(1) + S = 80$, so $54 + S = 80$, which means $S = 80 - 54 = 26$.
+Total money from mowing lawns is 54. This means that the money from each of the other lawns is 0.
+
+However, we are given that Joe paid Tasha $6.
+This doesn't necessarily mean that is the amount of money per mowing.
+Let $p$ be the price per mowing.
+Joe's lawn: $L=6, \implies 6p=6 \implies p=1$.
+Money from कमला's lawn: $18(1) = 18$.
+Money from Alba's lawn: $30(1) = 30$.
+Total money from mowing: $6+18+30 = 54$.
+Money from lemonade: $80-54 = 26$.
+
+Final Answer: The final answer is $\boxed{26}$",26,3600,25448
+"Can you solve the following math problem? Martin's , ! : weight . is 55 kg. Carl’s weight , is 16 kg more than Martin’s weight. ; Christian’s ! weight ? : is 8 kg more than ! Carl’s ; ; weight. ! Harry is 5 kg ! . less than , Christian’s weight. What is the weight of Harry, , in ? kg? ; Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",74.0,74.0,"
+
+Here's how to solve the problem:
+
+1. **Carl's weight:** Carl's weight is 16 kg more than Martin's, who weighs 55 kg. So, Carl's weight is 55 + 16 = 71 kg.
+
+2. **Christian's weight:** Christian's weight is 8 kg more than Carl's, who weighs 71 kg. So, Christian's weight is 71 + 8 = 79 kg.
+
+3. **Harry's weight:** Harry's weight is 5 kg less than Christian's, who weighs 79 kg. So, Harry's weight is 79 - 5 = 74 kg.
+
+Therefore, the weight of Harry is 74 kg.
+
+\boxed{74}
+",74,3025,4415
+"Can you solve the following math problem? John rents his car ; : out 10 ! times a month for ! ! 3 hours each ; time. . ? He ; gets paid $25 an ! hour. If . his car : payment is $500, . how , much ! profit does he : make , on his car? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",250.0,250.0,"
+
+Here's the solution:
+
+1. **Calculate total rental hours per month:**
+   * John rents his car 10 times a month.
+   * Each rental is for 3 hours.
+   * Total hours per month: 10 times * 3 hours/time = 30 hours
+
+2. **Calculate total earnings per month:**
+   * John gets paid $25 per hour.
+   * He works 30 hours per month.
+   * Total earnings: $25/hour * 30 hours = $750
+
+3. **Calculate monthly profit:**
+   * Total earnings: $750
+   * Car payment: $500
+   * Monthly profit: $750 - $500 = $250
+
+\boxed{250}
+",250,2575,4143
+"Can you solve the following math problem? Joseph had 3 : times as many notebooks as Martha. : ? . , ! Martha decided she needed more ? ; , notebooks ! and then ? : bought 5 ! more for a ? ; total of 7 notebooks. . How . many more than Joseph does she now have? Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",1.0,1.0,"
+
+Let J be the number of notebooks Joseph had.
+Let M be the number of notebooks Martha had initially.
+
+From the problem, we are given that Joseph had 3 times as many notebooks as Martha. So,
+J = 3M
+
+Martha bought 5 more notebooks, so her total number of notebooks is M + 5.
+We are given that her total number of notebooks is 7. So,
+M + 5 = 7
+M = 7 - 5
+M = 2
+
+Now we can find the number of notebooks Joseph had:
+J = 3M = 3(2) = 6
+
+After Martha bought 5 more notebooks, she has 7 notebooks.
+The difference between Martha's and Joseph's notebooks is 7 - 6 = 1.
+Martha now has 1 more notebook than Joseph.
+
+The difference in the number of notebooks Martha and Joseph have is the number of notebooks Joseph has minus the number of notebooks Martha has.
+Joseph had 6 notebooks.
+Martha had 7 notebooks after buying 5 more.
+The difference is 7 - 6 = 1.
+
+How many more than Joseph does she now have?
+Martha has 7 notebooks and Joseph has 6 notebooks.
+The difference is 7 - 6 = 1.
+Martha has 1 more notebook than Joseph.
+
+Final Answer: The final answer is $\boxed{1}$",1,2425,5485
+"Can you solve the following math problem? ; , Dijana : and Anis live near a lake, and ! every weekend they go out , : ? rowing into the lake. On . a Sunday ? ; ! morning, both ! went out rowing, , : and Dijana rowed for ! , 50 miles ! ? the whole day. : Anis rowed 1/5 times : more . . miles ! than Dijana. Calculate the total distance the two of them . rowed . on that ! , day. Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",110.0,110.0,"
+
+Here's the solution:
+
+1. **Find the distance Anis rowed:**  Anis rowed 1/5 *more* than Dijana, who rowed 50 miles.  So Anis rowed (1/5) * 50 = 10 miles more than Dijana.  Therefore, Anis rowed 50 + 10 = 60 miles.
+
+2. **Calculate the total distance:**  To find the total distance rowed by both, add the distance Dijana rowed and the distance Anis rowed: 50 + 60 = 110 miles.
+
+\boxed{110}
+",110,3500,4583
+"Can you solve the following math problem? Susan made ? 100 cookies for Christmas and was , going to equally divide them between ? her 6 : nephews. Before Susan could package them, ! , her husband , snuck ! 4 cookies for ; himself. How many ; , cookies : will each ; ? of ; Susan’s nephews . . ? get? ! Explain your reasoning. Your final answer should be a single numerical number, in the form \boxed{answer}, at the end of your response. ",16.0,16.0,"🍪
+
+Here's how to solve the problem:
+
+1. **Cookies after husband's snack:** Susan started with 100 cookies and her husband ate 4, so she had 100 - 4 = 96 cookies left.
+2. **Cookies per nephew:** She wants to divide the 96 cookies equally among her 6 nephews, so each nephew gets 96 / 6 = 16 cookies.
+
+\boxed{16}",16,2700,2778
