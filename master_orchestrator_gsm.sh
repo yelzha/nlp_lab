@@ -15,8 +15,8 @@ COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12;12 14"
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Set resume point
-RESUME_MODEL="gemma-3-12b-it"
-RESUME_DTYPE="wikitypo"
+RESUME_MODEL=""
+RESUME_DTYPE=""
 FOUND_START=false
 
 # If no resume point specified, start immediately
