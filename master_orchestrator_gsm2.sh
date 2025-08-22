@@ -2,7 +2,7 @@
 # master_orchestrator_.sh
 
 MODELS=("gemma-3-12b-it")
-DTYPES=("wikitypo")
+DTYPES=("r2ata")
 VLLM_MODEL_NAMES=("google/gemma-3-12b-it")
 
 # Fixed parameters
