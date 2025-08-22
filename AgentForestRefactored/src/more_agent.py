@@ -2,6 +2,11 @@ import ast
 import prompt_lib
 from agent import Agent
 from utils import batch_generate
+import os
+
+
+DEBUG = (os.getenv('DEBUG', 'False') == 'True')
+
 
 class MoreAgent():
     def __init__(self, agents_num, model_type, nums=1, temperature=1, top_p=1):
@@ -97,9 +102,12 @@ class MoreAgent():
 
         # print(all_completions)
         completions, answers = get_completions_and_answers()
+        if DEBUG:
+            completions = all_completions
+
         result_dict = {
             "final_answer": None,
-            "completions": all_completions,
+            "completions": completions,
             "answers": all_parsed_answers,
             "total_prompt_tokens": total_prompt_tokens,
             "total_completion_tokens": total_completion_tokens,
