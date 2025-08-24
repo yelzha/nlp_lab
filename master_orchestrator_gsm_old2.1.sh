@@ -1,7 +1,7 @@
 #!/bin/bash
 # master_orchestrator_.sh
 
-MODELS=("google/gemma-3-4b-it" )
+MODELS=("gemma-3-4b-it" )
 DTYPES=("wikitypo")
 VLLM_MODEL_NAMES=("google/gemma-3-4b-it" )
 
