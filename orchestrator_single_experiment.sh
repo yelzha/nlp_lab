@@ -28,6 +28,8 @@ log_message() {
 # 8: DEBUG
 # 9: STAGES_STRING (e.g., "0 2;2 4;4 6")
 # 10: INITIAL_DEPENDENCY_JOB_ID (optional)
+# 11: WORKER_SCRIPT
+# 12: EXPERIMENT_DIRECTORY
 
 MODEL="$1"
 QTYPE="$2"
@@ -40,6 +42,7 @@ DEBUG="$8"
 STAGES_STRING="$9"
 INITIAL_DEPENDENCY_JOB_ID="${10}"
 WORKER_SCRIPT="${11}"
+EXPERIMENT_DIRECTORY="${12}"
 # --- Define the worker script filename ---
 # WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
@@ -103,7 +106,7 @@ for i in "${!STAGES[@]}"; do
         log_message "  Dependent on Job ID: $PREV_JOB_ID"
     fi
 
-    SBATCH_CMD+=" \"$WORKER_SCRIPT\" \"$START_INDEX\" \"$END_INDEX\" \"$MODEL\" \"$QTYPE\" \"$DTYPE\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\""
+    SBATCH_CMD+=" \"$WORKER_SCRIPT\" \"$START_INDEX\" \"$END_INDEX\" \"$MODEL\" \"$QTYPE\" \"$DTYPE\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\" \"$EXPERIMENT_DIRECTORY\""
 
 
 

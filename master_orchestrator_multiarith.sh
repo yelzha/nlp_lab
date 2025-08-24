@@ -11,8 +11,9 @@ SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
 DEBUG="False"
-COMMON_STAGES="0 2"
+COMMON_STAGES="0 1" # 0 2
 WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
+EXPERIMENT_DIRECTORY="view100"  # experiments
 
 # === RESUME POINT ===
 RESUME_MODEL=""
@@ -80,7 +81,8 @@ for MODEL in "${MODELS[@]}"; do
             "$DEBUG" \
             "$COMMON_STAGES" \
             "$DEPENDENCY_ARG" \
-            "$WORKER_SCRIPT")
+            "$WORKER_SCRIPT" \
+            "$EXPERIMENT_DIRECTORY")
 
         NEW_SLURM_ID=$(echo "$NEW_SLURM_ID" | tail -n 1 | tr -d '[:space:]')
 

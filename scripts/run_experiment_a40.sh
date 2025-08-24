@@ -83,6 +83,7 @@ VLLM_MODEL_NAME=$9
 export VLLM_MODEL_NAME=$9
 DEBUG=${10}
 export DEBUG=${10}
+EXPERIMENT_DIRECTORY=${11} # "experiments"
 export MAIN_DIRECTORY=$(pwd)
 
 # ----------------- MAIN LOOP ------------------
@@ -96,7 +97,7 @@ echo "============================================================="
 
 # Ensure DTYPES is passed correctly if the Python script expects a space-separated list
 # Here we are assuming DTYPES is a single string like "clean"
-sh run_reasoning_task.sh "$MODEL" "$QTYPE" "$DTYPES" "$PART_START" "$PART_END" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P"
+sh run_reasoning_task.sh "$MODEL" "$QTYPE" "$DTYPES" "$PART_START" "$PART_END" "$SUBSET_NUM" "$TEMPERATURE" "$TOP_P" "$EXPERIMENT_DIRECTORY"
 
 echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "End Time: $(date)"

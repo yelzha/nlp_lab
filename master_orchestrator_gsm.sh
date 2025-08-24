@@ -1,9 +1,9 @@
 #!/bin/bash
 # master_orchestrator_.sh
 
-MODELS=("gemma-3-12b-it")
-DTYPES=("wikitypo")
-VLLM_MODEL_NAMES=("google/gemma-3-12b-it")
+MODELS=("google/gemma-3-4b-it" "google/gemma-3-12b-it")
+DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
+VLLM_MODEL_NAMES=("google/gemma-3-4b-it" "google/gemma-3-12b-it")
 
 # Fixed parameters
 QTYPE="gsm"
@@ -11,8 +11,9 @@ SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
 DEBUG="False"
-COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12;12 14"
-WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
+COMMON_STAGES="0 1"  # 0 2;2 4;4 6;6 8;8 10;10 12;12 14
+WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
+EXPERIMENT_DIRECTORY="view100"  # experiments
 
 # Set resume point
 RESUME_MODEL=""
@@ -83,7 +84,8 @@ for MODEL in "${MODELS[@]}"; do
             "$DEBUG" \
             "$COMMON_STAGES" \
             "$DEPENDENCY_ARG" \
-            "$WORKER_SCRIPT")
+            "$WORKER_SCRIPT" \
+            "$EXPERIMENT_DIRECTORY")
 
         NEW_SLURM_ID=$(echo "$NEW_SLURM_ID" | tail -n 1 | tr -d '[:space:]')
 
