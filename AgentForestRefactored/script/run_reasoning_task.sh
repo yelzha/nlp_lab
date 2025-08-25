@@ -18,7 +18,7 @@ cd ../src
 for (( PART=PART_START; PART<PART_END; PART++ ))
 do
     echo "Running part $PART..."
-    python main.py "$PART" "$SUBSET_NUM" "$MODEL" "$DTYPE" "$QTYPE" "$TEMPERATURE" "$TOP_P"
+    python main.py "$PART" "$SUBSET_NUM" "$MODEL" "$DTYPE" "$QTYPE" "$TEMPERATURE" "$TOP_P" "$EXPERIMENT_DIRECTORY"
 done
 
 # for (( AGENT=1; AGENT<51; AGENT++ ))
