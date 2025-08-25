@@ -31,7 +31,7 @@
 - **Results:** Good performance for N Agents with the 16-20 seconds per n of query.
  
 ### 2.2 Wikitypo, r2ata
-- **Status:** Pengind  
+- **Status:** Completed  
 - **Goal:** Add noising to the dataset
 - **Target:** Achieve generated results
 
@@ -66,9 +66,9 @@
 | Ollama Optimization          |   Done   | Focus on reducing latency -> VLLM migration          |
 | Prompting Fixes       |   Done   | Changed fully for all datasets    |
 | WikiTypo(2025) Noising       |   Done   | Requires initial implementation    |
-| R2ATA Noising       |   Todo   | Requires initial implementation    |
-| Gemma Fix for VLLM       |   Todo   | Requires initial implementation    |
-| Full Experiments             |   Todo   | Will run for over a week           |
+| R2ATA Noising       |   Done   | Requires initial implementation    |
+| Gemma Fix for VLLM       |   Done   | Requires initial implementation    |
+| Full Experiments             |   Done   | Will run for over a week           |
 | Report & Visualization       |   Todo   | Final stage                        |
 
 ---
