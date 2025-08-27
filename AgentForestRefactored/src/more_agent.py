@@ -5,7 +5,7 @@ from utils import batch_generate
 import os
 
 
-DEBUG = (os.getenv('DEBUG', 'False') == 'True')
+DEBUG = os.getenv("DEBUG", "false").lower() in ("1", "true", "yes", "y", "on")
 
 
 class MoreAgent():

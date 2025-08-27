@@ -21,7 +21,7 @@ def get_vllm_name():
 
 
 VLLM_MODEL_NAME = get_vllm_name()
-DEBUG = (os.getenv('DEBUG', 'False') == 'True')
+DEBUG = os.getenv("DEBUG", "false").lower() in ("1", "true", "yes", "y", "on")
 try:
     if "gemma" in VLLM_MODEL_NAME:
         global_llm_model = LLM(
