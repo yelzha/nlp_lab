@@ -53,6 +53,7 @@ pip install git+https://github.com/openai/human-eval.git
 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install vllm --extra-index-url https://download.pytorch.org/whl/cu121
+pip install accelerate
 
 
 python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'PyTorch CUDA version: {torch.version.cuda}')"

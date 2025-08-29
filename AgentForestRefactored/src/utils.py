@@ -150,46 +150,39 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
         result=result[0],
     )
 
-
-def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False):
+def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False, retry_count=0):
     global global_llm_pipeline, global_tokenizer
     completion = []
+    MAX_RETRIES = 3  # Define the maximum number of retries
 
-    # Ensure the model pipeline is loaded
     if global_llm_pipeline is None:
         load_model_for_hf(VLLM_MODEL_NAME)
 
     try:
         start = time.time()
-
-        # Apply the chat template to each message list
-        # This is the correct way to handle chat models like Gemma.
+        # ... (rest of your generation logic) ...
         prompts = [global_tokenizer.apply_chat_template(ctx, tokenize=False, add_generation_prompt=True) for ctx in
                    answer_context]
 
         if not prompts:
             return []
 
-        # Generate completions using the Hugging Face pipeline
         outputs = global_llm_pipeline(
             prompts,
-            max_new_tokens=2048,  # The equivalent of vLLM's `max_tokens`
+            max_new_tokens=2048,
             do_sample=True,
             temperature=temperature,
             top_p=top_p,
-            num_return_sequences=nums,  # The equivalent of vLLM's `n`
-            return_full_text=False  # Crucial for chat models to avoid returning the prompt
+            num_return_sequences=nums,
+            return_full_text=False
         )
 
-        # Process outputs and convert to the desired format
         for i, prompt_outputs in enumerate(outputs):
             choices = []
             total_completion_tokens = 0
 
             for output in prompt_outputs:
                 generated_text = output['generated_text']
-
-                # Manually calculate token counts.
                 prompt_tokens = len(global_tokenizer(prompts[i]).input_ids)
                 completion_tokens = len(global_tokenizer(generated_text).input_ids)
                 total_completion_tokens += completion_tokens
@@ -207,18 +200,23 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
                     "total_tokens": prompt_tokens + total_completion_tokens
                 },
                 "model": VLLM_MODEL_NAME,
-                "id": f"hf-req-{i}-{start}"  # A simple unique ID
+                "id": f"hf-req-{i}-{start}"
             })
 
         print("++++++++++++++++++Time:", time.time() - start, "++++++++++++++++++")
+        return completion
 
     except Exception as e:
         print(e, flush=True)
-        print("retrying due to an error......", flush=True)
-        time.sleep(5)
-        return batch_generate(answer_context, model, llm_ip, nums=nums, temperature=temperature, top_p=top_p)
-
-    return completion
+        # Check if the retry count has been reached
+        if retry_count < MAX_RETRIES:
+            print(f"retrying due to an error... (Attempt {retry_count + 1}/{MAX_RETRIES})", flush=True)
+            time.sleep(5)
+            # Make the recursive call with the incremented retry_count
+            return batch_generate(answer_context, model, llm_ip, nums=nums, temperature=temperature, top_p=top_p, retry_count=retry_count + 1)
+        else:
+            print(f"Max retries ({MAX_RETRIES}) reached. Giving up.", flush=True)
+            return []  # Or raise the exception, depending on your needs
 
 # def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False):
 #     global global_llm_model
