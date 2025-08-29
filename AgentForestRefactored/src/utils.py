@@ -11,10 +11,7 @@ from sacrebleu import sentence_bleu
 
 from prompt_lib import interaction_prompt
 from math_equivalence import is_equiv
-# from vllm import LLM, SamplingParams
-
-from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
-import torch
+from vllm import LLM, SamplingParams
 
 
 def get_vllm_name():
@@ -26,51 +23,51 @@ def get_vllm_name():
 VLLM_MODEL_NAME = get_vllm_name()
 DEBUG = os.getenv("DEBUG", "false").lower() in ("1", "true", "yes", "y", "on")
 
-global_llm_pipeline = None
-global_tokenizer = None
+# from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
+# import torch
+# global_llm_pipeline = None
+# global_tokenizer = None
+# def load_model_for_hf(model_name):
+#     """Loads the model and tokenizer for Hugging Face Transformers."""
+#     global global_llm_pipeline, global_tokenizer
+#     if global_llm_pipeline is None:
+#         try:
+#             # Use `device_map="auto"` to automatically load the model onto the available GPUs.
+#             # Add `torch_dtype` for memory efficiency.
+#             model = AutoModelForCausalLM.from_pretrained(
+#                 model_name,
+#                 device_map="auto",
+#                 torch_dtype=torch.bfloat16
+#             )
+#             global_tokenizer = AutoTokenizer.from_pretrained(model_name)
+#
+#             # Create the text generation pipeline
+#             global_llm_pipeline = pipeline(
+#                 "text-generation",
+#                 model=model,
+#                 tokenizer=global_tokenizer,
+#             )
+#             print("Successfully loaded Hugging Face model pipeline.")
+#         except Exception as e:
+#             print(f"Error loading model: {e}")
+#             raise
 
-
-def load_model_for_hf(model_name):
-    """Loads the model and tokenizer for Hugging Face Transformers."""
-    global global_llm_pipeline, global_tokenizer
-    if global_llm_pipeline is None:
-        try:
-            # Use `device_map="auto"` to automatically load the model onto the available GPUs.
-            # Add `torch_dtype` for memory efficiency.
-            model = AutoModelForCausalLM.from_pretrained(
-                model_name,
-                device_map="auto",
-                torch_dtype=torch.bfloat16
-            )
-            global_tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-            # Create the text generation pipeline
-            global_llm_pipeline = pipeline(
-                "text-generation",
-                model=model,
-                tokenizer=global_tokenizer,
-            )
-            print("Successfully loaded Hugging Face model pipeline.")
-        except Exception as e:
-            print(f"Error loading model: {e}")
-            raise
-
-# try:
-#     if "gemma" in VLLM_MODEL_NAME:
-#         global_llm_model = LLM(
-#             model=VLLM_MODEL_NAME,
-#             max_model_len=12288,  # 16384
-#             gpu_memory_utilization=0.5
-#         )
-#     else:
-#         global_llm_model = LLM(
-#             model=VLLM_MODEL_NAME
-#             # gpu_memory_utilization=0.98,
-#         )
-#     print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
-# except Exception as e:
-#     print(f"Error initializing global vLLM model: {e}")
-#     global_llm_model = None  # Handle case where vLLM fails to initialize
+try:
+    if "gemma" in VLLM_MODEL_NAME:
+        global_llm_model = LLM(
+            model=VLLM_MODEL_NAME,
+            max_model_len=12288,  # 16384
+            gpu_memory_utilization=0.6
+        )
+    else:
+        global_llm_model = LLM(
+            model=VLLM_MODEL_NAME
+            # gpu_memory_utilization=0.98,
+        )
+    print(f"vLLM model '{VLLM_MODEL_NAME}' initialized globally.")
+except Exception as e:
+    print(f"Error initializing global vLLM model: {e}")
+    global_llm_model = None  # Handle case where vLLM fails to initialize
 
 
 def get_mmlu_qa_pairs(df, ix):
@@ -150,59 +147,148 @@ def check_function_result(python_code: str, timeout: float = 5.0) -> Dict:
         result=result[0],
     )
 
+# def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False, retry_count=0):
+#     global global_llm_pipeline, global_tokenizer
+#     completion = []
+#     MAX_RETRIES = 3  # Define the maximum number of retries
+#
+#     if global_llm_pipeline is None:
+#         load_model_for_hf(VLLM_MODEL_NAME)
+#
+#     try:
+#         start = time.time()
+#         # ... (rest of your generation logic) ...
+#         prompts = [global_tokenizer.apply_chat_template(ctx, tokenize=False, add_generation_prompt=True) for ctx in
+#                    answer_context]
+#
+#         if not prompts:
+#             return []
+#
+#         outputs = global_llm_pipeline(
+#             prompts,
+#             max_new_tokens=2048,
+#             do_sample=True,
+#             temperature=temperature,
+#             top_p=top_p,
+#             num_return_sequences=nums,
+#             return_full_text=False
+#         )
+#
+#         for i, prompt_outputs in enumerate(outputs):
+#             choices = []
+#             total_completion_tokens = 0
+#
+#             for output in prompt_outputs:
+#                 generated_text = output['generated_text']
+#                 prompt_tokens = len(global_tokenizer(prompts[i]).input_ids)
+#                 completion_tokens = len(global_tokenizer(generated_text).input_ids)
+#                 total_completion_tokens += completion_tokens
+#
+#                 choices.append({
+#                     "message": {"content": generated_text},
+#                     "finish_reason": "length" if len(global_tokenizer(generated_text).input_ids) >= 2048 else "stop",
+#                 })
+#
+#             completion.append({
+#                 "choices": choices,
+#                 "usage": {
+#                     "prompt_tokens": prompt_tokens,
+#                     "completion_tokens": total_completion_tokens,
+#                     "total_tokens": prompt_tokens + total_completion_tokens
+#                 },
+#                 "model": VLLM_MODEL_NAME,
+#                 "id": f"hf-req-{i}-{start}"
+#             })
+#
+#         print("++++++++++++++++++Time:", time.time() - start, "++++++++++++++++++")
+#         return completion
+#
+#     except Exception as e:
+#         print(e, flush=True)
+#         # Check if the retry count has been reached
+#         if retry_count < MAX_RETRIES:
+#             print(f"retrying due to an error... (Attempt {retry_count + 1}/{MAX_RETRIES})", flush=True)
+#             time.sleep(5)
+#             # Make the recursive call with the incremented retry_count
+#             return batch_generate(answer_context, model, llm_ip, nums=nums, temperature=temperature, top_p=top_p, retry_count=retry_count + 1)
+#         else:
+#             print(f"Max retries ({MAX_RETRIES}) reached. Giving up.", flush=True)
+#             return []  # Or raise the exception, depending on your needs
+
+
 def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False, retry_count=0):
-    global global_llm_pipeline, global_tokenizer
+    global global_llm_model
+    global VLLM_MODEL_NAME
+    MAX_RETRIES = 3
     completion = []
-    MAX_RETRIES = 3  # Define the maximum number of retries
-
-    if global_llm_pipeline is None:
-        load_model_for_hf(VLLM_MODEL_NAME)
-
     try:
+        # vLLM expects a list of prompts. Your 'answer_context' is a list of message objects.
+        # We need to extract the prompt string for each context.
+        # If using a chat model, it's best to apply the chat template.
+
+        # This handles your original `contexts` which seems to be a list of message lists
+        # e.g., [[{'role': 'user', 'content': 'prompt1'}], [{'role': 'user', 'content': 'prompt2'}]]
+        # We'll flatten it to a list of single prompts.
         start = time.time()
-        # ... (rest of your generation logic) ...
-        prompts = [global_tokenizer.apply_chat_template(ctx, tokenize=False, add_generation_prompt=True) for ctx in
-                   answer_context]
+        prompts = []
+        for ctx in answer_context:
+            # Assuming `ctx` is like `[{'role': 'user', 'content': 'Your question here'}]`
+            # For more complex chat templates, you'd use global_tokenizer.apply_chat_template(ctx, tokenize=False)
+            # For simplicity, assuming a single user message.
+            if isinstance(ctx, list) and len(ctx) > 0 and 'content' in ctx[0]:
+                prompts.append(ctx[0]['content'])
+            else:
+                # Handle cases where context might be just a string prompt, if applicable
+                prompts.append(str(ctx))  # Fallback, adjust as needed
 
         if not prompts:
-            return []
+            return []  # No prompts to generate
 
-        outputs = global_llm_pipeline(
-            prompts,
-            max_new_tokens=2048,
-            do_sample=True,
+        # vLLM SamplingParams
+        # `n` directly controls how many completions per prompt.
+        sampling_params = SamplingParams(
             temperature=temperature,
             top_p=top_p,
-            num_return_sequences=nums,
-            return_full_text=False
+            n=nums,
+            max_tokens=2048,
+            # seed=0
         )
 
-        for i, prompt_outputs in enumerate(outputs):
+        # Generate completions using vLLM
+        outputs = global_llm_model.generate(prompts, sampling_params)
+
+        # Convert vLLM outputs to OpenAI-like format
+        for i, output in enumerate(outputs):
+            prompt_text = output.prompt  # Or prompts[i]
+            prompt_tokens = len(output.prompt_token_ids)
+
+            # Each RequestOutput can have multiple CompletionOutput if n > 1
             choices = []
-            total_completion_tokens = 0
-
-            for output in prompt_outputs:
-                generated_text = output['generated_text']
-                prompt_tokens = len(global_tokenizer(prompts[i]).input_ids)
-                completion_tokens = len(global_tokenizer(generated_text).input_ids)
-                total_completion_tokens += completion_tokens
-
+            total_completion_tokens_for_output = 0
+            for completion_output in output.outputs:
                 choices.append({
-                    "message": {"content": generated_text},
-                    "finish_reason": "length" if len(global_tokenizer(generated_text).input_ids) >= 2048 else "stop",
+                    "message": {"content": completion_output.text},
+                    "finish_reason": completion_output.finish_reason,  # "stop", "length" etc.
+                    # You might add logprobs if needed, though not directly available like OpenAI's.
                 })
+                total_completion_tokens_for_output += len(completion_output.token_ids)
+
+            if DEBUG:
+                pass
+                # for idx, choice in enumerate(choices):
+                #     print(f"Agent: {idx}, answer: {choice['message']['content']}")
+                # print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
 
             completion.append({
                 "choices": choices,
                 "usage": {
                     "prompt_tokens": prompt_tokens,
-                    "completion_tokens": total_completion_tokens,
-                    "total_tokens": prompt_tokens + total_completion_tokens
+                    "completion_tokens": total_completion_tokens_for_output,
+                    "total_tokens": prompt_tokens + total_completion_tokens_for_output
                 },
-                "model": VLLM_MODEL_NAME,
-                "id": f"hf-req-{i}-{start}"
+                "model": VLLM_MODEL_NAME,  # Indicate the model used
+                "id": output.request_id  # Unique ID for the request
             })
-
         print("++++++++++++++++++Time:", time.time() - start, "++++++++++++++++++")
         return completion
 
@@ -217,87 +303,6 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
         else:
             print(f"Max retries ({MAX_RETRIES}) reached. Giving up.", flush=True)
             return []  # Or raise the exception, depending on your needs
-
-# def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, top_p=1, use_json=False):
-#     global global_llm_model
-#     global VLLM_MODEL_NAME
-#     completion = []
-#     try:
-#         # vLLM expects a list of prompts. Your 'answer_context' is a list of message objects.
-#         # We need to extract the prompt string for each context.
-#         # If using a chat model, it's best to apply the chat template.
-#
-#         # This handles your original `contexts` which seems to be a list of message lists
-#         # e.g., [[{'role': 'user', 'content': 'prompt1'}], [{'role': 'user', 'content': 'prompt2'}]]
-#         # We'll flatten it to a list of single prompts.
-#         start = time.time()
-#         prompts = []
-#         for ctx in answer_context:
-#             # Assuming `ctx` is like `[{'role': 'user', 'content': 'Your question here'}]`
-#             # For more complex chat templates, you'd use global_tokenizer.apply_chat_template(ctx, tokenize=False)
-#             # For simplicity, assuming a single user message.
-#             if isinstance(ctx, list) and len(ctx) > 0 and 'content' in ctx[0]:
-#                 prompts.append(ctx[0]['content'])
-#             else:
-#                 # Handle cases where context might be just a string prompt, if applicable
-#                 prompts.append(str(ctx))  # Fallback, adjust as needed
-#
-#         if not prompts:
-#             return []  # No prompts to generate
-#
-#         # vLLM SamplingParams
-#         # `n` directly controls how many completions per prompt.
-#         sampling_params = SamplingParams(
-#             temperature=temperature,
-#             top_p=top_p,
-#             n=nums,
-#             max_tokens=2048,
-#             # seed=0
-#         )
-#
-#         # Generate completions using vLLM
-#         outputs = global_llm_model.generate(prompts, sampling_params)
-#
-#         # Convert vLLM outputs to OpenAI-like format
-#         for i, output in enumerate(outputs):
-#             prompt_text = output.prompt  # Or prompts[i]
-#             prompt_tokens = len(output.prompt_token_ids)
-#
-#             # Each RequestOutput can have multiple CompletionOutput if n > 1
-#             choices = []
-#             total_completion_tokens_for_output = 0
-#             for completion_output in output.outputs:
-#                 choices.append({
-#                     "message": {"content": completion_output.text},
-#                     "finish_reason": completion_output.finish_reason,  # "stop", "length" etc.
-#                     # You might add logprobs if needed, though not directly available like OpenAI's.
-#                 })
-#                 total_completion_tokens_for_output += len(completion_output.token_ids)
-#
-#             if DEBUG:
-#                 pass
-#                 # for idx, choice in enumerate(choices):
-#                 #     print(f"Agent: {idx}, answer: {choice['message']['content']}")
-#                 # print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
-#
-#             completion.append({
-#                 "choices": choices,
-#                 "usage": {
-#                     "prompt_tokens": prompt_tokens,
-#                     "completion_tokens": total_completion_tokens_for_output,
-#                     "total_tokens": prompt_tokens + total_completion_tokens_for_output
-#                 },
-#                 "model": VLLM_MODEL_NAME,  # Indicate the model used
-#                 "id": output.request_id  # Unique ID for the request
-#             })
-#         print("++++++++++++++++++Time:", time.time() - start, "++++++++++++++++++")
-#
-#     except Exception as e:
-#         print(e, flush=True)
-#         print("retrying due to an error......", flush=True)
-#         time.sleep(5)
-#         return batch_generate(answer_context, model, llm_ip, nums=nums, temperature=temperature, top_p=top_p)
-#     return completion
 
 
 def extract_last_python_code_block(text):

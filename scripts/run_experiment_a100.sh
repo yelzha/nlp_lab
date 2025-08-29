@@ -85,6 +85,7 @@ DEBUG=${10}
 export DEBUG=${10}
 EXPERIMENT_DIRECTORY=${11} # "experiments"
 export MAIN_DIRECTORY=$(pwd)
+export CUDA_LAUNCH_BLOCKING=1
 
 # ----------------- MAIN LOOP ------------------
 
