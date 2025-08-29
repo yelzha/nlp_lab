@@ -1,16 +1,16 @@
 #!/bin/bash
 # master_orchestrator_.sh
 
-MODELS=("gemma-3-12b-it")
-DTYPES=("r2ata")
-VLLM_MODEL_NAMES=("google/gemma-3-12b-it")
+MODELS=("gemma-3-4b-it" )
+DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
+VLLM_MODEL_NAMES=("google/gemma-3-4b-it" )
 
 # Fixed parameters
 QTYPE="gsm"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
-DEBUG="False"
+DEBUG="TRUE"
 COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12;12 14"  # 0 2;2 4;4 6;6 8;8 10;10 12;12 14
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 EXPERIMENT_DIRECTORY="experiments"

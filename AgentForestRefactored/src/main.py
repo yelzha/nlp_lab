@@ -146,12 +146,6 @@ def main():
                 f.write(json.dumps(record) + '\n')
         print(f"Saved JSON for K={K} to: {json_path}")
 
-        # Handle human-eval specific .jsonl output for the max K value
-        if QUESTION_TYPE == "human-eval" and K == max_agents_for_init:
-            human_eval_jsonl_path = os.path.join(K_DIR_NAME, f'{K_EXP_NAME}.jsonl')
-            write_jsonl(human_eval_jsonl_path, results_human_eval_for_max_K)
-            print(f"Saved Human-Eval JSONL for K={K} to: {human_eval_jsonl_path}")
-
     # Evaluate performance for each K value (using the full df_all_records for filtering)
     print("\n--- Final Evaluation for Each K Value ---")
     for K in K_values:

@@ -65,5 +65,7 @@ def main():
     # 4x4 grid (rows = datasets, cols = noise, labels = models)
     plot_grid_models_by_noise(df, save_path="grid_models_by_noise.png")
 
+
 if __name__ == "__main__":
     main()
+

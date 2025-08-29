@@ -113,11 +113,13 @@ def plot_absdiff_grid(diff_df: pd.DataFrame, noises: list[str], save_path: Path 
         fig.savefig(save_path, bbox_inches="tight", dpi=200)
     plt.show()
 
+
 def main():
     csv_path = "./merged_results.csv"
     df = load_data(csv_path)
     diff_df = compute_abs_diff_vs_clean(df, NOISES_TO_COMPARE)
     plot_absdiff_grid(diff_df, NOISES_TO_COMPARE, save_path=Path("absdiff_grid_vs_clean.png"))
+
 
 if __name__ == "__main__":
     main()

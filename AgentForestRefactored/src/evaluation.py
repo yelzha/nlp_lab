@@ -27,7 +27,7 @@ def merge_record(log_dir):
     csv_list = sorted(csv_list, key=extract_number)
     df_list = []
     for csv_file in csv_list:
-        if csv_file == log_dir+"/merged_record.csv":
+        if "merged_record.csv" in csv_file:
             continue
         try:
             df_list.append(pd.read_csv(csv_file))
@@ -59,13 +59,10 @@ def merge_human_eval(log_dir):
     df["result"] = result_list
     df.to_csv(log_dir+"/merged_record.csv")
 
-def evaluation(log_dir, qtype):
+def evaluation(log_dir):
     final_df = pd.read_csv(log_dir+"/merged_record.csv")
     with open(log_dir+"/final_perf.txt", "w") as f:
-        if qtype == "chess":
-            final_perf = final_df.apply(is_final_answer_in_ground_truth, axis=1).mean()
-        else:
-            final_perf = final_df.apply(is_final_answer_correct, axis=1).mean()
+        final_perf = final_df.apply(is_final_answer_correct, axis=1).mean()
         print(f"final_perf: {final_perf}", file=f)
     print(f"final_perf: {final_perf}")
 
@@ -73,8 +70,6 @@ def evaluation(log_dir, qtype):
 if __name__ == "__main__":
     log_dir = sys.argv[1]
     qtype = sys.argv[2]
-    if qtype == "human-eval":
-        merge_human_eval(log_dir)
-    else:
-        merge_record(log_dir)
-        evaluation(log_dir,qtype)
+
+    merge_record(log_dir)
+    evaluation(log_dir)
