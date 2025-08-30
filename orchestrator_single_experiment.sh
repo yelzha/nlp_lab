@@ -30,6 +30,7 @@ log_message() {
 # 10: INITIAL_DEPENDENCY_JOB_ID (optional)
 # 11: WORKER_SCRIPT
 # 12: EXPERIMENT_DIRECTORY
+# 13: DEPENDENCY (optional, "TRUE" or "FALSE". Default is "TRUE")
 
 MODEL="$1"
 QTYPE="$2"
@@ -43,12 +44,14 @@ STAGES_STRING="$9"
 INITIAL_DEPENDENCY_JOB_ID="${10}"
 WORKER_SCRIPT="${11}"
 EXPERIMENT_DIRECTORY="${12}"
+DEPENDENCY="${13:-TRUE}" # Default to "TRUE" if not provided
+
 # --- Define the worker script filename ---
 # WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 
 # Validate essential parameters
 if [ -z "$MODEL" ] || [ -z "$QTYPE" ] || [ -z "$DTYPE" ] || [ -z "$STAGES_STRING" ]; then
-    echo "Usage: $0 <MODEL> <QTYPE> <DTYPE> <SUBSET_NUM> <TEMPERATURE> <TOP_P> <VLLM_MODEL_NAME> <DEBUG> \"<STAGES_STRING>\" [initial_dependency_job_id]" >&2 # Send usage to stderr
+    echo "Usage: $0 <MODEL> <QTYPE> <DTYPE> <SUBSET_NUM> <TEMPERATURE> <TOP_P> <VLLM_MODEL_NAME> <DEBUG> \"<STAGES_STRING>\" [initial_dependency_job_id] [worker_script] [experiment_directory] [DEPENDENCY]" >&2 # Send usage to stderr
     exit 1
 fi
 
@@ -70,6 +73,7 @@ log_message "  STAGES_STRING: \"$STAGES_STRING\""
 if [ -n "$INITIAL_DEPENDENCY_JOB_ID" ]; then
     log_message "  Initial external dependency set to: $INITIAL_DEPENDENCY_JOB_ID"
 fi
+log_message "  DEPENDENCY: $DEPENDENCY"
 log_message "Orchestration log file created at: $LOG_FILE"
 
 # Parse STAGES_STRING into an array
@@ -101,14 +105,13 @@ for i in "${!STAGES[@]}"; do
     OUTPUT_FILE="$OUTPUT_BASE_FOLDER/${JOB_NAME}_%j.txt"
 
     SBATCH_CMD="sbatch --parsable --job-name=\"$JOB_NAME\" --output=\"$OUTPUT_FILE\""
-    if [ -n "$PREV_JOB_ID" ]; then
+    # Check the DEPENDENCY variable
+    if [ "$DEPENDENCY" == "TRUE" ] && [ -n "$PREV_JOB_ID" ]; then
         SBATCH_CMD+=" --dependency=afterok:$PREV_JOB_ID"
         log_message "  Dependent on Job ID: $PREV_JOB_ID"
     fi
 
     SBATCH_CMD+=" \"$WORKER_SCRIPT\" \"$START_INDEX\" \"$END_INDEX\" \"$MODEL\" \"$QTYPE\" \"$DTYPE\" \"$SUBSET_NUM\" \"$TEMPERATURE\" \"$TOP_P\" \"$VLLM_MODEL_NAME\" \"$DEBUG\" \"$EXPERIMENT_DIRECTORY\""
-
-
 
     # Execute sbatch directly from the array. This avoids the 'eval' problem.
     CURRENT_JOB_ID=$(eval "$SBATCH_CMD")
@@ -122,8 +125,10 @@ for i in "${!STAGES[@]}"; do
 
     log_message "Stage $STAGE_NUM submitted. Job ID: $CURRENT_JOB_ID. Job Name: $JOB_NAME. Output: $OUTPUT_FILE"
 
-    # Update PREV_JOB_ID for the next iteration
-    PREV_JOB_ID="$CURRENT_JOB_ID"
+    # Update PREV_JOB_ID for the next iteration ONLY IF DEPENDENCY is TRUE
+    if [ "$DEPENDENCY" == "TRUE" ]; then
+        PREV_JOB_ID="$CURRENT_JOB_ID"
+    fi
 done
 
 log_message "============================================================="

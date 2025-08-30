@@ -14,6 +14,7 @@ DEBUG="TRUE"
 COMMON_STAGES="0 1"  # 0 2;2 4;4 6;6 8;8 10;10 12;12 14
 WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
 EXPERIMENT_DIRECTORY="view100"  # experiments
+DEPENDENCY="FALSE"
 
 # Set resume point
 RESUME_MODEL=""
@@ -85,7 +86,8 @@ for MODEL in "${MODELS[@]}"; do
             "$COMMON_STAGES" \
             "$DEPENDENCY_ARG" \
             "$WORKER_SCRIPT" \
-            "$EXPERIMENT_DIRECTORY")
+            "$EXPERIMENT_DIRECTORY" \
+            "$DEPENDENCY")
 
         NEW_SLURM_ID=$(echo "$NEW_SLURM_ID" | tail -n 1 | tr -d '[:space:]')
 
