@@ -1,10 +1,10 @@
 #!/bin/bash
 # master_orchestrator_gsm.sh
 
-MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct")
+MODELS=("Qwen3-4B")
 # MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
 DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
-VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct")
+VLLM_MODEL_NAMES=("Qwen/Qwen3-4B")
 # VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
 # Fixed parameters
