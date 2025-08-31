@@ -2,7 +2,7 @@
 # master_orchestrator_.sh
 
 MODELS=("gemma-3-12b-it")
-DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
+DTYPES=("punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
 VLLM_MODEL_NAMES=("google/gemma-3-12b-it")
 
 # Fixed parameters
