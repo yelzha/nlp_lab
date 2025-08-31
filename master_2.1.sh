@@ -1,9 +1,9 @@
 #!/bin/bash
 # master_orchestrator_.sh
 
-MODELS=("gemma-3-12b-it")
-DTYPES=("punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
-VLLM_MODEL_NAMES=("google/gemma-3-12b-it")
+MODELS=("gemma-3-4b-it" )
+DTYPES=("punctuation_30" "punctuation_50")
+VLLM_MODEL_NAMES=("google/gemma-3-4b-it" )
 
 # Fixed parameters
 QTYPE="gsm"
