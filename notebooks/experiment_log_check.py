@@ -3,7 +3,7 @@ import glob
 import pandas as pd
 
 def main():
-    base_dir = "../experiments"  # change if needed
+    base_dir = "../view100"  # change if needed
 
     records = []
 

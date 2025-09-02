@@ -1,14 +1,12 @@
 #!/bin/bash
-# master_orchestrator_math.sh
+# master_orchestrator_multiarith.sh
 
-MODELS=("Qwen3-14B" "Llama-3.1-8B-Instruct")
-# MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
-VLLM_MODEL_NAMES=("Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct")
-# VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
+MODELS=("Qwen3-4B")
+DTYPES=("punctuation_30")
+VLLM_MODEL_NAMES=("Qwen/Qwen3-4B")
 
-# Fixed parameters
-QTYPE="math"
+# Fixed experiment parameters
+QTYPE="multiarith"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
@@ -30,13 +28,14 @@ fi
 
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
-    echo "Error: orchestrator_single_experiment.sh not found at $ORCHESTRATOR_SCRIPT."
+    echo "Error: orchestrator.sh not found at $ORCHESTRATOR_SCRIPT."
+    echo "Please ensure 'orchestrator.sh' is in the same directory or provide its full path."
     exit 1
 fi
 
 LAST_SLURM_ID=""
 
-# Iterate through all combinations
+# Iterate over MODEL × DTYPE combinations
 for MODEL in "${MODELS[@]}"; do
     for DTYPE in "${DTYPES[@]}"; do
 
@@ -51,7 +50,7 @@ for MODEL in "${MODELS[@]}"; do
           fi
         fi
 
-        # Get model index to fetch corresponding VLLM model name
+        # Match VLLM model name based on index
         MODEL_INDEX=-1
         for i in "${!MODELS[@]}"; do
             if [[ "${MODELS[$i]}" == "$MODEL" ]]; then
