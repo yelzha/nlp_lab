@@ -3,7 +3,7 @@ import glob
 import pandas as pd
 
 def main():
-    base_dir = "../view100"  # change if needed
+    base_dir = "../experiments"  # view100   change if needed
 
     records = []
 
@@ -23,14 +23,19 @@ def main():
 
         # with open(filepath, "r", encoding="utf-8") as f:
         #     text = f.read()
-        df = pd.read_csv(filepath)
+        try:
+            df = pd.read_csv(filepath)
+        except Exception as e:
+            print(str(e))
+            print(filepath)
+            return 0
 
         df["dataset"] = dataset
         df["noise"] = dataset_noise
         df["model"] = model
         df["agent_num"] = agent_num
 
-        records.append(df)
+        records.append(df[["dataset", "noise", "model", "agent_num"]])
 
     df = pd.concat(records, ignore_index=True)
     aggregated_df = (
