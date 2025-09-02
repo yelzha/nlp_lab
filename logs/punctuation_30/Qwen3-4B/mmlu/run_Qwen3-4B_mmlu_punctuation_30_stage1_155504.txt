@@ -1,0 +1,1612 @@
+------------------------------------------------------------
+SLURM JOB INFO
+Job ID: 155504
+Job Name: run_Qwen3-4B_mmlu_punctuation_30_stage1
+Partition: A40short
+Nodes: 1
+Tasks per node: 
+CPUs per task: 
+Requested Memory:  MB (approx)
+Working Directory: /home/s06zyelt/nlp_lab
+Start Time: Mon Sep  1 21:35:48 CEST 2025
+------------------------------------------------------------
+Hello from Slurm on node node-01.bender!
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (2.2.6)
+Requirement already satisfied: pandas in ./env/lib/python3.10/site-packages (2.3.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./env/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: six>=1.5 in ./env/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: sacrebleu in ./env/lib/python3.10/site-packages (2.5.1)
+Requirement already satisfied: portalocker in ./env/lib/python3.10/site-packages (from sacrebleu) (3.2.0)
+Requirement already satisfied: regex in ./env/lib/python3.10/site-packages (from sacrebleu) (2025.7.34)
+Requirement already satisfied: tabulate>=0.8.9 in ./env/lib/python3.10/site-packages (from sacrebleu) (0.9.0)
+Requirement already satisfied: numpy>=1.17 in ./env/lib/python3.10/site-packages (from sacrebleu) (2.2.6)
+Requirement already satisfied: colorama in ./env/lib/python3.10/site-packages (from sacrebleu) (0.4.6)
+Requirement already satisfied: lxml in ./env/lib/python3.10/site-packages (from sacrebleu) (6.0.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Collecting git+https://github.com/openai/human-eval.git
+  Cloning https://github.com/openai/human-eval.git to /home/s06zyelt/.my_tmp/pip-req-build-raawqz4z
+  Running command git clone --filter=blob:none --quiet https://github.com/openai/human-eval.git /home/s06zyelt/.my_tmp/pip-req-build-raawqz4z
+  Resolved https://github.com/openai/human-eval.git to commit 6d43fb980f9fee3c892a914eda09951f772ad10d
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: tqdm in ./env/lib/python3.10/site-packages (from human-eval==1.0) (4.67.1)
+Requirement already satisfied: fire in ./env/lib/python3.10/site-packages (from human-eval==1.0) (0.7.1)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from human-eval==1.0) (2.2.6)
+Requirement already satisfied: termcolor in ./env/lib/python3.10/site-packages (from fire->human-eval==1.0) (3.1.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Requirement already satisfied: torch in ./env/lib/python3.10/site-packages (2.7.1)
+Requirement already satisfied: torchvision in ./env/lib/python3.10/site-packages (0.22.1)
+Requirement already satisfied: torchaudio in ./env/lib/python3.10/site-packages (2.7.1)
+Requirement already satisfied: filelock in ./env/lib/python3.10/site-packages (from torch) (3.19.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./env/lib/python3.10/site-packages (from torch) (4.12.2)
+Requirement already satisfied: sympy>=1.13.3 in ./env/lib/python3.10/site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in ./env/lib/python3.10/site-packages (from torch) (3.3)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in ./env/lib/python3.10/site-packages (from torch) (2024.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in ./env/lib/python3.10/site-packages (from torch) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in ./env/lib/python3.10/site-packages (from torch) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in ./env/lib/python3.10/site-packages (from torch) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in ./env/lib/python3.10/site-packages (from torch) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in ./env/lib/python3.10/site-packages (from torch) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in ./env/lib/python3.10/site-packages (from torch) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in ./env/lib/python3.10/site-packages (from torch) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in ./env/lib/python3.10/site-packages (from torch) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in ./env/lib/python3.10/site-packages (from torch) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in ./env/lib/python3.10/site-packages (from torch) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in ./env/lib/python3.10/site-packages (from torch) (1.11.1.6)
+Requirement already satisfied: triton==3.3.1 in ./env/lib/python3.10/site-packages (from torch) (3.3.1)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.1->torch) (80.9.0)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from torchvision) (2.2.6)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./env/lib/python3.10/site-packages (from torchvision) (11.0.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./env/lib/python3.10/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.10/site-packages (from jinja2->torch) (2.1.5)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu121
+Requirement already satisfied: vllm in ./env/lib/python3.10/site-packages (0.10.0)
+Requirement already satisfied: regex in ./env/lib/python3.10/site-packages (from vllm) (2025.7.34)
+Requirement already satisfied: cachetools in ./env/lib/python3.10/site-packages (from vllm) (6.1.0)
+Requirement already satisfied: psutil in ./env/lib/python3.10/site-packages (from vllm) (7.0.0)
+Requirement already satisfied: sentencepiece in ./env/lib/python3.10/site-packages (from vllm) (0.2.1)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from vllm) (2.2.6)
+Requirement already satisfied: requests>=2.26.0 in ./env/lib/python3.10/site-packages (from vllm) (2.32.4)
+Requirement already satisfied: tqdm in ./env/lib/python3.10/site-packages (from vllm) (4.67.1)
+Requirement already satisfied: blake3 in ./env/lib/python3.10/site-packages (from vllm) (1.0.5)
+Requirement already satisfied: py-cpuinfo in ./env/lib/python3.10/site-packages (from vllm) (9.0.0)
+Requirement already satisfied: transformers>=4.53.2 in ./env/lib/python3.10/site-packages (from vllm) (4.55.2)
+Requirement already satisfied: huggingface-hub>=0.33.0 in ./env/lib/python3.10/site-packages (from huggingface-hub[hf_xet]>=0.33.0->vllm) (0.34.4)
+Requirement already satisfied: tokenizers>=0.21.1 in ./env/lib/python3.10/site-packages (from vllm) (0.21.4)
+Requirement already satisfied: protobuf in ./env/lib/python3.10/site-packages (from vllm) (6.32.0)
+Requirement already satisfied: fastapi>=0.115.0 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.116.1)
+Requirement already satisfied: aiohttp in ./env/lib/python3.10/site-packages (from vllm) (3.12.15)
+Requirement already satisfied: openai<=1.90.0,>=1.87.0 in ./env/lib/python3.10/site-packages (from vllm) (1.90.0)
+Requirement already satisfied: pydantic>=2.10 in ./env/lib/python3.10/site-packages (from vllm) (2.11.7)
+Requirement already satisfied: prometheus_client>=0.18.0 in ./env/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: pillow in ./env/lib/python3.10/site-packages (from vllm) (11.0.0)
+Requirement already satisfied: prometheus-fastapi-instrumentator>=7.0.0 in ./env/lib/python3.10/site-packages (from vllm) (7.1.0)
+Requirement already satisfied: tiktoken>=0.6.0 in ./env/lib/python3.10/site-packages (from vllm) (0.11.0)
+Requirement already satisfied: lm-format-enforcer<0.11,>=0.10.11 in ./env/lib/python3.10/site-packages (from vllm) (0.10.12)
+Requirement already satisfied: llguidance<0.8.0,>=0.7.11 in ./env/lib/python3.10/site-packages (from vllm) (0.7.30)
+Requirement already satisfied: outlines_core==0.2.10 in ./env/lib/python3.10/site-packages (from vllm) (0.2.10)
+Requirement already satisfied: diskcache==5.6.3 in ./env/lib/python3.10/site-packages (from vllm) (5.6.3)
+Requirement already satisfied: lark==1.2.2 in ./env/lib/python3.10/site-packages (from vllm) (1.2.2)
+Requirement already satisfied: xgrammar==0.1.21 in ./env/lib/python3.10/site-packages (from vllm) (0.1.21)
+Requirement already satisfied: typing_extensions>=4.10 in ./env/lib/python3.10/site-packages (from vllm) (4.12.2)
+Requirement already satisfied: filelock>=3.16.1 in ./env/lib/python3.10/site-packages (from vllm) (3.19.1)
+Requirement already satisfied: partial-json-parser in ./env/lib/python3.10/site-packages (from vllm) (0.2.1.1.post6)
+Requirement already satisfied: pyzmq>=25.0.0 in ./env/lib/python3.10/site-packages (from vllm) (27.0.1)
+Requirement already satisfied: msgspec in ./env/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: gguf>=0.13.0 in ./env/lib/python3.10/site-packages (from vllm) (0.17.1)
+Requirement already satisfied: mistral_common>=1.8.2 in ./env/lib/python3.10/site-packages (from mistral_common[audio,image]>=1.8.2->vllm) (1.8.3)
+Requirement already satisfied: opencv-python-headless>=4.11.0 in ./env/lib/python3.10/site-packages (from vllm) (4.12.0.88)
+Requirement already satisfied: pyyaml in ./env/lib/python3.10/site-packages (from vllm) (6.0.2)
+Requirement already satisfied: einops in ./env/lib/python3.10/site-packages (from vllm) (0.8.1)
+Requirement already satisfied: compressed-tensors==0.10.2 in ./env/lib/python3.10/site-packages (from vllm) (0.10.2)
+Requirement already satisfied: depyf==0.19.0 in ./env/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: cloudpickle in ./env/lib/python3.10/site-packages (from vllm) (3.1.1)
+Requirement already satisfied: watchfiles in ./env/lib/python3.10/site-packages (from vllm) (1.1.0)
+Requirement already satisfied: python-json-logger in ./env/lib/python3.10/site-packages (from vllm) (3.3.0)
+Requirement already satisfied: scipy in ./env/lib/python3.10/site-packages (from vllm) (1.15.3)
+Requirement already satisfied: ninja in ./env/lib/python3.10/site-packages (from vllm) (1.13.0)
+Requirement already satisfied: pybase64 in ./env/lib/python3.10/site-packages (from vllm) (1.4.2)
+Requirement already satisfied: cbor2 in ./env/lib/python3.10/site-packages (from vllm) (5.7.0)
+Requirement already satisfied: numba==0.61.2 in ./env/lib/python3.10/site-packages (from vllm) (0.61.2)
+Requirement already satisfied: ray!=2.44.*,>=2.43.0 in ./env/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (2.48.0)
+Requirement already satisfied: torch==2.7.1 in ./env/lib/python3.10/site-packages (from vllm) (2.7.1)
+Requirement already satisfied: torchaudio==2.7.1 in ./env/lib/python3.10/site-packages (from vllm) (2.7.1)
+Requirement already satisfied: torchvision==0.22.1 in ./env/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: xformers==0.0.31 in ./env/lib/python3.10/site-packages (from vllm) (0.0.31)
+Requirement already satisfied: astor in ./env/lib/python3.10/site-packages (from depyf==0.19.0->vllm) (0.8.1)
+Requirement already satisfied: dill in ./env/lib/python3.10/site-packages (from depyf==0.19.0->vllm) (0.4.0)
+Requirement already satisfied: llvmlite<0.45,>=0.44.0dev0 in ./env/lib/python3.10/site-packages (from numba==0.61.2->vllm) (0.44.0)
+Requirement already satisfied: sympy>=1.13.3 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (1.14.0)
+Requirement already satisfied: networkx in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.3)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.1.6)
+Requirement already satisfied: fsspec in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (2024.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (1.11.1.6)
+Requirement already satisfied: triton==3.3.1 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.3.1)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.1->torch==2.7.1->vllm) (80.9.0)
+Requirement already satisfied: interegular>=0.3.2 in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (0.3.3)
+Requirement already satisfied: packaging in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (25.0)
+Requirement already satisfied: anyio<5,>=3.5.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (4.10.0)
+Requirement already satisfied: distro<2,>=1.7.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (0.28.1)
+Requirement already satisfied: jiter<1,>=0.4.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (0.10.0)
+Requirement already satisfied: sniffio in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (1.3.1)
+Requirement already satisfied: exceptiongroup>=1.0.2 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai<=1.90.0,>=1.87.0->vllm) (1.3.0)
+Requirement already satisfied: idna>=2.8 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai<=1.90.0,>=1.87.0->vllm) (3.10)
+Requirement already satisfied: certifi in ./env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (2025.8.3)
+Requirement already satisfied: httpcore==1.* in ./env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (1.0.9)
+Requirement already satisfied: h11>=0.16 in ./env/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (0.16.0)
+Requirement already satisfied: annotated-types>=0.6.0 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.7.0)
+Requirement already satisfied: pydantic-core==2.33.2 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.4.1)
+Requirement already satisfied: starlette<0.48.0,>=0.40.0 in ./env/lib/python3.10/site-packages (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (0.47.2)
+Requirement already satisfied: fastapi-cli>=0.0.8 in ./env/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.0.8)
+Requirement already satisfied: python-multipart>=0.0.18 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.0.20)
+Requirement already satisfied: email-validator>=2.0.0 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (2.2.0)
+Requirement already satisfied: uvicorn>=0.12.0 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.35.0)
+Requirement already satisfied: dnspython>=2.0.0 in ./env/lib/python3.10/site-packages (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm) (2.7.0)
+Requirement already satisfied: typer>=0.15.1 in ./env/lib/python3.10/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: rich-toolkit>=0.14.8 in ./env/lib/python3.10/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.15.0)
+Requirement already satisfied: fastapi-cloud-cli>=0.1.1 in ./env/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.5)
+Requirement already satisfied: rignore>=0.5.1 in ./env/lib/python3.10/site-packages (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: sentry-sdk>=2.20.0 in ./env/lib/python3.10/site-packages (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.35.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in ./env/lib/python3.10/site-packages (from huggingface-hub>=0.33.0->huggingface-hub[hf_xet]>=0.33.0->vllm) (1.1.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.10/site-packages (from jinja2->torch==2.7.1->vllm) (2.1.5)
+Requirement already satisfied: jsonschema>=4.21.1 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (4.25.0)
+Requirement already satisfied: pydantic-extra-types>=2.10.5 in ./env/lib/python3.10/site-packages (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2.10.5)
+Requirement already satisfied: attrs>=22.2.0 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (25.3.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2025.4.1)
+Requirement already satisfied: referencing>=0.28.4 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.36.2)
+Requirement already satisfied: rpds-py>=0.7.1 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.27.0)
+Requirement already satisfied: pycountry>=23 in ./env/lib/python3.10/site-packages (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (24.6.1)
+Requirement already satisfied: click>=7.0 in ./env/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (8.2.1)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in ./env/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (1.1.1)
+Requirement already satisfied: cupy-cuda12x in ./env/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (13.5.1)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (3.4.3)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (2.5.0)
+Requirement already satisfied: rich>=13.7.1 in ./env/lib/python3.10/site-packages (from rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (14.1.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./env/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./env/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in ./env/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./env/lib/python3.10/site-packages (from sympy>=1.13.3->torch==2.7.1->vllm) (1.3.0)
+Requirement already satisfied: safetensors>=0.4.3 in ./env/lib/python3.10/site-packages (from transformers>=4.53.2->vllm) (0.6.2)
+Requirement already satisfied: shellingham>=1.3.0 in ./env/lib/python3.10/site-packages (from typer>=0.15.1->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.5.4)
+Requirement already satisfied: httptools>=0.6.3 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: python-dotenv>=0.13 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.1.1)
+Requirement already satisfied: uvloop>=0.15.1 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.21.0)
+Requirement already satisfied: websockets>=10.4 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (15.0.1)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.4.0)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (5.0.1)
+Requirement already satisfied: frozenlist>=1.1.1 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (6.6.4)
+Requirement already satisfied: propcache>=0.2.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.20.1)
+Requirement already satisfied: fastrlock>=0.5 in ./env/lib/python3.10/site-packages (from cupy-cuda12x->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (0.8.3)
+Requirement already satisfied: soundfile>=0.12.1 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.13.1)
+Requirement already satisfied: cffi>=1.0 in ./env/lib/python3.10/site-packages (from soundfile>=0.12.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (1.17.1)
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi>=1.0->soundfile>=0.12.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2.22)
+Requirement already satisfied: soxr>=0.5.0 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.5.0.post1)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+CUDA available: True
+PyTorch CUDA version: 12.6
+vLLM version: 0.10.0
+Running AgentForest experiments...
+=============================================================
+Running with agents on mmlu using Qwen3-4B for punctuation_30
+Processing parts from 0 to 1
+=============================================================
+Running part 0...
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 09-01 21:36:30 [__init__.py:235] Automatically detected platform cuda.
+INFO 09-01 21:37:18 [config.py:1604] Using max model len 40960
+INFO 09-01 21:37:32 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 09-01 21:37:33 [core.py:572] Waiting for init message from front-end.
+INFO 09-01 21:37:33 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='Qwen/Qwen3-4B', speculative_config=None, tokenizer='Qwen/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-4B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 09-01 21:37:40 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 09-01 21:37:40 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 09-01 21:37:41 [gpu_model_runner.py:1843] Starting to load model Qwen/Qwen3-4B...
+INFO 09-01 21:37:41 [gpu_model_runner.py:1875] Loading model from scratch...
+INFO 09-01 21:37:41 [cuda.py:290] Using Flash Attention backend on V1 engine.
+INFO 09-01 21:37:41 [weight_utils.py:296] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  3.03it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.05it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.19it/s]
+
+INFO 09-01 21:37:43 [default_loader.py:262] Loading weights took 1.47 seconds
+INFO 09-01 21:37:44 [gpu_model_runner.py:1892] Model loading took 7.5552 GiB and 2.375456 seconds
+INFO 09-01 21:37:54 [backends.py:530] Using cache directory: /home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/46c8fee2a2/rank_0_0/backbone for vLLM's torch.compile
+INFO 09-01 21:37:54 [backends.py:541] Dynamo bytecode transform time: 9.73 s
+INFO 09-01 21:38:02 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 7.918 s
+INFO 09-01 21:38:03 [monitor.py:34] torch.compile takes 9.73 s in total
+INFO 09-01 21:38:04 [gpu_worker.py:255] Available KV cache memory: 30.96 GiB
+INFO 09-01 21:38:05 [kv_cache_utils.py:833] GPU KV cache size: 225,440 tokens
+INFO 09-01 21:38:05 [kv_cache_utils.py:837] Maximum concurrency for 40,960 tokens per request: 5.50x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:04, 13.73it/s]Capturing CUDA graph shapes:   6%|▌         | 4/67 [00:00<00:04, 13.92it/s]Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:00<00:04, 13.96it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:00<00:04, 13.97it/s]Capturing CUDA graph shapes:  15%|█▍        | 10/67 [00:00<00:04, 13.96it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:00<00:03, 13.88it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:01<00:03, 13.81it/s]Capturing CUDA graph shapes:  24%|██▍       | 16/67 [00:01<00:03, 13.79it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:01<00:03, 14.18it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:01<00:03, 14.41it/s]Capturing CUDA graph shapes:  33%|███▎      | 22/67 [00:01<00:03, 14.52it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:01<00:03, 14.14it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:01<00:02, 14.13it/s]Capturing CUDA graph shapes:  42%|████▏     | 28/67 [00:01<00:02, 13.85it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:02<00:02, 13.66it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:02<00:02, 13.52it/s]Capturing CUDA graph shapes:  51%|█████     | 34/67 [00:02<00:02, 13.93it/s]Capturing CUDA graph shapes:  54%|█████▎    | 36/67 [00:02<00:02, 14.20it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:02<00:02, 14.33it/s]Capturing CUDA graph shapes:  60%|█████▉    | 40/67 [00:02<00:01, 14.21it/s]Capturing CUDA graph shapes:  63%|██████▎   | 42/67 [00:02<00:01, 14.21it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:03<00:01, 14.17it/s]Capturing CUDA graph shapes:  69%|██████▊   | 46/67 [00:03<00:01, 14.08it/s]Capturing CUDA graph shapes:  72%|███████▏  | 48/67 [00:03<00:01, 14.11it/s]Capturing CUDA graph shapes:  75%|███████▍  | 50/67 [00:03<00:01, 13.92it/s]Capturing CUDA graph shapes:  78%|███████▊  | 52/67 [00:03<00:01, 13.74it/s]Capturing CUDA graph shapes:  81%|████████  | 54/67 [00:03<00:00, 13.66it/s]Capturing CUDA graph shapes:  84%|████████▎ | 56/67 [00:04<00:00, 13.58it/s]Capturing CUDA graph shapes:  87%|████████▋ | 58/67 [00:04<00:00, 13.67it/s]Capturing CUDA graph shapes:  90%|████████▉ | 60/67 [00:04<00:00, 13.60it/s]Capturing CUDA graph shapes:  93%|█████████▎| 62/67 [00:04<00:00, 13.59it/s]Capturing CUDA graph shapes:  96%|█████████▌| 64/67 [00:04<00:00, 13.76it/s]Capturing CUDA graph shapes:  99%|█████████▊| 66/67 [00:04<00:00, 13.87it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:04<00:00, 13.90it/s]
+INFO 09-01 21:38:10 [gpu_model_runner.py:2485] Graph capturing finished in 5 secs, took 2.26 GiB
+INFO 09-01 21:38:10 [core.py:193] init engine (profile, create kv cache, warmup model) took 26.35 seconds
+vLLM model 'Qwen/Qwen3-4B' initialized globally.
+=============================================================
+PART->SUBSET = [0, 100]...
+=============================================================
+current task_id start:  0
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1047.97it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:05<02:21,  5.89s/it, est. speed input: 25.48 toks/s, output: 34.32 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:37,  1.72s/it, est. speed input: 70.11 toks/s, output: 97.69 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:06<00:27,  1.29s/it, est. speed input: 87.08 toks/s, output: 125.25 toks/s]Processed prompts:  20%|██        | 5/25 [00:07<00:18,  1.09it/s, est. speed input: 106.14 toks/s, output: 156.38 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:07<00:16,  1.17it/s, est. speed input: 115.83 toks/s, output: 176.45 toks/s]Processed prompts:  28%|██▊       | 7/25 [01:06<05:42, 19.01s/it, est. speed input: 15.82 toks/s, output: 51.50 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 19.01s/it, est. speed input: 56.49 toks/s, output: 606.80 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.66s/it, est. speed input: 56.49 toks/s, output: 606.80 toks/s]
+++++++++++++++++++Time: 66.4130392074585 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 1.0
+5 Agents final_res: C, ground_truth: C, perf: 1.0
+10 Agents final_res: C, ground_truth: C, perf: 1.0
+15 Agents final_res: C, ground_truth: C, perf: 1.0
+20 Agents final_res: C, ground_truth: C, perf: 1.0
+25 Agents final_res: C, ground_truth: C, perf: 1.0
+current task_id end:  0
+************************
+Total prompt tokens: 3750, Total completion tokens: 40283
+current task_id start:  1
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1536.92it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:52,  2.18s/it, est. speed input: 58.39 toks/s, output: 35.40 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:55,  2.43s/it, est. speed input: 53.19 toks/s, output: 51.51 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:32,  1.49s/it, est. speed input: 74.02 toks/s, output: 83.15 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:05<00:22,  1.08s/it, est. speed input: 90.66 toks/s, output: 111.71 toks/s]Processed prompts:  20%|██        | 5/25 [00:06<00:18,  1.07it/s, est. speed input: 101.10 toks/s, output: 135.16 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:06<00:15,  1.27it/s, est. speed input: 112.23 toks/s, output: 160.39 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:07<00:12,  1.49it/s, est. speed input: 123.20 toks/s, output: 186.25 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:10<00:28,  1.66s/it, est. speed input: 92.46 toks/s, output: 157.53 toks/s] Processed prompts:  40%|████      | 10/25 [00:11<00:15,  1.06s/it, est. speed input: 107.77 toks/s, output: 215.03 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:12<00:14,  1.03s/it, est. speed input: 109.82 toks/s, output: 234.27 toks/s]Processed prompts:  48%|████▊     | 12/25 [01:04<03:07, 14.44s/it, est. speed input: 23.76 toks/s, output: 78.38 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 14.44s/it, est. speed input: 49.49 toks/s, output: 493.42 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 49.49 toks/s, output: 493.42 toks/s]
+++++++++++++++++++Time: 64.16569662094116 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 1.0
+5 Agents final_res: D, ground_truth: D, perf: 1.0
+10 Agents final_res: D, ground_truth: D, perf: 1.0
+15 Agents final_res: D, ground_truth: D, perf: 1.0
+20 Agents final_res: D, ground_truth: D, perf: 1.0
+25 Agents final_res: D, ground_truth: D, perf: 1.0
+current task_id end:  1
+************************
+Total prompt tokens: 6925, Total completion tokens: 71935
+current task_id start:  2
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1495.08it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:11<04:24, 11.03s/it, est. speed input: 13.87 toks/s, output: 34.54 toks/s]Processed prompts:   8%|▊         | 2/25 [00:17<03:16,  8.53s/it, est. speed input: 17.19 toks/s, output: 55.21 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<10:20, 28.21s/it, est. speed input: 6.61 toks/s, output: 43.65 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 28.21s/it, est. speed input: 55.05 toks/s, output: 692.01 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.78s/it, est. speed input: 55.05 toks/s, output: 692.01 toks/s]
+++++++++++++++++++Time: 69.50664353370667 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 1.0
+5 Agents final_res: B, ground_truth: B, perf: 1.0
+10 Agents final_res: B, ground_truth: B, perf: 1.0
+15 Agents final_res: B, ground_truth: B, perf: 1.0
+20 Agents final_res: B, ground_truth: B, perf: 1.0
+25 Agents final_res: B, ground_truth: B, perf: 1.0
+current task_id end:  2
+************************
+Total prompt tokens: 10750, Total completion tokens: 120022
+current task_id start:  3
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1258.66it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:07<03:02,  7.59s/it, est. speed input: 25.30 toks/s, output: 34.78 toks/s]Processed prompts:   8%|▊         | 2/25 [00:08<01:22,  3.58s/it, est. speed input: 45.95 toks/s, output: 66.29 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:08<00:48,  2.23s/it, est. speed input: 64.17 toks/s, output: 96.37 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:13<01:08,  3.24s/it, est. speed input: 55.73 toks/s, output: 96.94 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<07:07, 21.37s/it, est. speed input: 14.27 toks/s, output: 50.29 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 21.37s/it, est. speed input: 71.29 toks/s, output: 658.59 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.69s/it, est. speed input: 71.29 toks/s, output: 658.59 toks/s]
+++++++++++++++++++Time: 67.35257506370544 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 1.0
+5 Agents final_res: B, ground_truth: B, perf: 1.0
+10 Agents final_res: B, ground_truth: B, perf: 1.0
+15 Agents final_res: B, ground_truth: B, perf: 1.0
+20 Agents final_res: B, ground_truth: B, perf: 1.0
+25 Agents final_res: B, ground_truth: B, perf: 1.0
+current task_id end:  3
+************************
+Total prompt tokens: 15550, Total completion tokens: 164366
+current task_id start:  4
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1396.98it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:23<09:22, 23.46s/it, est. speed input: 6.65 toks/s, output: 33.21 toks/s]Processed prompts:   8%|▊         | 2/25 [01:10<14:14, 37.17s/it, est. speed input: 4.44 toks/s, output: 40.25 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 37.17s/it, est. speed input: 55.50 toks/s, output: 710.52 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.81s/it, est. speed input: 55.50 toks/s, output: 710.52 toks/s]
+++++++++++++++++++Time: 70.29356336593628 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 1.0
+5 Agents final_res: C, ground_truth: C, perf: 1.0
+10 Agents final_res: C, ground_truth: C, perf: 1.0
+15 Agents final_res: C, ground_truth: C, perf: 1.0
+20 Agents final_res: C, ground_truth: C, perf: 1.0
+25 Agents final_res: C, ground_truth: C, perf: 1.0
+current task_id end:  4
+************************
+Total prompt tokens: 19450, Total completion tokens: 214297
+current task_id start:  5
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1550.14it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:10<04:08, 10.34s/it, est. speed input: 14.50 toks/s, output: 34.61 toks/s]Processed prompts:   8%|▊         | 2/25 [00:17<03:10,  8.26s/it, est. speed input: 17.49 toks/s, output: 54.70 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<10:28, 28.55s/it, est. speed input: 6.44 toks/s, output: 42.75 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 28.55s/it, est. speed input: 53.65 toks/s, output: 687.38 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 53.65 toks/s, output: 687.38 toks/s]
+++++++++++++++++++Time: 69.90977549552917 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 1.0
+5 Agents final_res: C, ground_truth: C, perf: 1.0
+10 Agents final_res: C, ground_truth: C, perf: 1.0
+15 Agents final_res: C, ground_truth: C, perf: 1.0
+20 Agents final_res: C, ground_truth: C, perf: 1.0
+25 Agents final_res: C, ground_truth: C, perf: 1.0
+current task_id end:  5
+************************
+Total prompt tokens: 23200, Total completion tokens: 262339
+current task_id start:  6
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1641.02it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:10<04:11, 10.49s/it, est. speed input: 13.06 toks/s, output: 34.59 toks/s]Processed prompts:   8%|▊         | 2/25 [00:10<01:42,  4.44s/it, est. speed input: 25.60 toks/s, output: 68.48 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:11<01:04,  2.95s/it, est. speed input: 34.59 toks/s, output: 96.12 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:12<00:41,  1.99s/it, est. speed input: 44.22 toks/s, output: 126.52 toks/s]Processed prompts:  20%|██        | 5/25 [00:17<01:05,  3.27s/it, est. speed input: 38.19 toks/s, output: 121.42 toks/s]Processed prompts:  24%|██▍       | 6/25 [01:06<05:55, 18.69s/it, est. speed input: 12.35 toks/s, output: 63.49 toks/s] Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 18.69s/it, est. speed input: 51.42 toks/s, output: 647.67 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.66s/it, est. speed input: 51.42 toks/s, output: 647.67 toks/s]
+++++++++++++++++++Time: 66.62206649780273 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 1.0
+5 Agents final_res: B, ground_truth: B, perf: 1.0
+10 Agents final_res: B, ground_truth: B, perf: 1.0
+15 Agents final_res: B, ground_truth: B, perf: 1.0
+20 Agents final_res: B, ground_truth: B, perf: 1.0
+25 Agents final_res: B, ground_truth: B, perf: 1.0
+current task_id end:  6
+************************
+Total prompt tokens: 26625, Total completion tokens: 305477
+current task_id start:  7
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1884.44it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:23<09:29, 23.73s/it, est. speed input: 6.07 toks/s, output: 33.12 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<14:05, 36.78s/it, est. speed input: 4.14 toks/s, output: 40.69 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 36.78s/it, est. speed input: 51.66 toks/s, output: 716.56 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.79s/it, est. speed input: 51.66 toks/s, output: 716.56 toks/s]
+++++++++++++++++++Time: 69.70653772354126 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 1.0
+5 Agents final_res: D, ground_truth: D, perf: 1.0
+10 Agents final_res: D, ground_truth: D, perf: 1.0
+15 Agents final_res: D, ground_truth: D, perf: 1.0
+20 Agents final_res: D, ground_truth: D, perf: 1.0
+25 Agents final_res: D, ground_truth: D, perf: 1.0
+current task_id end:  7
+************************
+Total prompt tokens: 30225, Total completion tokens: 355415
+current task_id start:  8
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1104.35it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:07<02:53,  7.22s/it, est. speed input: 18.69 toks/s, output: 33.77 toks/s]Processed prompts:   8%|▊         | 2/25 [00:12<02:20,  6.09s/it, est. speed input: 21.57 toks/s, output: 52.97 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:17<02:03,  5.61s/it, est. speed input: 23.07 toks/s, output: 70.92 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:10<08:28, 24.20s/it, est. speed input: 7.69 toks/s, output: 46.87 toks/s] Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 24.20s/it, est. speed input: 48.03 toks/s, output: 658.98 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.81s/it, est. speed input: 48.03 toks/s, output: 658.98 toks/s]
+++++++++++++++++++Time: 70.28629517555237 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 1.0
+5 Agents final_res: D, ground_truth: D, perf: 1.0
+10 Agents final_res: D, ground_truth: D, perf: 1.0
+15 Agents final_res: D, ground_truth: D, perf: 1.0
+20 Agents final_res: D, ground_truth: D, perf: 1.0
+25 Agents final_res: D, ground_truth: D, perf: 1.0
+current task_id end:  8
+************************
+Total prompt tokens: 33600, Total completion tokens: 401716
+current task_id start:  9
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1292.03it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:11<28:27, 71.15s/it, est. speed input: 3.40 toks/s, output: 28.78 toks/s]Processed prompts: 100%|██████████| 25/25 [01:11<00:00, 71.15s/it, est. speed input: 84.98 toks/s, output: 719.16 toks/s]Processed prompts: 100%|██████████| 25/25 [01:11<00:00,  2.85s/it, est. speed input: 84.98 toks/s, output: 719.16 toks/s]
+++++++++++++++++++Time: 71.21445226669312 ++++++++++++++++++
+1 Agents final_res: None, ground_truth: C, perf: 0.9
+5 Agents final_res: B, ground_truth: C, perf: 0.9
+10 Agents final_res: B, ground_truth: C, perf: 0.9
+15 Agents final_res: B, ground_truth: C, perf: 0.9
+20 Agents final_res: B, ground_truth: C, perf: 0.9
+25 Agents final_res: B, ground_truth: C, perf: 0.9
+current task_id end:  9
+************************
+Total prompt tokens: 39650, Total completion tokens: 452916
+current task_id start:  10
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1440.99it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:59,  2.48s/it, est. speed input: 49.51 toks/s, output: 35.02 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:25,  3.74s/it, est. speed input: 34.67 toks/s, output: 47.07 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:47,  2.16s/it, est. speed input: 49.95 toks/s, output: 80.00 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:09<09:04, 25.93s/it, est. speed input: 7.05 toks/s, output: 37.83 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 25.93s/it, est. speed input: 44.05 toks/s, output: 653.95 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.79s/it, est. speed input: 44.05 toks/s, output: 653.95 toks/s]
+++++++++++++++++++Time: 69.8197569847107 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9090909090909091
+5 Agents final_res: D, ground_truth: D, perf: 0.9090909090909091
+10 Agents final_res: D, ground_truth: D, perf: 0.9090909090909091
+15 Agents final_res: D, ground_truth: D, perf: 0.9090909090909091
+20 Agents final_res: D, ground_truth: D, perf: 0.9090909090909091
+25 Agents final_res: D, ground_truth: D, perf: 0.9090909090909091
+current task_id end:  10
+************************
+Total prompt tokens: 42725, Total completion tokens: 498563
+current task_id start:  11
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1352.83it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:10,  2.94s/it, est. speed input: 54.40 toks/s, output: 34.68 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:55,  2.40s/it, est. speed input: 64.38 toks/s, output: 54.93 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:35,  1.61s/it, est. speed input: 85.10 toks/s, output: 82.61 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:07<00:38,  1.83s/it, est. speed input: 81.98 toks/s, output: 93.89 toks/s]Processed prompts:  20%|██        | 5/25 [00:08<00:29,  1.48s/it, est. speed input: 92.19 toks/s, output: 118.69 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:21,  1.15s/it, est. speed input: 104.67 toks/s, output: 146.54 toks/s]Processed prompts:  28%|██▊       | 7/25 [01:06<05:51, 19.52s/it, est. speed input: 16.84 toks/s, output: 51.00 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 19.52s/it, est. speed input: 60.14 toks/s, output: 605.26 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.66s/it, est. speed input: 60.14 toks/s, output: 605.26 toks/s]
+++++++++++++++++++Time: 66.52909445762634 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+5 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+10 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+15 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+20 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+25 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+current task_id end:  11
+************************
+Total prompt tokens: 46725, Total completion tokens: 538819
+current task_id start:  12
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1854.18it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:10<28:01, 70.07s/it, est. speed input: 1.88 toks/s, output: 29.23 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 70.07s/it, est. speed input: 47.07 toks/s, output: 730.23 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 47.07 toks/s, output: 730.23 toks/s]
+++++++++++++++++++Time: 70.12962102890015 ++++++++++++++++++
+1 Agents final_res: None, ground_truth: A, perf: 0.8461538461538461
+5 Agents final_res: A, ground_truth: A, perf: 0.9230769230769231
+10 Agents final_res: A, ground_truth: A, perf: 0.9230769230769231
+15 Agents final_res: A, ground_truth: A, perf: 0.9230769230769231
+20 Agents final_res: A, ground_truth: A, perf: 0.9230769230769231
+25 Agents final_res: A, ground_truth: A, perf: 0.9230769230769231
+current task_id end:  12
+************************
+Total prompt tokens: 50025, Total completion tokens: 590019
+current task_id start:  13
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1764.21it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:11<04:34, 11.43s/it, est. speed input: 13.74 toks/s, output: 34.48 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<15:00, 39.15s/it, est. speed input: 4.49 toks/s, output: 34.89 toks/s] Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 39.15s/it, est. speed input: 56.05 toks/s, output: 707.52 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 56.05 toks/s, output: 707.52 toks/s]
+++++++++++++++++++Time: 70.04314112663269 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.8571428571428571
+5 Agents final_res: C, ground_truth: C, perf: 0.9285714285714286
+10 Agents final_res: C, ground_truth: C, perf: 0.9285714285714286
+15 Agents final_res: C, ground_truth: C, perf: 0.9285714285714286
+20 Agents final_res: C, ground_truth: C, perf: 0.9285714285714286
+25 Agents final_res: C, ground_truth: C, perf: 0.9285714285714286
+current task_id end:  13
+************************
+Total prompt tokens: 53950, Total completion tokens: 639565
+current task_id start:  14
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1381.50it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:44,  4.35s/it, est. speed input: 39.81 toks/s, output: 34.98 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<00:53,  2.33s/it, est. speed input: 65.66 toks/s, output: 63.76 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:29,  1.36s/it, est. speed input: 94.84 toks/s, output: 96.30 toks/s]Processed prompts:  20%|██        | 5/25 [00:05<00:14,  1.40it/s, est. speed input: 146.54 toks/s, output: 156.70 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:06<00:10,  1.79it/s, est. speed input: 170.78 toks/s, output: 187.06 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:09<00:19,  1.16s/it, est. speed input: 140.32 toks/s, output: 171.65 toks/s]Processed prompts:  36%|███▌      | 9/25 [01:05<03:49, 14.35s/it, est. speed input: 23.91 toks/s, output: 57.44 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 14.35s/it, est. speed input: 66.36 toks/s, output: 560.18 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.61s/it, est. speed input: 66.36 toks/s, output: 560.18 toks/s]
+++++++++++++++++++Time: 65.19268774986267 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.8666666666666667
+5 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+10 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+15 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+20 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+25 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+current task_id end:  14
+************************
+Total prompt tokens: 58275, Total completion tokens: 676074
+current task_id start:  15
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1728.18it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:15<06:14, 15.59s/it, est. speed input: 9.30 toks/s, output: 33.88 toks/s]Processed prompts:   8%|▊         | 2/25 [00:21<03:40,  9.60s/it, est. speed input: 13.81 toks/s, output: 58.42 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<10:06, 27.55s/it, est. speed input: 6.22 toks/s, output: 46.85 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 27.55s/it, est. speed input: 51.82 toks/s, output: 690.91 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 51.82 toks/s, output: 690.91 toks/s]
+++++++++++++++++++Time: 69.96815967559814 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.875
+5 Agents final_res: B, ground_truth: B, perf: 0.9375
+10 Agents final_res: B, ground_truth: B, perf: 0.9375
+15 Agents final_res: B, ground_truth: B, perf: 0.9375
+20 Agents final_res: B, ground_truth: B, perf: 0.9375
+25 Agents final_res: B, ground_truth: B, perf: 0.9375
+current task_id end:  15
+************************
+Total prompt tokens: 61900, Total completion tokens: 724405
+current task_id start:  16
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1050.44it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:05<02:22,  5.92s/it, est. speed input: 34.45 toks/s, output: 34.79 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:12,  3.17s/it, est. speed input: 56.95 toks/s, output: 63.37 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:45,  2.05s/it, est. speed input: 77.74 toks/s, output: 92.22 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:08<00:30,  1.44s/it, est. speed input: 97.45 toks/s, output: 121.22 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:08<00:14,  1.34it/s, est. speed input: 141.76 toks/s, output: 185.54 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:09<00:13,  1.32it/s, est. speed input: 151.62 toks/s, output: 204.60 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:11<00:17,  1.03s/it, est. speed input: 146.20 toks/s, output: 207.12 toks/s]Processed prompts:  40%|████      | 10/25 [01:06<03:12, 12.83s/it, est. speed input: 30.84 toks/s, output: 71.74 toks/s] Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 12.83s/it, est. speed input: 77.06 toks/s, output: 535.90 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.65s/it, est. speed input: 77.06 toks/s, output: 535.90 toks/s]
+++++++++++++++++++Time: 66.20393419265747 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.8823529411764706
+5 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+10 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+15 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+20 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+25 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+current task_id end:  16
+************************
+Total prompt tokens: 67000, Total completion tokens: 759870
+current task_id start:  17
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1394.90it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:06,  2.78s/it, est. speed input: 51.75 toks/s, output: 35.22 toks/s]Processed prompts:   8%|▊         | 2/25 [00:02<00:29,  1.26s/it, est. speed input: 96.63 toks/s, output: 68.11 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:35,  1.62s/it, est. speed input: 85.77 toks/s, output: 75.45 toks/s]Processed prompts:  20%|██        | 5/25 [00:05<00:17,  1.14it/s, est. speed input: 127.84 toks/s, output: 134.23 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:05<00:13,  1.42it/s, est. speed input: 146.06 toks/s, output: 162.97 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:06<00:10,  1.67it/s, est. speed input: 168.09 toks/s, output: 206.61 toks/s]Processed prompts:  36%|███▌      | 9/25 [01:05<03:54, 14.66s/it, est. speed input: 19.89 toks/s, output: 53.17 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 14.66s/it, est. speed input: 55.22 toks/s, output: 555.78 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.61s/it, est. speed input: 55.22 toks/s, output: 555.78 toks/s]
+++++++++++++++++++Time: 65.21089220046997 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.8888888888888888
+5 Agents final_res: D, ground_truth: D, perf: 0.9444444444444444
+10 Agents final_res: D, ground_truth: D, perf: 0.9444444444444444
+15 Agents final_res: D, ground_truth: D, perf: 0.9444444444444444
+20 Agents final_res: D, ground_truth: D, perf: 0.9444444444444444
+25 Agents final_res: D, ground_truth: D, perf: 0.9444444444444444
+current task_id end:  17
+************************
+Total prompt tokens: 70600, Total completion tokens: 796102
+current task_id start:  18
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1609.21it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:29,  6.25s/it, est. speed input: 19.68 toks/s, output: 34.73 toks/s]Processed prompts:   8%|▊         | 2/25 [00:09<01:36,  4.21s/it, est. speed input: 27.24 toks/s, output: 58.47 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<11:01, 30.08s/it, est. speed input: 5.28 toks/s, output: 36.86 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 30.08s/it, est. speed input: 43.97 toks/s, output: 681.14 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 43.97 toks/s, output: 681.14 toks/s]
+++++++++++++++++++Time: 69.94709968566895 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.8947368421052632
+5 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+10 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+15 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+20 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+25 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+current task_id end:  18
+************************
+Total prompt tokens: 73675, Total completion tokens: 843734
+current task_id start:  19
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1619.42it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:09<27:52, 69.67s/it, est. speed input: 1.88 toks/s, output: 29.40 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 69.67s/it, est. speed input: 46.98 toks/s, output: 734.40 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.79s/it, est. speed input: 46.98 toks/s, output: 734.40 toks/s]
+++++++++++++++++++Time: 69.73386478424072 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9
+5 Agents final_res: None, ground_truth: C, perf: 0.9
+10 Agents final_res: D, ground_truth: C, perf: 0.9
+15 Agents final_res: D, ground_truth: C, perf: 0.9
+20 Agents final_res: D, ground_truth: C, perf: 0.9
+25 Agents final_res: D, ground_truth: C, perf: 0.9
+current task_id end:  19
+************************
+Total prompt tokens: 76950, Total completion tokens: 894934
+current task_id start:  20
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1690.27it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:26<10:44, 26.87s/it, est. speed input: 6.18 toks/s, output: 32.53 toks/s]Processed prompts:   8%|▊         | 2/25 [01:06<13:08, 34.26s/it, est. speed input: 5.01 toks/s, output: 42.65 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:10<07:26, 20.32s/it, est. speed input: 7.11 toks/s, output: 69.63 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 20.32s/it, est. speed input: 59.23 toks/s, output: 712.59 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 59.23 toks/s, output: 712.59 toks/s]
+++++++++++++++++++Time: 70.08639144897461 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9047619047619048
+5 Agents final_res: B, ground_truth: B, perf: 0.9047619047619048
+10 Agents final_res: B, ground_truth: B, perf: 0.9047619047619048
+15 Agents final_res: B, ground_truth: B, perf: 0.9047619047619048
+20 Agents final_res: B, ground_truth: B, perf: 0.9047619047619048
+25 Agents final_res: B, ground_truth: B, perf: 0.9047619047619048
+current task_id end:  20
+************************
+Total prompt tokens: 81100, Total completion tokens: 944866
+current task_id start:  21
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1545.87it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:49,  2.08s/it, est. speed input: 54.73 toks/s, output: 35.53 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<01:01,  2.69s/it, est. speed input: 43.80 toks/s, output: 49.56 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:40,  1.85s/it, est. speed input: 56.62 toks/s, output: 77.98 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:08<00:46,  2.21s/it, est. speed input: 51.70 toks/s, output: 88.31 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<07:28, 22.43s/it, est. speed input: 8.49 toks/s, output: 42.13 toks/s] Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 22.43s/it, est. speed input: 42.44 toks/s, output: 652.09 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.69s/it, est. speed input: 42.44 toks/s, output: 652.09 toks/s]
+++++++++++++++++++Time: 67.16674423217773 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9090909090909091
+5 Agents final_res: A, ground_truth: A, perf: 0.9090909090909091
+10 Agents final_res: A, ground_truth: A, perf: 0.9090909090909091
+15 Agents final_res: A, ground_truth: A, perf: 0.9090909090909091
+20 Agents final_res: A, ground_truth: A, perf: 0.9090909090909091
+25 Agents final_res: A, ground_truth: A, perf: 0.9090909090909091
+current task_id end:  21
+************************
+Total prompt tokens: 83950, Total completion tokens: 988653
+current task_id start:  22
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1412.24it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:58,  4.95s/it, est. speed input: 30.93 toks/s, output: 34.16 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:07,  2.93s/it, est. speed input: 47.34 toks/s, output: 60.33 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:08<00:38,  1.85s/it, est. speed input: 68.84 toks/s, output: 102.80 toks/s]Processed prompts:  20%|██        | 5/25 [00:11<00:39,  1.98s/it, est. speed input: 68.50 toks/s, output: 115.87 toks/s]Processed prompts:  24%|██▍       | 6/25 [01:07<05:53, 18.59s/it, est. speed input: 13.63 toks/s, output: 49.62 toks/s] Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 18.59s/it, est. speed input: 56.76 toks/s, output: 627.03 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.70s/it, est. speed input: 56.76 toks/s, output: 627.03 toks/s]
+++++++++++++++++++Time: 67.4063937664032 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9130434782608695
+5 Agents final_res: C, ground_truth: C, perf: 0.9130434782608695
+10 Agents final_res: C, ground_truth: C, perf: 0.9130434782608695
+15 Agents final_res: C, ground_truth: C, perf: 0.9130434782608695
+20 Agents final_res: C, ground_truth: C, perf: 0.9130434782608695
+25 Agents final_res: C, ground_truth: C, perf: 0.9130434782608695
+current task_id end:  22
+************************
+Total prompt tokens: 87775, Total completion tokens: 1030907
+current task_id start:  23
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1105.06it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:44,  4.35s/it, est. speed input: 32.63 toks/s, output: 34.47 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:05,  2.83s/it, est. speed input: 46.46 toks/s, output: 59.06 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:48,  2.22s/it, est. speed input: 56.01 toks/s, output: 81.91 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:08<00:33,  1.59s/it, est. speed input: 69.06 toks/s, output: 110.16 toks/s]Processed prompts:  20%|██        | 5/25 [00:08<00:21,  1.06s/it, est. speed input: 85.12 toks/s, output: 143.03 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:08<00:17,  1.11it/s, est. speed input: 95.20 toks/s, output: 167.71 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:09<00:13,  1.32it/s, est. speed input: 105.60 toks/s, output: 193.88 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:10<00:13,  1.28it/s, est. speed input: 111.01 toks/s, output: 212.74 toks/s]Processed prompts:  36%|███▌      | 9/25 [01:05<04:43, 17.72s/it, est. speed input: 19.60 toks/s, output: 64.79 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 17.72s/it, est. speed input: 54.40 toks/s, output: 566.89 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.61s/it, est. speed input: 54.40 toks/s, output: 566.89 toks/s]
+++++++++++++++++++Time: 65.27999639511108 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9166666666666666
+5 Agents final_res: B, ground_truth: B, perf: 0.9166666666666666
+10 Agents final_res: B, ground_truth: B, perf: 0.9166666666666666
+15 Agents final_res: B, ground_truth: B, perf: 0.9166666666666666
+20 Agents final_res: B, ground_truth: B, perf: 0.9166666666666666
+25 Agents final_res: B, ground_truth: B, perf: 0.9166666666666666
+current task_id end:  23
+************************
+Total prompt tokens: 91325, Total completion tokens: 1067900
+current task_id start:  24
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1248.80it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:18<07:19, 18.31s/it, est. speed input: 7.43 toks/s, output: 33.70 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<14:29, 37.78s/it, est. speed input: 3.90 toks/s, output: 38.22 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 37.78s/it, est. speed input: 48.73 toks/s, output: 713.34 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.79s/it, est. speed input: 48.73 toks/s, output: 713.34 toks/s]
+++++++++++++++++++Time: 69.7899739742279 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.92
+5 Agents final_res: A, ground_truth: A, perf: 0.92
+10 Agents final_res: A, ground_truth: A, perf: 0.92
+15 Agents final_res: A, ground_truth: A, perf: 0.92
+20 Agents final_res: A, ground_truth: A, perf: 0.92
+25 Agents final_res: A, ground_truth: A, perf: 0.92
+current task_id end:  24
+************************
+Total prompt tokens: 94725, Total completion tokens: 1117669
+current task_id start:  25
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1490.53it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:09<03:39,  9.13s/it, est. speed input: 15.00 toks/s, output: 34.92 toks/s]Processed prompts:   8%|▊         | 2/25 [00:09<01:32,  4.02s/it, est. speed input: 28.61 toks/s, output: 68.17 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:10<01:02,  2.82s/it, est. speed input: 37.45 toks/s, output: 94.21 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<05:43, 17.16s/it, est. speed input: 10.18 toks/s, output: 51.48 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 17.16s/it, est. speed input: 50.89 toks/s, output: 660.02 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.69s/it, est. speed input: 50.89 toks/s, output: 660.02 toks/s]
+++++++++++++++++++Time: 67.32421231269836 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9230769230769231
+5 Agents final_res: D, ground_truth: D, perf: 0.9230769230769231
+10 Agents final_res: D, ground_truth: D, perf: 0.9230769230769231
+15 Agents final_res: D, ground_truth: D, perf: 0.9230769230769231
+20 Agents final_res: D, ground_truth: D, perf: 0.9230769230769231
+25 Agents final_res: D, ground_truth: D, perf: 0.9230769230769231
+current task_id end:  25
+************************
+Total prompt tokens: 98150, Total completion tokens: 1162092
+current task_id start:  26
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1585.87it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:09<27:58, 69.95s/it, est. speed input: 1.96 toks/s, output: 29.28 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 69.95s/it, est. speed input: 48.93 toks/s, output: 731.46 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 48.93 toks/s, output: 731.46 toks/s]
+++++++++++++++++++Time: 70.01383829116821 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9259259259259259
+5 Agents final_res: D, ground_truth: D, perf: 0.9259259259259259
+10 Agents final_res: D, ground_truth: D, perf: 0.9259259259259259
+15 Agents final_res: D, ground_truth: D, perf: 0.9259259259259259
+20 Agents final_res: D, ground_truth: D, perf: 0.9259259259259259
+25 Agents final_res: D, ground_truth: D, perf: 0.9259259259259259
+current task_id end:  26
+************************
+Total prompt tokens: 101575, Total completion tokens: 1213292
+current task_id start:  27
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1363.72it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:24,  3.52s/it, est. speed input: 52.77 toks/s, output: 35.18 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:44,  1.92s/it, est. speed input: 85.99 toks/s, output: 63.80 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:48,  2.21s/it, est. speed input: 81.17 toks/s, output: 75.06 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:09<00:46,  2.21s/it, est. speed input: 81.95 toks/s, output: 91.53 toks/s]Processed prompts:  20%|██        | 5/25 [00:13<01:00,  3.00s/it, est. speed input: 68.94 toks/s, output: 95.99 toks/s]Processed prompts:  24%|██▍       | 6/25 [01:06<06:22, 20.14s/it, est. speed input: 16.68 toks/s, output: 49.96 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 20.14s/it, est. speed input: 69.45 toks/s, output: 631.12 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.68s/it, est. speed input: 69.45 toks/s, output: 631.12 toks/s]
+++++++++++++++++++Time: 66.97253704071045 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+5 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+10 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+15 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+20 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+25 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+current task_id end:  27
+************************
+Total prompt tokens: 106225, Total completion tokens: 1255547
+current task_id start:  28
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1681.68it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:05<02:10,  5.44s/it, est. speed input: 25.38 toks/s, output: 35.13 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:06,  2.90s/it, est. speed input: 42.02 toks/s, output: 64.09 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:39,  1.78s/it, est. speed input: 59.10 toks/s, output: 95.07 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:07<00:25,  1.20s/it, est. speed input: 75.32 toks/s, output: 125.95 toks/s]Processed prompts:  20%|██        | 5/25 [00:08<00:21,  1.06s/it, est. speed input: 84.78 toks/s, output: 148.30 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:21,  1.14s/it, est. speed input: 87.68 toks/s, output: 162.65 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:09<00:15,  1.14it/s, est. speed input: 98.95 toks/s, output: 192.16 toks/s]Processed prompts:  32%|███▏      | 8/25 [01:05<05:13, 18.43s/it, est. speed input: 16.79 toks/s, output: 59.66 toks/s] Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 18.43s/it, est. speed input: 52.45 toks/s, output: 589.01 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.63s/it, est. speed input: 52.45 toks/s, output: 589.01 toks/s]
+++++++++++++++++++Time: 65.7869942188263 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9310344827586207
+5 Agents final_res: A, ground_truth: A, perf: 0.9310344827586207
+10 Agents final_res: A, ground_truth: A, perf: 0.9310344827586207
+15 Agents final_res: A, ground_truth: A, perf: 0.9310344827586207
+20 Agents final_res: A, ground_truth: A, perf: 0.9310344827586207
+25 Agents final_res: A, ground_truth: A, perf: 0.9310344827586207
+current task_id end:  28
+************************
+Total prompt tokens: 109675, Total completion tokens: 1294287
+current task_id start:  29
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1189.41it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:08<03:20,  8.37s/it, est. speed input: 21.88 toks/s, output: 34.67 toks/s]Processed prompts:   8%|▊         | 2/25 [00:33<06:59, 18.23s/it, est. speed input: 10.92 toks/s, output: 40.68 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<09:44, 26.56s/it, est. speed input: 7.85 toks/s, output: 48.75 toks/s] Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 26.56s/it, est. speed input: 65.35 toks/s, output: 692.27 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 65.35 toks/s, output: 692.27 toks/s]
+++++++++++++++++++Time: 70.03377437591553 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+5 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+10 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+15 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+20 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+25 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+current task_id end:  29
+************************
+Total prompt tokens: 114250, Total completion tokens: 1342754
+current task_id start:  30
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1534.08it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:37,  6.58s/it, est. speed input: 20.21 toks/s, output: 35.10 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:08,  2.99s/it, est. speed input: 37.73 toks/s, output: 67.81 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:13<01:38,  4.49s/it, est. speed input: 29.93 toks/s, output: 70.14 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:09<08:42, 24.88s/it, est. speed input: 7.66 toks/s, output: 42.94 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 24.88s/it, est. speed input: 47.83 toks/s, output: 661.64 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.78s/it, est. speed input: 47.83 toks/s, output: 661.64 toks/s]
+++++++++++++++++++Time: 69.52839207649231 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9354838709677419
+5 Agents final_res: B, ground_truth: B, perf: 0.9354838709677419
+10 Agents final_res: B, ground_truth: B, perf: 0.9354838709677419
+15 Agents final_res: B, ground_truth: B, perf: 0.9354838709677419
+20 Agents final_res: B, ground_truth: B, perf: 0.9354838709677419
+25 Agents final_res: B, ground_truth: B, perf: 0.9354838709677419
+current task_id end:  30
+************************
+Total prompt tokens: 117575, Total completion tokens: 1388745
+current task_id start:  31
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1506.92it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:09<27:58, 69.94s/it, est. speed input: 2.02 toks/s, output: 29.28 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 69.94s/it, est. speed input: 50.37 toks/s, output: 731.57 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 50.37 toks/s, output: 731.57 toks/s]
+++++++++++++++++++Time: 70.00424289703369 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9375
+5 Agents final_res: A, ground_truth: A, perf: 0.9375
+10 Agents final_res: A, ground_truth: A, perf: 0.9375
+15 Agents final_res: A, ground_truth: A, perf: 0.9375
+20 Agents final_res: A, ground_truth: A, perf: 0.9375
+25 Agents final_res: A, ground_truth: A, perf: 0.9375
+current task_id end:  31
+************************
+Total prompt tokens: 121100, Total completion tokens: 1439945
+current task_id start:  32
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1357.38it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:18<07:22, 18.43s/it, est. speed input: 11.88 toks/s, output: 33.47 toks/s]Processed prompts:   8%|▊         | 2/25 [01:10<14:33, 37.97s/it, est. speed input: 6.25 toks/s, output: 38.03 toks/s] Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 37.97s/it, est. speed input: 78.07 toks/s, output: 709.71 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.81s/it, est. speed input: 78.07 toks/s, output: 709.71 toks/s]
+++++++++++++++++++Time: 70.14613938331604 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: C, perf: 0.9090909090909091
+5 Agents final_res: C, ground_truth: C, perf: 0.9393939393939394
+10 Agents final_res: C, ground_truth: C, perf: 0.9393939393939394
+15 Agents final_res: C, ground_truth: C, perf: 0.9393939393939394
+20 Agents final_res: C, ground_truth: C, perf: 0.9393939393939394
+25 Agents final_res: C, ground_truth: C, perf: 0.9393939393939394
+current task_id end:  32
+************************
+Total prompt tokens: 126575, Total completion tokens: 1489714
+current task_id start:  33
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1138.93it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:40,  6.68s/it, est. speed input: 23.06 toks/s, output: 34.15 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:18,  3.42s/it, est. speed input: 39.39 toks/s, output: 63.31 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:08<00:45,  2.07s/it, est. speed input: 55.75 toks/s, output: 93.88 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:09<00:36,  1.74s/it, est. speed input: 64.71 toks/s, output: 115.87 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<07:20, 22.00s/it, est. speed input: 11.42 toks/s, output: 46.72 toks/s] Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 22.00s/it, est. speed input: 57.04 toks/s, output: 653.58 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.70s/it, est. speed input: 57.04 toks/s, output: 653.58 toks/s]
+++++++++++++++++++Time: 67.51488947868347 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9117647058823529
+5 Agents final_res: D, ground_truth: D, perf: 0.9411764705882353
+10 Agents final_res: D, ground_truth: D, perf: 0.9411764705882353
+15 Agents final_res: D, ground_truth: D, perf: 0.9411764705882353
+20 Agents final_res: D, ground_truth: D, perf: 0.9411764705882353
+25 Agents final_res: D, ground_truth: D, perf: 0.9411764705882353
+current task_id end:  33
+************************
+Total prompt tokens: 130425, Total completion tokens: 1533825
+current task_id start:  34
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1475.48it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:12<04:48, 12.02s/it, est. speed input: 12.73 toks/s, output: 34.45 toks/s]Processed prompts:   8%|▊         | 2/25 [00:14<02:21,  6.15s/it, est. speed input: 21.77 toks/s, output: 63.67 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<10:30, 28.67s/it, est. speed input: 6.60 toks/s, output: 42.33 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 28.67s/it, est. speed input: 54.98 toks/s, output: 689.96 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.78s/it, est. speed input: 54.98 toks/s, output: 689.96 toks/s]
+++++++++++++++++++Time: 69.58635807037354 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9142857142857143
+5 Agents final_res: A, ground_truth: A, perf: 0.9428571428571428
+10 Agents final_res: A, ground_truth: A, perf: 0.9428571428571428
+15 Agents final_res: A, ground_truth: A, perf: 0.9428571428571428
+20 Agents final_res: A, ground_truth: A, perf: 0.9428571428571428
+25 Agents final_res: A, ground_truth: A, perf: 0.9428571428571428
+current task_id end:  34
+************************
+Total prompt tokens: 134250, Total completion tokens: 1581824
+current task_id start:  35
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1744.46it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:31,  6.31s/it, est. speed input: 21.09 toks/s, output: 35.21 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:18,  3.40s/it, est. speed input: 34.64 toks/s, output: 63.81 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:42,  1.93s/it, est. speed input: 50.79 toks/s, output: 97.26 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:08<00:32,  1.55s/it, est. speed input: 60.26 toks/s, output: 121.31 toks/s]Processed prompts:  20%|██        | 5/25 [00:09<00:26,  1.33s/it, est. speed input: 68.14 toks/s, output: 144.48 toks/s]Processed prompts:  24%|██▍       | 6/25 [01:07<06:27, 20.39s/it, est. speed input: 11.88 toks/s, output: 51.50 toks/s] Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 20.39s/it, est. speed input: 49.52 toks/s, output: 631.01 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.69s/it, est. speed input: 49.52 toks/s, output: 631.01 toks/s]
+++++++++++++++++++Time: 67.16170907020569 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9166666666666666
+5 Agents final_res: A, ground_truth: A, perf: 0.9444444444444444
+10 Agents final_res: A, ground_truth: A, perf: 0.9444444444444444
+15 Agents final_res: A, ground_truth: A, perf: 0.9444444444444444
+20 Agents final_res: A, ground_truth: A, perf: 0.9444444444444444
+25 Agents final_res: A, ground_truth: A, perf: 0.9444444444444444
+current task_id end:  35
+************************
+Total prompt tokens: 137575, Total completion tokens: 1624194
+current task_id start:  36
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2169.53it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:13<05:32, 13.86s/it, est. speed input: 9.24 toks/s, output: 33.41 toks/s]Processed prompts:   8%|▊         | 2/25 [01:10<14:52, 38.81s/it, est. speed input: 3.65 toks/s, output: 35.80 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 38.81s/it, est. speed input: 45.62 toks/s, output: 707.34 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.81s/it, est. speed input: 45.62 toks/s, output: 707.34 toks/s]
+++++++++++++++++++Time: 70.15565538406372 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.918918918918919
+5 Agents final_res: D, ground_truth: D, perf: 0.9459459459459459
+10 Agents final_res: D, ground_truth: D, perf: 0.9459459459459459
+15 Agents final_res: D, ground_truth: D, perf: 0.9459459459459459
+20 Agents final_res: D, ground_truth: D, perf: 0.9459459459459459
+25 Agents final_res: D, ground_truth: D, perf: 0.9459459459459459
+current task_id end:  36
+************************
+Total prompt tokens: 140775, Total completion tokens: 1673809
+current task_id start:  37
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1091.55it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:11<04:28, 11.18s/it, est. speed input: 19.95 toks/s, output: 34.35 toks/s]Processed prompts:   8%|▊         | 2/25 [01:10<15:06, 39.43s/it, est. speed input: 6.34 toks/s, output: 34.55 toks/s] Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 39.43s/it, est. speed input: 79.15 toks/s, output: 703.27 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.82s/it, est. speed input: 79.15 toks/s, output: 703.27 toks/s]
+++++++++++++++++++Time: 70.46067357063293 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9210526315789473
+5 Agents final_res: C, ground_truth: C, perf: 0.9473684210526315
+10 Agents final_res: C, ground_truth: C, perf: 0.9473684210526315
+15 Agents final_res: C, ground_truth: C, perf: 0.9473684210526315
+20 Agents final_res: C, ground_truth: C, perf: 0.9473684210526315
+25 Agents final_res: C, ground_truth: C, perf: 0.9473684210526315
+current task_id end:  37
+************************
+Total prompt tokens: 146350, Total completion tokens: 1723345
+current task_id start:  38
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1462.33it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:45,  4.38s/it, est. speed input: 29.71 toks/s, output: 34.74 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<00:58,  2.56s/it, est. speed input: 45.83 toks/s, output: 60.99 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:47,  2.18s/it, est. speed input: 52.72 toks/s, output: 80.97 toks/s]Processed prompts:  20%|██        | 5/25 [00:07<00:19,  1.02it/s, est. speed input: 86.50 toks/s, output: 147.84 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:07<00:15,  1.20it/s, est. speed input: 97.74 toks/s, output: 173.43 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:08<00:15,  1.15it/s, est. speed input: 101.81 toks/s, output: 189.07 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:09<00:11,  1.43it/s, est. speed input: 112.70 toks/s, output: 217.37 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:09<00:09,  1.76it/s, est. speed input: 123.31 toks/s, output: 245.67 toks/s]Processed prompts:  40%|████      | 10/25 [00:13<00:24,  1.61s/it, est. speed input: 95.90 toks/s, output: 206.18 toks/s]Processed prompts:  44%|████▍     | 11/25 [01:05<03:53, 16.70s/it, est. speed input: 21.73 toks/s, output: 73.59 toks/s] Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 16.70s/it, est. speed input: 49.36 toks/s, output: 508.98 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.63s/it, est. speed input: 49.36 toks/s, output: 508.98 toks/s]
+++++++++++++++++++Time: 65.86672925949097 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9230769230769231
+5 Agents final_res: C, ground_truth: C, perf: 0.9487179487179487
+10 Agents final_res: C, ground_truth: C, perf: 0.9487179487179487
+15 Agents final_res: C, ground_truth: C, perf: 0.9487179487179487
+20 Agents final_res: C, ground_truth: C, perf: 0.9487179487179487
+25 Agents final_res: C, ground_truth: C, perf: 0.9487179487179487
+current task_id end:  38
+************************
+Total prompt tokens: 149600, Total completion tokens: 1756860
+current task_id start:  39
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1416.08it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:36,  6.51s/it, est. speed input: 27.21 toks/s, output: 34.74 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:05,  2.85s/it, est. speed input: 52.05 toks/s, output: 67.93 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:39,  1.79s/it, est. speed input: 72.42 toks/s, output: 97.65 toks/s]Processed prompts:  20%|██        | 5/25 [00:07<00:18,  1.07it/s, est. speed input: 112.24 toks/s, output: 157.77 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:10<00:25,  1.33s/it, est. speed input: 104.22 toks/s, output: 156.73 toks/s]Processed prompts:  28%|██▊       | 7/25 [01:06<05:13, 17.41s/it, est. speed input: 18.58 toks/s, output: 54.65 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 17.41s/it, est. speed input: 66.34 toks/s, output: 607.34 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.67s/it, est. speed input: 66.34 toks/s, output: 607.34 toks/s]
+++++++++++++++++++Time: 66.71765112876892 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.925
+5 Agents final_res: B, ground_truth: B, perf: 0.95
+10 Agents final_res: B, ground_truth: B, perf: 0.95
+15 Agents final_res: B, ground_truth: B, perf: 0.95
+20 Agents final_res: B, ground_truth: B, perf: 0.95
+25 Agents final_res: B, ground_truth: B, perf: 0.95
+current task_id end:  39
+************************
+Total prompt tokens: 154025, Total completion tokens: 1797369
+current task_id start:  40
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1588.68it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:10<28:14, 70.62s/it, est. speed input: 2.70 toks/s, output: 29.00 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 70.62s/it, est. speed input: 67.57 toks/s, output: 724.50 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.83s/it, est. speed input: 67.57 toks/s, output: 724.50 toks/s]
+++++++++++++++++++Time: 70.68663430213928 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.926829268292683
+5 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+10 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+15 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+20 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+25 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+current task_id end:  40
+************************
+Total prompt tokens: 158800, Total completion tokens: 1848569
+current task_id start:  41
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1791.89it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:08<03:31,  8.81s/it, est. speed input: 13.40 toks/s, output: 34.63 toks/s]Processed prompts:   8%|▊         | 2/25 [00:10<01:52,  4.90s/it, est. speed input: 21.52 toks/s, output: 62.19 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<10:49, 29.54s/it, est. speed input: 5.07 toks/s, output: 39.09 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 29.54s/it, est. speed input: 42.21 toks/s, output: 683.79 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 42.21 toks/s, output: 683.79 toks/s]
+++++++++++++++++++Time: 69.89966368675232 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9285714285714286
+5 Agents final_res: A, ground_truth: A, perf: 0.9523809523809523
+10 Agents final_res: A, ground_truth: A, perf: 0.9523809523809523
+15 Agents final_res: A, ground_truth: A, perf: 0.9523809523809523
+20 Agents final_res: A, ground_truth: A, perf: 0.9523809523809523
+25 Agents final_res: A, ground_truth: A, perf: 0.9523809523809523
+current task_id end:  41
+************************
+Total prompt tokens: 161750, Total completion tokens: 1896355
+current task_id start:  42
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1156.36it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:20<08:00, 20.03s/it, est. speed input: 6.94 toks/s, output: 33.34 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<14:25, 37.61s/it, est. speed input: 3.97 toks/s, output: 38.83 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 37.61s/it, est. speed input: 49.65 toks/s, output: 711.78 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 49.65 toks/s, output: 711.78 toks/s]
+++++++++++++++++++Time: 70.0166826248169 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9302325581395349
+5 Agents final_res: C, ground_truth: C, perf: 0.9534883720930233
+10 Agents final_res: C, ground_truth: C, perf: 0.9534883720930233
+15 Agents final_res: C, ground_truth: C, perf: 0.9534883720930233
+20 Agents final_res: C, ground_truth: C, perf: 0.9534883720930233
+25 Agents final_res: C, ground_truth: C, perf: 0.9534883720930233
+current task_id end:  42
+************************
+Total prompt tokens: 165225, Total completion tokens: 1946175
+current task_id start:  43
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1118.09it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:10<28:00, 70.03s/it, est. speed input: 2.38 toks/s, output: 29.25 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 70.03s/it, est. speed input: 59.58 toks/s, output: 730.67 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 59.58 toks/s, output: 730.67 toks/s]
+++++++++++++++++++Time: 70.096186876297 ++++++++++++++++++
+1 Agents final_res: None, ground_truth: D, perf: 0.9090909090909091
+5 Agents final_res: None, ground_truth: D, perf: 0.9318181818181818
+10 Agents final_res: None, ground_truth: D, perf: 0.9318181818181818
+15 Agents final_res: None, ground_truth: D, perf: 0.9318181818181818
+20 Agents final_res: None, ground_truth: D, perf: 0.9318181818181818
+25 Agents final_res: None, ground_truth: D, perf: 0.9318181818181818
+current task_id end:  43
+************************
+Total prompt tokens: 169400, Total completion tokens: 1997375
+current task_id start:  44
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1995.08it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:56,  2.35s/it, est. speed input: 62.05 toks/s, output: 32.30 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:31,  1.37s/it, est. speed input: 96.45 toks/s, output: 57.47 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:23<03:46, 10.31s/it, est. speed input: 18.26 toks/s, output: 39.82 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:09<08:31, 24.37s/it, est. speed input: 8.36 toks/s, output: 42.96 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 24.37s/it, est. speed input: 52.19 toks/s, output: 657.89 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 52.19 toks/s, output: 657.89 toks/s]
+++++++++++++++++++Time: 69.95008563995361 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9111111111111111
+5 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+10 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+15 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+20 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+25 Agents final_res: B, ground_truth: B, perf: 0.9333333333333333
+current task_id end:  44
+************************
+Total prompt tokens: 173050, Total completion tokens: 2043386
+current task_id start:  45
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1157.83it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:10<28:00, 70.01s/it, est. speed input: 3.01 toks/s, output: 29.25 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 70.01s/it, est. speed input: 75.29 toks/s, output: 730.82 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 75.29 toks/s, output: 730.82 toks/s]
+++++++++++++++++++Time: 70.08168029785156 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9130434782608695
+5 Agents final_res: D, ground_truth: D, perf: 0.9347826086956522
+10 Agents final_res: D, ground_truth: D, perf: 0.9347826086956522
+15 Agents final_res: D, ground_truth: D, perf: 0.9347826086956522
+20 Agents final_res: D, ground_truth: D, perf: 0.9347826086956522
+25 Agents final_res: D, ground_truth: D, perf: 0.9347826086956522
+current task_id end:  45
+************************
+Total prompt tokens: 178325, Total completion tokens: 2094586
+current task_id start:  46
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2141.48it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:26,  6.11s/it, est. speed input: 19.65 toks/s, output: 35.21 toks/s]Processed prompts:   8%|▊         | 2/25 [00:08<01:32,  4.04s/it, est. speed input: 27.58 toks/s, output: 59.76 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:09<00:55,  2.54s/it, est. speed input: 38.03 toks/s, output: 89.79 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:09<08:47, 25.14s/it, est. speed input: 6.93 toks/s, output: 41.85 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 25.14s/it, est. speed input: 43.30 toks/s, output: 662.52 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.77s/it, est. speed input: 43.30 toks/s, output: 662.52 toks/s]
+++++++++++++++++++Time: 69.30265736579895 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9148936170212766
+5 Agents final_res: C, ground_truth: C, perf: 0.9361702127659575
+10 Agents final_res: C, ground_truth: C, perf: 0.9361702127659575
+15 Agents final_res: C, ground_truth: C, perf: 0.9361702127659575
+20 Agents final_res: C, ground_truth: C, perf: 0.9361702127659575
+25 Agents final_res: C, ground_truth: C, perf: 0.9361702127659575
+current task_id end:  46
+************************
+Total prompt tokens: 181325, Total completion tokens: 2140492
+current task_id start:  47
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1792.68it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:09<27:57, 69.90s/it, est. speed input: 2.36 toks/s, output: 29.30 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 69.90s/it, est. speed input: 58.98 toks/s, output: 732.05 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 58.98 toks/s, output: 732.05 toks/s]
+++++++++++++++++++Time: 69.95563840866089 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9166666666666666
+5 Agents final_res: D, ground_truth: D, perf: 0.9375
+10 Agents final_res: D, ground_truth: D, perf: 0.9375
+15 Agents final_res: D, ground_truth: D, perf: 0.9375
+20 Agents final_res: D, ground_truth: D, perf: 0.9375
+25 Agents final_res: D, ground_truth: D, perf: 0.9375
+current task_id end:  47
+************************
+Total prompt tokens: 185450, Total completion tokens: 2191692
+current task_id start:  48
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1830.87it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:38,  4.08s/it, est. speed input: 29.87 toks/s, output: 35.26 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:41,  1.82s/it, est. speed input: 56.55 toks/s, output: 68.60 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:05<00:18,  1.12it/s, est. speed input: 97.50 toks/s, output: 125.27 toks/s]Processed prompts:  20%|██        | 5/25 [00:05<00:13,  1.53it/s, est. speed input: 119.17 toks/s, output: 157.66 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:05<00:10,  1.85it/s, est. speed input: 135.50 toks/s, output: 184.56 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:05<00:08,  2.05it/s, est. speed input: 148.00 toks/s, output: 207.97 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:05<00:06,  2.50it/s, est. speed input: 163.54 toks/s, output: 236.26 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:06<00:07,  2.27it/s, est. speed input: 168.84 toks/s, output: 252.03 toks/s]Processed prompts:  40%|████      | 10/25 [00:06<00:05,  2.79it/s, est. speed input: 182.93 toks/s, output: 280.98 toks/s]Processed prompts:  44%|████▍     | 11/25 [01:05<04:10, 17.87s/it, est. speed input: 20.59 toks/s, output: 60.17 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 17.87s/it, est. speed input: 46.76 toks/s, output: 499.75 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.61s/it, est. speed input: 46.76 toks/s, output: 499.75 toks/s]
+++++++++++++++++++Time: 65.2356870174408 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9183673469387755
+5 Agents final_res: D, ground_truth: D, perf: 0.9387755102040817
+10 Agents final_res: D, ground_truth: D, perf: 0.9387755102040817
+15 Agents final_res: D, ground_truth: D, perf: 0.9387755102040817
+20 Agents final_res: D, ground_truth: D, perf: 0.9387755102040817
+25 Agents final_res: D, ground_truth: D, perf: 0.9387755102040817
+current task_id end:  48
+************************
+Total prompt tokens: 188500, Total completion tokens: 2224286
+current task_id start:  49
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1843.65it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:48,  4.53s/it, est. speed input: 36.67 toks/s, output: 35.13 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<15:26, 40.29s/it, est. speed input: 4.75 toks/s, output: 31.60 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 40.29s/it, est. speed input: 59.38 toks/s, output: 705.52 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 59.38 toks/s, output: 705.52 toks/s]
+++++++++++++++++++Time: 69.90782833099365 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.92
+5 Agents final_res: A, ground_truth: A, perf: 0.94
+10 Agents final_res: A, ground_truth: A, perf: 0.94
+15 Agents final_res: A, ground_truth: A, perf: 0.94
+20 Agents final_res: A, ground_truth: A, perf: 0.94
+25 Agents final_res: A, ground_truth: A, perf: 0.94
+current task_id end:  49
+************************
+Total prompt tokens: 192650, Total completion tokens: 2273597
+current task_id start:  50
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1412.57it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:23<09:25, 23.56s/it, est. speed input: 5.86 toks/s, output: 33.02 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<14:08, 36.90s/it, est. speed input: 3.95 toks/s, output: 40.49 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 36.90s/it, est. speed input: 49.40 toks/s, output: 714.92 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.79s/it, est. speed input: 49.40 toks/s, output: 714.92 toks/s]
+++++++++++++++++++Time: 69.85870718955994 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9215686274509803
+5 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+10 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+15 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+20 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+25 Agents final_res: B, ground_truth: B, perf: 0.9411764705882353
+current task_id end:  50
+************************
+Total prompt tokens: 196100, Total completion tokens: 2323527
+current task_id start:  51
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1431.68it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:10<28:01, 70.07s/it, est. speed input: 3.24 toks/s, output: 29.23 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00, 70.07s/it, est. speed input: 80.94 toks/s, output: 730.26 toks/s]Processed prompts: 100%|██████████| 25/25 [01:10<00:00,  2.80s/it, est. speed input: 80.94 toks/s, output: 730.26 toks/s]
+++++++++++++++++++Time: 70.13193225860596 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9230769230769231
+5 Agents final_res: B, ground_truth: B, perf: 0.9423076923076923
+10 Agents final_res: B, ground_truth: B, perf: 0.9423076923076923
+15 Agents final_res: B, ground_truth: B, perf: 0.9423076923076923
+20 Agents final_res: B, ground_truth: B, perf: 0.9423076923076923
+25 Agents final_res: B, ground_truth: B, perf: 0.9423076923076923
+current task_id end:  51
+************************
+Total prompt tokens: 201775, Total completion tokens: 2374727
+current task_id start:  52
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1184.07it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:05<02:14,  5.61s/it, est. speed input: 26.03 toks/s, output: 33.52 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<00:58,  2.56s/it, est. speed input: 48.43 toks/s, output: 64.69 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:35,  1.61s/it, est. speed input: 67.18 toks/s, output: 93.56 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:07<00:28,  1.34s/it, est. speed input: 78.42 toks/s, output: 115.62 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<07:30, 22.51s/it, est. speed input: 10.82 toks/s, output: 43.10 toks/s] Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 22.51s/it, est. speed input: 54.07 toks/s, output: 649.91 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.70s/it, est. speed input: 54.07 toks/s, output: 649.91 toks/s]
+++++++++++++++++++Time: 67.52254343032837 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9245283018867925
+5 Agents final_res: A, ground_truth: A, perf: 0.9433962264150944
+10 Agents final_res: A, ground_truth: A, perf: 0.9433962264150944
+15 Agents final_res: A, ground_truth: A, perf: 0.9433962264150944
+20 Agents final_res: A, ground_truth: A, perf: 0.9433962264150944
+25 Agents final_res: A, ground_truth: A, perf: 0.9433962264150944
+current task_id end:  52
+************************
+Total prompt tokens: 205425, Total completion tokens: 2418596
+current task_id start:  53
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1287.70it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:29,  6.24s/it, est. speed input: 23.09 toks/s, output: 33.83 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:13,  3.22s/it, est. speed input: 39.25 toks/s, output: 62.69 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:08<00:49,  2.25s/it, est. speed input: 51.14 toks/s, output: 88.42 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:08<00:30,  1.43s/it, est. speed input: 66.79 toks/s, output: 120.60 toks/s]Processed prompts:  20%|██        | 5/25 [00:09<00:21,  1.09s/it, est. speed input: 79.00 toks/s, output: 148.12 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:18,  1.02it/s, est. speed input: 87.58 toks/s, output: 170.90 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:11<00:21,  1.17s/it, est. speed input: 88.16 toks/s, output: 181.57 toks/s]Processed prompts:  32%|███▏      | 8/25 [01:05<05:07, 18.06s/it, est. speed input: 17.54 toks/s, output: 62.81 toks/s] Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 18.06s/it, est. speed input: 54.79 toks/s, output: 592.67 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.63s/it, est. speed input: 54.79 toks/s, output: 592.67 toks/s]
+++++++++++++++++++Time: 65.72357320785522 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9259259259259259
+5 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+10 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+15 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+20 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+25 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+current task_id end:  53
+************************
+Total prompt tokens: 209025, Total completion tokens: 2457536
+current task_id start:  54
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1799.20it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:17,  3.23s/it, est. speed input: 56.00 toks/s, output: 35.58 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:19,  3.44s/it, est. speed input: 53.14 toks/s, output: 52.11 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:43,  1.96s/it, est. speed input: 77.40 toks/s, output: 85.81 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:07<00:29,  1.43s/it, est. speed input: 94.94 toks/s, output: 114.09 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<07:28, 22.43s/it, est. speed input: 13.45 toks/s, output: 43.37 toks/s] Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 22.43s/it, est. speed input: 67.21 toks/s, output: 651.71 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.69s/it, est. speed input: 67.21 toks/s, output: 651.71 toks/s]
+++++++++++++++++++Time: 67.34184145927429 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9272727272727272
+5 Agents final_res: A, ground_truth: A, perf: 0.9454545454545454
+10 Agents final_res: A, ground_truth: A, perf: 0.9454545454545454
+15 Agents final_res: A, ground_truth: A, perf: 0.9454545454545454
+20 Agents final_res: A, ground_truth: A, perf: 0.9454545454545454
+25 Agents final_res: A, ground_truth: A, perf: 0.9454545454545454
+current task_id end:  54
+************************
+Total prompt tokens: 213550, Total completion tokens: 2501414
+current task_id start:  55
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1278.74it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:09<27:56, 69.85s/it, est. speed input: 3.02 toks/s, output: 29.32 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 69.85s/it, est. speed input: 75.47 toks/s, output: 732.53 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.80s/it, est. speed input: 75.47 toks/s, output: 732.53 toks/s]
+++++++++++++++++++Time: 69.91570401191711 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9285714285714286
+5 Agents final_res: B, ground_truth: D, perf: 0.9285714285714286
+10 Agents final_res: B, ground_truth: D, perf: 0.9285714285714286
+15 Agents final_res: D, ground_truth: D, perf: 0.9464285714285714
+20 Agents final_res: D, ground_truth: D, perf: 0.9464285714285714
+25 Agents final_res: D, ground_truth: D, perf: 0.9464285714285714
+current task_id end:  55
+************************
+Total prompt tokens: 218825, Total completion tokens: 2552614
+current task_id start:  56
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1131.27it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:07,  2.82s/it, est. speed input: 67.28 toks/s, output: 32.58 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:49,  2.17s/it, est. speed input: 83.85 toks/s, output: 53.18 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:53,  2.43s/it, est. speed input: 78.24 toks/s, output: 66.57 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:11<01:02,  2.98s/it, est. speed input: 68.44 toks/s, output: 77.27 toks/s]Processed prompts:  20%|██        | 5/25 [01:07<07:26, 22.33s/it, est. speed input: 14.02 toks/s, output: 42.89 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00, 22.33s/it, est. speed input: 70.06 toks/s, output: 647.04 toks/s]Processed prompts: 100%|██████████| 25/25 [01:07<00:00,  2.71s/it, est. speed input: 70.06 toks/s, output: 647.04 toks/s]
+++++++++++++++++++Time: 67.81790280342102 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9298245614035088
+5 Agents final_res: A, ground_truth: A, perf: 0.9298245614035088
+10 Agents final_res: A, ground_truth: A, perf: 0.9298245614035088
+15 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+20 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+25 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+current task_id end:  56
+************************
+Total prompt tokens: 223575, Total completion tokens: 2596480
+current task_id start:  57
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2031.93it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:46,  4.44s/it, est. speed input: 32.89 toks/s, output: 35.60 toks/s]Processed prompts:   8%|▊         | 2/25 [00:10<02:04,  5.40s/it, est. speed input: 27.79 toks/s, output: 49.97 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:09<10:55, 29.78s/it, est. speed input: 6.32 toks/s, output: 37.12 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 29.78s/it, est. speed input: 52.63 toks/s, output: 686.77 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.77s/it, est. speed input: 52.63 toks/s, output: 686.77 toks/s]
+++++++++++++++++++Time: 69.36572575569153 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9310344827586207
+5 Agents final_res: D, ground_truth: D, perf: 0.9310344827586207
+10 Agents final_res: D, ground_truth: D, perf: 0.9310344827586207
+15 Agents final_res: D, ground_truth: D, perf: 0.9482758620689655
+20 Agents final_res: D, ground_truth: D, perf: 0.9482758620689655
+25 Agents final_res: D, ground_truth: D, perf: 0.9482758620689655
+current task_id end:  57
+************************
+Total prompt tokens: 227225, Total completion tokens: 2644109
+current task_id start:  58
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1784.66it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:14<05:52, 14.67s/it, est. speed input: 8.59 toks/s, output: 34.09 toks/s]Processed prompts:   8%|▊         | 2/25 [00:15<02:25,  6.31s/it, est. speed input: 16.66 toks/s, output: 67.08 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:18<01:48,  4.94s/it, est. speed input: 20.50 toks/s, output: 88.74 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:09<08:05, 23.10s/it, est. speed input: 7.26 toks/s, output: 53.10 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 23.10s/it, est. speed input: 45.38 toks/s, output: 672.60 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.78s/it, est. speed input: 45.38 toks/s, output: 672.60 toks/s]
+++++++++++++++++++Time: 69.43504071235657 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9322033898305084
+5 Agents final_res: B, ground_truth: B, perf: 0.9322033898305084
+10 Agents final_res: B, ground_truth: B, perf: 0.9322033898305084
+15 Agents final_res: B, ground_truth: B, perf: 0.9491525423728814
+20 Agents final_res: B, ground_truth: B, perf: 0.9491525423728814
+25 Agents final_res: B, ground_truth: B, perf: 0.9491525423728814
+current task_id end:  58
+************************
+Total prompt tokens: 230375, Total completion tokens: 2690801
+current task_id start:  59
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1755.35it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:09<03:42,  9.26s/it, est. speed input: 14.69 toks/s, output: 35.00 toks/s]Processed prompts:   8%|▊         | 2/25 [01:09<14:56, 38.98s/it, est. speed input: 3.94 toks/s, output: 34.35 toks/s] Processed prompts: 100%|██████████| 25/25 [01:09<00:00, 38.98s/it, est. speed input: 49.21 toks/s, output: 716.05 toks/s]Processed prompts: 100%|██████████| 25/25 [01:09<00:00,  2.76s/it, est. speed input: 49.21 toks/s, output: 716.05 toks/s]
+++++++++++++++++++Time: 69.11115336418152 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9333333333333333
+5 Agents final_res: D, ground_truth: D, perf: 0.9333333333333333
+10 Agents final_res: D, ground_truth: D, perf: 0.9333333333333333
+15 Agents final_res: D, ground_truth: D, perf: 0.95
+20 Agents final_res: D, ground_truth: D, perf: 0.95
+25 Agents final_res: D, ground_truth: D, perf: 0.95
+current task_id end:  59
+************************
+Total prompt tokens: 233775, Total completion tokens: 2740277
+current task_id start:  60
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2338.07it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:01<00:33,  1.41s/it, est. speed input: 84.24 toks/s, output: 36.10 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:24,  3.65s/it, est. speed input: 35.87 toks/s, output: 43.86 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:52,  2.40s/it, est. speed input: 47.36 toks/s, output: 74.69 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:06<08:41, 24.81s/it, est. speed input: 7.14 toks/s, output: 39.14 toks/s] Processed prompts: 100%|██████████| 25/25 [01:06<00:00, 24.81s/it, est. speed input: 44.57 toks/s, output: 683.48 toks/s]Processed prompts: 100%|██████████| 25/25 [01:06<00:00,  2.67s/it, est. speed input: 44.57 toks/s, output: 683.48 toks/s]
+++++++++++++++++++Time: 66.7575786113739 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9344262295081968
+5 Agents final_res: B, ground_truth: B, perf: 0.9344262295081968
+10 Agents final_res: B, ground_truth: B, perf: 0.9344262295081968
+15 Agents final_res: B, ground_truth: B, perf: 0.9508196721311475
+20 Agents final_res: B, ground_truth: B, perf: 0.9508196721311475
+25 Agents final_res: B, ground_truth: B, perf: 0.9508196721311475
+current task_id end:  60
+************************
+Total prompt tokens: 236750, Total completion tokens: 2785896
+current task_id start:  61
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1687.44it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:41,  6.72s/it, est. speed input: 29.91 toks/s, output: 37.50 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:13,  3.17s/it, est. speed input: 54.23 toks/s, output: 71.36 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:08<00:53,  2.43s/it, est. speed input: 67.36 toks/s, output: 96.29 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:09<00:32,  1.53s/it, est. speed input: 88.18 toks/s, output: 131.72 toks/s]Processed prompts:  20%|██        | 5/25 [00:09<00:23,  1.18s/it, est. speed input: 104.04 toks/s, output: 161.49 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:15,  1.20it/s, est. speed input: 122.78 toks/s, output: 195.98 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:11<00:19,  1.09s/it, est. speed input: 122.91 toks/s, output: 205.29 toks/s]Processed prompts:  32%|███▏      | 8/25 [01:01<04:42, 16.64s/it, est. speed input: 26.20 toks/s, output: 71.65 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:01<00:00, 16.64s/it, est. speed input: 81.82 toks/s, output: 638.50 toks/s]Processed prompts: 100%|██████████| 25/25 [01:01<00:00,  2.46s/it, est. speed input: 81.82 toks/s, output: 638.50 toks/s]
+++++++++++++++++++Time: 61.431241273880005 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9354838709677419
+5 Agents final_res: C, ground_truth: C, perf: 0.9354838709677419
+10 Agents final_res: C, ground_truth: C, perf: 0.9354838709677419
+15 Agents final_res: C, ground_truth: C, perf: 0.9516129032258065
+20 Agents final_res: C, ground_truth: C, perf: 0.9516129032258065
+25 Agents final_res: C, ground_truth: C, perf: 0.9516129032258065
+current task_id end:  61
+************************
+Total prompt tokens: 241775, Total completion tokens: 2825110
+current task_id start:  62
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2065.26it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:34<13:54, 34.76s/it, est. speed input: 5.04 toks/s, output: 34.15 toks/s]Processed prompts:   8%|▊         | 2/25 [01:05<12:20, 32.19s/it, est. speed input: 5.37 toks/s, output: 49.65 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 32.19s/it, est. speed input: 67.11 toks/s, output: 772.14 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.61s/it, est. speed input: 67.11 toks/s, output: 772.14 toks/s]
+++++++++++++++++++Time: 65.20776057243347 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9365079365079365
+5 Agents final_res: C, ground_truth: C, perf: 0.9365079365079365
+10 Agents final_res: C, ground_truth: C, perf: 0.9365079365079365
+15 Agents final_res: C, ground_truth: C, perf: 0.9523809523809523
+20 Agents final_res: C, ground_truth: C, perf: 0.9523809523809523
+25 Agents final_res: C, ground_truth: C, perf: 0.9523809523809523
+current task_id end:  62
+************************
+Total prompt tokens: 246150, Total completion tokens: 2875449
+current task_id start:  63
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2614.19it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:25,  3.58s/it, est. speed input: 34.09 toks/s, output: 38.56 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:07,  2.93s/it, est. speed input: 40.31 toks/s, output: 61.13 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:38,  1.74s/it, est. speed input: 57.45 toks/s, output: 96.38 toks/s]Processed prompts:  20%|██        | 5/25 [00:06<00:15,  1.25it/s, est. speed input: 93.42 toks/s, output: 170.15 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:07<00:16,  1.13it/s, est. speed input: 95.89 toks/s, output: 183.79 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:07<00:13,  1.37it/s, est. speed input: 107.08 toks/s, output: 214.17 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:08<00:09,  1.74it/s, est. speed input: 119.24 toks/s, output: 246.91 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:59<04:10, 15.65s/it, est. speed input: 18.38 toks/s, output: 68.11 toks/s]  Processed prompts: 100%|██████████| 25/25 [00:59<00:00, 15.65s/it, est. speed input: 51.02 toks/s, output: 616.19 toks/s]Processed prompts: 100%|██████████| 25/25 [00:59<00:00,  2.39s/it, est. speed input: 51.02 toks/s, output: 616.19 toks/s]
+++++++++++++++++++Time: 59.79167342185974 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9375
+5 Agents final_res: D, ground_truth: D, perf: 0.9375
+10 Agents final_res: D, ground_truth: D, perf: 0.9375
+15 Agents final_res: D, ground_truth: D, perf: 0.953125
+20 Agents final_res: D, ground_truth: D, perf: 0.953125
+25 Agents final_res: D, ground_truth: D, perf: 0.953125
+current task_id end:  63
+************************
+Total prompt tokens: 249200, Total completion tokens: 2912286
+current task_id start:  64
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2211.44it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:55,  2.33s/it, est. speed input: 65.19 toks/s, output: 36.88 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:12,  3.17s/it, est. speed input: 49.91 toks/s, output: 51.72 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:09<01:07,  3.06s/it, est. speed input: 50.53 toks/s, output: 72.25 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:10<00:50,  2.40s/it, est. speed input: 58.44 toks/s, output: 99.86 toks/s]Processed prompts:  20%|██        | 5/25 [00:10<00:32,  1.63s/it, est. speed input: 71.16 toks/s, output: 134.46 toks/s]Processed prompts:  24%|██▍       | 6/25 [01:01<05:51, 18.49s/it, est. speed input: 14.73 toks/s, output: 56.28 toks/s] Processed prompts: 100%|██████████| 25/25 [01:01<00:00, 18.49s/it, est. speed input: 61.34 toks/s, output: 684.41 toks/s]Processed prompts: 100%|██████████| 25/25 [01:01<00:00,  2.48s/it, est. speed input: 61.34 toks/s, output: 684.41 toks/s]
+++++++++++++++++++Time: 61.95847296714783 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9384615384615385
+5 Agents final_res: C, ground_truth: C, perf: 0.9384615384615385
+10 Agents final_res: C, ground_truth: C, perf: 0.9384615384615385
+15 Agents final_res: C, ground_truth: C, perf: 0.9538461538461539
+20 Agents final_res: C, ground_truth: C, perf: 0.9538461538461539
+25 Agents final_res: C, ground_truth: C, perf: 0.9538461538461539
+current task_id end:  64
+************************
+Total prompt tokens: 253000, Total completion tokens: 2954682
+current task_id start:  65
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1997.17it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:22,  3.44s/it, est. speed input: 46.18 toks/s, output: 37.76 toks/s]Processed prompts:   8%|▊         | 2/25 [00:29<06:21, 16.59s/it, est. speed input: 10.88 toks/s, output: 39.64 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<09:11, 25.07s/it, est. speed input: 7.41 toks/s, output: 49.80 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 25.07s/it, est. speed input: 61.68 toks/s, output: 748.93 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.58s/it, est. speed input: 61.68 toks/s, output: 748.93 toks/s]
+++++++++++++++++++Time: 64.45613765716553 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9393939393939394
+5 Agents final_res: D, ground_truth: D, perf: 0.9393939393939394
+10 Agents final_res: D, ground_truth: D, perf: 0.9393939393939394
+15 Agents final_res: D, ground_truth: D, perf: 0.9545454545454546
+20 Agents final_res: D, ground_truth: D, perf: 0.9545454545454546
+25 Agents final_res: D, ground_truth: D, perf: 0.9545454545454546
+current task_id end:  65
+************************
+Total prompt tokens: 256975, Total completion tokens: 3002945
+current task_id start:  66
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1364.21it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:24,  6.00s/it, est. speed input: 31.49 toks/s, output: 38.49 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<00:58,  2.55s/it, est. speed input: 61.62 toks/s, output: 76.13 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:37,  1.71s/it, est. speed input: 82.74 toks/s, output: 106.53 toks/s]Processed prompts:  20%|██        | 5/25 [00:08<00:23,  1.17s/it, est. speed input: 113.15 toks/s, output: 157.57 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:14<00:51,  2.70s/it, est. speed input: 76.37 toks/s, output: 126.34 toks/s] Processed prompts:  28%|██▊       | 7/25 [01:01<04:38, 15.45s/it, est. speed input: 21.59 toks/s, output: 64.03 toks/s] Processed prompts: 100%|██████████| 25/25 [01:01<00:00, 15.45s/it, est. speed input: 77.05 toks/s, output: 665.13 toks/s]Processed prompts: 100%|██████████| 25/25 [01:01<00:00,  2.45s/it, est. speed input: 77.05 toks/s, output: 665.13 toks/s]
+++++++++++++++++++Time: 61.34314203262329 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9402985074626866
+5 Agents final_res: A, ground_truth: A, perf: 0.9402985074626866
+10 Agents final_res: A, ground_truth: A, perf: 0.9402985074626866
+15 Agents final_res: A, ground_truth: A, perf: 0.9552238805970149
+20 Agents final_res: A, ground_truth: A, perf: 0.9552238805970149
+25 Agents final_res: A, ground_truth: A, perf: 0.9552238805970149
+current task_id end:  66
+************************
+Total prompt tokens: 261700, Total completion tokens: 3043733
+current task_id start:  67
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2166.88it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:16<06:44, 16.87s/it, est. speed input: 9.48 toks/s, output: 36.81 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<13:24, 35.00s/it, est. speed input: 4.96 toks/s, output: 41.34 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 35.00s/it, est. speed input: 61.92 toks/s, output: 770.52 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.58s/it, est. speed input: 61.92 toks/s, output: 770.52 toks/s]
+++++++++++++++++++Time: 64.60960483551025 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9411764705882353
+5 Agents final_res: C, ground_truth: C, perf: 0.9411764705882353
+10 Agents final_res: C, ground_truth: C, perf: 0.9411764705882353
+15 Agents final_res: C, ground_truth: C, perf: 0.9558823529411765
+20 Agents final_res: C, ground_truth: C, perf: 0.9558823529411765
+25 Agents final_res: C, ground_truth: C, perf: 0.9558823529411765
+current task_id end:  67
+************************
+Total prompt tokens: 265700, Total completion tokens: 3093506
+current task_id start:  68
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2016.57it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:49,  2.06s/it, est. speed input: 73.81 toks/s, output: 38.85 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:26,  3.76s/it, est. speed input: 43.37 toks/s, output: 49.80 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:10<01:18,  3.55s/it, est. speed input: 44.20 toks/s, output: 71.72 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:15<01:25,  4.07s/it, est. speed input: 40.04 toks/s, output: 85.95 toks/s]Processed prompts:  20%|██        | 5/25 [01:02<06:32, 19.61s/it, est. speed input: 12.19 toks/s, output: 53.77 toks/s]Processed prompts: 100%|██████████| 25/25 [01:02<00:00, 19.61s/it, est. speed input: 60.90 toks/s, output: 710.23 toks/s]Processed prompts: 100%|██████████| 25/25 [01:02<00:00,  2.50s/it, est. speed input: 60.90 toks/s, output: 710.23 toks/s]
+++++++++++++++++++Time: 62.405566453933716 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9420289855072463
+5 Agents final_res: D, ground_truth: D, perf: 0.9420289855072463
+10 Agents final_res: D, ground_truth: D, perf: 0.9420289855072463
+15 Agents final_res: D, ground_truth: D, perf: 0.9565217391304348
+20 Agents final_res: D, ground_truth: D, perf: 0.9565217391304348
+25 Agents final_res: D, ground_truth: D, perf: 0.9565217391304348
+current task_id end:  68
+************************
+Total prompt tokens: 269500, Total completion tokens: 3137819
+current task_id start:  69
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2149.25it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:04<25:52, 64.69s/it, est. speed input: 2.58 toks/s, output: 31.66 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 64.69s/it, est. speed input: 64.50 toks/s, output: 790.96 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 64.50 toks/s, output: 790.96 toks/s]
+++++++++++++++++++Time: 64.74408674240112 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9428571428571428
+5 Agents final_res: C, ground_truth: C, perf: 0.9428571428571428
+10 Agents final_res: C, ground_truth: C, perf: 0.9428571428571428
+15 Agents final_res: C, ground_truth: C, perf: 0.9571428571428572
+20 Agents final_res: C, ground_truth: C, perf: 0.9571428571428572
+25 Agents final_res: C, ground_truth: C, perf: 0.9571428571428572
+current task_id end:  69
+************************
+Total prompt tokens: 273675, Total completion tokens: 3189019
+current task_id start:  70
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2398.94it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:09<03:54,  9.76s/it, est. speed input: 17.51 toks/s, output: 37.90 toks/s]Processed prompts:   8%|▊         | 2/25 [00:11<02:01,  5.27s/it, est. speed input: 28.76 toks/s, output: 68.70 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<09:51, 26.89s/it, est. speed input: 7.95 toks/s, output: 44.42 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 26.89s/it, est. speed input: 66.23 toks/s, output: 742.46 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.58s/it, est. speed input: 66.23 toks/s, output: 742.46 toks/s]
+++++++++++++++++++Time: 64.55425906181335 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9436619718309859
+5 Agents final_res: A, ground_truth: A, perf: 0.9436619718309859
+10 Agents final_res: A, ground_truth: A, perf: 0.9436619718309859
+15 Agents final_res: A, ground_truth: A, perf: 0.9577464788732394
+20 Agents final_res: A, ground_truth: A, perf: 0.9577464788732394
+25 Agents final_res: A, ground_truth: A, perf: 0.9577464788732394
+current task_id end:  70
+************************
+Total prompt tokens: 277950, Total completion tokens: 3236940
+current task_id start:  71
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1719.23it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:22<08:50, 22.12s/it, est. speed input: 6.24 toks/s, output: 36.26 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<13:00, 33.93s/it, est. speed input: 4.29 toks/s, output: 44.31 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 33.93s/it, est. speed input: 53.60 toks/s, output: 776.11 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 53.60 toks/s, output: 776.11 toks/s]
+++++++++++++++++++Time: 64.38022708892822 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+5 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+10 Agents final_res: B, ground_truth: B, perf: 0.9444444444444444
+15 Agents final_res: B, ground_truth: B, perf: 0.9583333333333334
+20 Agents final_res: B, ground_truth: B, perf: 0.9583333333333334
+25 Agents final_res: B, ground_truth: B, perf: 0.9583333333333334
+current task_id end:  71
+************************
+Total prompt tokens: 281400, Total completion tokens: 3286894
+current task_id start:  72
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1369.36it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:03,  2.64s/it, est. speed input: 92.68 toks/s, output: 38.58 toks/s]Processed prompts:   8%|▊         | 2/25 [01:05<14:33, 37.96s/it, est. speed input: 7.50 toks/s, output: 32.91 toks/s] Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 37.96s/it, est. speed input: 93.70 toks/s, output: 753.51 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.61s/it, est. speed input: 93.70 toks/s, output: 753.51 toks/s]
+++++++++++++++++++Time: 65.3852744102478 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9452054794520548
+5 Agents final_res: C, ground_truth: C, perf: 0.9452054794520548
+10 Agents final_res: C, ground_truth: C, perf: 0.9452054794520548
+15 Agents final_res: C, ground_truth: C, perf: 0.958904109589041
+20 Agents final_res: C, ground_truth: C, perf: 0.958904109589041
+25 Agents final_res: C, ground_truth: C, perf: 0.958904109589041
+current task_id end:  72
+************************
+Total prompt tokens: 287525, Total completion tokens: 3336148
+current task_id start:  73
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1644.05it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:08<03:12,  8.01s/it, est. speed input: 19.11 toks/s, output: 38.34 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<13:57, 36.42s/it, est. speed input: 4.76 toks/s, output: 36.61 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 36.42s/it, est. speed input: 59.43 toks/s, output: 768.46 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 59.43 toks/s, output: 768.46 toks/s]
+++++++++++++++++++Time: 64.3780689239502 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9459459459459459
+5 Agents final_res: B, ground_truth: B, perf: 0.9459459459459459
+10 Agents final_res: B, ground_truth: B, perf: 0.9459459459459459
+15 Agents final_res: B, ground_truth: B, perf: 0.9594594594594594
+20 Agents final_res: B, ground_truth: B, perf: 0.9594594594594594
+25 Agents final_res: B, ground_truth: B, perf: 0.9594594594594594
+current task_id end:  73
+************************
+Total prompt tokens: 291350, Total completion tokens: 3385607
+current task_id start:  74
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1956.34it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:14<05:50, 14.61s/it, est. speed input: 11.70 toks/s, output: 37.22 toks/s]Processed prompts:   8%|▊         | 2/25 [00:14<02:22,  6.19s/it, est. speed input: 22.95 toks/s, output: 73.69 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<09:31, 25.97s/it, est. speed input: 7.96 toks/s, output: 48.84 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 25.97s/it, est. speed input: 66.33 toks/s, output: 747.87 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.58s/it, est. speed input: 66.33 toks/s, output: 747.87 toks/s]
+++++++++++++++++++Time: 64.46579933166504 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9466666666666667
+5 Agents final_res: D, ground_truth: D, perf: 0.9466666666666667
+10 Agents final_res: D, ground_truth: D, perf: 0.9466666666666667
+15 Agents final_res: D, ground_truth: D, perf: 0.96
+20 Agents final_res: D, ground_truth: D, perf: 0.96
+25 Agents final_res: D, ground_truth: D, perf: 0.96
+current task_id end:  74
+************************
+Total prompt tokens: 295625, Total completion tokens: 3433809
+current task_id start:  75
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2413.52it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:57,  2.41s/it, est. speed input: 58.48 toks/s, output: 37.74 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:34,  4.12s/it, est. speed input: 36.53 toks/s, output: 49.74 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:10<01:14,  3.36s/it, est. speed input: 41.51 toks/s, output: 75.36 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:10<00:44,  2.13s/it, est. speed input: 54.03 toks/s, output: 111.23 toks/s]Processed prompts:  20%|██        | 5/25 [01:02<06:41, 20.06s/it, est. speed input: 11.32 toks/s, output: 51.53 toks/s] Processed prompts: 100%|██████████| 25/25 [01:02<00:00, 20.06s/it, est. speed input: 56.57 toks/s, output: 708.79 toks/s]Processed prompts: 100%|██████████| 25/25 [01:02<00:00,  2.49s/it, est. speed input: 56.57 toks/s, output: 708.79 toks/s]
+++++++++++++++++++Time: 62.32726335525513 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+5 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+10 Agents final_res: A, ground_truth: A, perf: 0.9473684210526315
+15 Agents final_res: A, ground_truth: A, perf: 0.9605263157894737
+20 Agents final_res: A, ground_truth: A, perf: 0.9605263157894737
+25 Agents final_res: A, ground_truth: A, perf: 0.9605263157894737
+current task_id end:  75
+************************
+Total prompt tokens: 299150, Total completion tokens: 3477978
+current task_id start:  76
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2255.34it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:08<03:23,  8.50s/it, est. speed input: 15.88 toks/s, output: 38.00 toks/s]Processed prompts:   8%|▊         | 2/25 [00:12<02:08,  5.59s/it, est. speed input: 22.42 toks/s, output: 64.34 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<09:51, 26.87s/it, est. speed input: 6.30 toks/s, output: 43.95 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 26.87s/it, est. speed input: 52.51 toks/s, output: 744.87 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 52.51 toks/s, output: 744.87 toks/s]
+++++++++++++++++++Time: 64.29038262367249 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.948051948051948
+5 Agents final_res: D, ground_truth: D, perf: 0.948051948051948
+10 Agents final_res: D, ground_truth: D, perf: 0.948051948051948
+15 Agents final_res: D, ground_truth: D, perf: 0.961038961038961
+20 Agents final_res: D, ground_truth: D, perf: 0.961038961038961
+25 Agents final_res: D, ground_truth: D, perf: 0.961038961038961
+current task_id end:  76
+************************
+Total prompt tokens: 302525, Total completion tokens: 3525857
+current task_id start:  77
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2114.66it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:18<07:27, 18.65s/it, est. speed input: 7.51 toks/s, output: 36.67 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<13:18, 34.73s/it, est. speed input: 4.33 toks/s, output: 42.27 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 34.73s/it, est. speed input: 54.11 toks/s, output: 770.48 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 54.11 toks/s, output: 770.48 toks/s]
+++++++++++++++++++Time: 64.69465494155884 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9487179487179487
+5 Agents final_res: D, ground_truth: D, perf: 0.9487179487179487
+10 Agents final_res: D, ground_truth: D, perf: 0.9487179487179487
+15 Agents final_res: D, ground_truth: D, perf: 0.9615384615384616
+20 Agents final_res: D, ground_truth: D, perf: 0.9615384615384616
+25 Agents final_res: D, ground_truth: D, perf: 0.9615384615384616
+current task_id end:  77
+************************
+Total prompt tokens: 306025, Total completion tokens: 3575693
+current task_id start:  78
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1853.49it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:41,  4.24s/it, est. speed input: 45.23 toks/s, output: 38.16 toks/s]Processed prompts:   8%|▊         | 2/25 [00:08<01:36,  4.18s/it, est. speed input: 45.82 toks/s, output: 57.03 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:49<07:46, 21.18s/it, est. speed input: 11.57 toks/s, output: 42.45 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:04<06:34, 18.76s/it, est. speed input: 11.84 toks/s, output: 64.18 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 18.76s/it, est. speed input: 73.97 toks/s, output: 726.88 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.60s/it, est. speed input: 73.97 toks/s, output: 726.88 toks/s]
+++++++++++++++++++Time: 64.90840673446655 ++++++++++++++++++
+1 Agents final_res: None, ground_truth: A, perf: 0.9367088607594937
+5 Agents final_res: A, ground_truth: A, perf: 0.9493670886075949
+10 Agents final_res: A, ground_truth: A, perf: 0.9493670886075949
+15 Agents final_res: A, ground_truth: A, perf: 0.9620253164556962
+20 Agents final_res: A, ground_truth: A, perf: 0.9620253164556962
+25 Agents final_res: A, ground_truth: A, perf: 0.9620253164556962
+current task_id end:  78
+************************
+Total prompt tokens: 310825, Total completion tokens: 3622863
+current task_id start:  79
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1305.76it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:05<26:01, 65.05s/it, est. speed input: 2.38 toks/s, output: 31.48 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 65.05s/it, est. speed input: 59.53 toks/s, output: 786.58 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.60s/it, est. speed input: 59.53 toks/s, output: 786.58 toks/s]
+++++++++++++++++++Time: 65.11231422424316 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9375
+5 Agents final_res: B, ground_truth: B, perf: 0.95
+10 Agents final_res: B, ground_truth: B, perf: 0.95
+15 Agents final_res: B, ground_truth: B, perf: 0.9625
+20 Agents final_res: B, ground_truth: B, perf: 0.9625
+25 Agents final_res: B, ground_truth: B, perf: 0.9625
+current task_id end:  79
+************************
+Total prompt tokens: 314700, Total completion tokens: 3674063
+current task_id start:  80
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2080.14it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:05<02:04,  5.17s/it, est. speed input: 24.57 toks/s, output: 37.34 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<00:54,  2.38s/it, est. speed input: 45.42 toks/s, output: 71.89 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:44,  2.01s/it, est. speed input: 53.15 toks/s, output: 93.47 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:10<00:27,  1.45s/it, est. speed input: 71.64 toks/s, output: 151.09 toks/s]Processed prompts:  28%|██▊       | 7/25 [01:01<03:57, 13.21s/it, est. speed input: 14.53 toks/s, output: 59.75 toks/s] Processed prompts: 100%|██████████| 25/25 [01:01<00:00, 13.21s/it, est. speed input: 51.90 toks/s, output: 662.36 toks/s]Processed prompts: 100%|██████████| 25/25 [01:01<00:00,  2.45s/it, est. speed input: 51.90 toks/s, output: 662.36 toks/s]
+++++++++++++++++++Time: 61.18713021278381 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9382716049382716
+5 Agents final_res: A, ground_truth: A, perf: 0.9506172839506173
+10 Agents final_res: A, ground_truth: A, perf: 0.9506172839506173
+15 Agents final_res: A, ground_truth: A, perf: 0.9629629629629629
+20 Agents final_res: A, ground_truth: A, perf: 0.9629629629629629
+25 Agents final_res: A, ground_truth: A, perf: 0.9629629629629629
+current task_id end:  80
+************************
+Total prompt tokens: 317875, Total completion tokens: 3714582
+current task_id start:  81
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2042.49it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:22,  3.43s/it, est. speed input: 36.78 toks/s, output: 38.82 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:49,  2.15s/it, est. speed input: 53.85 toks/s, output: 67.10 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:33,  1.50s/it, est. speed input: 69.82 toks/s, output: 96.60 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:06<00:31,  1.51s/it, est. speed input: 72.56 toks/s, output: 113.74 toks/s]Processed prompts:  20%|██        | 5/25 [00:07<00:20,  1.03s/it, est. speed input: 88.36 toks/s, output: 149.22 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:30,  1.60s/it, est. speed input: 77.00 toks/s, output: 146.67 toks/s]Processed prompts:  28%|██▊       | 7/25 [01:00<05:20, 17.80s/it, est. speed input: 14.46 toks/s, output: 57.19 toks/s] Processed prompts: 100%|██████████| 25/25 [01:01<00:00, 17.80s/it, est. speed input: 51.61 toks/s, output: 661.19 toks/s]Processed prompts: 100%|██████████| 25/25 [01:01<00:00,  2.44s/it, est. speed input: 51.61 toks/s, output: 661.19 toks/s]
+++++++++++++++++++Time: 61.042301416397095 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9390243902439024
+5 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+10 Agents final_res: D, ground_truth: D, perf: 0.9512195121951219
+15 Agents final_res: D, ground_truth: D, perf: 0.9634146341463414
+20 Agents final_res: D, ground_truth: D, perf: 0.9634146341463414
+25 Agents final_res: D, ground_truth: D, perf: 0.9634146341463414
+current task_id end:  81
+************************
+Total prompt tokens: 321025, Total completion tokens: 3754934
+current task_id start:  82
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1766.17it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:26,  6.11s/it, est. speed input: 22.43 toks/s, output: 38.30 toks/s]Processed prompts:   8%|▊         | 2/25 [00:06<01:02,  2.72s/it, est. speed input: 42.43 toks/s, output: 74.49 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:07<00:43,  1.96s/it, est. speed input: 54.71 toks/s, output: 102.11 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:07<00:26,  1.24s/it, est. speed input: 71.66 toks/s, output: 138.35 toks/s]Processed prompts:  20%|██        | 5/25 [00:08<00:22,  1.11s/it, est. speed input: 80.33 toks/s, output: 162.06 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:22,  1.21s/it, est. speed input: 82.84 toks/s, output: 177.16 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:11<00:24,  1.37s/it, est. speed input: 82.52 toks/s, output: 189.05 toks/s]Processed prompts:  32%|███▏      | 8/25 [01:00<04:41, 16.56s/it, est. speed input: 18.05 toks/s, output: 69.93 toks/s] Processed prompts: 100%|██████████| 25/25 [01:00<00:00, 16.56s/it, est. speed input: 56.39 toks/s, output: 643.06 toks/s]Processed prompts: 100%|██████████| 25/25 [01:00<00:00,  2.43s/it, est. speed input: 56.39 toks/s, output: 643.06 toks/s]
+++++++++++++++++++Time: 60.7575888633728 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9397590361445783
+5 Agents final_res: C, ground_truth: C, perf: 0.9518072289156626
+10 Agents final_res: C, ground_truth: C, perf: 0.9518072289156626
+15 Agents final_res: C, ground_truth: C, perf: 0.963855421686747
+20 Agents final_res: C, ground_truth: C, perf: 0.963855421686747
+25 Agents final_res: C, ground_truth: C, perf: 0.963855421686747
+current task_id end:  82
+************************
+Total prompt tokens: 324450, Total completion tokens: 3793995
+current task_id start:  83
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2195.92it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:45,  6.88s/it, est. speed input: 25.87 toks/s, output: 38.08 toks/s]Processed prompts:   8%|▊         | 2/25 [00:08<01:29,  3.90s/it, est. speed input: 40.93 toks/s, output: 68.06 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:10<01:07,  3.06s/it, est. speed input: 49.70 toks/s, output: 92.60 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:04<08:06, 23.15s/it, est. speed input: 11.00 toks/s, output: 47.03 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 23.15s/it, est. speed input: 68.74 toks/s, output: 711.31 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 68.74 toks/s, output: 711.31 toks/s]
+++++++++++++++++++Time: 64.75290966033936 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9404761904761905
+5 Agents final_res: B, ground_truth: B, perf: 0.9523809523809523
+10 Agents final_res: B, ground_truth: B, perf: 0.9523809523809523
+15 Agents final_res: B, ground_truth: B, perf: 0.9642857142857143
+20 Agents final_res: B, ground_truth: B, perf: 0.9642857142857143
+25 Agents final_res: B, ground_truth: B, perf: 0.9642857142857143
+current task_id end:  83
+************************
+Total prompt tokens: 328900, Total completion tokens: 3840046
+current task_id start:  84
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1816.97it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:04<25:55, 64.81s/it, est. speed input: 1.90 toks/s, output: 31.60 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 64.81s/it, est. speed input: 47.42 toks/s, output: 789.48 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 47.42 toks/s, output: 789.48 toks/s]
+++++++++++++++++++Time: 64.86753058433533 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9411764705882353
+5 Agents final_res: C, ground_truth: D, perf: 0.9411764705882353
+10 Agents final_res: C, ground_truth: D, perf: 0.9411764705882353
+15 Agents final_res: C, ground_truth: D, perf: 0.9529411764705882
+20 Agents final_res: C, ground_truth: D, perf: 0.9529411764705882
+25 Agents final_res: C, ground_truth: D, perf: 0.9529411764705882
+current task_id end:  84
+************************
+Total prompt tokens: 331975, Total completion tokens: 3891246
+current task_id start:  85
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2283.83it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:29,  3.71s/it, est. speed input: 36.07 toks/s, output: 38.50 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<01:05,  2.84s/it, est. speed input: 45.08 toks/s, output: 62.24 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<10:24, 28.39s/it, est. speed input: 6.21 toks/s, output: 37.35 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 28.39s/it, est. speed input: 51.71 toks/s, output: 732.85 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 51.71 toks/s, output: 732.85 toks/s]
+++++++++++++++++++Time: 64.79189777374268 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9418604651162791
+5 Agents final_res: A, ground_truth: A, perf: 0.9418604651162791
+10 Agents final_res: A, ground_truth: A, perf: 0.9418604651162791
+15 Agents final_res: A, ground_truth: A, perf: 0.9534883720930233
+20 Agents final_res: A, ground_truth: A, perf: 0.9534883720930233
+25 Agents final_res: A, ground_truth: A, perf: 0.9534883720930233
+current task_id end:  85
+************************
+Total prompt tokens: 335325, Total completion tokens: 3938720
+current task_id start:  86
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2313.97it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:00,  2.54s/it, est. speed input: 51.64 toks/s, output: 37.84 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:55,  2.39s/it, est. speed input: 54.26 toks/s, output: 57.78 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:36,  1.67s/it, est. speed input: 69.72 toks/s, output: 87.46 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:05<00:22,  1.08s/it, est. speed input: 90.04 toks/s, output: 122.68 toks/s]Processed prompts:  20%|██        | 5/25 [00:06<00:19,  1.04it/s, est. speed input: 99.67 toks/s, output: 146.69 toks/s]Processed prompts:  24%|██▍       | 6/25 [01:01<06:07, 19.36s/it, est. speed input: 12.75 toks/s, output: 48.87 toks/s] Processed prompts: 100%|██████████| 25/25 [01:01<00:00, 19.36s/it, est. speed input: 53.10 toks/s, output: 679.75 toks/s]Processed prompts: 100%|██████████| 25/25 [01:01<00:00,  2.47s/it, est. speed input: 53.10 toks/s, output: 679.75 toks/s]
+++++++++++++++++++Time: 61.68739342689514 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9425287356321839
+5 Agents final_res: C, ground_truth: C, perf: 0.9425287356321839
+10 Agents final_res: C, ground_truth: C, perf: 0.9425287356321839
+15 Agents final_res: C, ground_truth: C, perf: 0.9540229885057471
+20 Agents final_res: C, ground_truth: C, perf: 0.9540229885057471
+25 Agents final_res: C, ground_truth: C, perf: 0.9540229885057471
+current task_id end:  86
+************************
+Total prompt tokens: 338600, Total completion tokens: 3980644
+current task_id start:  87
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1544.70it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [01:05<26:01, 65.08s/it, est. speed input: 3.23 toks/s, output: 31.47 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00, 65.08s/it, est. speed input: 80.62 toks/s, output: 786.24 toks/s]Processed prompts: 100%|██████████| 25/25 [01:05<00:00,  2.60s/it, est. speed input: 80.62 toks/s, output: 786.24 toks/s]
+++++++++++++++++++Time: 65.13725900650024 ++++++++++++++++++
+1 Agents final_res: None, ground_truth: B, perf: 0.9318181818181818
+5 Agents final_res: B, ground_truth: B, perf: 0.9431818181818182
+10 Agents final_res: B, ground_truth: B, perf: 0.9431818181818182
+15 Agents final_res: B, ground_truth: B, perf: 0.9545454545454546
+20 Agents final_res: B, ground_truth: B, perf: 0.9545454545454546
+25 Agents final_res: B, ground_truth: B, perf: 0.9545454545454546
+current task_id end:  87
+************************
+Total prompt tokens: 343850, Total completion tokens: 4031844
+current task_id start:  88
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1915.49it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:42,  6.78s/it, est. speed input: 18.30 toks/s, output: 38.37 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:20,  3.49s/it, est. speed input: 31.12 toks/s, output: 70.77 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:11<01:13,  3.35s/it, est. speed input: 33.38 toks/s, output: 88.03 toks/s]Processed prompts:  16%|█▌        | 4/25 [01:04<08:02, 22.98s/it, est. speed input: 7.72 toks/s, output: 47.17 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 22.98s/it, est. speed input: 48.25 toks/s, output: 716.49 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 48.25 toks/s, output: 716.49 toks/s]
+++++++++++++++++++Time: 64.26824569702148 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9325842696629213
+5 Agents final_res: B, ground_truth: B, perf: 0.9438202247191011
+10 Agents final_res: B, ground_truth: B, perf: 0.9438202247191011
+15 Agents final_res: B, ground_truth: B, perf: 0.9550561797752809
+20 Agents final_res: B, ground_truth: B, perf: 0.9550561797752809
+25 Agents final_res: B, ground_truth: B, perf: 0.9550561797752809
+current task_id end:  88
+************************
+Total prompt tokens: 346950, Total completion tokens: 4077881
+current task_id start:  89
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2122.24it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:35,  6.49s/it, est. speed input: 19.41 toks/s, output: 38.66 toks/s]Processed prompts:   8%|▊         | 2/25 [00:11<02:12,  5.76s/it, est. speed input: 21.46 toks/s, output: 59.20 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<09:54, 27.04s/it, est. speed input: 5.90 toks/s, output: 42.80 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 27.04s/it, est. speed input: 49.12 toks/s, output: 745.29 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 49.12 toks/s, output: 745.29 toks/s]
+++++++++++++++++++Time: 64.14764904975891 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9333333333333333
+5 Agents final_res: C, ground_truth: C, perf: 0.9444444444444444
+10 Agents final_res: C, ground_truth: C, perf: 0.9444444444444444
+15 Agents final_res: C, ground_truth: C, perf: 0.9555555555555556
+20 Agents final_res: C, ground_truth: C, perf: 0.9555555555555556
+25 Agents final_res: C, ground_truth: C, perf: 0.9555555555555556
+current task_id end:  89
+************************
+Total prompt tokens: 350100, Total completion tokens: 4125680
+current task_id start:  90
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1815.21it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:09,  2.89s/it, est. speed input: 55.65 toks/s, output: 39.06 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:38,  1.68s/it, est. speed input: 86.56 toks/s, output: 69.35 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:06<00:50,  2.31s/it, est. speed input: 71.20 toks/s, output: 76.66 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:09<00:47,  2.27s/it, est. speed input: 71.54 toks/s, output: 96.09 toks/s]Processed prompts:  20%|██        | 5/25 [01:02<06:52, 20.64s/it, est. speed input: 12.94 toks/s, output: 46.84 toks/s]Processed prompts: 100%|██████████| 25/25 [01:02<00:00, 20.64s/it, est. speed input: 64.68 toks/s, output: 704.99 toks/s]Processed prompts: 100%|██████████| 25/25 [01:02<00:00,  2.49s/it, est. speed input: 64.68 toks/s, output: 704.99 toks/s]
+++++++++++++++++++Time: 62.24723815917969 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9340659340659341
+5 Agents final_res: A, ground_truth: A, perf: 0.945054945054945
+10 Agents final_res: A, ground_truth: A, perf: 0.945054945054945
+15 Agents final_res: A, ground_truth: A, perf: 0.9560439560439561
+20 Agents final_res: A, ground_truth: A, perf: 0.9560439560439561
+25 Agents final_res: A, ground_truth: A, perf: 0.9560439560439561
+current task_id end:  90
+************************
+Total prompt tokens: 354125, Total completion tokens: 4169553
+current task_id start:  91
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2331.20it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:06<02:29,  6.24s/it, est. speed input: 20.36 toks/s, output: 38.63 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:18,  3.42s/it, est. speed input: 33.07 toks/s, output: 69.78 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<10:07, 27.62s/it, est. speed input: 5.94 toks/s, output: 40.31 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 27.62s/it, est. speed input: 49.50 toks/s, output: 742.73 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 49.50 toks/s, output: 742.73 toks/s]
+++++++++++++++++++Time: 64.15399193763733 ++++++++++++++++++
+1 Agents final_res: B, ground_truth: B, perf: 0.9347826086956522
+5 Agents final_res: B, ground_truth: B, perf: 0.9456521739130435
+10 Agents final_res: B, ground_truth: B, perf: 0.9456521739130435
+15 Agents final_res: B, ground_truth: B, perf: 0.9565217391304348
+20 Agents final_res: B, ground_truth: B, perf: 0.9565217391304348
+25 Agents final_res: B, ground_truth: B, perf: 0.9565217391304348
+current task_id end:  91
+************************
+Total prompt tokens: 357300, Total completion tokens: 4217193
+current task_id start:  92
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2266.70it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:33,  3.89s/it, est. speed input: 33.68 toks/s, output: 38.82 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<14:14, 37.16s/it, est. speed input: 4.07 toks/s, output: 34.17 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 37.16s/it, est. speed input: 50.86 toks/s, output: 765.72 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.58s/it, est. speed input: 50.86 toks/s, output: 765.72 toks/s]
+++++++++++++++++++Time: 64.39997434616089 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9354838709677419
+5 Agents final_res: A, ground_truth: A, perf: 0.946236559139785
+10 Agents final_res: A, ground_truth: A, perf: 0.946236559139785
+15 Agents final_res: A, ground_truth: A, perf: 0.956989247311828
+20 Agents final_res: A, ground_truth: A, perf: 0.956989247311828
+25 Agents final_res: A, ground_truth: A, perf: 0.956989247311828
+current task_id end:  92
+************************
+Total prompt tokens: 360575, Total completion tokens: 4266496
+current task_id start:  93
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2247.94it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:56,  2.34s/it, est. speed input: 53.80 toks/s, output: 38.85 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<14:20, 37.42s/it, est. speed input: 3.92 toks/s, output: 33.26 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 37.42s/it, est. speed input: 48.95 toks/s, output: 765.20 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 48.95 toks/s, output: 765.20 toks/s]
+++++++++++++++++++Time: 64.36583542823792 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9361702127659575
+5 Agents final_res: C, ground_truth: C, perf: 0.9468085106382979
+10 Agents final_res: C, ground_truth: C, perf: 0.9468085106382979
+15 Agents final_res: C, ground_truth: C, perf: 0.9574468085106383
+20 Agents final_res: C, ground_truth: C, perf: 0.9574468085106383
+25 Agents final_res: C, ground_truth: C, perf: 0.9574468085106383
+current task_id end:  93
+************************
+Total prompt tokens: 363725, Total completion tokens: 4315739
+current task_id start:  94
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1702.54it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:27<11:00, 27.50s/it, est. speed input: 7.09 toks/s, output: 35.41 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<12:42, 33.17s/it, est. speed input: 6.03 toks/s, output: 46.75 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 33.17s/it, est. speed input: 75.37 toks/s, output: 774.95 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 75.37 toks/s, output: 774.95 toks/s]
+++++++++++++++++++Time: 64.6990110874176 ++++++++++++++++++
+1 Agents final_res: D, ground_truth: D, perf: 0.9368421052631579
+5 Agents final_res: D, ground_truth: D, perf: 0.9473684210526315
+10 Agents final_res: D, ground_truth: D, perf: 0.9473684210526315
+15 Agents final_res: D, ground_truth: D, perf: 0.9578947368421052
+20 Agents final_res: D, ground_truth: D, perf: 0.9578947368421052
+25 Agents final_res: D, ground_truth: D, perf: 0.9578947368421052
+current task_id end:  94
+************************
+Total prompt tokens: 368600, Total completion tokens: 4365865
+current task_id start:  95
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1770.17it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:53,  4.75s/it, est. speed input: 34.32 toks/s, output: 37.90 toks/s]Processed prompts:   8%|▊         | 2/25 [00:07<01:27,  3.79s/it, est. speed input: 41.44 toks/s, output: 60.64 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:08<00:51,  2.34s/it, est. speed input: 57.64 toks/s, output: 93.95 toks/s]Processed prompts:  20%|██        | 5/25 [00:09<00:24,  1.22s/it, est. speed input: 88.60 toks/s, output: 159.60 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:09<00:17,  1.06it/s, est. speed input: 103.35 toks/s, output: 192.85 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:13<00:23,  1.39s/it, est. speed input: 97.83 toks/s, output: 201.37 toks/s] Processed prompts:  36%|███▌      | 9/25 [00:59<03:18, 12.40s/it, est. speed input: 24.49 toks/s, output: 79.00 toks/s] Processed prompts: 100%|██████████| 25/25 [00:59<00:00, 12.40s/it, est. speed input: 68.03 toks/s, output: 626.05 toks/s]Processed prompts: 100%|██████████| 25/25 [00:59<00:00,  2.40s/it, est. speed input: 68.03 toks/s, output: 626.05 toks/s]
+++++++++++++++++++Time: 59.914430141448975 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9375
+5 Agents final_res: C, ground_truth: C, perf: 0.9479166666666666
+10 Agents final_res: C, ground_truth: C, perf: 0.9479166666666666
+15 Agents final_res: C, ground_truth: C, perf: 0.9583333333333334
+20 Agents final_res: C, ground_truth: C, perf: 0.9583333333333334
+25 Agents final_res: C, ground_truth: C, perf: 0.9583333333333334
+current task_id end:  95
+************************
+Total prompt tokens: 372675, Total completion tokens: 4403365
+current task_id start:  96
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2398.72it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:00,  2.54s/it, est. speed input: 55.10 toks/s, output: 38.18 toks/s]Processed prompts:   8%|▊         | 2/25 [00:02<00:28,  1.23s/it, est. speed input: 98.34 toks/s, output: 72.70 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:04<00:17,  1.18it/s, est. speed input: 137.09 toks/s, output: 115.79 toks/s]Processed prompts:  20%|██        | 5/25 [00:05<00:22,  1.14s/it, est. speed input: 118.89 toks/s, output: 118.89 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:07<00:25,  1.36s/it, est. speed input: 108.45 toks/s, output: 128.84 toks/s]Processed prompts:  28%|██▊       | 7/25 [01:00<05:08, 17.15s/it, est. speed input: 16.08 toks/s, output: 49.96 toks/s]  Processed prompts: 100%|██████████| 25/25 [01:00<00:00, 17.15s/it, est. speed input: 57.41 toks/s, output: 654.64 toks/s]Processed prompts: 100%|██████████| 25/25 [01:00<00:00,  2.44s/it, est. speed input: 57.41 toks/s, output: 654.64 toks/s]
+++++++++++++++++++Time: 60.976070404052734 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9381443298969072
+5 Agents final_res: A, ground_truth: A, perf: 0.9484536082474226
+10 Agents final_res: A, ground_truth: A, perf: 0.9484536082474226
+15 Agents final_res: A, ground_truth: A, perf: 0.9587628865979382
+20 Agents final_res: A, ground_truth: A, perf: 0.9587628865979382
+25 Agents final_res: A, ground_truth: A, perf: 0.9587628865979382
+current task_id end:  96
+************************
+Total prompt tokens: 376175, Total completion tokens: 4443275
+current task_id start:  97
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1414.13it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:17<06:50, 17.11s/it, est. speed input: 8.18 toks/s, output: 36.94 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<13:20, 34.82s/it, est. speed input: 4.35 toks/s, output: 41.67 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 34.82s/it, est. speed input: 54.38 toks/s, output: 773.47 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.57s/it, est. speed input: 54.38 toks/s, output: 773.47 toks/s]
+++++++++++++++++++Time: 64.38367104530334 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.9387755102040817
+5 Agents final_res: A, ground_truth: A, perf: 0.9489795918367347
+10 Agents final_res: A, ground_truth: A, perf: 0.9489795918367347
+15 Agents final_res: A, ground_truth: A, perf: 0.9591836734693877
+20 Agents final_res: A, ground_truth: A, perf: 0.9591836734693877
+25 Agents final_res: A, ground_truth: A, perf: 0.9591836734693877
+current task_id end:  97
+************************
+Total prompt tokens: 379675, Total completion tokens: 4493059
+current task_id start:  98
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1316.46it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:07<03:00,  7.51s/it, est. speed input: 20.11 toks/s, output: 37.55 toks/s]Processed prompts:   8%|▊         | 2/25 [00:12<02:17,  5.96s/it, est. speed input: 24.38 toks/s, output: 59.82 toks/s]Processed prompts:  12%|█▏        | 3/25 [01:04<09:56, 27.11s/it, est. speed input: 7.00 toks/s, output: 43.12 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 27.11s/it, est. speed input: 58.33 toks/s, output: 739.34 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 58.33 toks/s, output: 739.34 toks/s]
+++++++++++++++++++Time: 64.73316669464111 ++++++++++++++++++
+1 Agents final_res: C, ground_truth: C, perf: 0.9393939393939394
+5 Agents final_res: C, ground_truth: C, perf: 0.9494949494949495
+10 Agents final_res: C, ground_truth: C, perf: 0.9494949494949495
+15 Agents final_res: C, ground_truth: C, perf: 0.9595959595959596
+20 Agents final_res: C, ground_truth: C, perf: 0.9595959595959596
+25 Agents final_res: C, ground_truth: C, perf: 0.9595959595959596
+current task_id end:  98
+************************
+Total prompt tokens: 383450, Total completion tokens: 4540904
+current task_id start:  99
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1605.51it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:08<03:18,  8.28s/it, est. speed input: 25.37 toks/s, output: 37.93 toks/s]Processed prompts:   8%|▊         | 2/25 [01:04<14:01, 36.58s/it, est. speed input: 6.50 toks/s, output: 36.53 toks/s] Processed prompts: 100%|██████████| 25/25 [01:04<00:00, 36.58s/it, est. speed input: 81.14 toks/s, output: 764.47 toks/s]Processed prompts: 100%|██████████| 25/25 [01:04<00:00,  2.59s/it, est. speed input: 81.14 toks/s, output: 764.47 toks/s]
+++++++++++++++++++Time: 64.72308135032654 ++++++++++++++++++
+1 Agents final_res: A, ground_truth: A, perf: 0.94
+5 Agents final_res: A, ground_truth: A, perf: 0.95
+10 Agents final_res: A, ground_truth: A, perf: 0.95
+15 Agents final_res: A, ground_truth: A, perf: 0.96
+20 Agents final_res: A, ground_truth: A, perf: 0.96
+25 Agents final_res: A, ground_truth: A, perf: 0.96
+current task_id end:  99
+************************
+Total prompt tokens: 388700, Total completion tokens: 4590370
+
+--- Saving Results for Each K Value ---
+Saved CSV for K=1 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_1_agents/mmlu_1_agents_part_0.csv
+Saved JSON for K=1 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_1_agents/mmlu_1_agents_part_0.json
+Saved CSV for K=5 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_5_agents/mmlu_5_agents_part_0.csv
+Saved JSON for K=5 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_5_agents/mmlu_5_agents_part_0.json
+Saved CSV for K=10 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_10_agents/mmlu_10_agents_part_0.csv
+Saved JSON for K=10 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_10_agents/mmlu_10_agents_part_0.json
+Saved CSV for K=15 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_15_agents/mmlu_15_agents_part_0.csv
+Saved JSON for K=15 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_15_agents/mmlu_15_agents_part_0.json
+Saved CSV for K=20 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_20_agents/mmlu_20_agents_part_0.csv
+Saved JSON for K=20 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_20_agents/mmlu_20_agents_part_0.json
+Saved CSV for K=25 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_25_agents/mmlu_25_agents_part_0.csv
+Saved JSON for K=25 to: /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/log_mmlu_punctuation_30_25_agents/mmlu_25_agents_part_0.json
+
+--- Final Evaluation for Each K Value ---
+Part 0 final evaluation for K=1: 0.94
+Part 0 final evaluation for K=5: 0.95
+Part 0 final evaluation for K=10: 0.95
+Part 0 final evaluation for K=15: 0.96
+Part 0 final evaluation for K=20: 0.96
+Part 0 final evaluation for K=25: 0.96
+AGENT 1: All done, evaluating...
+final_perf: 0.94
+AGENT 1: All done, evaluating finished...
+AGENT 5: All done, evaluating...
+final_perf: 0.95
+AGENT 5: All done, evaluating finished...
+AGENT 10: All done, evaluating...
+final_perf: 0.95
+AGENT 10: All done, evaluating finished...
+AGENT 15: All done, evaluating...
+final_perf: 0.96
+AGENT 15: All done, evaluating finished...
+AGENT 20: All done, evaluating...
+final_perf: 0.96
+AGENT 20: All done, evaluating finished...
+AGENT 25: All done, evaluating...
+final_perf: 0.96
+AGENT 25: All done, evaluating finished...
+SLURM Job ID 155504 saved to /home/s06zyelt/nlp_lab/view100/punctuation_30/Qwen3-4B/mmlu/slurm_job_id.txt
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+End Time: Mon Sep  1 23:29:22 CEST 2025
+Finished!!!
