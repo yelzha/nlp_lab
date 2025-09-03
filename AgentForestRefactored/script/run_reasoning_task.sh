@@ -26,7 +26,7 @@ for AGENT in "${K_VALUES[@]}"
 do
     echo "AGENT ${AGENT}: All done, evaluating..."
     DIR_NAME="${BASE_DIR_NAME}/log_${QTYPE}_${DTYPE}_${AGENT}_agents"
-    python evaluation.py ${DIR_NAME} ${QTYPE}
+    # python evaluation.py ${DIR_NAME} ${QTYPE}
     echo "AGENT ${AGENT}: All done, evaluating finished..."
 done
 
