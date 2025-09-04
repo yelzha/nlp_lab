@@ -1,20 +1,20 @@
 #!/bin/bash
-# master_orchestrator_mmlu.sh
+# master_orchestrator_multiarith.sh
 
-MODELS=("Qwen3-14B")
+MODELS=("Qwen3-4B")
 # MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-DTYPES=("punctuation_10")
+DTYPES=("r2ata")
 # "clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata"
-VLLM_MODEL_NAMES=("Qwen/Qwen3-14B")
+VLLM_MODEL_NAMES=("Qwen/Qwen3-4B")
 # VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
-# Fixed parameters
-QTYPE="mmlu"
+# Fixed experiment parameters
+QTYPE="multiarith"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
 DEBUG="TRUE"
-COMMON_STAGES="0 1" # 0 2;2 4;4 6;6 8;8 10;10 12
+COMMON_STAGES="0 1" # 0 2
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 EXPERIMENT_DIRECTORY="view100"  # experiments
 DEPENDENCY="FALSE"
@@ -32,27 +32,28 @@ fi
 ORCHESTRATOR_SCRIPT="./orchestrator_single_experiment.sh"
 if [ ! -f "$ORCHESTRATOR_SCRIPT" ]; then
     echo "Error: orchestrator.sh not found at $ORCHESTRATOR_SCRIPT."
+    echo "Please ensure 'orchestrator.sh' is in the same directory or provide its full path."
     exit 1
 fi
 
 LAST_SLURM_ID=""
 
-# --- Iterate through all combinations of MODEL × DTYPE ---
+# Iterate over MODEL × DTYPE combinations
 for MODEL in "${MODELS[@]}"; do
     for DTYPE in "${DTYPES[@]}"; do
 
-      # Skip until the resume point is found
-      if [ "$FOUND_START" = false ]; then
-        if [[ "$MODEL" == "$RESUME_MODEL" && "$DTYPE" == "$RESUME_DTYPE" ]]; then
-          FOUND_START=true
-          echo "===> Resuming from MODEL=$MODEL, DTYPE=$DTYPE"
-        else
-          echo "Skipping MODEL=$MODEL, DTYPE=$DTYPE"
-          continue
+        # Skip until the resume point is found
+        if [ "$FOUND_START" = false ]; then
+          if [[ "$MODEL" == "$RESUME_MODEL" && "$DTYPE" == "$RESUME_DTYPE" ]]; then
+            FOUND_START=true
+            echo "===> Resuming from MODEL=$MODEL, DTYPE=$DTYPE"
+          else
+            echo "Skipping MODEL=$MODEL, DTYPE=$DTYPE"
+            continue
+          fi
         fi
-      fi
 
-        # Find matching VLLM model by index
+        # Match VLLM model name based on index
         MODEL_INDEX=-1
         for i in "${!MODELS[@]}"; do
             if [[ "${MODELS[$i]}" == "$MODEL" ]]; then
@@ -64,11 +65,10 @@ for MODEL in "${MODELS[@]}"; do
         if [[ "$MODEL_INDEX" -ne -1 && "$MODEL_INDEX" -lt "${#VLLM_MODEL_NAMES[@]}" ]]; then
             VLLM_MODEL_NAME="${VLLM_MODEL_NAMES[$MODEL_INDEX]}"
         else
-            echo "Warning: No VLLM_MODEL_NAME for MODEL: $MODEL. Skipping."
+            echo "Warning: No corresponding VLLM_MODEL_NAME found for MODEL: $MODEL. Skipping."
             continue
         fi
 
-        # Handle SLURM dependency if set
         DEPENDENCY_ARG=""
         if [ -n "$LAST_SLURM_ID" ]; then
             DEPENDENCY_ARG="$LAST_SLURM_ID"
