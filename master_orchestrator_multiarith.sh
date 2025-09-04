@@ -1,10 +1,11 @@
 #!/bin/bash
 # master_orchestrator_multiarith.sh
 
-MODELS=("Mistral-7B-Instruct-v0.3")
+MODELS=("Qwen3-14B")
 # MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
-VLLM_MODEL_NAMES=("mistralai/Mistral-7B-Instruct-v0.3")
+DTYPES=("punctuation_50" "wikitypo" "r2ata")
+# "clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata"
+VLLM_MODEL_NAMES=("Qwen/Qwen3-14B")
 # VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
 # Fixed experiment parameters
@@ -14,7 +15,7 @@ TEMPERATURE=1
 TOP_P=1
 DEBUG="TRUE"
 COMMON_STAGES="0 1" # 0 2
-WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
+WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 EXPERIMENT_DIRECTORY="view100"  # experiments
 DEPENDENCY="FALSE"
 

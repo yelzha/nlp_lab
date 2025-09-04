@@ -1,9 +1,9 @@
 #!/bin/bash
 # master_orchestrator_multiarith.sh
 
-MODELS=("Qwen3-4B")
-DTYPES=("punctuation_30")
-VLLM_MODEL_NAMES=("Qwen/Qwen3-4B")
+MODELS=("Llama-3.1-8B-Instruct")
+DTYPES=("r2ata")
+VLLM_MODEL_NAMES=("meta-llama/Llama-3.1-8B-Instruct")
 
 # Fixed experiment parameters
 QTYPE="multiarith"
@@ -12,7 +12,7 @@ TEMPERATURE=1
 TOP_P=1
 DEBUG="TRUE"
 COMMON_STAGES="0 1" # 0 2
-WORKER_SCRIPT="./scripts/run_experiment_a40.sh"
+WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 EXPERIMENT_DIRECTORY="view100"  # experiments
 DEPENDENCY="FALSE"
 
