@@ -9,7 +9,7 @@ VLLM_MODEL_NAMES=("mistralai/Mistral-7B-Instruct-v0.3")
 # VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
 # Fixed parameters
-QTYPE="multiarith"
+QTYPE="gsm"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1

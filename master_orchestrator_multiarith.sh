@@ -1,11 +1,11 @@
 #!/bin/bash
 # master_orchestrator_multiarith.sh
 
-MODELS=("Qwen3-14B")
+MODELS=("Llama-3.1-8B-Instruct")
 # MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-DTYPES=("punctuation_50" "wikitypo" "r2ata")
+DTYPES=("punctuation_10" "punctuation_30" "wikitypo" "r2ata")
 # "clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata"
-VLLM_MODEL_NAMES=("Qwen/Qwen3-14B")
+VLLM_MODEL_NAMES=("meta-llama/Llama-3.1-8B-Instruct")
 # VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
 # Fixed experiment parameters

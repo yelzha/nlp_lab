@@ -9,7 +9,7 @@ def main(folder="view100"):
     records = []
 
     if folder == "view100":
-        pattern = os.path.join(base_dir, "*", "*", "*", "*", "*1_agents_part_0.csv")
+        pattern = os.path.join(base_dir, "*", "*", "*", "*", "*_agents_part_0.csv")
     else:
         pattern = os.path.join(base_dir, "*", "*", "*", "*", "merged_record.csv")
 
