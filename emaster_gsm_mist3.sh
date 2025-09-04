@@ -3,7 +3,7 @@
 
 MODELS=("Mistral-7B-Instruct-v0.3")
 # MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
-DTYPES=("punctuation_10" "punctuation_50" "wikitypo" "r2ata")
+DTYPES=("wikitypo")
 # "clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata"
 VLLM_MODEL_NAMES=("mistralai/Mistral-7B-Instruct-v0.3")
 # VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
@@ -14,7 +14,7 @@ SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
 DEBUG="TRUE"
-COMMON_STAGES="0 2" # 0 2;2 4;4 6;6 8;8 10;10 12
+COMMON_STAGES="10 11" # 0 2;2 4;4 6;6 8;8 10;10 12
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 EXPERIMENT_DIRECTORY="experiments"  # experiments
 DEPENDENCY="FALSE"
