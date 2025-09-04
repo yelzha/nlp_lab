@@ -1,17 +1,20 @@
 #!/bin/bash
 # master_orchestrator_mmlu.sh
 
-MODELS=("gemma-3-4b-it")
-DTYPES=("clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata")
-VLLM_MODEL_NAMES=("google/gemma-3-4b-it")
+MODELS=("Llama-3.1-8B-Instruct")
+# MODELS=("Qwen3-4B" "Qwen3-14B" "Llama-3.1-8B-Instruct" "Mistral-7B-Instruct-v0.3")
+DTYPES=("punctuation_10" "punctuation_50")
+# "clean" "punctuation_10" "punctuation_30" "punctuation_50" "wikitypo" "r2ata"
+VLLM_MODEL_NAMES=("meta-llama/Llama-3.1-8B-Instruct")
+# VLLM_MODEL_NAMES=("Qwen/Qwen3-4B" "Qwen/Qwen3-14B" "meta-llama/Llama-3.1-8B-Instruct" "mistralai/Mistral-7B-Instruct-v0.3")
 
 # Fixed parameters
-QTYPE="mmlu"
+QTYPE="multiarith"
 SUBSET_NUM=100
 TEMPERATURE=1
 TOP_P=1
 DEBUG="TRUE"
-COMMON_STAGES="0 2;2 4;4 6;6 8;8 10;10 12" # 0 2;2 4;4 6;6 8;8 10;10 12
+COMMON_STAGES="0 1" # 0 2;2 4;4 6;6 8;8 10;10 12
 WORKER_SCRIPT="./scripts/run_experiment_a100.sh"
 EXPERIMENT_DIRECTORY="experiments"  # experiments
 DEPENDENCY="FALSE"

@@ -2,13 +2,17 @@ import os
 import glob
 import pandas as pd
 
-def main():
-    base_dir = "../view100"  # view100 experiments   change if needed
+
+def main(folder="view100"):
+    base_dir = f"../{folder}"  # view100 experiments   change if needed
 
     records = []
 
-    # Loop over all .txt files in the nested folder structure
-    pattern = os.path.join(base_dir, "*", "*", "*", "*", "*1_agents_part_0.csv")
+    if folder == "view100":
+        pattern = os.path.join(base_dir, "*", "*", "*", "*", "*1_agents_part_0.csv")
+    else:
+        pattern = os.path.join(base_dir, "*", "*", "*", "*", "merged_record.csv")
+
     for filepath in glob.glob(pattern):
         parts = filepath.split(os.sep)
         # Extract folder names: {dataset_noise}/{model}/{dataset}/{agent_num}
@@ -47,8 +51,10 @@ def main():
     print(df.head(5))
     print(aggregated_df.head(5))
 
-    aggregated_df.to_csv("aggregated_df_view100.csv")
+    aggregated_df.to_csv(f"aggregated_df_{folder}.csv")
 
 
 if __name__ == "__main__":
-    main()
+    # view100 experiments   change if needed
+    main(folder="view100")
+    main(folder="experiments")
