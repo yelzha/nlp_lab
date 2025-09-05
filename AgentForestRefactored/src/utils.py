@@ -274,10 +274,10 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
                 total_completion_tokens_for_output += len(completion_output.token_ids)
 
             if DEBUG:
-                pass
-                # for idx, choice in enumerate(choices):
-                #     print(f"Agent: {idx}, answer: {choice['message']['content']}")
-                # print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
+                # pass
+                for idx, choice in enumerate(choices):
+                    print(f"Agent: {idx}, answer: {choice['message']['content']}")
+                print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
 
             if len(choices) != nums:
                 raise "Not fully generated"
