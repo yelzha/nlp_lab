@@ -374,6 +374,9 @@ def get_majority_voting_answer_for_gsm(agent_answers):
         return num
 
     pred_answer = most_frequent(agent_answers)
+    if pred_answer is None:
+        print(pred_answer)
+        print(agent_answers)
     if len(pred_answer) == 0:
         return math.nan
     try:
@@ -476,54 +479,35 @@ def math_ans_parser(answer_text, question=None):
     # return match.group(1), True if match else None,False
 
 
-# def gsm_ans_parser(answer_text, question=None):
-#     def parse_answer(input_str):
-#         pattern = r"\{([0-9.,$]*)\}"
-#         matches = re.findall(pattern, input_str)
-#
-#         solution = None
-#
-#         for match_str in matches[::-1]:
-#             solution = re.sub(r"[^0-9.]", "", match_str)
-#             if solution:
-#                 break
-#
-#         return solution
-#
-#     def solve_math_problems(input_str):
-#         pattern = r"\d+\.?\d*"
-#
-#         matches = re.findall(pattern, input_str)
-#         if matches:
-#             return matches[-1]
-#
-#         return None
-#
-#     pred_answer = parse_answer(answer_text)
-#
-#     if pred_answer is None:
-#         pred_answer = solve_math_problems(answer_text)
-#
-#     return pred_answer, pred_answer is not None
-
 def gsm_ans_parser(answer_text, question=None):
-    # Rule 1: The most comprehensive rule for numbers with commas, signs, and decimals.
-    # This covers integers, negative numbers, and common decimals.
-    pattern1 = r"\\boxed{([-]?[0-9,.]+)}"
-    match1 = re.search(pattern1, answer_text)
-    if match1:
-        answer = match1.group(1).replace(",", "").strip()
-        return answer, answer is not None
+    def parse_answer(input_str):
+        pattern = r"\{([0-9.,$]*)\}"
+        matches = re.findall(pattern, input_str)
 
-    # Rule 2: Handle fractional answers.
-    pattern2 = r"\\boxed{([0-9]+/[0-9]+)}"
-    match2 = re.search(pattern2, answer_text)
-    if match2:
-        numerator, denominator = match2.group(1).split('/')
-        answer = str(float(numerator) / float(denominator))
-        return answer, answer is not None
+        solution = None
 
-    return None, False
+        for match_str in matches[::-1]:
+            solution = re.sub(r"[^0-9.]", "", match_str)
+            if solution:
+                break
+
+        return solution
+
+    def solve_math_problems(input_str):
+        pattern = r"\d+\.?\d*"
+
+        matches = re.findall(pattern, input_str)
+        if matches:
+            return matches[-1]
+
+        return None
+
+    pred_answer = parse_answer(answer_text)
+
+    if pred_answer is None:
+        pred_answer = solve_math_problems(answer_text)
+
+    return pred_answer, pred_answer is not None
 
 
 def chess_ans_parser(answer_text, question=None):
