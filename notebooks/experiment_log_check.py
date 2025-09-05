@@ -57,4 +57,4 @@ def main(folder="view100"):
 if __name__ == "__main__":
     # view100 experiments   change if needed
     main(folder="view100")
-    main(folder="experiments")
+    # main(folder="experiments")
