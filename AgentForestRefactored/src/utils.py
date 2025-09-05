@@ -267,7 +267,7 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
             total_completion_tokens_for_output = 0
             for completion_output in output.outputs:
                 choices.append({
-                    "message": {"content": completion_output.text},
+                    "message": {"content": completion_output.text.replace('"', '')},
                     "finish_reason": completion_output.finish_reason,  # "stop", "length" etc.
                     # You might add logprobs if needed, though not directly available like OpenAI's.
                 })
