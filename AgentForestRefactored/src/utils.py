@@ -513,22 +513,18 @@ def gsm_ans_parser(answer_text, question=None):
     pattern1 = r"\\boxed{([-]?[0-9,.]+)}"
     match1 = re.search(pattern1, answer_text)
     if match1:
-        return match1.group(1).replace(",", "").strip()
+        answer = match1.group(1).replace(",", "").strip()
+        return answer, answer is not None
 
     # Rule 2: Handle fractional answers.
     pattern2 = r"\\boxed{([0-9]+/[0-9]+)}"
     match2 = re.search(pattern2, answer_text)
     if match2:
         numerator, denominator = match2.group(1).split('/')
-        return str(float(numerator) / float(denominator))
+        answer = str(float(numerator) / float(denominator))
+        return answer, answer is not None
 
-    # Rule 3: Handle scientific notation.
-    pattern3 = r"\\boxed{([-]?[0-9.]+e[+-]?[0-9]+)}"
-    match3 = re.search(pattern3, answer_text, re.IGNORECASE)
-    if match3:
-        return str(float(match3.group(1)))
-
-    return None
+    return None, False
 
 
 def chess_ans_parser(answer_text, question=None):
