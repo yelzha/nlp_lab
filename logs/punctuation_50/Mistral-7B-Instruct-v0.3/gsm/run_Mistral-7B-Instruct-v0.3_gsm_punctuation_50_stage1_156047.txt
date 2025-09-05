@@ -1,0 +1,462 @@
+------------------------------------------------------------
+SLURM JOB INFO
+Job ID: 156047
+Job Name: run_Mistral-7B-Instruct-v0.3_gsm_punctuation_50_stage1
+Partition: A100short
+Nodes: 1
+Tasks per node: 
+CPUs per task: 
+Requested Memory:  MB (approx)
+Working Directory: /home/s06zyelt/nlp_lab
+Start Time: Fri Sep  5 12:14:10 CEST 2025
+------------------------------------------------------------
+Hello from Slurm on node node-06.bender!
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (2.2.6)
+Requirement already satisfied: pandas in ./env/lib/python3.10/site-packages (2.3.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./env/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./env/lib/python3.10/site-packages (from pandas) (2025.2)
+Requirement already satisfied: six>=1.5 in ./env/lib/python3.10/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: sacrebleu in ./env/lib/python3.10/site-packages (2.5.1)
+Requirement already satisfied: portalocker in ./env/lib/python3.10/site-packages (from sacrebleu) (3.2.0)
+Requirement already satisfied: regex in ./env/lib/python3.10/site-packages (from sacrebleu) (2025.7.34)
+Requirement already satisfied: tabulate>=0.8.9 in ./env/lib/python3.10/site-packages (from sacrebleu) (0.9.0)
+Requirement already satisfied: numpy>=1.17 in ./env/lib/python3.10/site-packages (from sacrebleu) (2.2.6)
+Requirement already satisfied: colorama in ./env/lib/python3.10/site-packages (from sacrebleu) (0.4.6)
+Requirement already satisfied: lxml in ./env/lib/python3.10/site-packages (from sacrebleu) (6.0.0)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Collecting git+https://github.com/openai/human-eval.git
+  Cloning https://github.com/openai/human-eval.git to /home/s06zyelt/.my_tmp/pip-req-build-e1kez5g_
+  error: subprocess-exited-with-error
+  
+  × git version did not run successfully.
+  │ exit code: -4
+  ╰─> [2 lines of output]
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+error: subprocess-exited-with-error
+
+× git version did not run successfully.
+│ exit code: -4
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Requirement already satisfied: torch in ./env/lib/python3.10/site-packages (2.7.1)
+Requirement already satisfied: torchvision in ./env/lib/python3.10/site-packages (0.22.1)
+Requirement already satisfied: torchaudio in ./env/lib/python3.10/site-packages (2.7.1)
+Requirement already satisfied: filelock in ./env/lib/python3.10/site-packages (from torch) (3.19.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in ./env/lib/python3.10/site-packages (from torch) (4.12.2)
+Requirement already satisfied: sympy>=1.13.3 in ./env/lib/python3.10/site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in ./env/lib/python3.10/site-packages (from torch) (3.3)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in ./env/lib/python3.10/site-packages (from torch) (2024.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in ./env/lib/python3.10/site-packages (from torch) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in ./env/lib/python3.10/site-packages (from torch) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in ./env/lib/python3.10/site-packages (from torch) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in ./env/lib/python3.10/site-packages (from torch) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in ./env/lib/python3.10/site-packages (from torch) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in ./env/lib/python3.10/site-packages (from torch) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in ./env/lib/python3.10/site-packages (from torch) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in ./env/lib/python3.10/site-packages (from torch) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in ./env/lib/python3.10/site-packages (from torch) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in ./env/lib/python3.10/site-packages (from torch) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in ./env/lib/python3.10/site-packages (from torch) (1.11.1.6)
+Requirement already satisfied: triton==3.3.1 in ./env/lib/python3.10/site-packages (from torch) (3.3.1)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.1->torch) (80.9.0)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from torchvision) (2.2.6)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./env/lib/python3.10/site-packages (from torchvision) (11.0.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./env/lib/python3.10/site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.10/site-packages (from jinja2->torch) (2.1.5)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu121
+Requirement already satisfied: vllm in ./env/lib/python3.10/site-packages (0.10.0)
+Requirement already satisfied: regex in ./env/lib/python3.10/site-packages (from vllm) (2025.7.34)
+Requirement already satisfied: cachetools in ./env/lib/python3.10/site-packages (from vllm) (6.1.0)
+Requirement already satisfied: psutil in ./env/lib/python3.10/site-packages (from vllm) (7.0.0)
+Requirement already satisfied: sentencepiece in ./env/lib/python3.10/site-packages (from vllm) (0.2.1)
+Requirement already satisfied: numpy in ./env/lib/python3.10/site-packages (from vllm) (2.2.6)
+Requirement already satisfied: requests>=2.26.0 in ./env/lib/python3.10/site-packages (from vllm) (2.32.4)
+Requirement already satisfied: tqdm in ./env/lib/python3.10/site-packages (from vllm) (4.67.1)
+Requirement already satisfied: blake3 in ./env/lib/python3.10/site-packages (from vllm) (1.0.5)
+Requirement already satisfied: py-cpuinfo in ./env/lib/python3.10/site-packages (from vllm) (9.0.0)
+Requirement already satisfied: transformers>=4.53.2 in ./env/lib/python3.10/site-packages (from vllm) (4.55.2)
+Requirement already satisfied: huggingface-hub>=0.33.0 in ./env/lib/python3.10/site-packages (from huggingface-hub[hf_xet]>=0.33.0->vllm) (0.34.4)
+Requirement already satisfied: tokenizers>=0.21.1 in ./env/lib/python3.10/site-packages (from vllm) (0.21.4)
+Requirement already satisfied: protobuf in ./env/lib/python3.10/site-packages (from vllm) (6.32.0)
+Requirement already satisfied: fastapi>=0.115.0 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.116.1)
+Requirement already satisfied: aiohttp in ./env/lib/python3.10/site-packages (from vllm) (3.12.15)
+Requirement already satisfied: openai<=1.90.0,>=1.87.0 in ./env/lib/python3.10/site-packages (from vllm) (1.90.0)
+Requirement already satisfied: pydantic>=2.10 in ./env/lib/python3.10/site-packages (from vllm) (2.11.7)
+Requirement already satisfied: prometheus_client>=0.18.0 in ./env/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: pillow in ./env/lib/python3.10/site-packages (from vllm) (11.0.0)
+Requirement already satisfied: prometheus-fastapi-instrumentator>=7.0.0 in ./env/lib/python3.10/site-packages (from vllm) (7.1.0)
+Requirement already satisfied: tiktoken>=0.6.0 in ./env/lib/python3.10/site-packages (from vllm) (0.11.0)
+Requirement already satisfied: lm-format-enforcer<0.11,>=0.10.11 in ./env/lib/python3.10/site-packages (from vllm) (0.10.12)
+Requirement already satisfied: llguidance<0.8.0,>=0.7.11 in ./env/lib/python3.10/site-packages (from vllm) (0.7.30)
+Requirement already satisfied: outlines_core==0.2.10 in ./env/lib/python3.10/site-packages (from vllm) (0.2.10)
+Requirement already satisfied: diskcache==5.6.3 in ./env/lib/python3.10/site-packages (from vllm) (5.6.3)
+Requirement already satisfied: lark==1.2.2 in ./env/lib/python3.10/site-packages (from vllm) (1.2.2)
+Requirement already satisfied: xgrammar==0.1.21 in ./env/lib/python3.10/site-packages (from vllm) (0.1.21)
+Requirement already satisfied: typing_extensions>=4.10 in ./env/lib/python3.10/site-packages (from vllm) (4.12.2)
+Requirement already satisfied: filelock>=3.16.1 in ./env/lib/python3.10/site-packages (from vllm) (3.19.1)
+Requirement already satisfied: partial-json-parser in ./env/lib/python3.10/site-packages (from vllm) (0.2.1.1.post6)
+Requirement already satisfied: pyzmq>=25.0.0 in ./env/lib/python3.10/site-packages (from vllm) (27.0.1)
+Requirement already satisfied: msgspec in ./env/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: gguf>=0.13.0 in ./env/lib/python3.10/site-packages (from vllm) (0.17.1)
+Requirement already satisfied: mistral_common>=1.8.2 in ./env/lib/python3.10/site-packages (from mistral_common[audio,image]>=1.8.2->vllm) (1.8.3)
+Requirement already satisfied: opencv-python-headless>=4.11.0 in ./env/lib/python3.10/site-packages (from vllm) (4.12.0.88)
+Requirement already satisfied: pyyaml in ./env/lib/python3.10/site-packages (from vllm) (6.0.2)
+Requirement already satisfied: einops in ./env/lib/python3.10/site-packages (from vllm) (0.8.1)
+Requirement already satisfied: compressed-tensors==0.10.2 in ./env/lib/python3.10/site-packages (from vllm) (0.10.2)
+Requirement already satisfied: depyf==0.19.0 in ./env/lib/python3.10/site-packages (from vllm) (0.19.0)
+Requirement already satisfied: cloudpickle in ./env/lib/python3.10/site-packages (from vllm) (3.1.1)
+Requirement already satisfied: watchfiles in ./env/lib/python3.10/site-packages (from vllm) (1.1.0)
+Requirement already satisfied: python-json-logger in ./env/lib/python3.10/site-packages (from vllm) (3.3.0)
+Requirement already satisfied: scipy in ./env/lib/python3.10/site-packages (from vllm) (1.15.3)
+Requirement already satisfied: ninja in ./env/lib/python3.10/site-packages (from vllm) (1.13.0)
+Requirement already satisfied: pybase64 in ./env/lib/python3.10/site-packages (from vllm) (1.4.2)
+Requirement already satisfied: cbor2 in ./env/lib/python3.10/site-packages (from vllm) (5.7.0)
+Requirement already satisfied: numba==0.61.2 in ./env/lib/python3.10/site-packages (from vllm) (0.61.2)
+Requirement already satisfied: ray!=2.44.*,>=2.43.0 in ./env/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (2.48.0)
+Requirement already satisfied: torch==2.7.1 in ./env/lib/python3.10/site-packages (from vllm) (2.7.1)
+Requirement already satisfied: torchaudio==2.7.1 in ./env/lib/python3.10/site-packages (from vllm) (2.7.1)
+Requirement already satisfied: torchvision==0.22.1 in ./env/lib/python3.10/site-packages (from vllm) (0.22.1)
+Requirement already satisfied: xformers==0.0.31 in ./env/lib/python3.10/site-packages (from vllm) (0.0.31)
+Requirement already satisfied: astor in ./env/lib/python3.10/site-packages (from depyf==0.19.0->vllm) (0.8.1)
+Requirement already satisfied: dill in ./env/lib/python3.10/site-packages (from depyf==0.19.0->vllm) (0.4.0)
+Requirement already satisfied: llvmlite<0.45,>=0.44.0dev0 in ./env/lib/python3.10/site-packages (from numba==0.61.2->vllm) (0.44.0)
+Requirement already satisfied: sympy>=1.13.3 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (1.14.0)
+Requirement already satisfied: networkx in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.3)
+Requirement already satisfied: jinja2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.1.6)
+Requirement already satisfied: fsspec in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (2024.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.80)
+Requirement already satisfied: nvidia-cudnn-cu12==9.5.1.17 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (9.5.1.17)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (11.3.0.4)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.5.4.2)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.77)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (12.6.85)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (1.11.1.6)
+Requirement already satisfied: triton==3.3.1 in ./env/lib/python3.10/site-packages (from torch==2.7.1->vllm) (3.3.1)
+Requirement already satisfied: setuptools>=40.8.0 in ./env/lib/python3.10/site-packages (from triton==3.3.1->torch==2.7.1->vllm) (80.9.0)
+Requirement already satisfied: interegular>=0.3.2 in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (0.3.3)
+Requirement already satisfied: packaging in ./env/lib/python3.10/site-packages (from lm-format-enforcer<0.11,>=0.10.11->vllm) (25.0)
+Requirement already satisfied: anyio<5,>=3.5.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (4.10.0)
+Requirement already satisfied: distro<2,>=1.7.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (0.28.1)
+Requirement already satisfied: jiter<1,>=0.4.0 in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (0.10.0)
+Requirement already satisfied: sniffio in ./env/lib/python3.10/site-packages (from openai<=1.90.0,>=1.87.0->vllm) (1.3.1)
+Requirement already satisfied: exceptiongroup>=1.0.2 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai<=1.90.0,>=1.87.0->vllm) (1.3.0)
+Requirement already satisfied: idna>=2.8 in ./env/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai<=1.90.0,>=1.87.0->vllm) (3.10)
+Requirement already satisfied: certifi in ./env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (2025.8.3)
+Requirement already satisfied: httpcore==1.* in ./env/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (1.0.9)
+Requirement already satisfied: h11>=0.16 in ./env/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai<=1.90.0,>=1.87.0->vllm) (0.16.0)
+Requirement already satisfied: annotated-types>=0.6.0 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.7.0)
+Requirement already satisfied: pydantic-core==2.33.2 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in ./env/lib/python3.10/site-packages (from pydantic>=2.10->vllm) (0.4.1)
+Requirement already satisfied: starlette<0.48.0,>=0.40.0 in ./env/lib/python3.10/site-packages (from fastapi>=0.115.0->fastapi[standard]>=0.115.0->vllm) (0.47.2)
+Requirement already satisfied: fastapi-cli>=0.0.8 in ./env/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.0.8)
+Requirement already satisfied: python-multipart>=0.0.18 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (0.0.20)
+Requirement already satisfied: email-validator>=2.0.0 in ./env/lib/python3.10/site-packages (from fastapi[standard]>=0.115.0->vllm) (2.2.0)
+Requirement already satisfied: uvicorn>=0.12.0 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.35.0)
+Requirement already satisfied: dnspython>=2.0.0 in ./env/lib/python3.10/site-packages (from email-validator>=2.0.0->fastapi[standard]>=0.115.0->vllm) (2.7.0)
+Requirement already satisfied: typer>=0.15.1 in ./env/lib/python3.10/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.16.0)
+Requirement already satisfied: rich-toolkit>=0.14.8 in ./env/lib/python3.10/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.15.0)
+Requirement already satisfied: fastapi-cloud-cli>=0.1.1 in ./env/lib/python3.10/site-packages (from fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.5)
+Requirement already satisfied: rignore>=0.5.1 in ./env/lib/python3.10/site-packages (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: sentry-sdk>=2.20.0 in ./env/lib/python3.10/site-packages (from fastapi-cloud-cli>=0.1.1->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.35.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in ./env/lib/python3.10/site-packages (from huggingface-hub>=0.33.0->huggingface-hub[hf_xet]>=0.33.0->vllm) (1.1.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./env/lib/python3.10/site-packages (from jinja2->torch==2.7.1->vllm) (2.1.5)
+Requirement already satisfied: jsonschema>=4.21.1 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (4.25.0)
+Requirement already satisfied: pydantic-extra-types>=2.10.5 in ./env/lib/python3.10/site-packages (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2.10.5)
+Requirement already satisfied: attrs>=22.2.0 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (25.3.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2025.4.1)
+Requirement already satisfied: referencing>=0.28.4 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.36.2)
+Requirement already satisfied: rpds-py>=0.7.1 in ./env/lib/python3.10/site-packages (from jsonschema>=4.21.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.27.0)
+Requirement already satisfied: pycountry>=23 in ./env/lib/python3.10/site-packages (from pydantic-extra-types[pycountry]>=2.10.5->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (24.6.1)
+Requirement already satisfied: click>=7.0 in ./env/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (8.2.1)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in ./env/lib/python3.10/site-packages (from ray!=2.44.*,>=2.43.0->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (1.1.1)
+Requirement already satisfied: cupy-cuda12x in ./env/lib/python3.10/site-packages (from ray[cgraph]!=2.44.*,>=2.43.0->vllm) (13.5.1)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (3.4.3)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./env/lib/python3.10/site-packages (from requests>=2.26.0->vllm) (2.5.0)
+Requirement already satisfied: rich>=13.7.1 in ./env/lib/python3.10/site-packages (from rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (14.1.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./env/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./env/lib/python3.10/site-packages (from rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in ./env/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.7.1->rich-toolkit>=0.14.8->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.1.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./env/lib/python3.10/site-packages (from sympy>=1.13.3->torch==2.7.1->vllm) (1.3.0)
+Requirement already satisfied: safetensors>=0.4.3 in ./env/lib/python3.10/site-packages (from transformers>=4.53.2->vllm) (0.6.2)
+Requirement already satisfied: shellingham>=1.3.0 in ./env/lib/python3.10/site-packages (from typer>=0.15.1->fastapi-cli>=0.0.8->fastapi-cli[standard]>=0.0.8; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.5.4)
+Requirement already satisfied: httptools>=0.6.3 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.6.4)
+Requirement already satisfied: python-dotenv>=0.13 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (1.1.1)
+Requirement already satisfied: uvloop>=0.15.1 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (0.21.0)
+Requirement already satisfied: websockets>=10.4 in ./env/lib/python3.10/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard"->fastapi[standard]>=0.115.0->vllm) (15.0.1)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.4.0)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (5.0.1)
+Requirement already satisfied: frozenlist>=1.1.1 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.7.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (6.6.4)
+Requirement already satisfied: propcache>=0.2.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (0.3.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in ./env/lib/python3.10/site-packages (from aiohttp->vllm) (1.20.1)
+Requirement already satisfied: fastrlock>=0.5 in ./env/lib/python3.10/site-packages (from cupy-cuda12x->ray[cgraph]!=2.44.*,>=2.43.0->vllm) (0.8.3)
+Requirement already satisfied: soundfile>=0.12.1 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.13.1)
+Requirement already satisfied: cffi>=1.0 in ./env/lib/python3.10/site-packages (from soundfile>=0.12.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (1.17.1)
+Requirement already satisfied: pycparser in ./env/lib/python3.10/site-packages (from cffi>=1.0->soundfile>=0.12.1->mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (2.22)
+Requirement already satisfied: soxr>=0.5.0 in ./env/lib/python3.10/site-packages (from mistral_common>=1.8.2->mistral_common[audio,image]>=1.8.2->vllm) (0.5.0.post1)
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+CUDA available: True
+PyTorch CUDA version: 12.6
+vLLM version: 0.10.0
+Running AgentForest experiments...
+=============================================================
+Running with agents on gsm using Mistral-7B-Instruct-v0.3 for punctuation_50
+Processing parts from 6 to 7
+=============================================================
+Running part 6...
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO 09-05 12:14:28 [__init__.py:235] Automatically detected platform cuda.
+INFO 09-05 12:14:37 [config.py:1604] Using max model len 32768
+INFO 09-05 12:14:37 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/transformers_utils/tokenizer_group.py:24: FutureWarning: It is strongly recommended to run mistral models with `--tokenizer-mode "mistral"` to ensure correct encoding and decoding.
+  self.tokenizer = get_tokenizer(self.tokenizer_id, **tokenizer_config)
+INFO 09-05 12:14:38 [core.py:572] Waiting for init message from front-end.
+INFO 09-05 12:14:38 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='mistralai/Mistral-7B-Instruct-v0.3', speculative_config=None, tokenizer='mistralai/Mistral-7B-Instruct-v0.3', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=mistralai/Mistral-7B-Instruct-v0.3, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 09-05 12:14:40 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 09-05 12:14:40 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 09-05 12:14:40 [gpu_model_runner.py:1843] Starting to load model mistralai/Mistral-7B-Instruct-v0.3...
+INFO 09-05 12:14:41 [gpu_model_runner.py:1875] Loading model from scratch...
+INFO 09-05 12:14:41 [cuda.py:290] Using Flash Attention backend on V1 engine.
+INFO 09-05 12:14:41 [weight_utils.py:296] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:00<00:00,  2.37it/s]
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:01<00:00,  1.83it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.81it/s]
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.86it/s]
+
+INFO 09-05 12:14:43 [default_loader.py:262] Loading weights took 1.78 seconds
+INFO 09-05 12:14:44 [gpu_model_runner.py:1892] Model loading took 13.5084 GiB and 2.631251 seconds
+INFO 09-05 12:14:51 [backends.py:530] Using cache directory: /home/s06zyelt/.my_tmp/cache/vllm/torch_compile_cache/4f413417ab/rank_0_0/backbone for vLLM's torch.compile
+INFO 09-05 12:14:51 [backends.py:541] Dynamo bytecode transform time: 7.11 s
+INFO 09-05 12:14:56 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 5.182 s
+INFO 09-05 12:14:58 [monitor.py:34] torch.compile takes 7.11 s in total
+INFO 09-05 12:14:58 [gpu_worker.py:255] Available KV cache memory: 56.83 GiB
+INFO 09-05 12:14:59 [kv_cache_utils.py:833] GPU KV cache size: 465,568 tokens
+INFO 09-05 12:14:59 [kv_cache_utils.py:837] Maximum concurrency for 32,768 tokens per request: 14.21x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:04, 15.57it/s]Capturing CUDA graph shapes:   6%|▌         | 4/67 [00:00<00:03, 15.91it/s]Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:00<00:03, 15.84it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:00<00:03, 15.48it/s]Capturing CUDA graph shapes:  15%|█▍        | 10/67 [00:00<00:03, 15.52it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:00<00:03, 15.54it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:00<00:03, 15.68it/s]Capturing CUDA graph shapes:  24%|██▍       | 16/67 [00:01<00:03, 15.80it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:01<00:02, 16.37it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:01<00:02, 16.78it/s]Capturing CUDA graph shapes:  33%|███▎      | 22/67 [00:01<00:02, 17.06it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:01<00:02, 17.22it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:01<00:02, 17.33it/s]Capturing CUDA graph shapes:  42%|████▏     | 28/67 [00:01<00:02, 17.13it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:01<00:02, 17.23it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:01<00:02, 17.26it/s]Capturing CUDA graph shapes:  51%|█████     | 34/67 [00:02<00:01, 17.80it/s]Capturing CUDA graph shapes:  54%|█████▎    | 36/67 [00:02<00:01, 18.17it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:02<00:01, 18.50it/s]Capturing CUDA graph shapes:  60%|█████▉    | 40/67 [00:02<00:01, 18.53it/s]Capturing CUDA graph shapes:  63%|██████▎   | 42/67 [00:02<00:01, 18.50it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:02<00:01, 18.55it/s]Capturing CUDA graph shapes:  69%|██████▊   | 46/67 [00:02<00:01, 18.09it/s]Capturing CUDA graph shapes:  72%|███████▏  | 48/67 [00:02<00:01, 18.27it/s]Capturing CUDA graph shapes:  75%|███████▍  | 50/67 [00:02<00:00, 18.22it/s]Capturing CUDA graph shapes:  78%|███████▊  | 52/67 [00:03<00:00, 18.34it/s]Capturing CUDA graph shapes:  81%|████████  | 54/67 [00:03<00:00, 18.31it/s]Capturing CUDA graph shapes:  84%|████████▎ | 56/67 [00:03<00:00, 18.40it/s]Capturing CUDA graph shapes:  87%|████████▋ | 58/67 [00:03<00:00, 18.68it/s]Capturing CUDA graph shapes:  90%|████████▉ | 60/67 [00:03<00:00, 18.94it/s]Capturing CUDA graph shapes:  94%|█████████▍| 63/67 [00:03<00:00, 19.56it/s]Capturing CUDA graph shapes:  99%|█████████▊| 66/67 [00:03<00:00, 20.17it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:03<00:00, 17.78it/s]
+INFO 09-05 12:15:03 [gpu_model_runner.py:2485] Graph capturing finished in 4 secs, took 1.75 GiB
+INFO 09-05 12:15:03 [core.py:193] init engine (profile, create kv cache, warmup model) took 19.21 seconds
+/home/s06zyelt/nlp_lab/env/lib/python3.10/site-packages/vllm/transformers_utils/tokenizer_group.py:24: FutureWarning: It is strongly recommended to run mistral models with `--tokenizer-mode "mistral"` to ensure correct encoding and decoding.
+  self.tokenizer = get_tokenizer(self.tokenizer_id, **tokenizer_config)
+vLLM model 'mistralai/Mistral-7B-Instruct-v0.3' initialized globally.
+=============================================================
+PART->SUBSET = [600, 700]...
+=============================================================
+current task_id start:  600
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1757.09it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:53,  2.25s/it, est. speed input: 57.01 toks/s, output: 47.21 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:02<00:10,  2.01it/s, est. speed input: 203.62 toks/s, output: 175.38 toks/s]Processed prompts:  20%|██        | 5/25 [00:02<00:09,  2.22it/s, est. speed input: 225.04 toks/s, output: 202.54 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:03<00:05,  3.21it/s, est. speed input: 287.29 toks/s, output: 275.74 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:03<00:04,  3.66it/s, est. speed input: 313.02 toks/s, output: 310.26 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:03<00:02,  5.90it/s, est. speed input: 405.02 toks/s, output: 429.76 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:03<00:01,  8.88it/s, est. speed input: 500.67 toks/s, output: 557.94 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:03<00:00,  9.91it/s, est. speed input: 550.15 toks/s, output: 631.01 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:04<00:01,  6.87it/s, est. speed input: 544.42 toks/s, output: 650.51 toks/s]Processed prompts:  80%|████████  | 20/25 [00:05<00:01,  4.34it/s, est. speed input: 501.54 toks/s, output: 628.09 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:05<00:00,  4.51it/s, est. speed input: 508.67 toks/s, output: 654.76 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:05<00:00,  3.47it/s, est. speed input: 482.13 toks/s, output: 640.50 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:06<00:00,  3.79it/s, est. speed input: 489.04 toks/s, output: 669.60 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:09<00:00,  1.04it/s, est. speed input: 334.18 toks/s, output: 487.24 toks/s]Processed prompts: 100%|██████████| 25/25 [00:09<00:00,  1.04it/s, est. speed input: 344.50 toks/s, output: 530.96 toks/s]Processed prompts: 100%|██████████| 25/25 [00:09<00:00,  2.69it/s, est. speed input: 344.50 toks/s, output: 530.96 toks/s]
+++++++++++++++++++Time: 9.305089712142944 ++++++++++++++++++
+1 Agents final_res: 8.0, ground_truth: 10.0, perf: 0.0
+5 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+10 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+15 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+20 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+25 Agents final_res: 10.0, ground_truth: 10.0, perf: 1.0
+current task_id end:  600
+************************
+Total prompt tokens: 3200, Total completion tokens: 4932
+current task_id start:  601
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 1598.76it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:29,  3.74s/it, est. speed input: 48.96 toks/s, output: 46.55 toks/s]Processed prompts:   8%|▊         | 2/25 [00:04<00:39,  1.70s/it, est. speed input: 91.09 toks/s, output: 89.84 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:04<00:21,  1.03it/s, est. speed input: 133.06 toks/s, output: 134.03 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:04<00:14,  1.46it/s, est. speed input: 167.81 toks/s, output: 173.54 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:04<00:06,  2.76it/s, est. speed input: 243.14 toks/s, output: 259.75 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:04<00:04,  3.47it/s, est. speed input: 298.85 toks/s, output: 328.85 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:05<00:04,  3.65it/s, est. speed input: 321.38 toks/s, output: 360.60 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:05<00:03,  3.96it/s, est. speed input: 361.57 toks/s, output: 421.56 toks/s]Processed prompts:  48%|████▊     | 12/25 [00:05<00:03,  3.68it/s, est. speed input: 371.93 toks/s, output: 443.91 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:06<00:03,  3.89it/s, est. speed input: 388.94 toks/s, output: 474.93 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:06<00:03,  3.47it/s, est. speed input: 394.50 toks/s, output: 493.82 toks/s]Processed prompts:  60%|██████    | 15/25 [00:06<00:02,  3.67it/s, est. speed input: 408.21 toks/s, output: 523.46 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:06<00:02,  4.20it/s, est. speed input: 426.02 toks/s, output: 558.72 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:07<00:02,  3.10it/s, est. speed input: 426.12 toks/s, output: 585.36 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:07<00:01,  3.41it/s, est. speed input: 438.30 toks/s, output: 617.17 toks/s]Processed prompts:  80%|████████  | 20/25 [00:08<00:01,  3.77it/s, est. speed input: 450.97 toks/s, output: 650.09 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:08<00:01,  3.42it/s, est. speed input: 453.00 toks/s, output: 668.83 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:09<00:01,  2.74it/s, est. speed input: 445.41 toks/s, output: 674.76 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:09<00:00,  3.13it/s, est. speed input: 455.47 toks/s, output: 707.07 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:09<00:00,  3.12it/s, est. speed input: 459.17 toks/s, output: 730.26 toks/s]Processed prompts: 100%|██████████| 25/25 [00:12<00:00,  1.17s/it, est. speed input: 357.02 toks/s, output: 594.57 toks/s]Processed prompts: 100%|██████████| 25/25 [00:12<00:00,  1.17s/it, est. speed input: 357.02 toks/s, output: 594.57 toks/s]Processed prompts: 100%|██████████| 25/25 [00:12<00:00,  1.95it/s, est. speed input: 357.02 toks/s, output: 594.57 toks/s]
+++++++++++++++++++Time: 12.830805778503418 ++++++++++++++++++
+1 Agents final_res: 99.0, ground_truth: 104.0, perf: 0.0
+5 Agents final_res: 99.0, ground_truth: 104.0, perf: 0.5
+10 Agents final_res: 99.0, ground_truth: 104.0, perf: 0.5
+15 Agents final_res: 99.0, ground_truth: 104.0, perf: 0.5
+20 Agents final_res: 99.0, ground_truth: 104.0, perf: 0.5
+25 Agents final_res: 99.0, ground_truth: 104.0, perf: 0.5
+current task_id end:  601
+************************
+Total prompt tokens: 7775, Total completion tokens: 12551
+current task_id start:  602
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 3334.95it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:08,  2.86s/it, est. speed input: 31.52 toks/s, output: 46.59 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:02<00:11,  1.76it/s, est. speed input: 121.61 toks/s, output: 182.42 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:03<00:06,  2.76it/s, est. speed input: 171.41 toks/s, output: 264.09 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:03<00:04,  3.73it/s, est. speed input: 212.65 toks/s, output: 336.69 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:03<00:02,  5.72it/s, est. speed input: 277.47 toks/s, output: 456.84 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:03<00:01,  7.98it/s, est. speed input: 339.31 toks/s, output: 576.83 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:03<00:01,  8.80it/s, est. speed input: 371.31 toks/s, output: 644.38 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:04<00:00,  8.61it/s, est. speed input: 392.88 toks/s, output: 698.69 toks/s]Processed prompts:  80%|████████  | 20/25 [00:04<00:00,  8.47it/s, est. speed input: 411.96 toks/s, output: 751.13 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:04<00:00,  6.63it/s, est. speed input: 409.78 toks/s, output: 770.30 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:04<00:00,  6.82it/s, est. speed input: 417.53 toks/s, output: 797.94 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:05<00:00,  4.15it/s, est. speed input: 386.90 toks/s, output: 755.88 toks/s]Processed prompts: 100%|██████████| 25/25 [00:05<00:00,  4.32it/s, est. speed input: 389.19 toks/s, output: 777.50 toks/s]Processed prompts: 100%|██████████| 25/25 [00:05<00:00,  4.32it/s, est. speed input: 389.19 toks/s, output: 777.50 toks/s]Processed prompts: 100%|██████████| 25/25 [00:05<00:00,  4.32it/s, est. speed input: 389.19 toks/s, output: 777.50 toks/s]
+++++++++++++++++++Time: 5.789584159851074 ++++++++++++++++++
+1 Agents final_res: 5.0, ground_truth: 5.0, perf: 0.3333333333333333
+5 Agents final_res: 5.0, ground_truth: 5.0, perf: 0.6666666666666666
+10 Agents final_res: 5.0, ground_truth: 5.0, perf: 0.6666666666666666
+15 Agents final_res: 5.0, ground_truth: 5.0, perf: 0.6666666666666666
+20 Agents final_res: 5.0, ground_truth: 5.0, perf: 0.6666666666666666
+25 Agents final_res: 5.0, ground_truth: 5.0, perf: 0.6666666666666666
+current task_id end:  602
+************************
+Total prompt tokens: 10025, Total completion tokens: 17046
+current task_id start:  603
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2875.25it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:25,  3.57s/it, est. speed input: 37.02 toks/s, output: 46.28 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:38,  1.67s/it, est. speed input: 67.52 toks/s, output: 88.50 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:04<00:25,  1.17s/it, est. speed input: 88.24 toks/s, output: 123.44 toks/s]Processed prompts:  20%|██        | 5/25 [00:04<00:12,  1.65it/s, est. speed input: 136.73 toks/s, output: 205.10 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:05<00:12,  1.56it/s, est. speed input: 142.35 toks/s, output: 224.31 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:05<00:09,  1.85it/s, est. speed input: 157.77 toks/s, output: 259.36 toks/s]Processed prompts:  40%|████      | 10/25 [00:06<00:04,  3.72it/s, est. speed input: 219.64 toks/s, output: 390.18 toks/s]Processed prompts:  48%|████▊     | 12/25 [00:06<00:02,  4.70it/s, est. speed input: 254.50 toks/s, output: 468.34 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:06<00:02,  4.28it/s, est. speed input: 272.77 toks/s, output: 519.41 toks/s]Processed prompts:  60%|██████    | 15/25 [00:07<00:02,  4.29it/s, est. speed input: 282.65 toks/s, output: 548.75 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:07<00:02,  3.73it/s, est. speed input: 285.36 toks/s, output: 565.85 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:08<00:02,  2.78it/s, est. speed input: 278.38 toks/s, output: 566.06 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:08<00:01,  3.39it/s, est. speed input: 296.50 toks/s, output: 630.58 toks/s]Processed prompts:  80%|████████  | 20/25 [00:08<00:01,  2.89it/s, est. speed input: 293.88 toks/s, output: 640.42 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:09<00:01,  2.51it/s, est. speed input: 290.39 toks/s, output: 649.40 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:11<00:01,  1.82it/s, est. speed input: 273.87 toks/s, output: 646.79 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:12<00:00,  1.42it/s, est. speed input: 257.03 toks/s, output: 628.78 toks/s]Processed prompts: 100%|██████████| 25/25 [00:14<00:00,  1.00s/it, est. speed input: 231.75 toks/s, output: 592.44 toks/s]Processed prompts: 100%|██████████| 25/25 [00:14<00:00,  1.00s/it, est. speed input: 231.75 toks/s, output: 592.44 toks/s]Processed prompts: 100%|██████████| 25/25 [00:14<00:00,  1.76it/s, est. speed input: 231.75 toks/s, output: 592.44 toks/s]
+++++++++++++++++++Time: 14.248857736587524 ++++++++++++++++++
+1 Agents final_res: 4.0, ground_truth: 1800.0, perf: 0.25
+5 Agents final_res: 4.0, ground_truth: 1800.0, perf: 0.5
+10 Agents final_res: 1260.0, ground_truth: 1800.0, perf: 0.5
+15 Agents final_res: 1260.0, ground_truth: 1800.0, perf: 0.5
+20 Agents final_res: 1260.0, ground_truth: 1800.0, perf: 0.5
+25 Agents final_res: 1260.0, ground_truth: 1800.0, perf: 0.5
+current task_id end:  603
+************************
+Total prompt tokens: 13325, Total completion tokens: 25482
+current task_id start:  604
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2868.72it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:03<01:14,  3.09s/it, est. speed input: 44.34 toks/s, output: 46.28 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:31,  1.37s/it, est. speed input: 83.98 toks/s, output: 90.11 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:03<00:19,  1.14it/s, est. speed input: 116.03 toks/s, output: 129.29 toks/s]Processed prompts:  20%|██        | 5/25 [00:03<00:08,  2.30it/s, est. speed input: 183.41 toks/s, output: 212.86 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:03<00:05,  3.54it/s, est. speed input: 244.39 toks/s, output: 293.82 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:04<00:03,  5.07it/s, est. speed input: 304.18 toks/s, output: 376.22 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:04<00:02,  6.09it/s, est. speed input: 353.53 toks/s, output: 449.70 toks/s]Processed prompts:  60%|██████    | 15/25 [00:04<00:01,  8.43it/s, est. speed input: 450.81 toks/s, output: 598.44 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:04<00:01,  7.96it/s, est. speed input: 480.34 toks/s, output: 653.78 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:04<00:00,  9.51it/s, est. speed input: 525.73 toks/s, output: 732.95 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:05<00:00,  8.05it/s, est. speed input: 543.22 toks/s, output: 777.54 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:07<00:00,  2.84it/s, est. speed input: 441.61 toks/s, output: 669.35 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:08<00:00,  2.18it/s, est. speed input: 405.12 toks/s, output: 635.90 toks/s]Processed prompts: 100%|██████████| 25/25 [00:09<00:00,  1.75it/s, est. speed input: 374.61 toks/s, output: 612.94 toks/s]Processed prompts: 100%|██████████| 25/25 [00:09<00:00,  1.75it/s, est. speed input: 374.61 toks/s, output: 612.94 toks/s]Processed prompts: 100%|██████████| 25/25 [00:09<00:00,  2.73it/s, est. speed input: 374.61 toks/s, output: 612.94 toks/s]
+++++++++++++++++++Time: 9.1522958278656 ++++++++++++++++++
+1 Agents final_res: 64.0, ground_truth: 12.0, perf: 0.2
+5 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.6
+10 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.6
+15 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.6
+20 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.6
+25 Agents final_res: 12.0, ground_truth: 12.0, perf: 0.6
+current task_id end:  604
+************************
+Total prompt tokens: 16750, Total completion tokens: 31086
+current task_id start:  605
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2790.99it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:03,  2.64s/it, est. speed input: 53.72 toks/s, output: 46.91 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:30,  1.34s/it, est. speed input: 92.57 toks/s, output: 87.35 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:03<00:21,  1.03it/s, est. speed input: 118.53 toks/s, output: 121.59 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:04<00:17,  1.19it/s, est. speed input: 133.94 toks/s, output: 150.20 toks/s]Processed prompts:  20%|██        | 5/25 [00:04<00:14,  1.36it/s, est. speed input: 148.02 toks/s, output: 180.13 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:05<00:10,  1.77it/s, est. speed input: 169.55 toks/s, output: 219.29 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:05<00:08,  2.12it/s, est. speed input: 187.39 toks/s, output: 255.07 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:05<00:06,  2.65it/s, est. speed input: 207.37 toks/s, output: 294.26 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:05<00:04,  3.41it/s, est. speed input: 228.73 toks/s, output: 335.75 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:05<00:03,  4.07it/s, est. speed input: 261.57 toks/s, output: 406.26 toks/s]Processed prompts:  48%|████▊     | 12/25 [00:06<00:02,  4.36it/s, est. speed input: 276.90 toks/s, output: 441.68 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:06<00:02,  4.09it/s, est. speed input: 286.64 toks/s, output: 469.56 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:06<00:03,  3.51it/s, est. speed input: 290.97 toks/s, output: 490.17 toks/s]Processed prompts:  60%|██████    | 15/25 [00:07<00:03,  2.72it/s, est. speed input: 287.46 toks/s, output: 499.75 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:07<00:02,  3.37it/s, est. speed input: 301.69 toks/s, output: 539.52 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:07<00:01,  4.15it/s, est. speed input: 316.14 toks/s, output: 579.89 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:07<00:00,  6.24it/s, est. speed input: 347.59 toks/s, output: 665.67 toks/s]Processed prompts:  80%|████████  | 20/25 [00:08<00:01,  4.58it/s, est. speed input: 348.10 toks/s, output: 681.12 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:09<00:01,  2.71it/s, est. speed input: 334.92 toks/s, output: 686.12 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:10<00:01,  1.52it/s, est. speed input: 297.86 toks/s, output: 632.02 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:12<00:00,  1.06it/s, est. speed input: 266.18 toks/s, output: 589.84 toks/s]Processed prompts: 100%|██████████| 25/25 [00:13<00:00,  1.29it/s, est. speed input: 271.41 toks/s, output: 626.16 toks/s]Processed prompts: 100%|██████████| 25/25 [00:13<00:00,  1.29it/s, est. speed input: 271.41 toks/s, output: 626.16 toks/s]Processed prompts: 100%|██████████| 25/25 [00:13<00:00,  1.91it/s, est. speed input: 271.41 toks/s, output: 626.16 toks/s]
+++++++++++++++++++Time: 13.089482069015503 ++++++++++++++++++
+1 Agents final_res: 54.0, ground_truth: 42.0, perf: 0.16666666666666666
+5 Agents final_res: 42.0, ground_truth: 42.0, perf: 0.6666666666666666
+10 Agents final_res: 42.0, ground_truth: 42.0, perf: 0.6666666666666666
+15 Agents final_res: 42.0, ground_truth: 42.0, perf: 0.6666666666666666
+20 Agents final_res: 42.0, ground_truth: 42.0, perf: 0.6666666666666666
+25 Agents final_res: 42.0, ground_truth: 42.0, perf: 0.6666666666666666
+current task_id end:  605
+************************
+Total prompt tokens: 20300, Total completion tokens: 39276
+current task_id start:  606
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 3114.46it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:05<02:00,  5.02s/it, est. speed input: 22.89 toks/s, output: 47.97 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<00:50,  2.19s/it, est. speed input: 43.96 toks/s, output: 94.04 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:31,  1.41s/it, est. speed input: 60.28 toks/s, output: 134.02 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:06<00:23,  1.10s/it, est. speed input: 72.49 toks/s, output: 168.92 toks/s]Processed prompts:  20%|██        | 5/25 [00:06<00:16,  1.22it/s, est. speed input: 86.15 toks/s, output: 208.72 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:07<00:13,  1.43it/s, est. speed input: 96.67 toks/s, output: 243.06 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:07<00:09,  1.97it/s, est. speed input: 111.11 toks/s, output: 287.36 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:07<00:07,  2.13it/s, est. speed input: 120.50 toks/s, output: 320.63 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:08<00:07,  2.18it/s, est. speed input: 128.28 toks/s, output: 351.12 toks/s]Processed prompts:  40%|████      | 10/25 [00:08<00:06,  2.18it/s, est. speed input: 134.84 toks/s, output: 379.89 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:08<00:02,  4.15it/s, est. speed input: 170.73 toks/s, output: 511.17 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:08<00:02,  4.65it/s, est. speed input: 181.38 toks/s, output: 552.02 toks/s]Processed prompts:  60%|██████    | 15/25 [00:09<00:02,  4.33it/s, est. speed input: 188.33 toks/s, output: 582.78 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:09<00:02,  4.38it/s, est. speed input: 196.16 toks/s, output: 616.94 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:10<00:03,  2.38it/s, est. speed input: 189.13 toks/s, output: 607.83 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:10<00:03,  2.15it/s, est. speed input: 189.50 toks/s, output: 623.25 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:11<00:02,  2.75it/s, est. speed input: 198.17 toks/s, output: 665.54 toks/s]Processed prompts:  80%|████████  | 20/25 [00:12<00:03,  1.47it/s, est. speed input: 184.07 toks/s, output: 635.53 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:12<00:02,  1.93it/s, est. speed input: 191.40 toks/s, output: 677.63 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:12<00:01,  2.13it/s, est. speed input: 195.04 toks/s, output: 707.46 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:13<00:00,  2.65it/s, est. speed input: 201.47 toks/s, output: 747.37 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:13<00:00,  2.35it/s, est. speed input: 201.91 toks/s, output: 766.23 toks/s]Processed prompts: 100%|██████████| 25/25 [00:14<00:00,  1.78it/s, est. speed input: 197.63 toks/s, output: 769.00 toks/s]Processed prompts: 100%|██████████| 25/25 [00:14<00:00,  1.78it/s, est. speed input: 197.63 toks/s, output: 769.00 toks/s]Processed prompts: 100%|██████████| 25/25 [00:14<00:00,  1.72it/s, est. speed input: 197.63 toks/s, output: 769.00 toks/s]
+++++++++++++++++++Time: 14.556185245513916 ++++++++++++++++++
+1 Agents final_res: 350.0, ground_truth: 6.0, perf: 0.14285714285714285
+5 Agents final_res: 4.0, ground_truth: 6.0, perf: 0.5714285714285714
+10 Agents final_res: 4.0, ground_truth: 6.0, perf: 0.5714285714285714
+15 Agents final_res: 4.0, ground_truth: 6.0, perf: 0.5714285714285714
+20 Agents final_res: 4.0, ground_truth: 6.0, perf: 0.5714285714285714
+25 Agents final_res: 4.0, ground_truth: 6.0, perf: 0.5714285714285714
+current task_id end:  606
+************************
+Total prompt tokens: 23175, Total completion tokens: 50463
+current task_id start:  607
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2993.45it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:03,  2.64s/it, est. speed input: 46.27 toks/s, output: 48.16 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:31,  1.38s/it, est. speed input: 77.63 toks/s, output: 88.77 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:03<00:23,  1.05s/it, est. speed input: 96.21 toks/s, output: 121.71 toks/s]Processed prompts:  20%|██        | 5/25 [00:03<00:10,  1.99it/s, est. speed input: 153.74 toks/s, output: 212.46 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:04<00:08,  2.15it/s, est. speed input: 168.85 toks/s, output: 242.89 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:04<00:06,  2.74it/s, est. speed input: 191.56 toks/s, output: 284.65 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:04<00:04,  3.61it/s, est. speed input: 228.70 toks/s, output: 358.26 toks/s]Processed prompts:  40%|████      | 10/25 [00:04<00:03,  4.07it/s, est. speed input: 246.48 toks/s, output: 395.78 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:05<00:03,  3.87it/s, est. speed input: 255.93 toks/s, output: 421.84 toks/s]Processed prompts:  48%|████▊     | 12/25 [00:05<00:03,  4.32it/s, est. speed input: 270.96 toks/s, output: 457.71 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:05<00:02,  4.86it/s, est. speed input: 286.15 toks/s, output: 494.53 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:05<00:02,  4.30it/s, est. speed input: 292.37 toks/s, output: 517.64 toks/s]Processed prompts:  60%|██████    | 15/25 [00:06<00:02,  4.35it/s, est. speed input: 301.74 toks/s, output: 547.08 toks/s]Processed prompts:  64%|██████▍   | 16/25 [00:06<00:03,  2.41it/s, est. speed input: 281.65 toks/s, output: 527.36 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:07<00:02,  3.46it/s, est. speed input: 304.73 toks/s, output: 603.50 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:07<00:01,  3.50it/s, est. speed input: 309.85 toks/s, output: 630.13 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:07<00:00,  5.20it/s, est. speed input: 337.15 toks/s, output: 717.59 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:07<00:00,  5.71it/s, est. speed input: 347.87 toks/s, output: 755.63 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:08<00:00,  3.84it/s, est. speed input: 340.61 toks/s, output: 756.73 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:09<00:00,  2.06it/s, est. speed input: 312.53 toks/s, output: 714.62 toks/s]Processed prompts: 100%|██████████| 25/25 [00:19<00:00,  3.13s/it, est. speed input: 155.21 toks/s, output: 394.22 toks/s]Processed prompts: 100%|██████████| 25/25 [00:19<00:00,  3.13s/it, est. speed input: 155.21 toks/s, output: 394.22 toks/s]Processed prompts: 100%|██████████| 25/25 [00:19<00:00,  1.27it/s, est. speed input: 155.21 toks/s, output: 394.22 toks/s]
+++++++++++++++++++Time: 19.660342693328857 ++++++++++++++++++
+1 Agents final_res: 17.0, ground_truth: 10.0, perf: 0.125
+5 Agents final_res: 17.0, ground_truth: 10.0, perf: 0.5
+10 Agents final_res: 20.0, ground_truth: 10.0, perf: 0.5
+15 Agents final_res: 20.0, ground_truth: 10.0, perf: 0.5
+20 Agents final_res: 20.0, ground_truth: 10.0, perf: 0.5
+25 Agents final_res: 20.0, ground_truth: 10.0, perf: 0.5
+current task_id end:  607
+************************
+Total prompt tokens: 26225, Total completion tokens: 58210
+current task_id start:  608
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2797.62it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:00<00:14,  1.61it/s, est. speed input: 232.00 toks/s, output: 45.11 toks/s]Processed prompts:   8%|▊         | 2/25 [00:02<00:34,  1.48s/it, est. speed input: 106.48 toks/s, output: 58.42 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:03<00:27,  1.27s/it, est. speed input: 116.19 toks/s, output: 90.91 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:03<00:17,  1.23it/s, est. speed input: 149.92 toks/s, output: 136.38 toks/s]Processed prompts:  20%|██        | 5/25 [00:03<00:11,  1.74it/s, est. speed input: 180.51 toks/s, output: 179.76 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:04<00:10,  1.88it/s, est. speed input: 194.58 toks/s, output: 209.90 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:04<00:07,  2.32it/s, est. speed input: 216.18 toks/s, output: 248.35 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:04<00:06,  2.81it/s, est. speed input: 237.15 toks/s, output: 286.76 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:05<00:05,  2.73it/s, est. speed input: 246.96 toks/s, output: 313.65 toks/s]Processed prompts:  48%|████▊     | 12/25 [00:05<00:02,  5.44it/s, est. speed input: 320.64 toks/s, output: 448.86 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:05<00:02,  4.91it/s, est. speed input: 330.34 toks/s, output: 475.22 toks/s]Processed prompts:  60%|██████    | 15/25 [00:05<00:01,  6.54it/s, est. speed input: 371.98 toks/s, output: 560.20 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:06<00:01,  6.20it/s, est. speed input: 397.42 toks/s, output: 622.75 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:06<00:01,  5.51it/s, est. speed input: 414.29 toks/s, output: 675.34 toks/s]Processed prompts:  80%|████████  | 20/25 [00:06<00:00,  5.31it/s, est. speed input: 422.27 toks/s, output: 702.60 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:06<00:00,  5.64it/s, est. speed input: 434.58 toks/s, output: 737.38 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:07<00:00,  5.95it/s, est. speed input: 446.45 toks/s, output: 771.84 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:07<00:00,  4.57it/s, est. speed input: 443.61 toks/s, output: 782.47 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:08<00:00,  3.05it/s, est. speed input: 426.93 toks/s, output: 770.71 toks/s]Processed prompts: 100%|██████████| 25/25 [00:08<00:00,  3.10it/s, est. speed input: 428.39 toks/s, output: 791.81 toks/s]Processed prompts: 100%|██████████| 25/25 [00:08<00:00,  3.10it/s, est. speed input: 428.39 toks/s, output: 791.81 toks/s]Processed prompts: 100%|██████████| 25/25 [00:08<00:00,  2.97it/s, est. speed input: 428.39 toks/s, output: 791.81 toks/s]
+++++++++++++++++++Time: 8.413267612457275 ++++++++++++++++++
+1 Agents final_res: 52.5, ground_truth: 8.0, perf: 0.1111111111111111
+5 Agents final_res: 52.5, ground_truth: 8.0, perf: 0.4444444444444444
+10 Agents final_res: 52.5, ground_truth: 8.0, perf: 0.4444444444444444
+15 Agents final_res: 52.5, ground_truth: 8.0, perf: 0.4444444444444444
+20 Agents final_res: 52.5, ground_truth: 8.0, perf: 0.4444444444444444
+25 Agents final_res: 52.5, ground_truth: 8.0, perf: 0.4444444444444444
+current task_id end:  608
+************************
+Total prompt tokens: 29825, Total completion tokens: 64864
+current task_id start:  609
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2899.90it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:01<00:41,  1.72s/it, est. speed input: 72.84 toks/s, output: 47.20 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:01<00:11,  1.92it/s, est. speed input: 195.45 toks/s, output: 133.42 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:02<00:09,  2.33it/s, est. speed input: 229.55 toks/s, output: 165.27 toks/s]Processed prompts:  20%|██        | 5/25 [00:02<00:09,  2.19it/s, est. speed input: 232.68 toks/s, output: 182.05 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:03<00:08,  2.22it/s, est. speed input: 240.10 toks/s, output: 204.57 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:03<00:06,  2.89it/s, est. speed input: 269.69 toks/s, output: 245.33 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:03<00:04,  3.68it/s, est. speed input: 298.44 toks/s, output: 285.61 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:03<00:04,  3.48it/s, est. speed input: 306.38 toks/s, output: 308.56 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:04<00:03,  4.26it/s, est. speed input: 341.84 toks/s, output: 374.41 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:04<00:01,  6.18it/s, est. speed input: 393.70 toks/s, output: 459.84 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:04<00:01,  6.68it/s, est. speed input: 413.26 toks/s, output: 496.14 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:04<00:00,  8.62it/s, est. speed input: 474.69 toks/s, output: 608.72 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:04<00:00,  6.63it/s, est. speed input: 481.89 toks/s, output: 648.27 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:05<00:00,  7.24it/s, est. speed input: 520.16 toks/s, output: 743.74 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:05<00:00,  6.57it/s, est. speed input: 521.63 toks/s, output: 761.85 toks/s]Processed prompts: 100%|██████████| 25/25 [00:06<00:00,  3.14it/s, est. speed input: 455.07 toks/s, output: 701.02 toks/s]Processed prompts: 100%|██████████| 25/25 [00:06<00:00,  3.14it/s, est. speed input: 455.07 toks/s, output: 701.02 toks/s]Processed prompts: 100%|██████████| 25/25 [00:06<00:00,  3.64it/s, est. speed input: 455.07 toks/s, output: 701.02 toks/s]
+++++++++++++++++++Time: 6.876490116119385 ++++++++++++++++++
+1 Agents final_res: 516.0, ground_truth: 7.0, perf: 0.1
+5 Agents final_res: 4.0, ground_truth: 7.0, perf: 0.4
+10 Agents final_res: 4.0, ground_truth: 7.0, perf: 0.4
+15 Agents final_res: 7.0, ground_truth: 7.0, perf: 0.5
+20 Agents final_res: 7.0, ground_truth: 7.0, perf: 0.5
+25 Agents final_res: 7.0, ground_truth: 7.0, perf: 0.5
+current task_id end:  609
+************************
+Total prompt tokens: 32950, Total completion tokens: 69678
+current task_id start:  610
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 3236.85it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<00:52,  2.18s/it, est. speed input: 48.15 toks/s, output: 48.61 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:34,  1.50s/it, est. speed input: 65.63 toks/s, output: 81.57 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:03<00:19,  1.10it/s, est. speed input: 92.44 toks/s, output: 125.01 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:03<00:15,  1.33it/s, est. speed input: 107.16 toks/s, output: 157.17 toks/s]Processed prompts:  20%|██        | 5/25 [00:04<00:10,  1.91it/s, est. speed input: 129.90 toks/s, output: 200.92 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:04<00:05,  3.39it/s, est. speed input: 175.64 toks/s, output: 289.63 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:04<00:03,  5.17it/s, est. speed input: 220.20 toks/s, output: 378.65 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:04<00:01,  9.35it/s, est. speed input: 308.00 toks/s, output: 558.24 toks/s]Processed prompts:  60%|██████    | 15/25 [00:04<00:01,  9.53it/s, est. speed input: 340.12 toks/s, output: 629.70 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:05<00:00,  8.48it/s, est. speed input: 374.32 toks/s, output: 715.76 toks/s]Processed prompts:  80%|████████  | 20/25 [00:05<00:00,  8.50it/s, est. speed input: 397.48 toks/s, output: 781.14 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:06<00:00,  4.62it/s, est. speed input: 370.14 toks/s, output: 752.45 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:06<00:00,  5.12it/s, est. speed input: 386.34 toks/s, output: 816.21 toks/s]Processed prompts: 100%|██████████| 25/25 [00:06<00:00,  5.12it/s, est. speed input: 399.22 toks/s, output: 858.81 toks/s]Processed prompts: 100%|██████████| 25/25 [00:06<00:00,  3.80it/s, est. speed input: 399.22 toks/s, output: 858.81 toks/s]
+++++++++++++++++++Time: 6.583780288696289 ++++++++++++++++++
+1 Agents final_res: 65620.0, ground_truth: 960.0, perf: 0.09090909090909091
+5 Agents final_res: 65620.0, ground_truth: 960.0, perf: 0.36363636363636365
+10 Agents final_res: 65620.0, ground_truth: 960.0, perf: 0.36363636363636365
+15 Agents final_res: 66460.0, ground_truth: 960.0, perf: 0.45454545454545453
+20 Agents final_res: 66460.0, ground_truth: 960.0, perf: 0.45454545454545453
+25 Agents final_res: 66460.0, ground_truth: 960.0, perf: 0.45454545454545453
+current task_id end:  610
+************************
+Total prompt tokens: 35575, Total completion tokens: 75325
+current task_id start:  611
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2667.39it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:04<01:47,  4.49s/it, est. speed input: 30.53 toks/s, output: 47.92 toks/s]Processed prompts:   8%|▊         | 2/25 [00:05<00:54,  2.39s/it, est. speed input: 50.65 toks/s, output: 87.81 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:05<00:31,  1.42s/it, est. speed input: 72.35 toks/s, output: 131.68 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:05<00:20,  1.03it/s, est. speed input: 91.96 toks/s, output: 173.52 toks/s]Processed prompts:  20%|██        | 5/25 [00:06<00:15,  1.28it/s, est. speed input: 107.04 toks/s, output: 209.56 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:06<00:10,  1.77it/s, est. speed input: 125.46 toks/s, output: 252.61 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:06<00:09,  1.96it/s, est. speed input: 138.05 toks/s, output: 286.04 toks/s]Processed prompts:  32%|███▏      | 8/25 [00:07<00:08,  2.10it/s, est. speed input: 149.14 toks/s, output: 318.00 toks/s]Processed prompts:  40%|████      | 10/25 [00:07<00:05,  2.97it/s, est. speed input: 177.55 toks/s, output: 396.17 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:07<00:02,  5.33it/s, est. speed input: 227.15 toks/s, output: 531.71 toks/s]Processed prompts:  60%|██████    | 15/25 [00:08<00:02,  3.40it/s, est. speed input: 231.68 toks/s, output: 561.10 toks/s]Processed prompts:  72%|███████▏  | 18/25 [00:09<00:01,  4.93it/s, est. speed input: 271.37 toks/s, output: 689.10 toks/s]Processed prompts:  80%|████████  | 20/25 [00:09<00:01,  4.10it/s, est. speed input: 280.06 toks/s, output: 732.34 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:11<00:01,  2.33it/s, est. speed input: 258.44 toks/s, output: 691.87 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:14<00:03,  1.04s/it, est. speed input: 204.83 toks/s, output: 572.16 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:15<00:01,  1.14it/s, est. speed input: 209.66 toks/s, output: 608.97 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:16<00:01,  1.02s/it, est. speed input: 199.12 toks/s, output: 603.18 toks/s]Processed prompts: 100%|██████████| 25/25 [00:17<00:00,  1.06it/s, est. speed input: 198.95 toks/s, output: 627.80 toks/s]Processed prompts: 100%|██████████| 25/25 [00:17<00:00,  1.06it/s, est. speed input: 198.95 toks/s, output: 627.80 toks/s]Processed prompts: 100%|██████████| 25/25 [00:17<00:00,  1.45it/s, est. speed input: 198.95 toks/s, output: 627.80 toks/s]
+++++++++++++++++++Time: 17.22586941719055 ++++++++++++++++++
+1 Agents final_res: 50.0, ground_truth: 0.0, perf: 0.08333333333333333
+5 Agents final_res: 50.0, ground_truth: 0.0, perf: 0.3333333333333333
+10 Agents final_res: 50.0, ground_truth: 0.0, perf: 0.3333333333333333
+15 Agents final_res: 50.0, ground_truth: 0.0, perf: 0.4166666666666667
+20 Agents final_res: 50.0, ground_truth: 0.0, perf: 0.4166666666666667
+25 Agents final_res: 50.0, ground_truth: 0.0, perf: 0.4166666666666667
+current task_id end:  611
+************************
+Total prompt tokens: 39000, Total completion tokens: 86133
+current task_id start:  612
+Adding requests:   0%|          | 0/25 [00:00<?, ?it/s]Adding requests: 100%|██████████| 25/25 [00:00<00:00, 2523.77it/s]
+Processed prompts:   0%|          | 0/25 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/25 [00:02<01:07,  2.81s/it, est. speed input: 55.07 toks/s, output: 47.61 toks/s]Processed prompts:   8%|▊         | 2/25 [00:03<00:34,  1.48s/it, est. speed input: 92.07 toks/s, output: 87.61 toks/s]Processed prompts:  12%|█▏        | 3/25 [00:03<00:19,  1.16it/s, est. speed input: 133.13 toks/s, output: 132.27 toks/s]Processed prompts:  16%|█▌        | 4/25 [00:03<00:12,  1.73it/s, est. speed input: 170.57 toks/s, output: 174.97 toks/s]Processed prompts:  20%|██        | 5/25 [00:03<00:08,  2.38it/s, est. speed input: 205.28 toks/s, output: 216.41 toks/s]Processed prompts:  24%|██▍       | 6/25 [00:04<00:07,  2.45it/s, est. speed input: 223.59 toks/s, output: 244.50 toks/s]Processed prompts:  28%|██▊       | 7/25 [00:04<00:06,  2.99it/s, est. speed input: 249.98 toks/s, output: 282.46 toks/s]Processed prompts:  36%|███▌      | 9/25 [00:04<00:03,  4.57it/s, est. speed input: 307.78 toks/s, output: 364.93 toks/s]Processed prompts:  44%|████▍     | 11/25 [00:04<00:02,  5.82it/s, est. speed input: 359.73 toks/s, output: 443.28 toks/s]Processed prompts:  48%|████▊     | 12/25 [00:04<00:02,  6.23it/s, est. speed input: 382.66 toks/s, output: 480.37 toks/s]Processed prompts:  52%|█████▏    | 13/25 [00:04<00:01,  6.45it/s, est. speed input: 403.09 toks/s, output: 515.31 toks/s]Processed prompts:  56%|█████▌    | 14/25 [00:05<00:01,  6.85it/s, est. speed input: 423.93 toks/s, output: 551.50 toks/s]Processed prompts:  68%|██████▊   | 17/25 [00:05<00:00, 10.28it/s, est. speed input: 499.17 toks/s, output: 677.05 toks/s]Processed prompts:  76%|███████▌  | 19/25 [00:05<00:00,  9.92it/s, est. speed input: 535.99 toks/s, output: 747.11 toks/s]Processed prompts:  84%|████████▍ | 21/25 [00:06<00:00,  5.67it/s, est. speed input: 527.97 toks/s, output: 762.35 toks/s]Processed prompts:  88%|████████▊ | 22/25 [00:08<00:01,  1.61it/s, est. speed input: 391.59 toks/s, output: 588.76 toks/s]Processed prompts:  92%|█████████▏| 23/25 [00:12<00:02,  1.27s/it, est. speed input: 287.43 toks/s, output: 462.79 toks/s]Processed prompts:  96%|█████████▌| 24/25 [00:27<00:04,  4.41s/it, est. speed input: 136.66 toks/s, output: 260.90 toks/s]Processed prompts: 100%|██████████| 25/25 [00:39<00:00,  6.25s/it, est. speed input: 99.24 toks/s, output: 234.33 toks/s] Processed prompts: 100%|██████████| 25/25 [00:39<00:00,  6.25s/it, est. speed input: 99.24 toks/s, output: 234.33 toks/s]Processed prompts: 100%|██████████| 25/25 [00:39<00:00,  1.56s/it, est. speed input: 99.24 toks/s, output: 234.33 toks/s]
+++++++++++++++++++Time: 39.05824303627014 ++++++++++++++++++
+Traceback (most recent call last):
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 166, in <module>
+    main()
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/main.py", line 105, in main
+    final_answer_for_K = solver.get_final_answer(activated_indices, one_record)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/gsm_task.py", line 51, in get_final_answer
+    consistent_answer = utils.get_majority_voting_answer_for_gsm(agent_answers)
+  File "/home/s06zyelt/nlp_lab/AgentForestRefactored/src/utils.py", line 374, in get_majority_voting_answer_for_gsm
+    if len(pred_answer) == 0:
+TypeError: object of type 'NoneType' has no len()
+AGENT 1: All done, evaluating...
+AGENT 1: All done, evaluating finished...
+AGENT 5: All done, evaluating...
+AGENT 5: All done, evaluating finished...
+AGENT 10: All done, evaluating...
+AGENT 10: All done, evaluating finished...
+AGENT 15: All done, evaluating...
+AGENT 15: All done, evaluating finished...
+AGENT 20: All done, evaluating...
+AGENT 20: All done, evaluating finished...
+AGENT 25: All done, evaluating...
+AGENT 25: All done, evaluating finished...
+SLURM Job ID 156047 saved to /home/s06zyelt/nlp_lab/experiments/punctuation_50/Mistral-7B-Instruct-v0.3/gsm/slurm_job_id.txt
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+End Time: Fri Sep  5 12:18:02 CEST 2025
+Finished!!!
