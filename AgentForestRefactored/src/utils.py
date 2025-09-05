@@ -374,12 +374,12 @@ def get_majority_voting_answer_for_gsm(agent_answers):
         return num
 
     pred_answer = most_frequent(agent_answers)
-    if pred_answer is None:
-        print(pred_answer)
-        print(agent_answers)
-    if len(pred_answer) == 0:
-        return math.nan
     try:
+        if pred_answer is None:
+            return math.nan
+
+        if len(pred_answer) == 0:
+            return math.nan
         pred_answer = float(pred_answer)
         return pred_answer
     except:
