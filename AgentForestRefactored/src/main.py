@@ -1,4 +1,5 @@
 # main.py
+import csv
 import sys
 import os
 import random
@@ -136,7 +137,7 @@ def main():
 
         # Save to CSV
         csv_path = os.path.join(K_DIR_NAME, f"{K_EXP_NAME}.csv")
-        df_k.to_csv(csv_path, index=False)
+        df_k.to_csv(csv_path, index=False, quoting=csv.QUOTE_NONNUMERIC)
         print(f"Saved CSV for K={K} to: {csv_path}")
 
         # Save to JSONL (one JSON object per line)
