@@ -506,7 +506,6 @@ def math_ans_parser(answer_text, question=None):
 #
 #     return pred_answer, pred_answer is not None
 
-
 def gsm_ans_parser(answer_text, question=None):
     # Rule 1: The most comprehensive rule for numbers with commas, signs, and decimals.
     # This covers integers, negative numbers, and common decimals.
