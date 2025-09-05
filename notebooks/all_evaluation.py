@@ -3,8 +3,8 @@ import glob
 import pandas as pd
 from AgentForestRefactored.src import evaluation
 
-def main():
-    base_dir = "../experiments"  # change if needed
+def main(folder="experiments"):
+    base_dir = f"../{folder}"  # change if needed
 
     records = []
 
@@ -28,5 +28,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main("experiments")
     print("Done!")

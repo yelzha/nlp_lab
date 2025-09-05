@@ -279,6 +279,9 @@ def batch_generate(answer_context, model, llm_ip=None, nums=50, temperature=1, t
                 #     print(f"Agent: {idx}, answer: {choice['message']['content']}")
                 # print("+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+")
 
+            if len(choices) != nums:
+                raise "Not fully generated"
+
             completion.append({
                 "choices": choices,
                 "usage": {
@@ -368,8 +371,8 @@ def get_majority_voting_answer_for_gsm(agent_answers):
             if current_frequency > counter:
                 counter = current_frequency
                 num = i
-
         return num
+
     pred_answer = most_frequent(agent_answers)
     if len(pred_answer) == 0:
         return math.nan
@@ -473,35 +476,59 @@ def math_ans_parser(answer_text, question=None):
     # return match.group(1), True if match else None,False
 
 
+# def gsm_ans_parser(answer_text, question=None):
+#     def parse_answer(input_str):
+#         pattern = r"\{([0-9.,$]*)\}"
+#         matches = re.findall(pattern, input_str)
+#
+#         solution = None
+#
+#         for match_str in matches[::-1]:
+#             solution = re.sub(r"[^0-9.]", "", match_str)
+#             if solution:
+#                 break
+#
+#         return solution
+#
+#     def solve_math_problems(input_str):
+#         pattern = r"\d+\.?\d*"
+#
+#         matches = re.findall(pattern, input_str)
+#         if matches:
+#             return matches[-1]
+#
+#         return None
+#
+#     pred_answer = parse_answer(answer_text)
+#
+#     if pred_answer is None:
+#         pred_answer = solve_math_problems(answer_text)
+#
+#     return pred_answer, pred_answer is not None
+
+
 def gsm_ans_parser(answer_text, question=None):
-    def parse_answer(input_str):
-        pattern = r"\{([0-9.,$]*)\}"
-        matches = re.findall(pattern, input_str)
+    # Rule 1: The most comprehensive rule for numbers with commas, signs, and decimals.
+    # This covers integers, negative numbers, and common decimals.
+    pattern1 = r"\\boxed{([-]?[0-9,.]+)}"
+    match1 = re.search(pattern1, answer_text)
+    if match1:
+        return match1.group(1).replace(",", "").strip()
 
-        solution = None
+    # Rule 2: Handle fractional answers.
+    pattern2 = r"\\boxed{([0-9]+/[0-9]+)}"
+    match2 = re.search(pattern2, answer_text)
+    if match2:
+        numerator, denominator = match2.group(1).split('/')
+        return str(float(numerator) / float(denominator))
 
-        for match_str in matches[::-1]:
-            solution = re.sub(r"[^0-9.]", "", match_str)
-            if solution:
-                break
+    # Rule 3: Handle scientific notation.
+    pattern3 = r"\\boxed{([-]?[0-9.]+e[+-]?[0-9]+)}"
+    match3 = re.search(pattern3, answer_text, re.IGNORECASE)
+    if match3:
+        return str(float(match3.group(1)))
 
-        return solution
-
-    def solve_math_problems(input_str):
-        pattern = r"\d+\.?\d*"
-
-        matches = re.findall(pattern, input_str)
-        if matches:
-            return matches[-1]
-
-        return None
-
-    pred_answer = parse_answer(answer_text)
-
-    if pred_answer is None:
-        pred_answer = solve_math_problems(answer_text)
-
-    return pred_answer, pred_answer is not None
+    return None
 
 
 def chess_ans_parser(answer_text, question=None):
