@@ -1,18 +1,61 @@
+from collections import Counter
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
-import os
-import sys
+import math
 
-project_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'AgentForestRefactored', 'src')
-print(project_root)
-sys.path.append(project_root)
+from AgentForestRefactored.src.math_equivalence import *
 
-from AgentForestRefactored.src.utils import get_majority_voting_answer_for_gsm
-from AgentForestRefactored.src.utils import get_majority_voting_answer_for_math
-from AgentForestRefactored.src.utils import get_majority_voting_answer
+
+def get_majority_voting_answer(agent_answers):
+    counter = Counter(agent_answers)
+    majority_voting_answer = counter.most_common(1)[0][0]
+    return majority_voting_answer
+
+
+def get_majority_voting_answer_for_math(agent_answers):
+    count = len(agent_answers)
+    sameAsCount = [0 for i in range(count)]
+    for i in range(count):
+        j = i + 1
+        while j < count:
+            if is_equiv(agent_answers[i], agent_answers[j]):
+                sameAsCount[i] += 1
+                sameAsCount[j] += 1
+            j += 1
+    largestCount = 0
+    for i in range(count):
+        if sameAsCount[i] > sameAsCount[largestCount]:
+            largestCount = i
+    return agent_answers[largestCount]
+
+
+def get_majority_voting_answer_for_gsm(agent_answers):
+    def most_frequent(List):
+        counter = 0
+        num = List[0]
+
+        for i in List:
+            current_frequency = List.count(i)
+            if current_frequency > counter:
+                counter = current_frequency
+                num = i
+        return num
+
+    pred_answer = most_frequent(agent_answers)
+    try:
+        if pred_answer is None:
+            return math.nan
+
+        if len(pred_answer) == 0:
+            return math.nan
+        pred_answer = float(pred_answer)
+        return pred_answer
+    except:
+        return math.nan
 
 
 def calculate_accuracy(df: pd.DataFrame, num_agents: int, num_simulations: int = 100) -> pd.DataFrame:
