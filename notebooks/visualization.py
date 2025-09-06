@@ -20,7 +20,7 @@ def load_data(csv_path: str) -> pd.DataFrame:
 
 def plot_grid_models_by_noise(df: pd.DataFrame, save_path: Path = None):
     """
-    4x4 grid:
+    4x6 grid:
         - Rows: dataset
         - Cols: noise
         - Lines: models (accuracy vs agent_num)
@@ -62,7 +62,7 @@ def main():
     csv_path = sys.argv[1] if len(sys.argv) > 1 else "./merged_results.csv"
     df = load_data(csv_path)
 
-    # 4x4 grid (rows = datasets, cols = noise, labels = models)
+    # 4x6 grid (rows = datasets, cols = noise, labels = models)
     plot_grid_models_by_noise(df, save_path="grid_models_by_noise.png")
 
 
