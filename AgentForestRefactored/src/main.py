@@ -137,7 +137,13 @@ def main():
 
         # Save to CSV
         csv_path = os.path.join(K_DIR_NAME, f"{K_EXP_NAME}.csv")
-        df_k.to_csv(csv_path, index=False, quoting=csv.QUOTE_ALL)
+        try:
+            df_k.to_csv(csv_path, index=False, quoting=csv.QUOTE_NONNUMERIC)
+        except Exception as e:
+            df_k.to_csv(csv_path, index=False, quoting=csv.QUOTE_ALL)
+            print("Exception problem occurred!!!")
+            print(str(e))
+            
         print(f"Saved CSV for K={K} to: {csv_path}")
 
         # Save to JSONL (one JSON object per line)
