@@ -140,10 +140,16 @@ def main():
         try:
             df_k.to_csv(csv_path, index=False, quoting=csv.QUOTE_NONNUMERIC)
         except Exception as e:
-            df_k.to_csv(csv_path, index=False, quoting=csv.QUOTE_ALL)
+            def clean_quotes(text):
+                if isinstance(text, str):
+                    return text.replace('"', "'")
+                return text
+
+            df_k = df_k.applymap(clean_quotes)
+            df_k.to_csv(csv_path, index=False)
             print("Exception problem occurred!!!")
             print(str(e))
-            
+
         print(f"Saved CSV for K={K} to: {csv_path}")
 
         # Save to JSONL (one JSON object per line)
