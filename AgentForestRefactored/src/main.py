@@ -135,6 +135,15 @@ def main():
         # Filter DataFrame for the current K value
         df_k = pd.DataFrame(total_records_dict[K]).copy()
 
+
+
+        # Save to JSONL (one JSON object per line)
+        json_path = os.path.join(K_DIR_NAME, f"{K_EXP_NAME}.json")
+        with open(json_path, 'w', encoding='utf-8') as f:
+            for record in df_k.to_dict(orient='records'):
+                f.write(json.dumps(record) + '\n')
+        print(f"Saved JSON for K={K} to: {json_path}")
+
         # Save to CSV
         csv_path = os.path.join(K_DIR_NAME, f"{K_EXP_NAME}.csv")
         try:
@@ -145,19 +154,12 @@ def main():
                     return text.replace('"', "'")
                 return text
 
-            df_k = df_k.applymap(clean_quotes)
-            df_k.to_csv(csv_path, index=False)
+            df_k = df_k.map(clean_quotes)
+            df_k.to_csv(csv_path, index=False, encoding='utf-8', quoting=csv.QUOTE_ALL)
             print("Exception problem occurred!!!")
             print(str(e))
 
         print(f"Saved CSV for K={K} to: {csv_path}")
-
-        # Save to JSONL (one JSON object per line)
-        json_path = os.path.join(K_DIR_NAME, f"{K_EXP_NAME}.json")
-        with open(json_path, 'w') as f:
-            for record in df_k.to_dict(orient='records'):
-                f.write(json.dumps(record) + '\n')
-        print(f"Saved JSON for K={K} to: {json_path}")
 
     # Evaluate performance for each K value (using the full df_all_records for filtering)
     print("\n--- Final Evaluation for Each K Value ---")

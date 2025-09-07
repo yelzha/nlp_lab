@@ -1,11 +1,13 @@
+import glob
+import os
 from collections import Counter
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from pathlib import Path
 import math
+from scipy.interpolate import make_interp_spline
 
 from AgentForestRefactored.src.math_equivalence import *
 
@@ -58,75 +60,195 @@ def get_majority_voting_answer_for_gsm(agent_answers):
         return math.nan
 
 
-def calculate_accuracy(df: pd.DataFrame, num_agents: int, num_simulations: int = 100) -> pd.DataFrame:
+
+def plot_grid_models_by_noise(df: pd.DataFrame, save_path: Path = None):
     """
-    Calculates mean and standard deviation of accuracy for a given number of agents.
-    Simulates the process multiple times for robustness.
+    4x6 grid:
+        - Rows: dataset
+        - Cols: noise
+        - Lines: models (accuracy vs agent_num)
     """
-    results = []
+    datasets = sorted(df["dataset"].unique())
+    noises = sorted(df["noise"].unique())
 
-    for simulation in range(num_simulations):
-        accuracies = []
-        for index, row in df.iterrows():
-            ground_truth = str(row['ground_truth'])
-            agent_answers = [str(row[f'answers_{i}']) for i in range(25)]
+    # Create consistent order for models
+    model_order = sorted(df["model"].unique())
 
-            # Randomly select `num_agents` from the list of 25 available answers
-            sampled_answers = np.random.choice(agent_answers, num_agents, replace=False)
+    fig, axes = plt.subplots(len(datasets), len(noises), figsize=(18, 12), sharey=True)
 
-            # Get the majority voted answer
-            if row['dataset'] == "gsm" or row['dataset'] == "multiarith":
-                voted_answer = get_majority_voting_answer_for_gsm(sampled_answers)
-            elif row['dataset'] == "math":
-                voted_answer = get_majority_voting_answer_for_math(sampled_answers)
-            elif row['dataset'] == "mmlu":
-                voted_answer = get_majority_voting_answer(sampled_answers)
+    for i, dataset in enumerate(datasets):
+        for j, noise in enumerate(noises):
+            ax = axes[i, j]
+            sub = df[(df["dataset"] == dataset) & (df["noise"] == noise)]
 
-            # Compare the voted answer with the ground truth
-            # Use .strip() and .lower() for robust comparison
-            is_correct = 1 if str(voted_answer).strip().lower() == ground_truth.strip().lower() else 0
-            accuracies.append(is_correct)
+            for model in model_order:
+                g = sub[sub["model"] == model].sort_values("agent_num")
+                if g.empty:
+                    continue
+                ax.plot(g["agent_num"], g["accuracy"], marker="o", label=model)
 
-        # Calculate the accuracy for this simulation run
-        model = df['model'].iloc[0] if 'model' in df.columns else 'Unknown'
-        dataset = df['dataset'].iloc[0] if 'dataset' in df.columns else 'Unknown'
-        noise = df['noise'].iloc[0] if 'noise' in df.columns else 'Unknown'
+            if i == 0:
+                ax.set_title(noise, fontsize=11)
+            if j == 0:
+                ax.set_ylabel(dataset.upper())
+            ax.set_xlabel("Agent Num")
+            ax.grid(True, linestyle="--", alpha=0.5)
+            ax.legend(fontsize=8)
 
-        results.append({
-            'model': model,
-            'dataset': dataset,
-            'noise': noise,
-            'num_agents': num_agents,
-            'accuracy': np.mean(accuracies)
-        })
+    fig.suptitle("Accuracy by Agent Num — Rows: Dataset, Cols: Noise, Labels: Models", y=1.02, fontsize=14)
+    plt.tight_layout()
+    if save_path:
+        fig.savefig(save_path, bbox_inches="tight", dpi=200)
+    plt.show()
 
-    return pd.DataFrame(results)
+
+def plot_layered_volume(data_dict):
+    """
+    Generates a plot with a layered volume to visualize data distribution.
+
+    Args:
+        data_dict (dict): A dictionary where keys are x-points and values
+                          are numpy arrays of y-data.
+    """
+    # Get a sorted list of the x-points from the provided dictionary
+    x_points = sorted(data_dict.keys())
+
+    # Calculate the mean of each batch of y-data.
+    means = [np.mean(data_dict[x]) for x in x_points]
+
+    # Define the percentile levels and corresponding darkness (alpha) values for the layers.
+    # The innermost layer will be the darkest.
+    percentile_levels = [
+        (40, 60),  # Innermost layer, around the median
+        (30, 70),
+        (20, 80),
+        (10, 90),
+    ]
+    alphas = [0.3, 0.2, 0.1, 0.05]
+
+    # --- 2. Create the plot ---
+    # Set up the plot figure and axes
+    plt.figure(figsize=(10, 6))
+    plt.style.use('seaborn-v0_8-whitegrid')
+
+    # Plot the multi-layered volume dynamically
+    for (lower_p, upper_p), alpha in zip(percentile_levels, alphas):
+        # Calculate the percentile boundaries for each y-data set
+        y_lower_points = [np.percentile(data_dict[x], lower_p) for x in x_points]
+        y_upper_points = [np.percentile(data_dict[x], upper_p) for x in x_points]
+
+        # Create smooth curved lines using splines
+        x_curve = np.linspace(min(x_points), max(x_points), 200)
+
+        # Use a spline degree of 3 for a smooth curve.
+        # This requires at least 4 data points.
+        if len(x_points) >= 4:
+            spline_lower = make_interp_spline(x_points, y_lower_points, k=3)
+            y_lower_curve = spline_lower(x_curve)
+
+            spline_upper = make_interp_spline(x_points, y_upper_points, k=3)
+            y_upper_curve = spline_upper(x_curve)
+
+            # Fill the area between the curved lines
+            plt.fill_between(
+                x_curve,
+                y_lower_curve,
+                y_upper_curve,
+                color='green',
+                alpha=alpha,
+            )
+        else:
+            # Fall back to a linear spline if there are not enough points
+            spline_lower = make_interp_spline(x_points, y_lower_points, k=1)
+            y_lower_curve = spline_lower(x_curve)
+
+            spline_upper = make_interp_spline(x_points, y_upper_points, k=1)
+            y_upper_curve = spline_upper(x_curve)
+
+            plt.fill_between(
+                x_curve,
+                y_lower_curve,
+                y_upper_curve,
+                color='green',
+                alpha=alpha,
+            )
+
+
+    # Plot a dashed line connecting the mean points
+
+    # --- 3. Add labels, title, and a legend ---
+    plt.title('Distribution of Y-Points with Layered Volume')
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.xticks(x_points)  # Set x-ticks to be exactly at the data points
+    plt.legend()
+    plt.grid(True)
+    plt.xlim(min(x_points) - 1, max(x_points) + 1)  # Adjust the x-axis limits
+    plt.ylim(0.0, 1.0)  # Adjust the y-axis limits to focus on the data
+
+    # --- 4. Display the plot ---
+    plt.show()
 
 
 def main():
     # Define the pattern to find the CSV files
-    csv_pattern = 'experiments/*/log_gsm_r2ata_25_agents/merged.csv'
-    base_path = Path('.')
-    file_paths = list(base_path.glob(csv_pattern))
+    # experiments\clean\gemma-3-4b-it\gsm\log_gsm_clean_20_agents
+    base_dir = "../experiments"
+    csv_pattern = os.path.join(base_dir, "*", "*", "*", "*_25_agents", "merged_record.csv")
+    file_paths = glob.glob(csv_pattern)
 
     if not file_paths:
         print(f"No files found matching the pattern: {csv_pattern}")
         return
 
     # Load and combine all the dataframes
+
+    k_values = [1, 5, 10, 15, 20, 25]
+    total_agents = 25
+
+    dataframe_k = {}
     all_data_frames = []
     for path in file_paths:
         try:
             df = pd.read_csv(path)
-            # Add columns from the file path to help with grouping
-            parts = path.parts
-            model_name = parts[1]
-            dataset = parts[2]
-            noise = parts[3]
-            df['model'] = model_name
-            df['dataset'] = dataset
-            df['noise'] = noise
-            all_data_frames.append(df)
+            parts = path.split(os.sep)
+            # Extract folder names: {dataset_noise}/{model}/{dataset}/{agent_num}
+            noise = parts[-5]
+            model_name = parts[-4]
+            dataset = parts[-3]
+            agent_num_name = parts[-2]
+            agent_num = int(agent_num_name.split("_")[-2])
+
+            print(dataset, noise, model_name)
+            new_df = pd.DataFrame()
+            new_df['dataset'] = dataset
+            new_df['noise'] = noise
+            new_df['model'] = model_name
+
+            for k in k_values:
+                num_groups = total_agents - k + 1
+                k_accuracies = []
+                for i in range(num_groups):
+                    k_group_accuracies = []
+                    group_cols = [f"answers_{d}" for d in range(i, i + k)]
+                    for index, row in df.iterrows():
+                        agent_answers = [row[col] for col in group_cols]
+                        if dataset in ("gsm", "multiarith"):
+                            voted_answer = get_majority_voting_answer_for_gsm(agent_answers)
+                        elif dataset == "math":
+                            voted_answer = get_majority_voting_answer_for_math(agent_answers)
+                        elif dataset == "mmlu":
+                            voted_answer = get_majority_voting_answer(agent_answers)
+                        ground_truth = row['ground_truth']
+                        is_correct = 1 if voted_answer == ground_truth else 0
+
+                        k_group_accuracies.append(is_correct)
+
+                    k_accuracies.append(np.mean(k_group_accuracies))
+
+                new_df[f"k"] = k
+                new_df[f"k_accuracies"] = np.array(k_accuracies)
+                all_data_frames.append(new_df)
         except Exception as e:
             print(f"Error reading {path}: {e}")
 
@@ -135,86 +257,7 @@ def main():
         return
 
     combined_df = pd.concat(all_data_frames, ignore_index=True)
-
-    # Define the number of agents to plot
-    agent_group_sizes = [1, 5, 10, 15, 20, 25]
-    num_simulations = 100
-
-    # Calculate accuracies for each group size and combine results
-    final_df_list = []
-    for num_agents in agent_group_sizes:
-        print(f"Calculating accuracies for {num_agents} agents...")
-        for name, group in combined_df.groupby(['model', 'noise', 'dataset']):
-            acc_df = calculate_accuracy(group, num_agents, num_simulations=num_simulations)
-            final_df_list.append(acc_df)
-
-    if not final_df_list:
-        print("No results to plot.")
-        return
-
-    final_df = pd.concat(final_df_list, ignore_index=True)
-
-    # Get unique values for plotting
-    datasets = sorted(final_df['dataset'].unique())
-    noises = sorted(final_df['noise'].unique())
-    models = sorted(final_df['model'].unique())
-
-    # Create the 4x6 grid plot
-    fig, axes = plt.subplots(len(datasets), len(noises), figsize=(18, 16), sharey=True)
-    fig.suptitle("Accuracy vs. Number of Agents (4x6 Grid)", fontsize=16, y=1.02)
-
-    # If there's only one row or column, axes is not a 2D array
-    if len(datasets) == 1 and len(noises) == 1:
-        axes = np.array([[axes]])
-    elif len(datasets) == 1:
-        axes = np.expand_dims(axes, axis=0)
-    elif len(noises) == 1:
-        axes = np.expand_dims(axes, axis=1)
-
-    for i, dataset in enumerate(datasets):
-        for j, noise in enumerate(noises):
-            ax = axes[i, j]
-
-            # Filter data for the current subplot
-            plot_df = final_df[(final_df['dataset'] == dataset) & (final_df['noise'] == noise)]
-
-            if plot_df.empty:
-                continue
-
-            # Plot using seaborn's lineplot for mean and standard deviation
-            sns.lineplot(
-                data=plot_df,
-                x='num_agents',
-                y='accuracy',
-                hue='model',
-                ax=ax,
-                marker='o',
-                errorbar=('sd'),  # Show standard deviation
-            )
-
-            # Set titles and labels
-            if i == 0:
-                ax.set_title(f'Noise: {noise}', fontsize=12)
-            if j == 0:
-                ax.set_ylabel(f'Accuracy ({dataset.upper()})', fontsize=12)
-            else:
-                ax.set_ylabel('')
-
-            ax.set_xlabel('Number of Agents', fontsize=12)
-            ax.set_xticks(agent_group_sizes)
-            ax.set_ylim(0, 1)
-            ax.grid(True, linestyle='--', alpha=0.6)
-
-            # Adjust legend
-            handles, labels = ax.get_legend_handles_labels()
-            # Remove the 'model' title from the legend
-            if ax.legend_:
-                ax.legend_.set_title('')
-
-    # Adjust layout and save the plot
-    plt.tight_layout(rect=[0, 0, 1, 0.98])
-    plt.savefig('accuracy_vs_agents_plot.png', dpi=300)
-    plt.show()
+    # TODO: finish plotting
 
 
 if __name__ == "__main__":
