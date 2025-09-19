@@ -2,19 +2,19 @@
 
 ---
 
-## 1. Completed Tasks
+## Completed Tasks
 
-### 1.1 AEDA Implementation
+### 1.1. AEDA Implementation
 - **Status:** Completed  
 - **Description:** Successfully implemented and tested simplistic version of AEDA using Python code.
 - **Outcome:** Works as expected.
 
-### 1.2 Local LLM Integration (Ollama + Python)
+### 1.2. Local LLM Integration (Ollama + Python)
 - **Status:** Completed  
 - **Description:** Successfully installed and tested Ollama with Python code execution on Bender using local LLMs.  
 - **Outcome:** Local inference working as expected.
 
-### 1.3 AgentFores: Implementation and Testing
+### 1.3. AgentForest: Implementation and Testing
 - **Status:** Completed  
 - **Description:** Adapted, implemented, and validated the AgentFores codebase.  
 - **Adjustments:** Code was modified to address compatibility issues on Bender.  
@@ -23,35 +23,26 @@
   - Mode: Solo Agent Execution
   - Issues: Not optimized for Parallel Inference and some problems with GPU
  
-### 2.1 Ollama Optimization -> migration to VLLM Framework
+### 1.4. Ollama Optimization -> migration to VLLM Framework
 - **Status:** Completed  
 - **Goal:** Improve Ollama’s response time on Bender.  
 - **Current Performance:** ~5–20 seconds per query (qwen3:4B full mode)
 - **Target:** Achieve stable, low-latency inference (<5s preferred)
 - **Results:** Good performance for N Agents with the 16-20 seconds per n of query.
  
-### 2.2 Wikitypo, r2ata
+### 1.5. Wikitypo, r2ata
 - **Status:** Completed  
 - **Goal:** Add noising to the dataset
 - **Target:** Achieve generated results
 
----
-
-## 2. Ongoing & Upcoming Tasks
-
-## Experiments Overview
-
-<img width="3580" height="2458" alt="grid_models_by_noise" src="https://github.com/user-attachments/assets/2c0ab390-4fac-42fe-b2d3-28eb82c3411d" />
-
-
-### 2.2 Experimental Runs & Data Collection
-- **Status:** Pending  
-- **Description:** Execute all planned experimental configurations (Clean & AEDA & WikiTypo -> 1-50 Agents).  
+### 2. Experimental Runs & Data Collection
+- **Status:** Completed  
+- **Description:** Execute all planned experimental configurations (Clean & AEDA & WikiTypo -> 1-25 Agents).  
 - **Estimated Duration:** **1-3+ week** of continuous runtime  
 - **Deliverables:** Logs, metrics, performance data for all models and settings.
 
-### 2.3 Report & Visualization
-- **Status:** Pending  
+### 3. Report & Visualization
+- **Status:** Completed  
 - **Goal:** Compile results into a detailed report with clear visualizations.  
 - **Tools Suggested:** Python (Matplotlib/Plotly), Pandas, LaTeX for formatting.
 
@@ -69,7 +60,14 @@
 | R2ATA Noising       |   Done   | Requires initial implementation    |
 | Gemma Fix for VLLM       |   Done   | Requires initial implementation    |
 | Full Experiments             |   Done   | Will run for over a week           |
-| Report & Visualization       |   Todo   | Final stage                        |
+| Report & Visualization       |   Done   | Final stage                        |
+
+
+---
+
+## Experiments Overview
+
+<img width="3580" height="2458" alt="grid_models_by_noise" src="https://github.com/user-attachments/assets/2c0ab390-4fac-42fe-b2d3-28eb82c3411d" />
 
 ---
 
